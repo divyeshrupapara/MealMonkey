@@ -1,4 +1,3 @@
-
 import Foundation
 import UIKit
 
@@ -12,7 +11,9 @@ extension UIView {
 }
 
 extension UITextField {
+    
     func setPadding(left: CGFloat = 0, right: CGFloat = 0) {
+        
         if left > 0 {
             let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: left, height: self.frame.height))
             self.leftView = paddingView
