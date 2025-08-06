@@ -2,7 +2,20 @@ import Foundation
 import UIKit
 
 extension MenuViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        switch indexPath.row {
+            
+        case 2:
+            let storyboard = UIStoryboard(name: "MenuStoryboard", bundle: nil)
+            if let VC = storyboard.instantiateViewController(withIdentifier: "DessertsViewController") as? DessertsViewController {
+                self.navigationController?.pushViewController(VC, animated: true)
+            }
+            
+        default:
+            break
+        }
+    }
 }
 
 extension MenuViewController: UITableViewDataSource {

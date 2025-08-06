@@ -17,7 +17,7 @@ class MenuViewController: UIViewController {
         
         applyCornerRadiusTLBR()
         
-        viewStyle(cornerRadius: 28, borderWidth: 0, borderColor: .gray, textField: [txtSearchFood])
+        viewStyle(cornerRadius: txtSearchFood.frame.size.height/2 , borderWidth: 0, borderColor: .systemGray, textField: [txtSearchFood])
         setPadding(textfield: [txtSearchFood])
         
         tblCategory.showsVerticalScrollIndicator = false

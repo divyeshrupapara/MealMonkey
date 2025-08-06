@@ -7,6 +7,10 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var btnLogin: UIButton!
     @IBOutlet weak var btnFacebook: UIButton!
     @IBOutlet weak var btnGoogle: UIButton!
+    @IBOutlet weak var btnEye: UIButton!
+    
+    var isPasswordVisible: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -61,6 +65,15 @@ class LoginViewController: UIViewController {
         
         for item in textfield {
             item.setPadding(left: 34, right: 34)
+        }
+    }
+    
+    @IBAction func btnEyeClick(_ sender: Any) {
+        isPasswordVisible = !isPasswordVisible
+        txtPassword.isSecureTextEntry = !isPasswordVisible
+        let imageName = isPasswordVisible ? "eye" : "eye.slash"
+        if let button = sender as? UIButton {
+            button.setImage(UIImage(systemName: imageName), for: .normal)
         }
     }
 }
