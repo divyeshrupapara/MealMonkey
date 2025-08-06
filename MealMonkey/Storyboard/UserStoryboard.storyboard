@@ -778,7 +778,7 @@ link to  create a new password via email</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pkp-ac-UbQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4141" y="4"/>
+            <point key="canvasLocation" x="4204" y="4"/>
         </scene>
     </scenes>
     <resources>

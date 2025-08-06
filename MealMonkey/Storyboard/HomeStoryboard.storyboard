@@ -135,10 +135,10 @@
             </objects>
             <point key="canvasLocation" x="724.4274809160305" y="755.63380281690149"/>
         </scene>
-        <!--View Controller-->
+        <!--Profile View Controller-->
         <scene sceneID="W9E-E5-pvE">
             <objects>
-                <viewController id="tgk-By-OlE" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileViewController" id="tgk-By-OlE" customClass="ProfileViewController" customModule="MealMonkey" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cwW-pc-Yvv">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
