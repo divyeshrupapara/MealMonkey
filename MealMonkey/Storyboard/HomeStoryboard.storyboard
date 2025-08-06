@@ -86,8 +86,53 @@
                     <view key="view" contentMode="scaleToFill" id="F23-qm-wAh">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nno-kW-9na">
+                                <rect key="frame" x="0.0" y="162" width="393" height="573"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFh-2R-AIq">
+                                        <rect key="frame" x="21" y="15" width="183.66666666666666" height="32.333333333333336"/>
+                                        <string key="text">Find discounts, Offers special
+meals and more!</string>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                                        <color key="textColor" name="LabelSecondaryColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3w0-i0-HEb">
+                                        <rect key="frame" x="21" y="68.333333333333343" width="64" height="25"/>
+                                        <color key="backgroundColor" name="ButtonBackgroundColor"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="11"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Check Offers">
+                                            <color key="titleColor" name="ButtonTextColor"/>
+                                        </state>
+                                    </button>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ip6-VG-91x">
+                                        <rect key="frame" x="0.0" y="116.33333333333329" width="393" height="443.66666666666674"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="fFh-2R-AIq" firstAttribute="top" secondItem="nno-kW-9na" secondAttribute="top" constant="15" id="5Cx-Aa-Dnw"/>
+                                    <constraint firstItem="3w0-i0-HEb" firstAttribute="leading" secondItem="fFh-2R-AIq" secondAttribute="leading" id="DAf-D5-d5U"/>
+                                    <constraint firstAttribute="trailing" secondItem="ip6-VG-91x" secondAttribute="trailing" id="KOC-gA-MQ4"/>
+                                    <constraint firstItem="3w0-i0-HEb" firstAttribute="top" secondItem="fFh-2R-AIq" secondAttribute="bottom" constant="21" id="Qbv-OO-od9"/>
+                                    <constraint firstAttribute="bottom" secondItem="ip6-VG-91x" secondAttribute="bottom" constant="13" id="UIH-c5-YrW"/>
+                                    <constraint firstItem="ip6-VG-91x" firstAttribute="leading" secondItem="nno-kW-9na" secondAttribute="leading" id="cVg-BO-81B"/>
+                                    <constraint firstItem="fFh-2R-AIq" firstAttribute="leading" secondItem="nno-kW-9na" secondAttribute="leading" constant="21" id="wue-6S-sIp"/>
+                                    <constraint firstItem="ip6-VG-91x" firstAttribute="top" secondItem="3w0-i0-HEb" secondAttribute="bottom" constant="23" id="zFL-CO-xgj"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="hKE-Xs-daI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="hKE-Xs-daI" firstAttribute="trailing" secondItem="nno-kW-9na" secondAttribute="trailing" id="Che-Q6-JU3"/>
+                            <constraint firstItem="nno-kW-9na" firstAttribute="leading" secondItem="hKE-Xs-daI" secondAttribute="leading" id="KYf-Y7-L4q"/>
+                            <constraint firstItem="nno-kW-9na" firstAttribute="top" secondItem="hKE-Xs-daI" secondAttribute="top" id="Uaw-EE-IVD"/>
+                            <constraint firstItem="hKE-Xs-daI" firstAttribute="bottom" secondItem="nno-kW-9na" secondAttribute="bottom" id="auL-va-5uw"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="3Cb-wP-ikn"/>
                 </viewController>
