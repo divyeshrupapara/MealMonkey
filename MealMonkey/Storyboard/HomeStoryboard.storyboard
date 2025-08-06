@@ -99,17 +99,25 @@ meals and more!</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3w0-i0-HEb">
-                                        <rect key="frame" x="21" y="68.333333333333343" width="64" height="25"/>
+                                        <rect key="frame" x="21" y="68.333333333333343" width="81.333333333333329" height="14.666666666666671"/>
                                         <color key="backgroundColor" name="ButtonBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="14.83" id="WZP-Ek-sIw"/>
+                                            <constraint firstAttribute="width" constant="81.310000000000002" id="ncI-u0-bek"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="11"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Check Offers">
                                             <color key="titleColor" name="ButtonTextColor"/>
                                         </state>
                                     </button>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ip6-VG-91x">
-                                        <rect key="frame" x="0.0" y="116.33333333333329" width="393" height="443.66666666666674"/>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ip6-VG-91x">
+                                        <rect key="frame" x="0.0" y="106" width="393" height="454"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="Aa8-Tu-Xse" id="JOQ-hU-crW"/>
+                                            <outlet property="delegate" destination="Aa8-Tu-Xse" id="hUK-rw-f7k"/>
+                                        </connections>
                                     </tableView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -135,6 +143,10 @@ meals and more!</string>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="3Cb-wP-ikn"/>
+                    <connections>
+                        <outlet property="btnCheckOffer" destination="3w0-i0-HEb" id="eY7-qf-jpc"/>
+                        <outlet property="tblOffers" destination="ip6-VG-91x" id="9tq-Oe-Pm5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hBz-WX-WKL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -197,12 +209,19 @@ meals and more!</string>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gxs-qi-KSx">
                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="644.66666666666663"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="A0t-R1-yD0">
+                                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="A0t-R1-yD0">
                                                         <rect key="frame" x="145.66666666666666" y="31.666666666666664" width="102" height="100.66666666666669"/>
                                                         <color key="tintColor" name="ButtonBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="102" id="W6A-Ht-IZj"/>
                                                             <constraint firstAttribute="width" constant="102" id="aFS-6K-Dyb"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_profile_front" translatesAutoresizingMaskIntoConstraints="NO" id="7mW-pN-rYc">
+                                                        <rect key="frame" x="153.33333333333334" y="109" width="86.333333333333343" height="23.333333333333343"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="86.010000000000005" id="EZU-1J-V1W"/>
+                                                            <constraint firstAttribute="height" constant="23.420000000000002" id="rDd-tG-PKW"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi there Emilia!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cr1-Gu-zRz">
@@ -299,6 +318,7 @@ meals and more!</string>
                                                     <constraint firstItem="Guk-T9-L6m" firstAttribute="top" secondItem="3AL-p8-rIX" secondAttribute="bottom" constant="17" id="HEA-gY-oGf"/>
                                                     <constraint firstItem="A0t-R1-yD0" firstAttribute="centerX" secondItem="gxs-qi-KSx" secondAttribute="centerX" id="J9c-yw-9gA"/>
                                                     <constraint firstItem="A0t-R1-yD0" firstAttribute="top" secondItem="gxs-qi-KSx" secondAttribute="top" constant="31" id="Ncr-7p-l7L"/>
+                                                    <constraint firstItem="7mW-pN-rYc" firstAttribute="centerX" secondItem="gxs-qi-KSx" secondAttribute="centerX" id="PiB-Rl-Xl4"/>
                                                     <constraint firstItem="qzx-BW-weI" firstAttribute="centerX" secondItem="gxs-qi-KSx" secondAttribute="centerX" constant="-3" id="SIk-ee-u7a"/>
                                                     <constraint firstItem="nbQ-FU-sfb" firstAttribute="leading" secondItem="gxs-qi-KSx" secondAttribute="leading" constant="21" id="ZWT-YP-Nrd"/>
                                                     <constraint firstItem="LrL-bq-N4Z" firstAttribute="top" secondItem="bKI-mo-ZeY" secondAttribute="bottom" constant="17" id="bMi-RQ-0b8"/>
@@ -313,6 +333,7 @@ meals and more!</string>
                                                     <constraint firstItem="LrL-bq-N4Z" firstAttribute="leading" secondItem="bKI-mo-ZeY" secondAttribute="leading" id="tkq-c9-CnH"/>
                                                     <constraint firstItem="3AL-p8-rIX" firstAttribute="top" secondItem="LrL-bq-N4Z" secondAttribute="bottom" constant="17" id="vYn-Ag-mQF"/>
                                                     <constraint firstItem="cr1-Gu-zRz" firstAttribute="top" secondItem="qzx-BW-weI" secondAttribute="bottom" constant="13" id="wfn-ou-nc0"/>
+                                                    <constraint firstItem="7mW-pN-rYc" firstAttribute="top" secondItem="A0t-R1-yD0" secondAttribute="top" constant="78.019999999999996" id="yx1-OZ-zHq"/>
                                                     <constraint firstItem="cr1-Gu-zRz" firstAttribute="centerX" secondItem="gxs-qi-KSx" secondAttribute="centerX" id="zlb-S7-wAI"/>
                                                 </constraints>
                                             </view>
@@ -498,6 +519,7 @@ meals and more!</string>
         <image name="ic_more" width="16" height="16"/>
         <image name="ic_offers" width="16.333333969116211" height="16"/>
         <image name="ic_profile" width="13.333333015441895" height="17.666666030883789"/>
+        <image name="ic_profile_front" width="86.333335876464844" height="23.666666030883789"/>
         <image name="person.circle" catalog="system" width="128" height="123"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
