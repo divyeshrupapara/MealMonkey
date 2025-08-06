@@ -79,10 +79,10 @@
             </objects>
             <point key="canvasLocation" x="1993.1297709923663" y="3.5211267605633805"/>
         </scene>
-        <!--View Controller-->
+        <!--Offers View Controller-->
         <scene sceneID="TFy-mr-pu7">
             <objects>
-                <viewController id="Aa8-Tu-Xse" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OffersViewController" id="Aa8-Tu-Xse" customClass="OffersViewController" customModule="MealMonkey" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="F23-qm-wAh">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
