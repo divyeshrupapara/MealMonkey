@@ -1,29 +1,34 @@
-//
-//  ProfileViewController.swift
-//  MealMonkey
-//
-//  Created by Divyesh Rupapara on 06/08/25.
-//
-
 import UIKit
 
 class ProfileViewController: UIViewController {
 
+    @IBOutlet weak var imgProfile: UIImageView!
+    @IBOutlet weak var txtName: UITextField!
+    @IBOutlet weak var txtEmail: UITextField!
+    @IBOutlet weak var txtMobileNo: UITextField!
+    @IBOutlet weak var txtAddress: UITextField!
+    @IBOutlet weak var btnSave: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.navigationController?.isNavigationBarHidden = false
+        
+        viewStyle(cornerRadius: imgProfile.frame.size.width/2, borderWidth: 0, borderColor: .systemGray, textField: [imgProfile])
+        viewStyle(cornerRadius: 28, borderWidth: 0, borderColor: .systemGray, textField: [txtName, txtEmail, txtAddress, txtMobileNo, btnSave])
+        setPadding(textfield: [txtName, txtEmail, txtAddress, txtMobileNo])
+        
+        setLeftAlignedTitle("Profile")
+        setCartButton(target: self, action: #selector(btnCartTapped))
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func btnCartTapped() {
     }
-    */
-
+    
+    func setPadding(textfield: [UITextField]){
+        
+        for item in textfield {
+            item.setPadding(left: 34, right: 34)
+        }
+    }
 }

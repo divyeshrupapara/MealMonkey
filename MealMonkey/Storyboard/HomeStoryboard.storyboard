@@ -142,10 +142,173 @@
                     <view key="view" contentMode="scaleToFill" id="cwW-pc-Yvv">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AUQ-JQ-ADY">
+                                <rect key="frame" x="0.0" y="162" width="393" height="573"/>
+                                <subviews>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EQB-zA-MUo">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="573"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gxs-qi-KSx">
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="644.66666666666663"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="A0t-R1-yD0">
+                                                        <rect key="frame" x="145.66666666666666" y="31.666666666666664" width="102" height="100.66666666666669"/>
+                                                        <color key="tintColor" name="ButtonBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="102" id="W6A-Ht-IZj"/>
+                                                            <constraint firstAttribute="width" constant="102" id="aFS-6K-Dyb"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi there Emilia!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cr1-Gu-zRz">
+                                                        <rect key="frame" x="142" y="177" width="109" height="18.666666666666657"/>
+                                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
+                                                        <color key="textColor" name="LabelPrimaryColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3rt-AJ-NGK">
+                                                        <rect key="frame" x="175" y="201.66666666666669" width="43" height="13"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="13" id="qU3-Ce-I4X"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="11"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Sign Out">
+                                                            <color key="titleColor" name="LabelSecondaryColor"/>
+                                                        </state>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qzx-BW-weI">
+                                                        <rect key="frame" x="158.66666666666666" y="152" width="69.666666666666657" height="12"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="69.569999999999993" id="MDi-2Y-eQ2"/>
+                                                            <constraint firstAttribute="height" constant="12" id="hng-bh-6va"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="10"/>
+                                                        <color key="tintColor" name="ButtonBackgroundColor"/>
+                                                        <inset key="titleEdgeInsets" minX="6.7599999999999998" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        <state key="normal" title="Edit Profile" image="ic_edit">
+                                                            <color key="titleColor" name="ButtonBackgroundColor"/>
+                                                        </state>
+                                                    </button>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nbQ-FU-sfb">
+                                                        <rect key="frame" x="21" y="262.66666666666669" width="351" height="56"/>
+                                                        <color key="backgroundColor" name="TextFieldBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="56" id="pxw-Kf-pU2"/>
+                                                        </constraints>
+                                                        <color key="textColor" name="LabelPrimaryColor"/>
+                                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bKI-mo-ZeY">
+                                                        <rect key="frame" x="21" y="335.66666666666669" width="351" height="56"/>
+                                                        <color key="backgroundColor" name="TextFieldBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="56" id="jEc-UZ-sSt"/>
+                                                        </constraints>
+                                                        <color key="textColor" name="LabelPrimaryColor"/>
+                                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobile No" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LrL-bq-N4Z">
+                                                        <rect key="frame" x="21" y="408.66666666666663" width="351" height="56"/>
+                                                        <color key="backgroundColor" name="TextFieldBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="56" id="5Kf-8g-akA"/>
+                                                        </constraints>
+                                                        <color key="textColor" name="LabelPrimaryColor"/>
+                                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3AL-p8-rIX">
+                                                        <rect key="frame" x="21" y="481.66666666666663" width="351" height="56"/>
+                                                        <color key="backgroundColor" name="TextFieldBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="56" id="NAa-di-ZqT"/>
+                                                        </constraints>
+                                                        <color key="textColor" name="LabelPrimaryColor"/>
+                                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Guk-T9-L6m">
+                                                        <rect key="frame" x="21" y="554.66666666666663" width="351" height="56"/>
+                                                        <color key="backgroundColor" name="ButtonBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="56" id="YvA-Id-Rdk"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Save">
+                                                            <color key="titleColor" name="ButtonTextColor"/>
+                                                        </state>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="3AL-p8-rIX" firstAttribute="trailing" secondItem="LrL-bq-N4Z" secondAttribute="trailing" id="0Mj-rw-3GX"/>
+                                                    <constraint firstAttribute="trailing" secondItem="nbQ-FU-sfb" secondAttribute="trailing" constant="21" id="1x4-RW-4ei"/>
+                                                    <constraint firstItem="3rt-AJ-NGK" firstAttribute="top" secondItem="cr1-Gu-zRz" secondAttribute="bottom" constant="6" id="9U4-t9-PPM"/>
+                                                    <constraint firstItem="LrL-bq-N4Z" firstAttribute="trailing" secondItem="bKI-mo-ZeY" secondAttribute="trailing" id="9UV-wG-DYc"/>
+                                                    <constraint firstItem="bKI-mo-ZeY" firstAttribute="leading" secondItem="nbQ-FU-sfb" secondAttribute="leading" id="AGt-M3-neL"/>
+                                                    <constraint firstItem="bKI-mo-ZeY" firstAttribute="trailing" secondItem="nbQ-FU-sfb" secondAttribute="trailing" id="Fyk-WG-Vo2"/>
+                                                    <constraint firstItem="Guk-T9-L6m" firstAttribute="top" secondItem="3AL-p8-rIX" secondAttribute="bottom" constant="17" id="HEA-gY-oGf"/>
+                                                    <constraint firstItem="A0t-R1-yD0" firstAttribute="centerX" secondItem="gxs-qi-KSx" secondAttribute="centerX" id="J9c-yw-9gA"/>
+                                                    <constraint firstItem="A0t-R1-yD0" firstAttribute="top" secondItem="gxs-qi-KSx" secondAttribute="top" constant="31" id="Ncr-7p-l7L"/>
+                                                    <constraint firstItem="qzx-BW-weI" firstAttribute="centerX" secondItem="gxs-qi-KSx" secondAttribute="centerX" constant="-3" id="SIk-ee-u7a"/>
+                                                    <constraint firstItem="nbQ-FU-sfb" firstAttribute="leading" secondItem="gxs-qi-KSx" secondAttribute="leading" constant="21" id="ZWT-YP-Nrd"/>
+                                                    <constraint firstItem="LrL-bq-N4Z" firstAttribute="top" secondItem="bKI-mo-ZeY" secondAttribute="bottom" constant="17" id="bMi-RQ-0b8"/>
+                                                    <constraint firstItem="Guk-T9-L6m" firstAttribute="leading" secondItem="3AL-p8-rIX" secondAttribute="leading" id="cRT-Ad-gGX"/>
+                                                    <constraint firstItem="3AL-p8-rIX" firstAttribute="leading" secondItem="LrL-bq-N4Z" secondAttribute="leading" id="db3-i6-7g5"/>
+                                                    <constraint firstItem="nbQ-FU-sfb" firstAttribute="top" secondItem="3rt-AJ-NGK" secondAttribute="bottom" constant="48" id="fxS-D5-tr0"/>
+                                                    <constraint firstItem="Guk-T9-L6m" firstAttribute="trailing" secondItem="3AL-p8-rIX" secondAttribute="trailing" id="hzX-g9-ebc"/>
+                                                    <constraint firstItem="qzx-BW-weI" firstAttribute="top" secondItem="A0t-R1-yD0" secondAttribute="bottom" constant="19" id="jFl-HM-QUs"/>
+                                                    <constraint firstItem="3rt-AJ-NGK" firstAttribute="centerX" secondItem="gxs-qi-KSx" secondAttribute="centerX" id="mWe-n2-X5V"/>
+                                                    <constraint firstItem="bKI-mo-ZeY" firstAttribute="top" secondItem="nbQ-FU-sfb" secondAttribute="bottom" constant="17" id="oyO-3m-Ijt"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Guk-T9-L6m" secondAttribute="bottom" constant="34" id="q38-Hc-E1f"/>
+                                                    <constraint firstItem="LrL-bq-N4Z" firstAttribute="leading" secondItem="bKI-mo-ZeY" secondAttribute="leading" id="tkq-c9-CnH"/>
+                                                    <constraint firstItem="3AL-p8-rIX" firstAttribute="top" secondItem="LrL-bq-N4Z" secondAttribute="bottom" constant="17" id="vYn-Ag-mQF"/>
+                                                    <constraint firstItem="cr1-Gu-zRz" firstAttribute="top" secondItem="qzx-BW-weI" secondAttribute="bottom" constant="13" id="wfn-ou-nc0"/>
+                                                    <constraint firstItem="cr1-Gu-zRz" firstAttribute="centerX" secondItem="gxs-qi-KSx" secondAttribute="centerX" id="zlb-S7-wAI"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="gxs-qi-KSx" firstAttribute="top" secondItem="EQB-zA-MUo" secondAttribute="top" id="Xyf-z2-cet"/>
+                                            <constraint firstItem="gxs-qi-KSx" firstAttribute="leading" secondItem="EQB-zA-MUo" secondAttribute="leading" id="bkq-d6-0Qz"/>
+                                            <constraint firstAttribute="trailing" secondItem="gxs-qi-KSx" secondAttribute="trailing" id="ehI-wh-0EU"/>
+                                            <constraint firstAttribute="bottom" secondItem="gxs-qi-KSx" secondAttribute="bottom" id="kpv-Ru-6nN"/>
+                                            <constraint firstItem="gxs-qi-KSx" firstAttribute="width" secondItem="EQB-zA-MUo" secondAttribute="width" id="vIz-O5-wlr"/>
+                                            <constraint firstItem="gxs-qi-KSx" firstAttribute="height" secondItem="EQB-zA-MUo" secondAttribute="height" priority="250" id="w50-NU-aAI"/>
+                                        </constraints>
+                                    </scrollView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="EQB-zA-MUo" firstAttribute="leading" secondItem="AUQ-JQ-ADY" secondAttribute="leading" id="Caw-1P-DXz"/>
+                                    <constraint firstAttribute="trailing" secondItem="EQB-zA-MUo" secondAttribute="trailing" id="R6i-zy-1oX"/>
+                                    <constraint firstAttribute="bottom" secondItem="EQB-zA-MUo" secondAttribute="bottom" id="blJ-OH-jv8"/>
+                                    <constraint firstItem="EQB-zA-MUo" firstAttribute="top" secondItem="AUQ-JQ-ADY" secondAttribute="top" id="rRN-K4-KqS"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="3ut-GW-Lyj"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="AUQ-JQ-ADY" firstAttribute="leading" secondItem="3ut-GW-Lyj" secondAttribute="leading" id="6zb-aH-02Z"/>
+                            <constraint firstItem="3ut-GW-Lyj" firstAttribute="trailing" secondItem="AUQ-JQ-ADY" secondAttribute="trailing" id="X3j-qV-iv2"/>
+                            <constraint firstItem="AUQ-JQ-ADY" firstAttribute="top" secondItem="3ut-GW-Lyj" secondAttribute="top" id="aZT-Yo-nou"/>
+                            <constraint firstItem="3ut-GW-Lyj" firstAttribute="bottom" secondItem="AUQ-JQ-ADY" secondAttribute="bottom" id="fyn-Ua-nsr"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Cut-pt-9wq"/>
+                    <connections>
+                        <outlet property="btnSave" destination="Guk-T9-L6m" id="WAs-Tg-W5i"/>
+                        <outlet property="imgProfile" destination="A0t-R1-yD0" id="yYn-wb-9Mc"/>
+                        <outlet property="txtAddress" destination="3AL-p8-rIX" id="JyL-xE-tyR"/>
+                        <outlet property="txtEmail" destination="bKI-mo-ZeY" id="vrV-vk-Mqk"/>
+                        <outlet property="txtMobileNo" destination="LrL-bq-N4Z" id="zyI-CY-jsy"/>
+                        <outlet property="txtName" destination="nbQ-FU-sfb" id="JbJ-Tr-Czb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wE2-wa-G3l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -284,16 +447,30 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ic_edit" width="11" height="11"/>
         <image name="ic_home" width="30.666666030883789" height="29.333333969116211"/>
         <image name="ic_menu" width="14" height="14"/>
         <image name="ic_more" width="16" height="16"/>
         <image name="ic_offers" width="16.333333969116211" height="16"/>
         <image name="ic_profile" width="13.333333015441895" height="17.666666030883789"/>
+        <image name="person.circle" catalog="system" width="128" height="123"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="ButtonBackgroundColor">
             <color red="0.9882352941176471" green="0.37647058823529411" blue="0.066666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ButtonTextColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="LabelPrimaryColor">
+            <color red="0.29019607843137257" green="0.29411764705882354" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="LabelSecondaryColor">
+            <color red="0.48627450980392156" green="0.49019607843137253" blue="0.49411764705882355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextFieldBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
