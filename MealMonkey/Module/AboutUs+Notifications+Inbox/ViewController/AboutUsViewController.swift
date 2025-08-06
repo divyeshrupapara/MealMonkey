@@ -10,18 +10,7 @@ class AboutUsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let cartImage = UIImage(named: "ic_cart")?.withRenderingMode(.alwaysTemplate)
-        let cartButton = UIBarButtonItem(
-            image: cartImage,
-            style: .plain,
-            target: self,
-            action: #selector(cartButtonTapped)
-        )
-        
-        cartButton.tintColor = UIColor(red: 74/255, green: 75/255, blue: 77/255, alpha: 1.0)
-        
         self.navigationController?.isNavigationBarHidden = false
-        self.navigationItem.rightBarButtonItem = cartButton
         
         switch objPageType {
         case .PayMent:
@@ -29,19 +18,35 @@ class AboutUsViewController: UIViewController {
         case .MyOrders:
             print("My Orders")
         case .Notification:
-            self.title = "Notification"
             arrCurrent = AboutModel.addNotificationData()
+            setLeftAlignedTitleWithBack("Notification",
+                                        target: self,
+                                        action: #selector(btnBackTapped))
+            setCartButton(target: self, action: #selector(btnCartTapped))
         case .Inbox:
-            self.title = "Inbox"
             arrCurrent = AboutModel.addInboxData()
+            setLeftAlignedTitleWithBack("Inbox",
+                                        target: self,
+                                        action: #selector(btnBackTapped))
+            setCartButton(target: self,
+                          action: #selector(btnCartTapped))
         case .AboutUs:
-            self.title = "About Us"
             arrCurrent = AboutModel.addAboutData()
+            setLeftAlignedTitleWithBack("About Us",
+                                        target: self,
+                                        action: #selector(btnBackTapped))
+            setCartButton(target: self,
+                          action: #selector(btnCartTapped))
         }
         
         tblMoreOpions.register(UINib(nibName: "AboutUsTableViewCell", bundle: nil), forCellReuseIdentifier: "AboutUsTableViewCell")
     }
     
-    @objc func cartButtonTapped() {
+    @objc func btnBackTapped() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func btnCartTapped() {
+        self.navigationController?.popViewController(animated: true)
     }
 }

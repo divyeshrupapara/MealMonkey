@@ -7,19 +7,12 @@ class ForgetPasswordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Forget Password"
-        self.navigationController?.isNavigationBarHidden = true
+        self.title = ""
+        self.navigationController?.isNavigationBarHidden = false
         
-        viewStyle(textfield: [txtEmail, btnSend])
+        viewStyle(cornerRadius: 28, borderWidth: 0, borderColor: .gray, textField: [txtEmail, btnSend])
         
         setPadding(textfield: [txtEmail])
-    }
-    
-    func viewStyle(textfield: [UIView]){
-        
-        for item in textfield {
-            item.viewStyle(cornerRadius: 28, borderWidth: 0, borderColor: .systemGray)
-        }
     }
     
     func setPadding(textfield: [UITextField]){

@@ -15,7 +15,7 @@ class SignUpViewController: UIViewController {
         self.title = "Sign Up"
         self.navigationController?.isNavigationBarHidden = true
         
-        viewStyle(textfield: [txtName, txtEmail, txtMobileNo, txtAddress, txtPassword, txtConfirmPassword, btnSignUp])
+        viewStyle(cornerRadius: 28, borderWidth: 0, borderColor: .systemGray, textField: [txtName, txtEmail, txtMobileNo, txtAddress, txtPassword, txtConfirmPassword, btnSignUp])
         setPadding(textfield: [txtName, txtEmail, txtMobileNo, txtAddress, txtPassword, txtConfirmPassword])
     }
     
@@ -24,13 +24,6 @@ class SignUpViewController: UIViewController {
         let storyboard = UIStoryboard(name: "UserStoryboard", bundle: nil)
         if storyboard.instantiateViewController(withIdentifier: "LoginViewController") is LoginViewController{
             self.navigationController?.popViewController(animated: true)
-        }
-    }
-    
-    func viewStyle(textfield: [UIView]){
-        
-        for item in textfield {
-            item.viewStyle(cornerRadius: 28, borderWidth: 0, borderColor: .systemGray)
         }
     }
     

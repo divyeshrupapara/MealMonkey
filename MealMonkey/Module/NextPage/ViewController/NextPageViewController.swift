@@ -16,16 +16,9 @@ class NextPageViewController: UIViewController {
         self.title = "Next Page"
         self.navigationController?.isNavigationBarHidden = true
         
-        viewStyle(textfield: [btnDone])
+        viewStyle(cornerRadius: 28, borderWidth: 0, borderColor: .systemGray, textField: [btnDone])
         
         collectionViewNextPage.register(UINib(nibName: "CollectionViewCellNextPageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CollectionViewCellNextPageCollectionViewCell")
-    }
-    
-    func viewStyle(textfield: [UIView]){
-        
-        for item in textfield {
-            item.viewStyle(cornerRadius: 28, borderWidth: 0, borderColor: .systemGray)
-        }
     }
     
     private func showMainTabBar() {

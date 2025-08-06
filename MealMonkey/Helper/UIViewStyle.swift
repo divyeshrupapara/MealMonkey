@@ -1,17 +1,18 @@
 import Foundation
 import UIKit
 
-extension UIView {
-    
-    func viewStyle(cornerRadius: CGFloat, borderWidth: CGFloat, borderColor: UIColor) {
-        self.layer.cornerRadius = cornerRadius
-        self.layer.borderWidth = borderWidth
-        self.layer.borderColor = borderColor.cgColor
+extension UIViewController {
+    func viewStyle(cornerRadius: CGFloat, borderWidth: CGFloat, borderColor: UIColor,textField: [UIView]) {
+        
+        for item in textField {
+            item.layer.cornerRadius = cornerRadius
+            item.layer.borderWidth = borderWidth
+            item.layer.borderColor = borderColor.cgColor
+        }
     }
 }
 
 extension UITextField {
-    
     func setPadding(left: CGFloat = 0, right: CGFloat = 0) {
         
         if left > 0 {

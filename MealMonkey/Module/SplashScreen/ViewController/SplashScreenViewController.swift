@@ -9,6 +9,10 @@ class SplashScreenViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         
         sleep(3)

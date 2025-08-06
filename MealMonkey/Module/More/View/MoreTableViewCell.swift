@@ -8,7 +8,7 @@ class MoreTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        viewStyle(textfield: [imgMenu])
+        imgMenu.layer.cornerRadius = 28
         viewMain.layer.cornerRadius = 7
     }
     
@@ -20,12 +20,5 @@ class MoreTableViewCell: UITableViewCell {
         
         imgMenu.image = UIImage(named: more.imgMenu)
         lblMenu.text = more.strMoreName
-    }
-    
-    func viewStyle(textfield: [UIView]){
-        
-        for item in textfield {
-            item.viewStyle(cornerRadius: 28, borderWidth: 0, borderColor: .systemGray)
-        }
     }
 }

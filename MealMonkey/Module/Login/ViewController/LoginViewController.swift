@@ -13,9 +13,13 @@ class LoginViewController: UIViewController {
         self.title = "Log in"
         self.navigationController?.isNavigationBarHidden = true
         
-        viewStyle(textfield: [txtEmail, txtPassword, btnLogin, btnGoogle, btnFacebook])
+        viewStyle(cornerRadius: 28, borderWidth: 0, borderColor: .gray, textField: [txtEmail, txtPassword, btnLogin, btnGoogle, btnFacebook])
         
         setPadding(textfield: [txtEmail, txtPassword])
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     @IBAction func btnLoginClick(_ sender: Any) {
@@ -50,13 +54,6 @@ class LoginViewController: UIViewController {
         let storyboard = UIStoryboard(name: "UserStoryboard", bundle: nil)
         if let VC = storyboard.instantiateViewController(withIdentifier: "SignUpViewController") as? SignUpViewController{
             self.navigationController?.pushViewController(VC, animated: true)
-        }
-    }
-    
-    func viewStyle(textfield: [UIView]){
-        
-        for item in textfield {
-            item.viewStyle(cornerRadius: 28, borderWidth: 0, borderColor: .systemGray)
         }
     }
     

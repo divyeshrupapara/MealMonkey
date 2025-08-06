@@ -8,19 +8,12 @@ class NewPasswordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "New Password"
-        self.navigationController?.isNavigationBarHidden = true
+        self.title = ""
+        self.navigationController?.isNavigationBarHidden = false
         
-        viewStyle(textfield: [txtNewPassword, txtConfiemPassword, btnNext])
+        viewStyle(cornerRadius: 28, borderWidth: 0, borderColor: .gray, textField: [txtNewPassword, txtConfiemPassword, btnNext])
         
         setPadding(textfield: [txtNewPassword, txtConfiemPassword])
-    }
-    
-    func viewStyle(textfield: [UIView]){
-        
-        for item in textfield {
-            item.viewStyle(cornerRadius: 28, borderWidth: 0, borderColor: .systemGray)
-        }
     }
     
     func setPadding(textfield: [UITextField]){

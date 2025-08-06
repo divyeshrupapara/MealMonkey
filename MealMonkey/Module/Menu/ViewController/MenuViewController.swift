@@ -11,10 +11,21 @@ class MenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.isNavigationBarHidden = false
+        setLeftAlignedTitle("Menu")
+        setCartButton(target: self, action: #selector(btnCartTapped))
+        
         applyCornerRadiusTLBR()
+        
+        viewStyle(cornerRadius: 28, borderWidth: 0, borderColor: .gray, textField: [txtSearchFood])
+        setPadding(textfield: [txtSearchFood])
+        
         tblCategory.showsVerticalScrollIndicator = false
         tblCategory.backgroundColor = .clear
         tblCategory.register(UINib(nibName: "MenuTableViewCell", bundle: nil), forCellReuseIdentifier: "MenuTableViewCell")
+    }
+    
+    @objc func btnCartTapped() {
     }
     
     func applyCornerRadiusTLBR() {
@@ -27,5 +38,12 @@ class MenuViewController: UIViewController {
         ]
         
         tblBackView.clipsToBounds = true
+    }
+    
+    func setPadding(textfield: [UITextField]){
+        
+        for item in textfield {
+            item.setPadding(left: 34, right: 34)
+        }
     }
 }
