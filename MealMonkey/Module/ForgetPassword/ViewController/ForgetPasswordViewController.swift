@@ -16,16 +16,14 @@ class ForgetPasswordViewController: UIViewController {
     }
     
     func setPadding(textfield: [UITextField]){
-        
         for item in textfield {
             item.setPadding(left: 34, right: 34)
         }
     }
     
     @IBAction func btnSendClick(_ sender: Any) {
-        
         let storyboard = UIStoryboard(name: "UserStoryboard", bundle: nil)
-        if let VC = storyboard.instantiateViewController(withIdentifier: "NewPasswordViewController") as? NewPasswordViewController {
+        if let VC = storyboard.instantiateViewController(withIdentifier: "OTPViewController") as? OTPViewController {
             self.navigationController?.pushViewController(VC, animated: true)
         }
     }
