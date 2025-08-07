@@ -1,6 +1,17 @@
 import Foundation
 import UIKit
 
+class viewStyle {
+    class func viewStyle(cornerRadius: CGFloat, borderWidth: CGFloat, borderColor: UIColor,textField: [UIView]) {
+        
+        for item in textField {
+            item.layer.cornerRadius = cornerRadius
+            item.layer.borderWidth = borderWidth
+            item.layer.borderColor = borderColor.cgColor
+        }
+    }
+}
+
 extension UIViewController {
     func viewStyle(cornerRadius: CGFloat, borderWidth: CGFloat, borderColor: UIColor,textField: [UIView]) {
         

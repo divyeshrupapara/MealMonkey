@@ -6,6 +6,18 @@ extension MoreViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         switch indexPath.row {
+        case 0:
+            let storyboard = UIStoryboard(name: "MoreStoryboard", bundle: nil)
+            if let VC = storyboard.instantiateViewController(withIdentifier: "PaymentViewController") as? PaymentViewController {
+                self.navigationController?.pushViewController(VC, animated: true)
+            }
+        
+//        case 1:
+//            let storyboard = UIStoryboard(name: "MoreStoryboard", bundle: nil)
+//            if let VC = storyboard.instantiateViewController(withIdentifier: "AboutUsViewController") as? AboutUsViewController {
+//                self.navigationController?.pushViewController(VC, animated: true)
+//            }
+        
         case 2:
             let storyboard = UIStoryboard(name: "MoreStoryboard", bundle: nil)
             if let VC = storyboard.instantiateViewController(withIdentifier: "AboutUsViewController") as? AboutUsViewController {
