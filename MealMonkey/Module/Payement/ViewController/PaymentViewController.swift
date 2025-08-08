@@ -14,24 +14,23 @@ class PaymentViewController: UIViewController {
     @IBOutlet weak var btnEnterCard: UIButton!
     @IBOutlet weak var viewEnterCard: UIView!
     @IBOutlet weak var viewAddCard2: UIView!
+    @IBOutlet weak var viewTransperent: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         viewEnterCard.isHidden = true
-        
+        viewTransperent.isHidden = true
         viewAddCard2.layer.cornerRadius = 20
         viewAddCard2.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         viewAddCard2.layer.shadowColor = UIColor.black.cgColor
         viewAddCard2.layer.shadowOpacity = 0.2
         viewAddCard2.layer.shadowOffset = CGSize(width: 0, height: -2)
         viewAddCard2.layer.shadowRadius = 10
-                
-//                viewScroll.layer.cornerRadius = 20
-//                viewScroll.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-//                viewScroll.layer.shadowColor = UIColor.black.cgColor
-//                viewScroll.layer.shadowOpacity = 0.2
-//                viewScroll.layer.shadowOffset = CGSize(width: 0, height: -2)
+        
+        viewStyle(cornerRadius: 28, borderWidth: 0, borderColor: .systemGray, textField: [txtCardNumber, txtExpiryMonth, txtExpiryYear, txtSecureCode, txtFirstName, txtLastName, btnEnterCard])
+        
+        setPadding.setPadding(left: 34, right: 34, textfield: [txtCardNumber, txtExpiryMonth, txtExpiryYear, txtSecureCode, txtFirstName, txtLastName])
         
         setLeftAlignedTitleWithBack("Payment Details", target: self, action: #selector(btnBackTapped))
         setCartButton(target: self, action: #selector(btnCartTapped))
@@ -54,6 +53,7 @@ class PaymentViewController: UIViewController {
     }
     @IBAction func btnAddCardClick(_ sender: Any) {
         viewEnterCard.isHidden = false
+        viewTransperent.isHidden = false
         UIView.animate(withDuration: 0.3) {
             self.viewEnterCard.transform = .identity
             self.tabBarController?.tabBar.isHidden = true
@@ -65,6 +65,7 @@ class PaymentViewController: UIViewController {
             self.viewEnterCard.transform = CGAffineTransform(translationX: 0, y: self.view.frame.height)
         }) { _ in
             self.viewEnterCard.isHidden = true
+            self.viewTransperent.isHidden = true
             self.tabBarController?.tabBar.isHidden = false
         }
     }

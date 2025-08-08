@@ -12,6 +12,14 @@ class viewStyle {
     }
 }
 
+class setPadding {
+    class func setPadding(left: CGFloat, right: CGFloat, textfield: [UITextField]){
+        for item in textfield {
+            item.setPadding(left: left, right: right)
+        }
+    }
+}
+
 extension UIViewController {
     func viewStyle(cornerRadius: CGFloat, borderWidth: CGFloat, borderColor: UIColor,textField: [UIView]) {
         
