@@ -25,7 +25,6 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func btnBackToLoginClick(_ sender: Any) {
-        
         let storyboard = UIStoryboard(name: "UserStoryboard", bundle: nil)
         if storyboard.instantiateViewController(withIdentifier: "LoginViewController") is LoginViewController{
             self.navigationController?.popViewController(animated: true)

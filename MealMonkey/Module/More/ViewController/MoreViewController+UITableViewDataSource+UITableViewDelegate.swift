@@ -12,11 +12,11 @@ extension MoreViewController: UITableViewDelegate {
                 self.navigationController?.pushViewController(VC, animated: true)
             }
         
-//        case 1:
-//            let storyboard = UIStoryboard(name: "MoreStoryboard", bundle: nil)
-//            if let VC = storyboard.instantiateViewController(withIdentifier: "AboutUsViewController") as? AboutUsViewController {
-//                self.navigationController?.pushViewController(VC, animated: true)
-//            }
+        case 1:
+            let storyboard = UIStoryboard(name: "MoreStoryboard", bundle: nil)
+            if let VC = storyboard.instantiateViewController(withIdentifier: "MyOrderViewController") as? MyOrderViewController {
+                self.navigationController?.pushViewController(VC, animated: true)
+            }
         
         case 2:
             let storyboard = UIStoryboard(name: "MoreStoryboard", bundle: nil)
