@@ -20,6 +20,7 @@ class CheckoutViewController: UIViewController {
     @IBOutlet weak var viewThankYou2: UIView!
     @IBOutlet weak var btnThankYouCross: UIButton!
     @IBOutlet weak var btnTrackYourOrder: UIButton!
+    @IBOutlet weak var btnChangeAddress: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +62,14 @@ class CheckoutViewController: UIViewController {
     
     @objc func btnBackTapped() {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func btnChangeAddressClick(_ sender: Any) {
+        
+        let storyboard = UIStoryboard(name: "MoreStoryboard", bundle: nil)
+        if let VC = storyboard.instantiateViewController(withIdentifier: "AddressViewController") as? AddressViewController{
+            self.navigationController?.pushViewController(VC, animated: true)
+        }
     }
     
     @IBAction func btnAddCardClick(_ sender: Any) {

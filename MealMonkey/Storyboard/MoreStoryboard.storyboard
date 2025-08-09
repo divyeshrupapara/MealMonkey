@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -548,6 +549,9 @@ Brooklyn, NY 11216</string>
                                                 <state key="normal" title="Change">
                                                     <color key="titleColor" name="ButtonBackgroundColor"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="btnChangeAddressClick:" destination="Ofl-jC-ve2" eventType="touchUpInside" id="nMF-Pb-1he"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1101,6 +1105,7 @@ at anytime </string>
                     </view>
                     <connections>
                         <outlet property="btnAddCard" destination="ulZ-SM-Y3y" id="RhR-XM-j4y"/>
+                        <outlet property="btnChangeAddress" destination="HGC-FP-Lgf" id="X7G-CS-8zT"/>
                         <outlet property="btnCross" destination="0k6-rF-9Zp" id="Es4-dM-H94"/>
                         <outlet property="btnEnterCard" destination="aiY-C8-6hc" id="ZLm-Fa-2bO"/>
                         <outlet property="btnSendOrder" destination="BOi-eo-ksL" id="qGf-tk-PAF"/>
@@ -1124,10 +1129,153 @@ at anytime </string>
             </objects>
             <point key="canvasLocation" x="2519.8473282442746" y="-2.1126760563380285"/>
         </scene>
+        <!--Address View Controller-->
+        <scene sceneID="ZqU-Nx-2co">
+            <objects>
+                <viewController storyboardIdentifier="AddressViewController" id="5U2-oS-BvU" customClass="AddressViewController" customModule="MealMonkey" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rTk-tS-QfW">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ucY-kZ-cpn">
+                                <rect key="frame" x="0.0" y="118" width="393" height="666"/>
+                                <subviews>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pitchEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U3P-Wj-hnA">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="333"/>
+                                        <color key="backgroundColor" name="ButtonBackgroundColor"/>
+                                        <standardMapConfiguration key="preferredConfiguration"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="5U2-oS-BvU" id="GF7-d5-fXP"/>
+                                        </connections>
+                                    </mapView>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UQ3-0x-9JD">
+                                        <rect key="frame" x="21" y="352" width="351" height="45"/>
+                                        <color key="backgroundColor" name="TextFieldBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="fgy-uy-OGz"/>
+                                        </constraints>
+                                        <color key="textColor" name="LabelPrimaryColor"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="5U2-oS-BvU" id="9C1-2f-Xkr"/>
+                                        </connections>
+                                    </textField>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="5OT-5T-MeH">
+                                        <rect key="frame" x="22" y="421" width="349" height="36"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_save" translatesAutoresizingMaskIntoConstraints="NO" id="UCk-s6-Jjd">
+                                                <rect key="frame" x="0.0" y="0.0" width="36" height="36"/>
+                                                <color key="backgroundColor" name="ImageStarBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="36" id="RQW-SP-rlS"/>
+                                                    <constraint firstAttribute="width" constant="36" id="gq3-x3-3TV"/>
+                                                </constraints>
+                                            </imageView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KNO-Dp-tEg">
+                                                <rect key="frame" x="45" y="0.0" width="304" height="36"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="POM-u9-xu4">
+                                                        <rect key="frame" x="0.0" y="0.0" width="304" height="36"/>
+                                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                                                        <state key="normal" title="Choose a saved place">
+                                                            <color key="titleColor" name="LabelPrimaryColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnSavedAddressClick:" destination="5U2-oS-BvU" eventType="touchUpInside" id="tFT-xI-Ecu"/>
+                                                        </connections>
+                                                    </button>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_save_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="cqh-zA-tWb">
+                                                        <rect key="frame" x="295" y="0.0" width="9" height="36"/>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="cqh-zA-tWb" secondAttribute="bottom" id="Aff-qe-Igo"/>
+                                                    <constraint firstAttribute="trailing" secondItem="POM-u9-xu4" secondAttribute="trailing" id="JDx-td-gS5"/>
+                                                    <constraint firstAttribute="bottom" secondItem="POM-u9-xu4" secondAttribute="bottom" id="Jze-K9-n3i"/>
+                                                    <constraint firstItem="POM-u9-xu4" firstAttribute="top" secondItem="KNO-Dp-tEg" secondAttribute="top" id="NOh-gv-OsL"/>
+                                                    <constraint firstItem="cqh-zA-tWb" firstAttribute="top" secondItem="KNO-Dp-tEg" secondAttribute="top" id="eqb-c7-cdy"/>
+                                                    <constraint firstAttribute="trailing" secondItem="cqh-zA-tWb" secondAttribute="trailing" id="fDB-ml-YgU"/>
+                                                    <constraint firstItem="POM-u9-xu4" firstAttribute="leading" secondItem="KNO-Dp-tEg" secondAttribute="leading" id="kfn-AQ-WG8"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="KNO-Dp-tEg" firstAttribute="top" secondItem="5OT-5T-MeH" secondAttribute="top" id="BrD-rb-zJJ"/>
+                                            <constraint firstAttribute="bottom" secondItem="KNO-Dp-tEg" secondAttribute="bottom" id="LTU-w6-lWv"/>
+                                            <constraint firstAttribute="trailing" secondItem="KNO-Dp-tEg" secondAttribute="trailing" id="Pod-73-6xg"/>
+                                        </constraints>
+                                    </stackView>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="P7i-Lg-Pg9">
+                                        <rect key="frame" x="0.0" y="478" width="393" height="188"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="5U2-oS-BvU" id="QTe-Jf-Kdf"/>
+                                            <outlet property="delegate" destination="5U2-oS-BvU" id="Ree-49-BMA"/>
+                                        </connections>
+                                    </tableView>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ab-nT-G4t">
+                                        <rect key="frame" x="318" y="253" width="52" height="57"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="13"/>
+                                        <state key="normal" image="ic_current_redirect">
+                                            <color key="titleColor" name="ButtonBackgroundColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnRedirectCurrentLocationClick:" destination="5U2-oS-BvU" eventType="touchUpInside" id="KIo-V3-GE1"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="U3P-Wj-hnA" firstAttribute="top" secondItem="ucY-kZ-cpn" secondAttribute="top" id="1BH-Dy-qj3"/>
+                                    <constraint firstItem="5OT-5T-MeH" firstAttribute="top" secondItem="UQ3-0x-9JD" secondAttribute="bottom" constant="24" id="1ck-5I-cFk"/>
+                                    <constraint firstItem="P7i-Lg-Pg9" firstAttribute="height" secondItem="ucY-kZ-cpn" secondAttribute="height" multiplier="0.282282" id="2Ya-Er-eSi"/>
+                                    <constraint firstAttribute="trailing" secondItem="5OT-5T-MeH" secondAttribute="trailing" constant="22" id="2aG-rv-b9S"/>
+                                    <constraint firstItem="U3P-Wj-hnA" firstAttribute="bottom" secondItem="0ab-nT-G4t" secondAttribute="bottom" constant="23" id="4uv-hP-q3D"/>
+                                    <constraint firstAttribute="trailing" secondItem="P7i-Lg-Pg9" secondAttribute="trailing" id="5VA-7r-MUv"/>
+                                    <constraint firstItem="5OT-5T-MeH" firstAttribute="leading" secondItem="ucY-kZ-cpn" secondAttribute="leading" constant="22" id="7hE-uW-gnQ"/>
+                                    <constraint firstItem="UQ3-0x-9JD" firstAttribute="top" secondItem="U3P-Wj-hnA" secondAttribute="bottom" constant="19" id="9SJ-h6-QK3"/>
+                                    <constraint firstItem="P7i-Lg-Pg9" firstAttribute="top" secondItem="5OT-5T-MeH" secondAttribute="bottom" constant="21" id="BZY-Yr-z9c"/>
+                                    <constraint firstAttribute="trailing" secondItem="UQ3-0x-9JD" secondAttribute="trailing" constant="21" id="Pf2-ZK-gao"/>
+                                    <constraint firstAttribute="trailing" secondItem="0ab-nT-G4t" secondAttribute="trailing" constant="23" id="ak9-bD-vPp"/>
+                                    <constraint firstItem="U3P-Wj-hnA" firstAttribute="leading" secondItem="ucY-kZ-cpn" secondAttribute="leading" id="hMl-jg-iAB"/>
+                                    <constraint firstItem="UQ3-0x-9JD" firstAttribute="leading" secondItem="ucY-kZ-cpn" secondAttribute="leading" constant="21" id="iTY-5i-hBG"/>
+                                    <constraint firstItem="P7i-Lg-Pg9" firstAttribute="leading" secondItem="ucY-kZ-cpn" secondAttribute="leading" id="v0j-fd-sqb"/>
+                                    <constraint firstAttribute="bottom" secondItem="P7i-Lg-Pg9" secondAttribute="bottom" id="wm8-03-zem"/>
+                                    <constraint firstAttribute="trailing" secondItem="U3P-Wj-hnA" secondAttribute="trailing" id="wuP-wD-TXy"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="lyf-1U-evo"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="lyf-1U-evo" firstAttribute="bottom" secondItem="ucY-kZ-cpn" secondAttribute="bottom" id="Ml2-ng-FtW"/>
+                            <constraint firstItem="lyf-1U-evo" firstAttribute="trailing" secondItem="ucY-kZ-cpn" secondAttribute="trailing" id="NYc-I9-ZyH"/>
+                            <constraint firstItem="ucY-kZ-cpn" firstAttribute="leading" secondItem="lyf-1U-evo" secondAttribute="leading" id="YfS-Eg-WlB"/>
+                            <constraint firstItem="ucY-kZ-cpn" firstAttribute="top" secondItem="lyf-1U-evo" secondAttribute="top" id="t51-dV-t5J"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btnRedirectCurrentLocation" destination="0ab-nT-G4t" id="bvL-iG-BBx"/>
+                        <outlet property="btnSavedAddress" destination="POM-u9-xu4" id="4uw-PY-G2z"/>
+                        <outlet property="imgStar" destination="UCk-s6-Jjd" id="cwa-Kg-a7e"/>
+                        <outlet property="mapView" destination="U3P-Wj-hnA" id="LC0-Mb-fIH"/>
+                        <outlet property="tblSavedAddress" destination="P7i-Lg-Pg9" id="R4V-Mu-W1f"/>
+                        <outlet property="txtSearchAddress" destination="UQ3-0x-9JD" id="9Yh-Kx-WCt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k0K-0K-ApS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3342.7480916030531" y="-2.1126760563380285"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ic_add_notes" width="6.3333334922790527" height="12"/>
         <image name="ic_cart_add" width="11.333333015441895" height="24"/>
+        <image name="ic_current_redirect" width="52" height="57"/>
+        <image name="ic_save" width="18.666666030883789" height="19.333333969116211"/>
+        <image name="ic_save_arrow" width="9" height="17.333333969116211"/>
         <image name="ic_thank_you" width="226.66667175292969" height="249"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <namedColor name="ButtonBackgroundColor">
@@ -1135,6 +1283,9 @@ at anytime </string>
         </namedColor>
         <namedColor name="ButtonTextColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ImageStarBackgroundColor">
+            <color red="0.93333333333333335" green="0.35294117647058826" blue="0.18823529411764706" alpha="0.25" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="LabelPrimaryColor">
             <color red="0.29019607843137257" green="0.29411764705882354" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
