@@ -11,6 +11,12 @@ extension MenuViewController: UITableViewDelegate {
             if let VC = storyboard.instantiateViewController(withIdentifier: "DessertsViewController") as? DessertsViewController {
                 self.navigationController?.pushViewController(VC, animated: true)
             }
+           
+        case 3:
+            let storyboard = UIStoryboard(name: "MenuStoryboard", bundle: nil)
+            if let VC = storyboard.instantiateViewController(withIdentifier: "FoodDetailViewController") as? FoodDetailViewController {
+                self.navigationController?.pushViewController(VC, animated: true)
+            }
             
         default:
             break
