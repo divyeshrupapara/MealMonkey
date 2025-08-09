@@ -1059,6 +1059,7 @@ at anytime </string>
                                                 </constraints>
                                             </view>
                                         </subviews>
+                                        <color key="backgroundColor" name="ButtonTextColor"/>
                                         <constraints>
                                             <constraint firstItem="ydE-aa-6p8" firstAttribute="height" secondItem="oyV-BY-LiV" secondAttribute="height" priority="250" id="HGc-Od-GQh"/>
                                             <constraint firstAttribute="trailing" secondItem="ydE-aa-6p8" secondAttribute="trailing" id="HjR-Wd-1lf"/>

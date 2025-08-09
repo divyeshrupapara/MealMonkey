@@ -24,7 +24,7 @@ class CheckoutViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setLeftAlignedTitleWithBack("My Order",
+        setLeftAlignedTitleWithBack("Checkout",
                                     target: self,
                                     action: #selector(btnBackTapped))
         
@@ -68,8 +68,8 @@ class CheckoutViewController: UIViewController {
         viewTransperent.isHidden = false
         UIView.animate(withDuration: 0.3) {
             self.viewEnterCard.transform = .identity
-            self.tabBarController?.tabBar.isHidden = true
         }
+        setTabBar(hidden: true)
     }
     
     @IBAction func btnCrossClick(_ sender: Any) {
@@ -78,7 +78,7 @@ class CheckoutViewController: UIViewController {
         }) { _ in
             self.viewEnterCard.isHidden = true
             self.viewTransperent.isHidden = true
-            self.tabBarController?.tabBar.isHidden = false
+            self.setTabBar(hidden: false)
         }
     }
     
@@ -87,8 +87,8 @@ class CheckoutViewController: UIViewController {
         viewTransperent.isHidden = false
         UIView.animate(withDuration: 0.3) {
             self.viewThankYou.transform = .identity
-            self.tabBarController?.tabBar.isHidden = true
         }
+        setTabBar(hidden: true)
     }
     
     @IBAction func btnThankYouCrossClick(_ sender: Any) {
@@ -97,7 +97,22 @@ class CheckoutViewController: UIViewController {
         }) { _ in
             self.viewThankYou.isHidden = true
             self.viewTransperent.isHidden = true
-            self.tabBarController?.tabBar.isHidden = false
+            self.setTabBar(hidden: false)
+        }
+    }
+    
+    func setTabBar(hidden: Bool, animated: Bool = true) {
+        guard let tabBar = self.tabBarController?.tabBar else { return }
+        
+        let frame = tabBar.frame
+        let offsetY = hidden ? UIScreen.main.bounds.height : UIScreen.main.bounds.height - frame.height
+        
+        if animated {
+            UIView.animate(withDuration: 0.3) {
+                tabBar.frame.origin.y = offsetY
+            }
+        } else {
+            tabBar.frame.origin.y = offsetY
         }
     }
     
