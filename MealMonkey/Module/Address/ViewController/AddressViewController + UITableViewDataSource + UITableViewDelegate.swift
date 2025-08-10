@@ -14,7 +14,7 @@ extension AddressViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: OffersTableViewCell = tableView.dequeueReusableCell(withIdentifier: "OffersTableViewCell", for: indexPath) as! OffersTableViewCell
         
-        //        cell.offerConfigureCell(offer: arrOffer[indexPath.row])
+//                cell.offerConfigureCell(offer: arrOffer[indexPath.row])
         return cell
     }
 }

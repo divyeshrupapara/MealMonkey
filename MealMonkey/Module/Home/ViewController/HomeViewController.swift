@@ -4,8 +4,13 @@ class HomeViewController: UIViewController {
 
     @IBOutlet weak var txtSearchFood: UITextField!
     @IBOutlet weak var tblHome: UITableView!
+    
+    var arrProductData: [ProductModel] = ProductModel.addProductData()
+    var objProductCategory: ProductModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setLeftAlignedTitle("Good morning Akila!")
         setCartButton(target: self, action: #selector(btnCartTapped))
         

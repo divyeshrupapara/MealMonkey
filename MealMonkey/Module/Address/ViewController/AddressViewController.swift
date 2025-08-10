@@ -27,12 +27,13 @@ class AddressViewController: UIViewController {
         mapView.delegate = self
         
         viewStyle(cornerRadius: txtSearchAddress.frame.size.height/2, borderWidth: 0, borderColor: .systemGray, textField: [txtSearchAddress])
-        
         viewStyle(cornerRadius: imgStar.frame.size.height / 2, borderWidth: 0, borderColor: .systemGray, textField: [imgStar])
-        
         setPadding.setPadding(left: 34, right: 34, textfield: [txtSearchAddress])
         
         tblSavedAddress.isHidden = true
+        
+        // Start updating live location as soon as app launches
+        LocationManager.startUpdatingLocation()
     }
 
     @objc func btnBackTapped() {
@@ -40,7 +41,7 @@ class AddressViewController: UIViewController {
     }
     
     @IBAction func btnRedirectCurrentLocationClick(_ sender: Any) {
-        LocationManager.requestLocation()
+        LocationManager.startUpdatingLocation()
     }
     
     @IBAction func btnSavedAddressClick(_ sender: Any) {
