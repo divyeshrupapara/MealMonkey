@@ -38,7 +38,7 @@
                                         <rect key="frame" x="0.0" y="23.666666666666657" width="403" height="14.333333333333336"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="BT1-WG-hud">
-                                                <rect key="frame" x="0.0" y="0.0" width="137.33333333333334" height="14.333333333333334"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="106.66666666666667" height="14.333333333333334"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sLo-oH-077">
                                                         <rect key="frame" x="0.0" y="0.0" width="13.666666666666666" height="14.333333333333334"/>
@@ -65,16 +65,10 @@
                                                         <color key="textColor" name="LabelOffer"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Café" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B1U-9E-OYq">
-                                                        <rect key="frame" x="111.66666666666666" y="0.0" width="25.666666666666657" height="14.333333333333334"/>
-                                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
-                                                        <color key="textColor" name="LabelOffer"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
                                                 </subviews>
                                             </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Western Food" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="keJ-c4-OtV">
-                                                <rect key="frame" x="152.33333333333337" y="0.0" width="250.66666666666663" height="14.333333333333334"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Café   Western Food" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="keJ-c4-OtV">
+                                                <rect key="frame" x="121.66666666666666" y="0.0" width="281.33333333333337" height="14.333333333333334"/>
                                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
                                                 <color key="textColor" name="LabelOffer"/>
                                                 <nil key="highlightedColor"/>
@@ -107,7 +101,6 @@
             <connections>
                 <outlet property="btnStar" destination="sLo-oH-077" id="LVJ-Y4-POi"/>
                 <outlet property="imgOffer" destination="GMK-Ia-GAb" id="R6Q-N4-wes"/>
-                <outlet property="lblCafe" destination="B1U-9E-OYq" id="qZq-K6-0LA"/>
                 <outlet property="lblFoodVariety" destination="keJ-c4-OtV" id="Bwe-cl-uSe"/>
                 <outlet property="lblOfferTitle" destination="wpu-cc-3e4" id="Emp-bo-U3e"/>
                 <outlet property="lblRater" destination="72F-x5-QPd" id="tg3-uX-nZt"/>
