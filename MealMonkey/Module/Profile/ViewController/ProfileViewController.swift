@@ -33,6 +33,15 @@ class ProfileViewController: UIViewController {
     }
     
     @objc func btnCartTapped() {
+        let storyboard = UIStoryboard(name: "MenuStoryboard", bundle: nil)
+        if let cartVc = storyboard.instantiateViewController(
+            withIdentifier: "CartViewController"
+        ) as? CartViewController {
+            self.navigationController?.pushViewController(
+                cartVc,
+                animated: true
+            )
+        }
     }
     
     func setPadding(textfield: [UITextField]){

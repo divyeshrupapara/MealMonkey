@@ -6,15 +6,24 @@ extension MenuViewController: UITableViewDelegate {
         
         switch indexPath.row {
             
-        case 2:
+        case 0:
             let storyboard = UIStoryboard(name: "MenuStoryboard", bundle: nil)
             if let VC = storyboard.instantiateViewController(withIdentifier: "DessertsViewController") as? DessertsViewController {
+                VC.selectedProductType = .food
                 self.navigationController?.pushViewController(VC, animated: true)
             }
            
-        case 3:
+        case 1:
             let storyboard = UIStoryboard(name: "MenuStoryboard", bundle: nil)
-            if let VC = storyboard.instantiateViewController(withIdentifier: "FoodDetailViewController") as? FoodDetailViewController {
+            if let VC = storyboard.instantiateViewController(withIdentifier: "DessertsViewController") as? DessertsViewController {
+                VC.selectedProductType = .Beverages
+                self.navigationController?.pushViewController(VC, animated: true)
+            }
+           
+        case 2:
+            let storyboard = UIStoryboard(name: "MenuStoryboard", bundle: nil)
+            if let VC = storyboard.instantiateViewController(withIdentifier: "DessertsViewController") as? DessertsViewController {
+                VC.selectedProductType = .Desserts
                 self.navigationController?.pushViewController(VC, animated: true)
             }
             

@@ -15,11 +15,11 @@ class DessertsTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func dessertConfigureCell(dessert: DessertsModel) {
-        lblDessertTitle.text = dessert.strDessertsTitle
-        lblText.attributedText = getStyledText(dessert.strText ?? "")
-        lblRating.text = "\(dessert.floatRating ?? 0.0)"
-        imgDessert.image = UIImage(named: dessert.imgDesserts ?? "")
+    func dessertConfigureCell(dessert: ProductModel) {
+        lblDessertTitle.text = dessert.strProductName
+        lblText.attributedText = getStyledText(dessert.strProductDescription)
+        lblRating.text = "\(dessert.floatProductRating)"
+        imgDessert.image = UIImage(named: dessert.strProductImage)
     }
     
     private func getStyledText(_ text: String) -> NSAttributedString {

@@ -23,10 +23,7 @@ class ClassCategory: NSObject {
                           imgCategory: "ic_Beverages"),
             ClassCategory(strCategoryName: "Desserts",
                           intItems: 155,
-                          imgCategory: "ic_Desserts"),
-            ClassCategory(strCategoryName: "Promotions",
-                          intItems: 25,
-                          imgCategory: "ic_Promotions")
+                          imgCategory: "ic_Desserts")
         ]
     }
 }

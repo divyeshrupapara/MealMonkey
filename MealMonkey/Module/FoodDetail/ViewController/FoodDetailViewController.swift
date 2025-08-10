@@ -53,7 +53,15 @@ class FoodDetailViewController: UIViewController {
     }
     
     @objc func btnCartTapped() {
-        self.navigationController?.popViewController(animated: true)
+        let storyboard = UIStoryboard(name: "MenuStoryboard", bundle: nil)
+        if let cartVc = storyboard.instantiateViewController(
+            withIdentifier: "CartViewController"
+        ) as? CartViewController {
+            self.navigationController?.pushViewController(
+                cartVc,
+                animated: true
+            )
+        }
     }
     
     @IBAction func btnIngredientsNameClick(_ sender: Any) {
