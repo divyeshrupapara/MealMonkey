@@ -1,12 +1,11 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-
+    
     @IBOutlet weak var txtSearchFood: UITextField!
     @IBOutlet weak var tblHome: UITableView!
     
     var arrProductData: [ProductModel] = ProductModel.addProductData()
-    var objProductCategory: ProductModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,13 +24,8 @@ class HomeViewController: UIViewController {
     
     @objc func btnCartTapped() {
         let storyboard = UIStoryboard(name: "MenuStoryboard", bundle: nil)
-        if let cartVc = storyboard.instantiateViewController(
-            withIdentifier: "CartViewController"
-        ) as? CartViewController {
-            self.navigationController?.pushViewController(
-                cartVc,
-                animated: true
-            )
+        if let VC = storyboard.instantiateViewController(withIdentifier: "CartViewController") as? CartViewController {
+            self.navigationController?.pushViewController(VC, animated: true)
         }
     }
 }

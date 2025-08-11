@@ -8,12 +8,16 @@ class NewPasswordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = ""
         self.navigationController?.isNavigationBarHidden = false
+        setLeftAlignedTitleWithBack("New Password", target: self, action: #selector(btnBackTapped))
         
         viewStyle(cornerRadius: 28, borderWidth: 0, borderColor: .gray, textField: [txtNewPassword, txtConfiemPassword, btnNext])
         
         setPadding(textfield: [txtNewPassword, txtConfiemPassword])
+    }
+    
+    @objc func btnBackTapped() {
+        self.navigationController?.popViewController(animated: true)
     }
     
     func setPadding(textfield: [UITextField]){

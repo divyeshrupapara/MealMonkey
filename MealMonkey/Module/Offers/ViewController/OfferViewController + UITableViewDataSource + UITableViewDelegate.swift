@@ -1,9 +1,6 @@
 import Foundation
 import UIKit
 
-extension OffersViewController: UITableViewDelegate {
-}
-
 extension OffersViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrOffer.count

@@ -712,7 +712,7 @@ link to  create a new password via email</string>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mg5-Jk-59B">
                                 <rect key="frame" x="0.0" y="118" width="393" height="666"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="96b-qb-L11">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="96b-qb-L11">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="666"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AMg-R6-oQj">
@@ -984,11 +984,11 @@ continue to reset your password</string>
                                     <constraint firstItem="E2m-gR-UAT" firstAttribute="top" secondItem="GxL-O9-MDj" secondAttribute="bottom" constant="33" id="NIK-zT-9lo"/>
                                     <constraint firstItem="h0i-Oc-8hb" firstAttribute="top" secondItem="Gt4-nH-fA6" secondAttribute="top" constant="42" id="Pmf-9x-vcN"/>
                                     <constraint firstItem="0eb-3S-Aey" firstAttribute="centerX" secondItem="Gt4-nH-fA6" secondAttribute="centerX" id="f2g-Sl-nhs"/>
+                                    <constraint firstItem="E2m-gR-UAT" firstAttribute="centerX" secondItem="Gt4-nH-fA6" secondAttribute="centerX" id="hOL-NJ-169"/>
                                     <constraint firstItem="0eb-3S-Aey" firstAttribute="top" secondItem="h0i-Oc-8hb" secondAttribute="bottom" constant="13" id="lCJ-X9-Iko"/>
                                     <constraint firstItem="GxL-O9-MDj" firstAttribute="leading" secondItem="Gt4-nH-fA6" secondAttribute="leading" constant="34" id="rvq-Me-AAR"/>
                                     <constraint firstItem="h0i-Oc-8hb" firstAttribute="centerX" secondItem="Gt4-nH-fA6" secondAttribute="centerX" id="skf-uo-6Iw"/>
                                     <constraint firstItem="xV4-oJ-MSr" firstAttribute="top" secondItem="0eb-3S-Aey" secondAttribute="bottom" constant="53" id="u7t-CJ-vdz"/>
-                                    <constraint firstItem="E2m-gR-UAT" firstAttribute="centerX" secondItem="Gt4-nH-fA6" secondAttribute="centerX" id="uxT-bq-lPd"/>
                                 </constraints>
                             </view>
                         </subviews>

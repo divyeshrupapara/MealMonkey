@@ -8,6 +8,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var txtMobileNo: UITextField!
     @IBOutlet weak var txtAddress: UITextField!
     @IBOutlet weak var btnSave: UIButton!
+    @IBOutlet weak var btnSignOut: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,13 +35,8 @@ class ProfileViewController: UIViewController {
     
     @objc func btnCartTapped() {
         let storyboard = UIStoryboard(name: "MenuStoryboard", bundle: nil)
-        if let cartVc = storyboard.instantiateViewController(
-            withIdentifier: "CartViewController"
-        ) as? CartViewController {
-            self.navigationController?.pushViewController(
-                cartVc,
-                animated: true
-            )
+        if let VC = storyboard.instantiateViewController(withIdentifier: "CartViewController") as? CartViewController {
+            self.navigationController?.pushViewController(VC, animated: true)
         }
     }
     
@@ -48,6 +44,13 @@ class ProfileViewController: UIViewController {
         
         for item in textfield {
             item.setPadding(left: 34, right: 34)
+        }
+    }
+    
+    @IBAction func btnSignOutClick(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "UserStoryboard", bundle: nil)
+        if let VC = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
+            self.navigationController?.pushViewController(VC, animated: true)
         }
     }
 }

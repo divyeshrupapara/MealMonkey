@@ -3,18 +3,13 @@ import MapKit
 import CoreLocation
 import UIKit
 
-extension AddressViewController: UITableViewDelegate {
-}
-
 extension AddressViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: OffersTableViewCell = tableView.dequeueReusableCell(withIdentifier: "OffersTableViewCell", for: indexPath) as! OffersTableViewCell
-        
-//                cell.offerConfigureCell(offer: arrOffer[indexPath.row])
+        let cell: AddressTableViewCell = tableView.dequeueReusableCell(withIdentifier: "AddressTableViewCell", for: indexPath) as! AddressTableViewCell
         return cell
     }
 }

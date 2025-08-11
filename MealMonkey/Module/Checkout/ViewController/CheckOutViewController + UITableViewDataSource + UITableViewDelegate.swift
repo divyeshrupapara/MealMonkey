@@ -1,8 +1,6 @@
 import Foundation
 import UIKit
 
-extension CheckoutViewController: UITableViewDelegate { }
-
 extension CheckoutViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

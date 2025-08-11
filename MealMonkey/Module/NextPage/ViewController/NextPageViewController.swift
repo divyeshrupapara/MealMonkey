@@ -1,7 +1,7 @@
 import UIKit
 
 class NextPageViewController: UIViewController {
-
+    
     @IBOutlet weak var collectionViewNextPage: UICollectionView!
     @IBOutlet weak var btnDone: UIButton!
     @IBOutlet weak var pageControl: UIPageControl!
@@ -12,7 +12,7 @@ class NextPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.title = "Next Page"
         self.navigationController?.isNavigationBarHidden = true
         
@@ -22,14 +22,12 @@ class NextPageViewController: UIViewController {
     }
     
     private func showMainTabBar() {
-        
         let storyboard = UIStoryboard(name: "HomeStoryboard", bundle: nil)
         if let tabBarController = storyboard.instantiateViewController(withIdentifier: "MainTabViewController") as? UITabBarController {
-
-            // Set as rootViewController
+            
             if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
                let sceneDelegate = windowScene.delegate as? SceneDelegate {
-
+                
                 sceneDelegate.window?.rootViewController = tabBarController
                 sceneDelegate.window?.makeKeyAndVisible()
             }
@@ -37,6 +35,22 @@ class NextPageViewController: UIViewController {
     }
     
     @IBAction func btnDoneClick(_ sender: Any) {
-        showMainTabBar()
+        let currentIndex = pageControl.currentPage
+        
+        if arrNextPageData[currentIndex].strButtonText == .Next {
+            let nextIndex = currentIndex + 1
+            if nextIndex < arrNextPageData.count {
+                let indexPath = IndexPath(item: nextIndex, section: 0)
+                collectionViewNextPage.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+                
+                pageControl.currentPage = nextIndex
+                lblTitle.text = arrNextPageData[nextIndex].strTitle
+                lblDescription.text = arrNextPageData[nextIndex].strTitleDescription
+                let buttonTitle = arrNextPageData[nextIndex].strButtonText == .Done ? "Done" : "Next"
+                btnDone.setTitle(buttonTitle, for: .normal)
+            }
+        } else {
+            showMainTabBar()
+        }
     }
 }

@@ -11,13 +11,8 @@ class OrderListViewController: UIViewController {
     
     @objc func btnCartTapped() {
         let storyboard = UIStoryboard(name: "MenuStoryboard", bundle: nil)
-        if let cartVc = storyboard.instantiateViewController(
-            withIdentifier: "CartViewController"
-        ) as? CartViewController {
-            self.navigationController?.pushViewController(
-                cartVc,
-                animated: true
-            )
+        if let VC = storyboard.instantiateViewController(withIdentifier: "CartViewController") as? CartViewController {
+            self.navigationController?.pushViewController(VC, animated: true)
         }
     }
 }

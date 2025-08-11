@@ -2,6 +2,11 @@ import UIKit
 
 class FoodDetailViewController: UIViewController {
 
+    @IBOutlet weak var lblFoodName: UILabel!
+    @IBOutlet weak var lblFoodPrice: UILabel!
+    @IBOutlet weak var lblRating: UILabel!
+    @IBOutlet weak var lblFoodDescription: UILabel!
+    @IBOutlet weak var lblTotalPrice: UILabel!
     @IBOutlet weak var viewDetail: UIView!
     @IBOutlet weak var btnMinusQty: UIButton!
     @IBOutlet weak var btnPlusQty: UIButton!
@@ -14,9 +19,29 @@ class FoodDetailViewController: UIViewController {
     @IBOutlet weak var stackIngredients: UIStackView!
     @IBOutlet weak var btnProtion: UIButton!
     @IBOutlet weak var btnIngredients: UIButton!
+    
+    private var appDelegate: AppDelegate? {
+        return UIApplication.shared.delegate as? AppDelegate
+    }
+    
+    var product: ProductModel?
+    var quantity: Int = 1
+    
+    var cartItems: [(product: ProductModel, quantity: Int)] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        quantity = 1
+        lblQuantity.text = "\(quantity)"
+        
+        if let product = product {
+//            imgFood.image = UIImage(named: product.strProductImage)
+            lblFoodName.text = product.strProductName
+            lblFoodDescription.text = product.strProductDescription
+            lblFoodPrice.text = "\(product.doubleProductPrice) $"
+        }
+        
         setLeftAlignedTitleWithBack("",
                                     textColor: .buttonText,
                                     target: self,
@@ -48,19 +73,51 @@ class FoodDetailViewController: UIViewController {
         viewDetail.layer.shadowRadius = 10
     }
     
+    func configureUI() {
+        guard let product = product else { return }
+        self.title = product.strProductName
+        // Set the UI elements using the product's properties.
+        lblFoodName.text = product.strProductName
+        lblFoodDescription.text = product.strProductDescription
+//        imgFood.image = UIImage(named: product.strProductImage)
+//        lblRating.text = "\(product.floatProductRating) (\(product.intTotalNumberOfRatings) ratings)"
+        updatePriceAndQuantityUI()
+    }
+    
+    func updatePriceAndQuantityUI() {
+        guard let product = product else { return }
+        let total = product.doubleProductPrice * Double(quantity)
+        lblFoodPrice.text = "$\(String(format: "%.2f", product.doubleProductPrice))"
+        lblTotalPrice.text = "$\(String(format: "%.2f", total))"
+        lblQuantity.text = "\(quantity)"
+        btnProtion.isEnabled = quantity > 1
+    }
+    
+    func checkProduct(productToAdd: ProductModel) {
+        guard let appDelegate = appDelegate else { return }
+        
+        // Find if the product already exists in the cart.
+        if let existingIndex = appDelegate.arrCart.firstIndex(where: { $0.intId == productToAdd.intId }) {
+            // If it exists, update its quantity and total price.
+            appDelegate.arrCart[existingIndex].intProductQty = quantity
+            print("Updated \(productToAdd.strProductName) quantity to \(quantity).")
+        } else {
+            // If it's a new product, set its quantity and add it to the cart.
+            let newProduct = productToAdd
+            newProduct.intProductQty = quantity
+            appDelegate.arrCart.append(newProduct)
+            print("Added \(productToAdd.strProductName) with quantity \(quantity).")
+        }
+    }
+    
     @objc func btnBackTapped() {
         self.navigationController?.popViewController(animated: true)
     }
     
     @objc func btnCartTapped() {
         let storyboard = UIStoryboard(name: "MenuStoryboard", bundle: nil)
-        if let cartVc = storyboard.instantiateViewController(
-            withIdentifier: "CartViewController"
-        ) as? CartViewController {
-            self.navigationController?.pushViewController(
-                cartVc,
-                animated: true
-            )
+        if let VC = storyboard.instantiateViewController(withIdentifier: "CartViewController") as? CartViewController {
+            self.navigationController?.pushViewController(VC, animated: true)
         }
     }
     
@@ -85,11 +142,24 @@ class FoodDetailViewController: UIViewController {
     }
     
     @IBAction func btnAddToCartTitleClick(_ sender: Any) {
+        guard let product = product else { return }
+        
+        checkProduct(productToAdd: product)
+        
+        let alert = UIAlertController(title: "Success", message: "Added to cart!", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
     
     @IBAction func btnMinusQtyClick(_ sender: Any) {
+        if quantity > 1 {
+            quantity -= 1
+            updatePriceAndQuantityUI()
+        }
     }
     
     @IBAction func btnPlusQtyClick(_ sender: Any) {
+        quantity += 1
+        updatePriceAndQuantityUI()
     }
 }

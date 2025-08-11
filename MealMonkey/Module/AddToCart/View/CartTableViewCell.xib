@@ -18,7 +18,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="516" height="197"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_masaladosa" translatesAutoresizingMaskIntoConstraints="NO" id="1Gg-YB-kNe">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Gg-YB-kNe">
                         <rect key="frame" x="16" y="12" width="100" height="100"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="100" id="OVS-O3-Jly"/>
@@ -118,18 +118,9 @@
                                 <rect key="frame" x="0.0" y="141.66666666666666" width="380" height="35.333333333333343"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Qty : " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rHe-gR-T1g">
-                                        <rect key="frame" x="0.0" y="0.0" width="35" height="35.333333333333336"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="35" id="79L-Jr-a0J"/>
-                                        </constraints>
+                                        <rect key="frame" x="0.0" y="0.0" width="380" height="35.333333333333336"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                         <color key="textColor" name="secondarylabelcolor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qQx-xy-UBc">
-                                        <rect key="frame" x="35" y="0.0" width="345" height="35.333333333333336"/>
-                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
-                                        <color key="textColor" name="loginsignupcolor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -160,7 +151,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="ic_masaladosa" width="832" height="448"/>
         <image name="trash.fill" catalog="system" width="117" height="128"/>
         <namedColor name="loginbtnbg">
             <color red="0.9882352941176471" green="0.37647058823529411" blue="0.066666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

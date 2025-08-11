@@ -328,6 +328,9 @@ meals and more!</string>
                                                         <state key="normal" title="Sign Out">
                                                             <color key="titleColor" name="LabelSecondaryColor"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="btnSignOutClick:" destination="tgk-By-OlE" eventType="touchUpInside" id="HRO-jp-wkn"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qzx-BW-weI">
                                                         <rect key="frame" x="158.66666666666666" y="152" width="69.666666666666657" height="12"/>
@@ -457,6 +460,7 @@ meals and more!</string>
                     <navigationItem key="navigationItem" id="Cut-pt-9wq"/>
                     <connections>
                         <outlet property="btnSave" destination="Guk-T9-L6m" id="WAs-Tg-W5i"/>
+                        <outlet property="btnSignOut" destination="3rt-AJ-NGK" id="Dz5-YX-ZuM"/>
                         <outlet property="imgProfile" destination="A0t-R1-yD0" id="yYn-wb-9Mc"/>
                         <outlet property="txtAddress" destination="3AL-p8-rIX" id="JyL-xE-tyR"/>
                         <outlet property="txtEmail" destination="bKI-mo-ZeY" id="vrV-vk-Mqk"/>

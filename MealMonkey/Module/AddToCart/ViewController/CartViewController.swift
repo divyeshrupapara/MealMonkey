@@ -1,10 +1,14 @@
 import UIKit
 
 class CartViewController: UIViewController {
-
+    
     @IBOutlet weak var btnPlaceOrder: UIButton!
     @IBOutlet weak var tblCartView: UITableView!
-   
+    
+    var cartItems: [ProductModel] {
+        return (UIApplication.shared.delegate as? AppDelegate)?.arrCart ?? []
+    }
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()

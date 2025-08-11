@@ -927,13 +927,11 @@ enum ProductType: String {
     case Desserts
 }
 
-enum ProductCategory: String {
-    case Punjabi
-    case Chinese
-    case Gujarati
-    case SouthIndian
-    case WesternFood
+enum ProductCategory: String, CaseIterable {
+    case All = "All"
+    case Punjabi = "Punjabi"
+    case Chinese = "Chinese"
+    case Gujarati = "Gujarati"
+    case SouthIndian = "SouthIndian"
+    case WesternFood = "WesternFood"
 }
-
-
-

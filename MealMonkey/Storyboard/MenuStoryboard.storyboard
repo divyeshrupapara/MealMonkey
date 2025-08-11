@@ -570,7 +570,12 @@
                         <outlet property="btnMinusQty" destination="i6t-rN-vyQ" id="edh-y3-Aot"/>
                         <outlet property="btnPlusQty" destination="S51-v3-UK7" id="Zol-sR-S3D"/>
                         <outlet property="btnProtion" destination="m0J-ZR-ODf" id="3P1-ge-UEK"/>
+                        <outlet property="lblFoodDescription" destination="PYY-mH-8Qs" id="a7g-0c-U05"/>
+                        <outlet property="lblFoodName" destination="aq5-iC-onx" id="V8f-6k-DgP"/>
+                        <outlet property="lblFoodPrice" destination="hCJ-Ms-D7n" id="Dn7-og-rEI"/>
                         <outlet property="lblQuantity" destination="9BR-0i-2K2" id="Xok-2q-6kW"/>
+                        <outlet property="lblRating" destination="Xzu-B3-sfo" id="w0Z-pd-pkb"/>
+                        <outlet property="lblTotalPrice" destination="0Z2-6m-5pA" id="5Ge-IQ-fY5"/>
                         <outlet property="stackIngredients" destination="6uV-rY-yLd" id="AT2-lN-eF7"/>
                         <outlet property="stackProtion" destination="qiV-Ci-keO" id="X9H-Wu-MAN"/>
                         <outlet property="viewDetail" destination="pKW-rP-i4V" id="uiI-Xp-8D5"/>
@@ -585,7 +590,7 @@
         <!--Cart View Controller-->
         <scene sceneID="8ze-p2-tE8">
             <objects>
-                <viewController storyboardIdentifier="CartViewController" id="o2f-O0-BNz" customClass="CartViewController" customModule="Meal_Monkey_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CartViewController" id="o2f-O0-BNz" customClass="CartViewController" customModule="MealMonkey" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cwo-BC-gzx">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -638,7 +643,7 @@
         <!--Order List View Controller-->
         <scene sceneID="VfY-dF-zWx">
             <objects>
-                <viewController storyboardIdentifier="OrderListViewController" id="aQM-NV-PPz" customClass="OrderListViewController" customModule="Meal_Monkey_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OrderListViewController" id="aQM-NV-PPz" customClass="OrderListViewController" customModule="MealMonkey" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xu9-Bm-6lC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

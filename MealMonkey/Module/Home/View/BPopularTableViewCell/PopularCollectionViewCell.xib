@@ -104,6 +104,9 @@
             <size key="customSize" width="410" height="302"/>
             <connections>
                 <outlet property="imgPopular" destination="bPv-oh-u6L" id="fTl-KR-bah"/>
+                <outlet property="lblFoodName" destination="rrm-Ud-Q0u" id="1Ka-Ou-ftl"/>
+                <outlet property="lblFoodRating" destination="p26-Ca-9df" id="9ho-nD-jxl"/>
+                <outlet property="lblFoodType" destination="vkM-Zk-hAw" id="Mvr-QL-CGP"/>
             </connections>
             <point key="canvasLocation" x="358.77862595419845" y="108.45070422535211"/>
         </collectionViewCell>

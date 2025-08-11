@@ -1,9 +1,6 @@
 import Foundation
 import UIKit
 
-extension AboutUsViewController: UITableViewDelegate {
-}
-
 extension AboutUsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         

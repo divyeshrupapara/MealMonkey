@@ -12,5 +12,7 @@ class HomeCategoryCollectionViewCell: UICollectionViewCell {
     }
     
     func categoryConfigureCell(category: ProductModel) {
+        lblCategory.text = category.objProductCategory.rawValue
+        imgCategory.image = UIImage(named: category.strProductImage)
     }
 }

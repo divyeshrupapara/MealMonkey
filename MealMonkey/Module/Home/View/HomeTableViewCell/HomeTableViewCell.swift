@@ -10,12 +10,16 @@ class HomeTableViewCell: UITableViewCell {
     enum CollectionType {
         case category
         case popular
-        
         case mostPopular
         case RecentItems
     }
     
     var collectionType: CollectionType = .category
+    var products: [ProductModel] = [] {
+        didSet {
+            collectionViewHome.reloadData()
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -41,33 +45,29 @@ class HomeTableViewCell: UITableViewCell {
 extension HomeTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        switch collectionType {
-        case .category:
-            return 5
-        case .popular:
-            return 3
-        case .mostPopular:
-            return 2
-        case .RecentItems:
-            return 3
-        }
+        
+        return products.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
+        let product = products[indexPath.row]
+        
         switch collectionType {
         case .category:
             let cell: HomeCategoryCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeCategoryCollectionViewCell", for: indexPath) as! HomeCategoryCollectionViewCell
+            let categoryProduct = products[indexPath.row]
+            cell.categoryConfigureCell(category: categoryProduct)
             return cell
             
         case .popular:
             let cell: PopularCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "PopularCollectionViewCell", for: indexPath) as! PopularCollectionViewCell
-            // configure for popular
+            cell.popularConfigureCell(product: product)
             return cell
             
         case .mostPopular:
             let cell: MostPopularCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MostPopularCollectionViewCell", for: indexPath) as! MostPopularCollectionViewCell
-            // configure for most popular
+            cell.mostPopularConfigureCell(product: product)
             return cell
             
         case .RecentItems:
@@ -80,11 +80,11 @@ extension HomeTableViewCell: UICollectionViewDataSource, UICollectionViewDelegat
         if collectionType == .category {
             return CGSize(width: 88, height: 113)
         } else if collectionType == .popular {
-            return CGSize(width: 375, height: 242.19)
+            return CGSize(width: collectionViewHome.frame.size.width, height: 242.19)
         } else if collectionType == .mostPopular {
             return CGSize(width: 228, height: 185)
         } else if collectionType == .RecentItems {
-            return CGSize(width: 296, height: 79)
+            return CGSize(width: collectionViewHome.frame.size.width, height: 79)
         } else{
             return CGSize(width: 100, height: 100)
         }

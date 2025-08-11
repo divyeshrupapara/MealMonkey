@@ -33,19 +33,8 @@ class CheckoutViewController: UIViewController {
         viewTransperent.isHidden = true
         viewThankYou.isHidden = true
         
-        viewAddCard2.layer.cornerRadius = 20
-        viewAddCard2.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        viewAddCard2.layer.shadowColor = UIColor.black.cgColor
-        viewAddCard2.layer.shadowOpacity = 0.2
-        viewAddCard2.layer.shadowOffset = CGSize(width: 0, height: -2)
-        viewAddCard2.layer.shadowRadius = 10
         
-        viewThankYou2.layer.cornerRadius = 20
-        viewThankYou2.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        viewThankYou2.layer.shadowColor = UIColor.black.cgColor
-        viewThankYou2.layer.shadowOpacity = 0.2
-        viewThankYou2.layer.shadowOffset = CGSize(width: 0, height: -2)
-        viewThankYou2.layer.shadowRadius = 10
+        setViewTopCornerRadius(views: [viewAddCard2, viewThankYou2])
         
         viewStyle(cornerRadius: 28, borderWidth: 0, borderColor: .systemGray, textField: [txtCardNumber, txtExpiryMonth, txtExpiryYear, txtSecureCode, txtFirstName, txtLastName, btnEnterCard, btnTrackYourOrder])
         
@@ -58,6 +47,17 @@ class CheckoutViewController: UIViewController {
         tblCheckOutCard.register(UINib(nibName: "CashOnDeliveryTableViewCell", bundle: nil), forCellReuseIdentifier: "CashOnDeliveryTableViewCell")
         tblCheckOutCard.register(UINib(nibName: "AddCardTableViewCell", bundle: nil), forCellReuseIdentifier: "AddCardTableViewCell")
         tblCheckOutCard.register(UINib(nibName: "UPITableViewCell", bundle: nil), forCellReuseIdentifier: "UPITableViewCell")
+    }
+    
+    func setViewTopCornerRadius(views: [UIView]) {
+        for view in views {
+            view.layer.cornerRadius = 20
+            view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+            view.layer.shadowColor = UIColor.black.cgColor
+            view.layer.shadowOpacity = 0.2
+            view.layer.shadowOffset = CGSize(width: 0, height: -2)
+            view.layer.shadowRadius = 10
+        }
     }
     
     @objc func btnBackTapped() {

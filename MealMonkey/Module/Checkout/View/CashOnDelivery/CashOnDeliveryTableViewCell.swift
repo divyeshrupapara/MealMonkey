@@ -1,10 +1,3 @@
-//
-//  CashOnDeliveryTableViewCell.swift
-//  MealMonkey
-//
-//  Created by Divyesh Rupapara on 08/08/25.
-//
-
 import UIKit
 
 class CashOnDeliveryTableViewCell: UITableViewCell {
@@ -17,8 +10,5 @@ class CashOnDeliveryTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
-    
 }
