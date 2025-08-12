@@ -10,6 +10,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell", for: indexPath) as! HomeTableViewCell
+        cell.delegate = self
         
         if let layout = cell.collectionViewHome.collectionViewLayout as? UICollectionViewFlowLayout {
             if indexPath.row == 0 || indexPath.row == 2 {
@@ -24,50 +25,49 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.row {
         case 0:
             cell.collectionType = .category
-            cell.lblCollectionViewTitle.isHidden = true
-            cell.btnViewAll.isHidden = true
-            
-            // Build category list from enum
-            cell.products = ProductCategory.allCases.map { category in
+            cell.products = ProductCategory.allCases.map {
                 ProductModel(
                     intId: 0,
                     strProductName: "",
                     strProductDescription: "",
                     floatProductRating: 0,
                     doubleProductPrice: 0,
-                    strProductImage: imageNameForCategory(category),
+                    strProductImage: imageNameForCategory($0),
                     intTotalNumberOfRatings: 0,
-                    objProductCategory: category,
+                    objProductCategory: $0,
                     objProductType: .food
                 )
             }
-            
-            cell.collectionViewHome.layoutIfNeeded()
-            cell.collectionViewHomeHeight.constant =
-                cell.collectionViewHome.collectionViewLayout.collectionViewContentSize.height
-
+            cell.lblCollectionViewTitle.isHidden = true
+            cell.btnViewAll.isHidden = true
+            cell.collectionViewHomeHeight.constant = 113
             
         case 1:
             cell.collectionType = .popular
+            cell.products = productManager.popularProducts
             cell.lblCollectionViewTitle.isHidden = false
             cell.btnViewAll.isHidden = false
-            cell.products = arrProductData.filter { $0.floatProductRating == 4.3 }
-            cell.collectionViewHomeHeight.constant = cell.collectionViewHome.collectionViewLayout.collectionViewContentSize.height
+            cell.collectionViewHome.layoutIfNeeded()
+            cell.collectionViewHomeHeight.constant =
+            cell.collectionViewHome.collectionViewLayout.collectionViewContentSize.height
             cell.lblCollectionViewTitle.text = "Popular"
             
         case 2:
             cell.collectionType = .mostPopular
+            cell.products = productManager.mostPopularProducts
             cell.lblCollectionViewTitle.isHidden = false
             cell.btnViewAll.isHidden = false
             cell.lblCollectionViewTitle.text = "Most Popular"
-            cell.products = arrProductData.filter { $0.floatProductRating == 4.8 }
             cell.collectionViewHomeHeight.constant = 185
             
         case 3:
             cell.collectionType = .RecentItems
+            cell.products = productManager.recentProducts
             cell.lblCollectionViewTitle.isHidden = false
             cell.btnViewAll.isHidden = false
-            cell.collectionViewHomeHeight.constant = cell.collectionViewHome.collectionViewLayout.collectionViewContentSize.height
+            cell.collectionViewHome.layoutIfNeeded()
+            cell.collectionViewHomeHeight.constant =
+            cell.collectionViewHome.collectionViewLayout.collectionViewContentSize.height
             cell.lblCollectionViewTitle.text = "Recent Items"
             
         default:
@@ -78,9 +78,21 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let storyboard = UIStoryboard(name: "MenuStoryboard", bundle: nil)
+        if let detailVC = storyboard.instantiateViewController(withIdentifier: "FoodDetailViewController") as? FoodDetailViewController {
+            let product = ProductDataManager.shared.allProducts[indexPath.row]
+            
+            detailVC.product = product// Pass the selected product
+            navigationController?.pushViewController(detailVC, animated: true)
+        }
+    }
+    
     func imageNameForCategory(_ category: ProductCategory) -> String {
         switch category {
-        case .All: return "ic_all"
+        case .All : return "ic_all"
         case .Punjabi: return "ic_punjabi"
         case .Chinese: return "ic_chinese"
         case .Gujarati: return "ic_gujarati"
@@ -89,3 +101,23 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 }
+
+extension HomeViewController: HomeTableViewCellDelegate {
+    
+    func homeTableViewCell(_ cell: HomeTableViewCell, didSelectCategory category: ProductCategory) {
+        ProductDataManager.shared.setCategory(category)
+        tblHome.reloadData()
+    }
+    
+    func homeTableViewCell(_ cell: HomeTableViewCell, didSelectProduct product: ProductModel) {
+        ProductDataManager.shared.addRecentProduct(product.intId)
+        tblHome.reloadRows(at: [IndexPath(row: 3, section: 0)], with: .automatic)
+        
+        let storyboard = UIStoryboard(name: "MenuStoryboard", bundle: nil)
+        if let detailVC = storyboard.instantiateViewController(withIdentifier: "FoodDetailViewController") as? FoodDetailViewController {
+            detailVC.product = product
+            navigationController?.pushViewController(detailVC, animated: true)
+        }
+    }
+}
+

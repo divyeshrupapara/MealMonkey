@@ -16,13 +16,13 @@ class ClassCategory: NSObject {
         
         return [
             ClassCategory(strCategoryName: "Food",
-                          intItems: 120,
+                          intItems: 25,
                           imgCategory: "ic_Food"),
             ClassCategory(strCategoryName: "Beverages",
-                          intItems: 220,
+                          intItems: 25,
                           imgCategory: "ic_Beverages"),
             ClassCategory(strCategoryName: "Desserts",
-                          intItems: 155,
+                          intItems: 25,
                           imgCategory: "ic_Desserts")
         ]
     }

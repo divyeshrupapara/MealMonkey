@@ -2,6 +2,7 @@ import UIKit
 
 class FoodDetailViewController: UIViewController {
 
+    @IBOutlet weak var imgFood: UIImageView!
     @IBOutlet weak var lblFoodName: UILabel!
     @IBOutlet weak var lblFoodPrice: UILabel!
     @IBOutlet weak var lblRating: UILabel!
@@ -36,12 +37,14 @@ class FoodDetailViewController: UIViewController {
         lblQuantity.text = "\(quantity)"
         
         if let product = product {
-//            imgFood.image = UIImage(named: product.strProductImage)
+            imgFood.image = UIImage(named: product.strProductImage)
             lblFoodName.text = product.strProductName
             lblFoodDescription.text = product.strProductDescription
             lblFoodPrice.text = "\(product.doubleProductPrice) $"
+            lblRating.text = "\(product.floatProductRating) Star Ratings"
         }
         
+        self.navigationController?.isNavigationBarHidden = false
         setLeftAlignedTitleWithBack("",
                                     textColor: .buttonText,
                                     target: self,
@@ -79,8 +82,8 @@ class FoodDetailViewController: UIViewController {
         // Set the UI elements using the product's properties.
         lblFoodName.text = product.strProductName
         lblFoodDescription.text = product.strProductDescription
-//        imgFood.image = UIImage(named: product.strProductImage)
-//        lblRating.text = "\(product.floatProductRating) (\(product.intTotalNumberOfRatings) ratings)"
+        imgFood.image = UIImage(named: product.strProductImage)
+        lblRating.text = String(format: "%.1f (%d ratings)", product.floatProductRating, product.intTotalNumberOfRatings)
         updatePriceAndQuantityUI()
     }
     

@@ -16,10 +16,14 @@ class DessertsTableViewCell: UITableViewCell {
     }
     
     func dessertConfigureCell(dessert: ProductModel) {
-        lblDessertTitle.text = dessert.strProductName
-        lblText.attributedText = getStyledText(dessert.strProductDescription)
-        lblRating.text = "\(dessert.floatProductRating)"
-        imgDessert.image = UIImage(named: dessert.strProductImage)
+        DispatchQueue.main.async {
+             self.lblDessertTitle.text = dessert.strProductName
+             self.lblText.attributedText = self.getStyledText(dessert.strProductDescription)
+             self.lblRating.text = "\(dessert.floatProductRating)"
+             self.imgDessert.image = UIImage(named: dessert.strProductImage)
+             self.setNeedsLayout()
+             self.layoutIfNeeded()
+         }
     }
     
     private func getStyledText(_ text: String) -> NSAttributedString {

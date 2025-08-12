@@ -5,7 +5,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var txtSearchFood: UITextField!
     @IBOutlet weak var tblHome: UITableView!
     
-    var arrProductData: [ProductModel] = ProductModel.addProductData()
+    let productManager = ProductDataManager.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +19,10 @@ class HomeViewController: UIViewController {
         
         tblHome.showsVerticalScrollIndicator = false
         tblHome.register(UINib(nibName: "HomeTableViewCell", bundle: nil), forCellReuseIdentifier: "HomeTableViewCell")
+        tblHome.reloadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         tblHome.reloadData()
     }
     

@@ -6,6 +6,8 @@ extension DessertsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedProduct = arrProducts[indexPath.row]
         
+        productManager.addRecentProduct(selectedProduct.intId)
+        
         let storyboard = UIStoryboard(name: "MenuStoryboard", bundle: nil)
         if let detailVC = storyboard.instantiateViewController(withIdentifier: "FoodDetailViewController") as? FoodDetailViewController {
             
@@ -18,14 +20,15 @@ extension DessertsViewController: UITableViewDelegate {
 
 extension DessertsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrProducts.count // ✅ Use filtered array
+        return arrProducts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: DessertsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "DessertsTableViewCell", for: indexPath) as! DessertsTableViewCell
         
-        let product = arrProducts[indexPath.row] // ✅ Use filtered array
+        let product = arrProducts[indexPath.row]
         cell.dessertConfigureCell(dessert: product)
+        cell.layoutIfNeeded()
         return cell
     }
 }

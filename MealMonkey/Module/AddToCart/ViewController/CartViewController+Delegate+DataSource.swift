@@ -1,4 +1,3 @@
-
 import UIKit
 
 extension CartViewController: UITableViewDelegate,UITableViewDataSource {
@@ -21,7 +20,6 @@ extension CartViewController: UITableViewDelegate,UITableViewDataSource {
             
            tblCartView.reloadData()
         }
-        
         return cell
     }
 }

@@ -1,7 +1,13 @@
 import UIKit
 
+protocol HomeTableViewCellDelegate: AnyObject {
+    func homeTableViewCell(_ cell: HomeTableViewCell, didSelectCategory category: ProductCategory)
+    func homeTableViewCell(_ cell: HomeTableViewCell, didSelectProduct product: ProductModel)
+}
+
 class HomeTableViewCell: UITableViewCell {
     
+    weak var delegate: HomeTableViewCellDelegate?
     @IBOutlet weak var lblCollectionViewTitle: UILabel!
     @IBOutlet weak var btnViewAll: UIButton!
     @IBOutlet weak var collectionViewHome: UICollectionView!
@@ -72,6 +78,7 @@ extension HomeTableViewCell: UICollectionViewDataSource, UICollectionViewDelegat
             
         case .RecentItems:
             let cell: RecentItemsCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecentItemsCollectionViewCell", for: indexPath) as! RecentItemsCollectionViewCell
+            cell.recentItemConfigureCell(product: product)
             return cell
         }
     }
@@ -87,6 +94,16 @@ extension HomeTableViewCell: UICollectionViewDataSource, UICollectionViewDelegat
             return CGSize(width: collectionViewHome.frame.size.width, height: 79)
         } else{
             return CGSize(width: 100, height: 100)
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let product = products[indexPath.item]
+
+        if collectionType == .category {
+            delegate?.homeTableViewCell(self, didSelectCategory: product.objProductCategory)
+        } else {
+            delegate?.homeTableViewCell(self, didSelectProduct: product)
         }
     }
 }
