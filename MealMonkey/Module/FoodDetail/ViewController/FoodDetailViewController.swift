@@ -1,7 +1,7 @@
 import UIKit
 
 class FoodDetailViewController: UIViewController {
-
+    
     @IBOutlet weak var imgFood: UIImageView!
     @IBOutlet weak var lblFoodName: UILabel!
     @IBOutlet weak var lblFoodPrice: UILabel!
@@ -20,6 +20,7 @@ class FoodDetailViewController: UIViewController {
     @IBOutlet weak var stackIngredients: UIStackView!
     @IBOutlet weak var btnProtion: UIButton!
     @IBOutlet weak var btnIngredients: UIButton!
+    @IBOutlet weak var stackStar: UIStackView!
     
     private var appDelegate: AppDelegate? {
         return UIApplication.shared.delegate as? AppDelegate
@@ -32,7 +33,7 @@ class FoodDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         quantity = 1
         lblQuantity.text = "\(quantity)"
         
@@ -74,7 +75,32 @@ class FoodDetailViewController: UIViewController {
         viewDetail.layer.shadowOpacity = 0.2
         viewDetail.layer.shadowOffset = CGSize(width: 0, height: -2)
         viewDetail.layer.shadowRadius = 10
+        
+        fillStars(for: product?.floatProductRating ?? 0.0, in: stackStar)
     }
+    
+    func fillStars(for rating: Float, in stackView: UIStackView) {
+        for (index, view) in stackView.arrangedSubviews.enumerated() {
+            if let imageView = view as? UIImageView {
+                let starIndex = Float(index) + 1.0
+                
+                if rating >= starIndex {
+                    // Full star
+                    imageView.image = UIImage(systemName: "star.fill")
+                    imageView.tintColor = .systemYellow
+                } else if rating + 0.5 >= starIndex {
+                    // Half star
+                    imageView.image = UIImage(systemName: "star.lefthalf.fill")
+                    imageView.tintColor = .systemYellow
+                } else {
+                    // Empty star
+                    imageView.image = UIImage(systemName: "star")
+                    imageView.tintColor = .systemGray
+                }
+            }
+        }
+    }
+    
     
     func configureUI() {
         guard let product = product else { return }

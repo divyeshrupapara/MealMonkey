@@ -14,7 +14,7 @@ extension MoreViewController: UITableViewDelegate {
         
         case 1:
             let storyboard = UIStoryboard(name: "MoreStoryboard", bundle: nil)
-            if let VC = storyboard.instantiateViewController(withIdentifier: "MyOrderViewController") as? MyOrderViewController {
+            if let VC = storyboard.instantiateViewController(withIdentifier: "OrderListViewController") as? OrderListViewController {
                 self.navigationController?.pushViewController(VC, animated: true)
             }
         

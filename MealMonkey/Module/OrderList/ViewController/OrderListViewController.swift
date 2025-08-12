@@ -1,18 +1,22 @@
 import UIKit
 
 class OrderListViewController: UIViewController {
-
+    
     @IBOutlet weak var tblOrderList: UITableView!
+    
+    var orders: [[ProductModel]] {
+        return (UIApplication.shared.delegate as? AppDelegate)?.arrOrders ?? []
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setLeftAlignedTitleWithBack("Order List", target: self, action: #selector(btnCartTapped))
+        setLeftAlignedTitleWithBack("Order List", target: self, action: #selector(btnBackTapped))
+        
+        tblOrderList.register(UINib(nibName: "OrderListTableViewCell", bundle: nil), forCellReuseIdentifier: "OrderListTableViewCell")
     }
     
-    @objc func btnCartTapped() {
-        let storyboard = UIStoryboard(name: "MenuStoryboard", bundle: nil)
-        if let VC = storyboard.instantiateViewController(withIdentifier: "CartViewController") as? CartViewController {
-            self.navigationController?.pushViewController(VC, animated: true)
-        }
+    @objc func btnBackTapped() {
+        self.navigationController?.popViewController(animated: true)
     }
 }
