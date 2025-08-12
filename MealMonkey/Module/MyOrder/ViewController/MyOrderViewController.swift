@@ -2,7 +2,17 @@ import UIKit
 
 class MyOrderViewController: UIViewController {
     
+    @IBOutlet weak var imgRestaurant: UIImageView!
+    @IBOutlet weak var lblLocation: UILabel!
+    @IBOutlet weak var lblSubTotal: UILabel!
+    @IBOutlet weak var lblDeliveryCost: UILabel!
     @IBOutlet weak var btnCheckOut: UIButton!
+    @IBOutlet weak var tblMyOrder: UITableView!
+    @IBOutlet weak var lblTotal: UILabel!
+    
+    var ordersProducts: [ProductModel] = []
+    var floatDeliveryCost: Double = 5.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -10,7 +20,19 @@ class MyOrderViewController: UIViewController {
                                     target: self,
                                     action: #selector(btnBackTapped))
         viewStyle(cornerRadius: 28, borderWidth: 0, borderColor: .systemGray, textField: [btnCheckOut])
+        
+        calculateTotals()
+        
+        tblMyOrder.register(UINib(nibName: "MyOrderTableViewCell", bundle: nil), forCellReuseIdentifier: "MyOrderTableViewCell")
+        tblMyOrder.reloadData()
     }
+    
+    func calculateTotals() {
+            let subtotal = ordersProducts.reduce(0) { $0 + ($1.doubleProductPrice * Double($1.intProductQty!)) }
+            lblSubTotal.text = "$\(String(format: "%.2f", subtotal))"
+            lblDeliveryCost.text = "$\(String(format: "%.2f", floatDeliveryCost))"
+            lblTotal.text = "$\(String(format: "%.2f", subtotal + floatDeliveryCost))"
+        }
     
     @objc func btnBackTapped() {
         self.navigationController?.popViewController(animated: true)

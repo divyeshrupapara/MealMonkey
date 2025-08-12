@@ -15,3 +15,13 @@ extension OrderListViewController: UITableViewDataSource {
         return cell
     }
 }
+
+extension OrderListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "MoreStoryboard", bundle: nil)
+        if let VC = storyboard.instantiateViewController(withIdentifier: "MyOrderViewController") as? MyOrderViewController {
+            VC.ordersProducts = orders[indexPath.row]
+            self.navigationController?.pushViewController(VC, animated: true)
+        }
+    }
+}

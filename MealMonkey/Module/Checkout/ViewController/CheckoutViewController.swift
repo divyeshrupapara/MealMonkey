@@ -125,6 +125,23 @@ class CheckoutViewController: UIViewController {
         }
     }
     
+    private func showMainTabBar() {
+        let storyboard = UIStoryboard(name: "HomeStoryboard", bundle: nil)
+        if let tabBarController = storyboard.instantiateViewController(withIdentifier: "MainTabViewController") as? UITabBarController {
+            
+            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+               let sceneDelegate = windowScene.delegate as? SceneDelegate {
+                
+                sceneDelegate.window?.rootViewController = tabBarController
+                sceneDelegate.window?.makeKeyAndVisible()
+            }
+        }
+    }
+    
+    @IBAction func btnBackToHomeClick(_ sender: Any) {
+        showMainTabBar()
+    }
+    
     @IBAction func btnTrackYourOrderClick(_ sender: Any) {
     }
     

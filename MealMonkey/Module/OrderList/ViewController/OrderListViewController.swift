@@ -14,6 +14,7 @@ class OrderListViewController: UIViewController {
         setLeftAlignedTitleWithBack("Order List", target: self, action: #selector(btnBackTapped))
         
         tblOrderList.register(UINib(nibName: "OrderListTableViewCell", bundle: nil), forCellReuseIdentifier: "OrderListTableViewCell")
+        tblOrderList.reloadData()
     }
     
     @objc func btnBackTapped() {
