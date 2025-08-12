@@ -18,7 +18,7 @@ extension CartViewController: UITableViewDelegate,UITableViewDataSource {
             
             appDelegate.arrCart.remove(at: indexPath.row)
             
-           tblCartView.reloadData()
+            tblCartView.reloadData()
         }
         return cell
     }

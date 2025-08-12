@@ -21,10 +21,16 @@ class CartViewController: UIViewController {
     }
     
     @IBAction func btnPlaceOrderClick(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "MenuStoryboard", bundle: nil)
-        if storyboard.instantiateViewController(withIdentifier: "OrderListViewController") is OrderListViewController {
-            self.navigationController?.popViewController(animated: true)
-        }
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+         
+         if !appDelegate.arrCart.isEmpty {
+             // Save the current cart as a new order
+             appDelegate.arrOrders.append(appDelegate.arrCart)
+             
+             // Clear the cart
+             appDelegate.arrCart.removeAll()
+         }
+        self.navigationController?.popViewController(animated: true)
     }
     
     @objc func btnBackTapped() {

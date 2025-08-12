@@ -104,22 +104,22 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8.0999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="NDR-VX-PZK">
-                                                        <rect key="frame" x="21.999999999999993" y="63.333333333333314" width="111.33333333333331" height="16"/>
+                                                        <rect key="frame" x="21.999999999999993" y="63.333333333333314" width="115.33333333333331" height="16"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_starFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iec-o9-awQ">
-                                                                <rect key="frame" x="0.0" y="0.0" width="15.666666666666666" height="16"/>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_star" translatesAutoresizingMaskIntoConstraints="NO" id="Iec-o9-awQ">
+                                                                <rect key="frame" x="0.0" y="0.0" width="16.666666666666668" height="16"/>
                                                             </imageView>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_starFill" translatesAutoresizingMaskIntoConstraints="NO" id="tRx-qR-MeQ">
-                                                                <rect key="frame" x="23.666666666666664" y="0.0" width="15.666666666666664" height="16"/>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_star" translatesAutoresizingMaskIntoConstraints="NO" id="tRx-qR-MeQ">
+                                                                <rect key="frame" x="24.666666666666664" y="0.0" width="16.666666666666664" height="16"/>
                                                             </imageView>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_starFill" translatesAutoresizingMaskIntoConstraints="NO" id="SeF-An-Fwh">
-                                                                <rect key="frame" x="47.333333333333329" y="0.0" width="15.666666666666664" height="16"/>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_star" translatesAutoresizingMaskIntoConstraints="NO" id="SeF-An-Fwh">
+                                                                <rect key="frame" x="49.333333333333329" y="0.0" width="16.666666666666671" height="16"/>
                                                             </imageView>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_starFill" translatesAutoresizingMaskIntoConstraints="NO" id="FBN-bG-uOL">
-                                                                <rect key="frame" x="71" y="0.0" width="15.666666666666671" height="16"/>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_star" translatesAutoresizingMaskIntoConstraints="NO" id="FBN-bG-uOL">
+                                                                <rect key="frame" x="74" y="0.0" width="16.666666666666671" height="16"/>
                                                             </imageView>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_star" translatesAutoresizingMaskIntoConstraints="NO" id="hIq-Zr-hmW">
-                                                                <rect key="frame" x="94.666666666666671" y="0.0" width="16.666666666666671" height="16"/>
+                                                                <rect key="frame" x="98.666666666666671" y="0.0" width="16.666666666666671" height="16"/>
                                                             </imageView>
                                                         </subviews>
                                                     </stackView>
@@ -586,6 +586,7 @@
                         <outlet property="lblTotalPrice" destination="0Z2-6m-5pA" id="5Ge-IQ-fY5"/>
                         <outlet property="stackIngredients" destination="6uV-rY-yLd" id="AT2-lN-eF7"/>
                         <outlet property="stackProtion" destination="qiV-Ci-keO" id="X9H-Wu-MAN"/>
+                        <outlet property="stackStar" destination="NDR-VX-PZK" id="41G-79-Bgq"/>
                         <outlet property="viewDetail" destination="pKW-rP-i4V" id="uiI-Xp-8D5"/>
                         <outlet property="viewIngredients" destination="9wV-l3-dMD" id="cWh-1Z-XlC"/>
                         <outlet property="viewPortion" destination="eRD-Xx-imi" id="cmw-4h-zp3"/>
@@ -648,40 +649,6 @@
             </objects>
             <point key="canvasLocation" x="1666" y="4"/>
         </scene>
-        <!--Order List View Controller-->
-        <scene sceneID="VfY-dF-zWx">
-            <objects>
-                <viewController storyboardIdentifier="OrderListViewController" id="aQM-NV-PPz" customClass="OrderListViewController" customModule="MealMonkey" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="xu9-Bm-6lC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="o0U-kX-Xco">
-                                <rect key="frame" x="0.0" y="118" width="393" height="666"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="aQM-NV-PPz" id="dV4-7z-hLN"/>
-                                    <outlet property="delegate" destination="aQM-NV-PPz" id="BTE-SP-SwQ"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="eYK-Hi-weq"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="o0U-kX-Xco" firstAttribute="top" secondItem="eYK-Hi-weq" secondAttribute="top" id="BuK-fA-fGB"/>
-                            <constraint firstItem="eYK-Hi-weq" firstAttribute="bottom" secondItem="o0U-kX-Xco" secondAttribute="bottom" id="Ith-yh-dfH"/>
-                            <constraint firstItem="eYK-Hi-weq" firstAttribute="trailing" secondItem="o0U-kX-Xco" secondAttribute="trailing" id="Ox4-yH-Fb0"/>
-                            <constraint firstItem="o0U-kX-Xco" firstAttribute="leading" secondItem="eYK-Hi-weq" secondAttribute="leading" id="ce8-05-Mdl"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="tblOrderList" destination="o0U-kX-Xco" id="dVm-8j-BgP"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bAV-X8-KS2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2488" y="4"/>
-        </scene>
     </scenes>
     <resources>
         <image name="ic_backImageA" width="289" height="134"/>
@@ -690,7 +657,6 @@
         <image name="ic_dropDown" width="15.333333015441895" height="9.3333330154418945"/>
         <image name="ic_heart" width="20.666666030883789" height="17"/>
         <image name="ic_star" width="16.666666030883789" height="16"/>
-        <image name="ic_starFill" width="15.666666984558105" height="15"/>
         <namedColor name="ButtonBackgroundColor">
             <color red="0.9882352941176471" green="0.37647058823529411" blue="0.066666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
