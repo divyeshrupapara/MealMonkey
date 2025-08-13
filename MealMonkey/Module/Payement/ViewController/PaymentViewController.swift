@@ -16,6 +16,9 @@ class PaymentViewController: UIViewController {
     @IBOutlet weak var viewAddCard2: UIView!
     @IBOutlet weak var viewTransperent: UIView!
     
+    var arrCardData: [PaymentModel] = []
+    var objPaymentModel: PaymentModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,6 +42,20 @@ class PaymentViewController: UIViewController {
         
         tblCard.showsVerticalScrollIndicator = false
         tblCard.register(UINib(nibName: "CardTableViewCell", bundle: nil), forCellReuseIdentifier: "CardTableViewCell")
+        tblCard.reloadData()
+    }
+    
+    func addCardData() {
+        let obj = PaymentModel()
+        obj.intCardNumber = Int(txtCardNumber.text ?? "")
+        obj.intExpiryMonth = Int(txtExpiryMonth.text ?? "")
+        obj.intExpiryYear = Int(txtExpiryYear.text ?? "")
+        obj.intSecureCode = Int(txtSecureCode.text ?? "")
+        obj.strFirstName = txtFirstName.text ?? ""
+        obj.strLastName = txtLastName.text ?? ""
+        arrCardData.append(obj)
+        
+        tblCard.reloadData()
     }
     
     @objc func btnBackTapped() {
@@ -53,7 +70,23 @@ class PaymentViewController: UIViewController {
     }
     
     @IBAction func btnEnterCard(_ sender: Any) {
+        addCardData()
+        tblCard.reloadData()
+        UIView.animate(withDuration: 0.3, animations: {
+            self.viewEnterCard.transform = CGAffineTransform(translationX: 0, y: self.view.frame.height)
+        }) { _ in
+            self.viewEnterCard.isHidden = true
+            self.viewTransperent.isHidden = true
+            self.tabBarController?.tabBar.isHidden = false
+        }
+        txtLastName.text = ""
+        txtFirstName.text = ""
+        txtCardNumber.text = ""
+        txtExpiryMonth.text = ""
+        txtExpiryYear.text = ""
+        txtSecureCode.text = ""
     }
+    
     @IBAction func btnAddCardClick(_ sender: Any) {
         viewEnterCard.isHidden = false
         viewTransperent.isHidden = false
@@ -61,8 +94,8 @@ class PaymentViewController: UIViewController {
             self.viewEnterCard.transform = .identity
             self.tabBarController?.tabBar.isHidden = true
         }
-        
     }
+    
     @IBAction func btnCrossClick(_ sender: Any) {
         UIView.animate(withDuration: 0.3, animations: {
             self.viewEnterCard.transform = CGAffineTransform(translationX: 0, y: self.view.frame.height)
