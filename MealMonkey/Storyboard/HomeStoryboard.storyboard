@@ -30,6 +30,9 @@
                                         <color key="textColor" name="LabelPrimaryColor"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Y6W-OH-hqX" id="Dq3-wp-sbx"/>
+                                        </connections>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SeF-M3-7Kp">
                                         <rect key="frame" x="0.0" y="100" width="97" height="451"/>

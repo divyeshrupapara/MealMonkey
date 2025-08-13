@@ -4,6 +4,9 @@ import UIKit
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if isSearching {
+            return filteredProducts.count
+        }
         return 4
     }
     
@@ -45,6 +48,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         case 1:
             cell.collectionType = .popular
             cell.products = productManager.popularProducts
+            if !searchQuery.isEmpty {
+                cell.products = cell.products.filter { $0.strProductName.localizedCaseInsensitiveContains(searchQuery) }
+            }
             cell.lblCollectionViewTitle.isHidden = false
             cell.btnViewAll.isHidden = false
             cell.collectionViewHome.layoutIfNeeded()
@@ -55,6 +61,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         case 2:
             cell.collectionType = .mostPopular
             cell.products = productManager.mostPopularProducts
+            if !searchQuery.isEmpty {
+                cell.products = cell.products.filter { $0.strProductName.localizedCaseInsensitiveContains(searchQuery) }
+            }
             cell.lblCollectionViewTitle.isHidden = false
             cell.btnViewAll.isHidden = false
             cell.lblCollectionViewTitle.text = "Most Popular"
@@ -63,6 +72,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         case 3:
             cell.collectionType = .RecentItems
             cell.products = productManager.recentProducts
+            if !searchQuery.isEmpty {
+                cell.products = cell.products.filter { $0.strProductName.localizedCaseInsensitiveContains(searchQuery) }
+            }
             cell.lblCollectionViewTitle.isHidden = false
             cell.btnViewAll.isHidden = false
             cell.collectionViewHome.layoutIfNeeded()
@@ -121,3 +133,13 @@ extension HomeViewController: HomeTableViewCellDelegate {
     }
 }
 
+extension HomeViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if let currentText = textField.text as NSString? {
+            let updatedText = currentText.replacingCharacters(in: range, with: string)
+            searchQuery = updatedText.trimmingCharacters(in: .whitespacesAndNewlines)
+            tblHome.reloadData()
+        }
+        return true
+    }
+}

@@ -6,6 +6,9 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var tblHome: UITableView!
     
     let productManager = ProductDataManager.shared
+    var filteredProducts: [ProductModel] = []
+    var searchQuery: String = ""
+    var isSearching = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -14,7 +17,6 @@ class HomeViewController: UIViewController {
         setCartButton(target: self, action: #selector(btnCartTapped))
         
         viewStyle(cornerRadius: txtSearchFood.frame.size.height/2, borderWidth: 0, borderColor: .systemGray, textField: [txtSearchFood])
-        
         setPadding.setPadding(left: 34, right: 34, textfield: [txtSearchFood])
         
         tblHome.showsVerticalScrollIndicator = false

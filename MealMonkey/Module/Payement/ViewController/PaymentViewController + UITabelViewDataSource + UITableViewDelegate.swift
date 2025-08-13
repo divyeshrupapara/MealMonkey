@@ -4,17 +4,18 @@ import UIKit
 extension PaymentViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return arrCardData.count
+        return app.arrCardData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell: CardTableViewCell = tableView.dequeueReusableCell(withIdentifier: "CardTableViewCell", for: indexPath) as! CardTableViewCell
         
-        cell.cardConfigureCell(card: arrCardData[indexPath.row])
+        cell.cardConfigureCell(card: app.arrCardData[indexPath.row])
         
         cell.deleteCard = {
-            self.arrCardData.remove(at: indexPath.row)
+            app.arrCardData.remove(at: indexPath.row)
+            self.lblNoItem.isHidden = !app.arrCardData.isEmpty
             self.tblCard.reloadData()
         }
         return cell
@@ -54,6 +55,17 @@ extension PaymentViewController: UITextFieldDelegate {
             maxLength = 3
         default:
             break
+        }
+        
+        if updatedText.count == maxLength {
+            DispatchQueue.main.async { [weak self] in
+                switch textField {
+                case self?.txtSecureCode:
+                    self?.txtFirstName.becomeFirstResponder()
+                default:
+                    break
+                }
+            }
         }
         
         return updatedText.count <= maxLength

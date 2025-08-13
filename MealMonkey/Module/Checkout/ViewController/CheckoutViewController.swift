@@ -1,7 +1,7 @@
 import UIKit
 
 class CheckoutViewController: UIViewController {
-
+    
     @IBOutlet weak var btnSendOrder: UIButton!
     @IBOutlet weak var tblCheckOutCard: UITableView!
     @IBOutlet weak var btnAddCard: UIButton!
@@ -21,6 +21,18 @@ class CheckoutViewController: UIViewController {
     @IBOutlet weak var btnThankYouCross: UIButton!
     @IBOutlet weak var btnTrackYourOrder: UIButton!
     @IBOutlet weak var btnChangeAddress: UIButton!
+    @IBOutlet weak var lblSubTotal: UILabel!
+    @IBOutlet weak var lblDeliveryCost: UILabel!
+    @IBOutlet weak var lblDiscount: UILabel!
+    @IBOutlet weak var lblTotal: UILabel!
+    @IBOutlet weak var lblAddress: UILabel!
+    
+    var objPaymentModel: PaymentModel?
+    var subtotal: Double = 0.0
+    var deliveryCost: Double = 0.0
+    var discount: Double = 0.0
+    var selectedPaymentIndex: Int? = nil
+    var selectedAddress: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +44,8 @@ class CheckoutViewController: UIViewController {
         viewEnterCard.isHidden = true
         viewTransperent.isHidden = true
         viewThankYou.isHidden = true
-        
+    
+        calculate()
         
         setViewTopCornerRadius(views: [viewAddCard2, viewThankYou2])
         
@@ -47,6 +60,23 @@ class CheckoutViewController: UIViewController {
         tblCheckOutCard.register(UINib(nibName: "CashOnDeliveryTableViewCell", bundle: nil), forCellReuseIdentifier: "CashOnDeliveryTableViewCell")
         tblCheckOutCard.register(UINib(nibName: "AddCardTableViewCell", bundle: nil), forCellReuseIdentifier: "AddCardTableViewCell")
         tblCheckOutCard.register(UINib(nibName: "UPITableViewCell", bundle: nil), forCellReuseIdentifier: "UPITableViewCell")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let address = selectedAddress {
+            lblAddress.text = address
+        }
+    }
+    
+    func calculate() {
+        lblSubTotal.text = "$\(String(format: "%.2f", subtotal))"
+        lblDeliveryCost.text = "$\(String(format: "%.2f", deliveryCost))"
+        lblDiscount.text = "-$\(String(format: "%.2f", discount))"
+        
+        let total = subtotal + deliveryCost - discount
+        lblTotal.text = "$\(String(format: "%.2f", total))"
     }
     
     func setViewTopCornerRadius(views: [UIView]) {
@@ -65,9 +95,9 @@ class CheckoutViewController: UIViewController {
     }
     
     @IBAction func btnChangeAddressClick(_ sender: Any) {
-        
         let storyboard = UIStoryboard(name: "MoreStoryboard", bundle: nil)
-        if let VC = storyboard.instantiateViewController(withIdentifier: "AddressViewController") as? AddressViewController{
+        if let VC = storyboard.instantiateViewController(withIdentifier: "AddressViewController") as? AddressViewController {
+            selectedAddress = VC.bubble
             self.navigationController?.pushViewController(VC, animated: true)
         }
     }
@@ -82,13 +112,7 @@ class CheckoutViewController: UIViewController {
     }
     
     @IBAction func btnCrossClick(_ sender: Any) {
-        UIView.animate(withDuration: 0.3, animations: {
-            self.viewEnterCard.transform = CGAffineTransform(translationX: 0, y: self.view.frame.height)
-        }) { _ in
-            self.viewEnterCard.isHidden = true
-            self.viewTransperent.isHidden = true
-            self.setTabBar(hidden: false)
-        }
+        closeAddCardView()
     }
     
     @IBAction func btnSendOrderClick(_ sender: Any) {
@@ -138,6 +162,29 @@ class CheckoutViewController: UIViewController {
         }
     }
     
+    func addCardData() {
+        let obj = PaymentModel()
+        obj.intCardNumber = Int(txtCardNumber.text ?? "")
+        obj.intExpiryMonth = Int(txtExpiryMonth.text ?? "")
+        obj.intExpiryYear = Int(txtExpiryYear.text ?? "")
+        obj.intSecureCode = Int(txtSecureCode.text ?? "")
+        obj.strFirstName = txtFirstName.text ?? ""
+        obj.strLastName = txtLastName.text ?? ""
+        app.arrCardData.append(obj)
+        
+        tblCheckOutCard.reloadData()
+    }
+    
+    func closeAddCardView() {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.viewEnterCard.transform = CGAffineTransform(translationX: 0, y: self.view.frame.height)
+        }) { _ in
+            self.viewEnterCard.isHidden = true
+            self.viewTransperent.isHidden = true
+            self.setTabBar(hidden: false)
+        }
+    }
+    
     @IBAction func btnBackToHomeClick(_ sender: Any) {
         showMainTabBar()
     }
@@ -146,5 +193,14 @@ class CheckoutViewController: UIViewController {
     }
     
     @IBAction func btnEnterCardClick(_ sender: Any) {
+        addCardData()
+        tblCheckOutCard.reloadData()
+        closeAddCardView()
+        txtLastName.text = ""
+        txtFirstName.text = ""
+        txtCardNumber.text = ""
+        txtExpiryMonth.text = ""
+        txtExpiryYear.text = ""
+        txtSecureCode.text = ""
     }
 }

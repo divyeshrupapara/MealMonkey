@@ -18,6 +18,7 @@ extension CartViewController: UITableViewDelegate,UITableViewDataSource {
             
             appDelegate.arrCart.remove(at: indexPath.row)
             
+            lblNoItem.isHidden = !appDelegate.arrCart.isEmpty
             tblCartView.reloadData()
         }
         return cell

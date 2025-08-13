@@ -4,6 +4,7 @@ class DessertsViewController: UIViewController {
 
     @IBOutlet weak var txtSearchDesserts: UITextField!
     @IBOutlet weak var tblDesserts: UITableView!
+    @IBOutlet weak var lblNoItem: UILabel!
     
     let productManager = ProductDataManager.shared
     var selectedProductType: ProductType = .Desserts
@@ -11,13 +12,21 @@ class DessertsViewController: UIViewController {
     var arrProducts: [ProductModel] {
         return productManager.products(for: selectedProductType)
     }
+    var allProducts: [ProductModel] = []
+    var filteredProducts: [ProductModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        lblNoItem.isHidden = true
+        
         viewStyle(cornerRadius: txtSearchDesserts.frame.size.height/2, borderWidth: 0, borderColor: .systemGray, textField: [txtSearchDesserts])
         
         setPadding(textfield: [txtSearchDesserts])
+        
+        txtSearchDesserts.delegate = self
+        allProducts = productManager.products(for: selectedProductType)
+           filteredProducts = allProducts
         
         switch selectedProductType {
         case .food:

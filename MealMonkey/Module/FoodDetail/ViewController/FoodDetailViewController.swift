@@ -86,21 +86,17 @@ class FoodDetailViewController: UIViewController {
                 
                 if rating >= starIndex {
                     // Full star
-                    imageView.image = UIImage(systemName: "star.fill")
-                    imageView.tintColor = .systemYellow
+                    imageView.image = UIImage(named: "ic_starFill")
                 } else if rating + 0.5 >= starIndex {
-                    // Half star
-                    imageView.image = UIImage(systemName: "star.lefthalf.fill")
-                    imageView.tintColor = .systemYellow
+                    // Half star (using same as unfilled)
+                    imageView.image = UIImage(named: "ic_star")
                 } else {
                     // Empty star
-                    imageView.image = UIImage(systemName: "star")
-                    imageView.tintColor = .systemGray
+                    imageView.image = UIImage(named: "ic_star")
                 }
             }
         }
     }
-    
     
     func configureUI() {
         guard let product = product else { return }

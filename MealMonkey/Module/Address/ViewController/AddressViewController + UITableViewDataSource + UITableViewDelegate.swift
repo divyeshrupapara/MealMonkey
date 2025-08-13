@@ -3,85 +3,120 @@ import MapKit
 import CoreLocation
 import UIKit
 
-extension AddressViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: AddressTableViewCell = tableView.dequeueReusableCell(withIdentifier: "AddressTableViewCell", for: indexPath) as! AddressTableViewCell
-        return cell
-    }
-}
-
 extension AddressViewController: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.first else { return }
-        let coordinate = location.coordinate
-        
-        // Remove old pins
-        mapView.removeAnnotations(mapView.annotations)
-        
-        let geocoder = CLGeocoder()
-        geocoder.reverseGeocodeLocation(location) { [weak self] placemarks, error in
-            guard let self = self else { return }
-            if let placemark = placemarks?.first {
-                let addressLine = "\(placemark.name ?? ""), \(placemark.locality ?? ""), \(placemark.administrativeArea ?? "") \(placemark.postalCode ?? "")"
-                
-                let annotation = LocationAnnotation(
-                    coordinate: coordinate,
-                    title: "Your Current Location",
-                    subtitle: addressLine
-                )
-                self.mapView.addAnnotation(annotation)
-                
-                let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 500, longitudinalMeters: 500)
-                self.mapView.setRegion(region, animated: true)
-            }
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        switch manager.authorizationStatus {
+        case .authorizedWhenInUse, .authorizedAlways:
+            mapView.showsUserLocation = true
+            LocationManager.startUpdatingLocation()
+        case .denied, .restricted:
+            // Optional: show an alert guiding the user to Settings
+            break
+        case .notDetermined:
+            break
+        @unknown default:
+            break
         }
     }
 
-    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.last else { return }
+        let coordinate = location.coordinate
+
+        // Reverse geocode -> add/replace annotation
+        let geocoder = CLGeocoder()
+        geocoder.reverseGeocodeLocation(location) { [weak self] placemarks, _ in
+            guard let self = self, let placemark = placemarks?.first else { return }
+
+            let addressLine = "\(placemark.name ?? ""), \(placemark.locality ?? ""), \(placemark.administrativeArea ?? "") \(placemark.postalCode ?? "")"
+
+            // Remove previous annotations to avoid stacking
+            self.mapView.removeAnnotations(self.mapView.annotations)
+
+            let annotation = LocationAnnotation(
+                coordinate: coordinate,
+                title: "Your Current Location",
+                subtitle: addressLine
+            )
+            self.mapView.addAnnotation(annotation)
+
+            let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 500, longitudinalMeters: 500)
+            self.mapView.setRegion(region, animated: true)
+        }
+
+        // Stop to avoid continuous updates and repeated geocoding
+        LocationManager.stopUpdatingLocation()
+    }
+
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Error getting location: \(error.localizedDescription)")
     }
 }
 
 extension AddressViewController: MKMapViewDelegate {
-    func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
-        for view in views {
-            let endFrame = view.frame
-            view.frame = CGRect(x: view.frame.origin.x,
-                                y: view.frame.origin.y - 500,
-                                width: view.frame.size.width,
-                                height: view.frame.size.height)
-            
-            UIView.animate(withDuration: 0.5,
-                           delay: 0,
-                           usingSpringWithDamping: 0.5,
-                           initialSpringVelocity: 0.5,
-                           options: .curveEaseOut,
-                           animations: {
-                view.frame = endFrame
-            }, completion: nil)
-        }
-    }
-    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard !(annotation is MKUserLocation) else { return nil }
-        
+
         let identifier = "LocationPin"
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
-        
-        if annotationView == nil {
-            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-            annotationView?.canShowCallout = true
-            annotationView?.image = UIImage(systemName: "ic_current_position") // Replace with your pin image
+        var view = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKAnnotationView
+
+        if view == nil {
+            view = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            view?.canShowCallout = true
         } else {
-            annotationView?.annotation = annotation
+            view?.annotation = annotation
         }
-        
-        return annotationView
+
+        // Use your asset first; if missing, fall back to a SF Symbol
+        view?.image = UIImage(named: "ic_current_position") ?? UIImage(systemName: "mappin.circle.fill")
+
+        // Optional: lift the pin so its tip points at the coordinate
+        if let size = view?.image?.size {
+            view?.centerOffset = CGPoint(x: 0, y: -size.height/2)
+        }
+
+        return view
     }
 
+    // keep your drop animation if you like
+    func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) { /* your existing animation code */ }
 }
+
+extension AddressViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        let query = textField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        guard !query.isEmpty else {
+            textField.resignFirstResponder()
+            return true
+        }
+        searchAddress(query)
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    private func searchAddress(_ query: String) {
+        let geocoder = CLGeocoder()
+        geocoder.geocodeAddressString(query) { [weak self] placemarks, error in
+            guard let self = self,
+                  let placemark = placemarks?.first,
+                  let coordinate = placemark.location?.coordinate else { return }
+
+            // Replace any existing pins
+            self.mapView.removeAnnotations(self.mapView.annotations)
+
+            let title = placemark.name ?? "Location"
+            let subtitle = [
+                placemark.locality,
+                placemark.administrativeArea,
+                placemark.postalCode
+            ].compactMap { $0 }.joined(separator: ", ")
+
+            let annotation = LocationAnnotation(coordinate: coordinate, title: title, subtitle: subtitle)
+            self.mapView.addAnnotation(annotation)
+
+            let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 500, longitudinalMeters: 500)
+            self.mapView.setRegion(region, animated: true)
+        }
+    }
+}
+
