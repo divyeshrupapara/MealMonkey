@@ -14,6 +14,17 @@ class AddCardTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
+    
+    func CheckoutConfigureCell(card: PaymentModel) {
+        let cardNumber = "\(card.intCardNumber ?? 0)"
+        if cardNumber.count >= 4 {
+            let last4 = cardNumber.suffix(4)
+            lblCardNumber.text = "**** **** **** \(last4)"
+        } else {
+            lblCardNumber.text = "Invalid Card"
+        }
+    }
+    
     @IBAction func btnSelectCardClick(_ sender: Any) {
     }
 }

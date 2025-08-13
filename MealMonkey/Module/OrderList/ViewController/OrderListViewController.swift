@@ -3,6 +3,7 @@ import UIKit
 class OrderListViewController: UIViewController {
     
     @IBOutlet weak var tblOrderList: UITableView!
+    @IBOutlet weak var lblNoItem: UILabel!
     
     var orders: [[ProductModel]] {
         return (UIApplication.shared.delegate as? AppDelegate)?.arrOrders ?? []
@@ -10,6 +11,12 @@ class OrderListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if orders.count == 0 {
+            lblNoItem.isHidden = false
+        } else {
+            lblNoItem.isHidden = true
+        }
         
         setLeftAlignedTitleWithBack("Order List", target: self, action: #selector(btnBackTapped))
         

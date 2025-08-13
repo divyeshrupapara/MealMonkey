@@ -19,28 +19,32 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h2X-4D-enI">
-                        <rect key="frame" x="0.0" y="6.6666666666666643" width="318" height="62.999999999999993"/>
+                        <rect key="frame" x="0.0" y="6.6666666666666679" width="318" height="50"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="6.2599999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="O9F-kx-XUt">
-                                <rect key="frame" x="21" y="14" width="283" height="35"/>
+                                <rect key="frame" x="21" y="14" width="283" height="22"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_card_visa_cell" translatesAutoresizingMaskIntoConstraints="NO" id="y4b-I4-r8v">
-                                        <rect key="frame" x="0.0" y="0.0" width="37" height="35"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="37" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="37" id="B9h-fa-vQq"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="**** **** **** 2187" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NxL-e6-ao1">
-                                        <rect key="frame" x="43.333333333333329" y="0.0" width="213.66666666666669" height="35"/>
+                                        <rect key="frame" x="43.333333333333329" y="0.0" width="219.33333333333337" height="22"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="13"/>
                                         <color key="textColor" name="LabelPrimaryColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xYE-8G-Lzc">
-                                        <rect key="frame" x="263.33333333333331" y="0.0" width="19.666666666666686" height="35"/>
+                                        <rect key="frame" x="269" y="0.0" width="14" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="14" id="cZ3-O1-eLQ"/>
+                                            <constraint firstAttribute="height" constant="14" id="vlU-ma-FvR"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="13"/>
                                         <color key="tintColor" name="ButtonBackgroundColor"/>
-                                        <state key="normal" image="circle" catalog="system">
+                                        <state key="normal" image="ic_circle">
                                             <color key="titleColor" name="ButtonBackgroundColor"/>
                                         </state>
                                         <connections>
@@ -76,8 +80,8 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="circle" catalog="system" width="128" height="123"/>
         <image name="ic_card_visa_cell" width="37" height="22"/>
+        <image name="ic_circle" width="14" height="14"/>
         <namedColor name="ButtonBackgroundColor">
             <color red="0.9882352941176471" green="0.37647058823529411" blue="0.066666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

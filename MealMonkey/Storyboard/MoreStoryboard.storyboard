@@ -80,6 +80,12 @@
                                             <outlet property="delegate" destination="dSD-99-UYs" id="4MC-D3-R9m"/>
                                         </connections>
                                     </tableView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="No Card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r6r-D3-NBF">
+                                        <rect key="frame" x="148" y="300.66666666666669" width="97" height="30"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="26"/>
+                                        <color key="textColor" name="LabelSecondaryColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ygz-nC-Nv9">
                                         <rect key="frame" x="21" y="580" width="351" height="56"/>
                                         <color key="backgroundColor" name="ButtonBackgroundColor"/>
@@ -107,6 +113,8 @@
                                     <constraint firstItem="uTD-WJ-NaF" firstAttribute="leading" secondItem="N7t-Gc-iQZ" secondAttribute="leading" constant="21" id="JFw-qb-ezp"/>
                                     <constraint firstItem="hYR-Ts-D8e" firstAttribute="top" secondItem="uTD-WJ-NaF" secondAttribute="bottom" constant="17.5" id="L9C-qx-skP"/>
                                     <constraint firstAttribute="trailing" secondItem="1zT-tt-CRu" secondAttribute="trailing" id="NT7-yh-pSj"/>
+                                    <constraint firstItem="r6r-D3-NBF" firstAttribute="centerX" secondItem="1zT-tt-CRu" secondAttribute="centerX" id="dOo-q2-uwb"/>
+                                    <constraint firstItem="r6r-D3-NBF" firstAttribute="centerY" secondItem="1zT-tt-CRu" secondAttribute="centerY" id="dUS-sC-lOU"/>
                                     <constraint firstItem="uTD-WJ-NaF" firstAttribute="top" secondItem="N7t-Gc-iQZ" secondAttribute="top" constant="30" id="eC7-ew-DDn"/>
                                     <constraint firstItem="Ygz-nC-Nv9" firstAttribute="top" secondItem="1zT-tt-CRu" secondAttribute="bottom" constant="30" id="fLT-0H-Zcp"/>
                                     <constraint firstItem="1zT-tt-CRu" firstAttribute="leading" secondItem="N7t-Gc-iQZ" secondAttribute="leading" id="jqU-o9-08v"/>
@@ -331,6 +339,7 @@ at anytime </string>
                         <outlet property="btnAddCard" destination="Ygz-nC-Nv9" id="EhU-pd-QE9"/>
                         <outlet property="btnCross" destination="Oj7-I1-Feb" id="2mm-kK-ZpH"/>
                         <outlet property="btnEnterCard" destination="1km-Go-ZBE" id="mul-vc-iTx"/>
+                        <outlet property="lblNoItem" destination="r6r-D3-NBF" id="VJs-Ab-nOe"/>
                         <outlet property="tblCard" destination="1zT-tt-CRu" id="QRD-Zt-Acs"/>
                         <outlet property="txtCardNumber" destination="Gpz-9e-VuR" id="otB-WQ-4Ah"/>
                         <outlet property="txtExpiryMonth" destination="t9E-gc-xKX" id="7v2-2R-V4q"/>
@@ -363,17 +372,26 @@ at anytime </string>
                                     <outlet property="delegate" destination="rSw-OV-bPH" id="EHs-gH-DC4"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Order List is Empty" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tcu-1P-YcL">
+                                <rect key="frame" x="86.000000000000014" y="436" width="221.33333333333337" height="30"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="26"/>
+                                <color key="textColor" name="LabelSecondaryColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="w48-7C-W1y"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="qEv-O9-wG6" firstAttribute="leading" secondItem="w48-7C-W1y" secondAttribute="leading" id="0qL-2t-tkI"/>
                             <constraint firstItem="w48-7C-W1y" firstAttribute="trailing" secondItem="qEv-O9-wG6" secondAttribute="trailing" id="DEB-Ma-LlZ"/>
+                            <constraint firstItem="tcu-1P-YcL" firstAttribute="centerY" secondItem="qEv-O9-wG6" secondAttribute="centerY" id="MVH-dA-IAk"/>
                             <constraint firstItem="qEv-O9-wG6" firstAttribute="top" secondItem="w48-7C-W1y" secondAttribute="top" constant="10" id="v3F-pC-SMN"/>
+                            <constraint firstItem="tcu-1P-YcL" firstAttribute="centerX" secondItem="qEv-O9-wG6" secondAttribute="centerX" id="w39-j1-BRQ"/>
                             <constraint firstItem="w48-7C-W1y" firstAttribute="bottom" secondItem="qEv-O9-wG6" secondAttribute="bottom" constant="10" id="xjz-p9-Vge"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="lblNoItem" destination="tcu-1P-YcL" id="797-Os-IeN"/>
                         <outlet property="tblOrderList" destination="qEv-O9-wG6" id="jOR-Mt-RSE"/>
                     </connections>
                 </viewController>
@@ -1238,6 +1256,11 @@ at anytime </string>
                         <outlet property="btnSendOrder" destination="BOi-eo-ksL" id="qGf-tk-PAF"/>
                         <outlet property="btnThankYouCross" destination="KTx-M5-TR4" id="c6x-ak-kX1"/>
                         <outlet property="btnTrackYourOrder" destination="NGW-We-BH4" id="bqS-wG-hAk"/>
+                        <outlet property="lblAddress" destination="4KI-m7-AMU" id="Tdq-QZ-aa8"/>
+                        <outlet property="lblDeliveryCost" destination="K2B-TE-KAr" id="CCZ-OW-Imh"/>
+                        <outlet property="lblDiscount" destination="lgK-Za-dlr" id="Bm9-JF-xNZ"/>
+                        <outlet property="lblSubTotal" destination="309-Aq-K5R" id="YQ2-Uq-e6H"/>
+                        <outlet property="lblTotal" destination="5L3-l7-4vx" id="sP4-ap-AXK"/>
                         <outlet property="tblCheckOutCard" destination="PAh-qz-vDu" id="lNe-Ll-Glq"/>
                         <outlet property="txtCardNumber" destination="i9w-IQ-NC9" id="kLx-AC-07n"/>
                         <outlet property="txtExpiryMonth" destination="bnP-yM-G99" id="y5a-DB-r3v"/>
@@ -1268,7 +1291,7 @@ at anytime </string>
                                 <rect key="frame" x="0.0" y="118" width="393" height="666"/>
                                 <subviews>
                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pitchEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U3P-Wj-hnA">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="333"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="521"/>
                                         <color key="backgroundColor" name="ButtonBackgroundColor"/>
                                         <standardMapConfiguration key="preferredConfiguration"/>
                                         <connections>
@@ -1276,7 +1299,7 @@ at anytime </string>
                                         </connections>
                                     </mapView>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UQ3-0x-9JD">
-                                        <rect key="frame" x="21" y="352" width="351" height="45"/>
+                                        <rect key="frame" x="21" y="540" width="351" height="45"/>
                                         <color key="backgroundColor" name="TextFieldBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="fgy-uy-OGz"/>
@@ -1285,11 +1308,11 @@ at anytime </string>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
-                                            <outlet property="delegate" destination="5U2-oS-BvU" id="9C1-2f-Xkr"/>
+                                            <outlet property="delegate" destination="5U2-oS-BvU" id="2mM-eH-3Uh"/>
                                         </connections>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="5OT-5T-MeH">
-                                        <rect key="frame" x="22" y="421" width="349" height="36"/>
+                                        <rect key="frame" x="22" y="609" width="349" height="36"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_save" translatesAutoresizingMaskIntoConstraints="NO" id="UCk-s6-Jjd">
                                                 <rect key="frame" x="0.0" y="0.0" width="36" height="36"/>
@@ -1334,16 +1357,8 @@ at anytime </string>
                                             <constraint firstAttribute="trailing" secondItem="KNO-Dp-tEg" secondAttribute="trailing" id="Pod-73-6xg"/>
                                         </constraints>
                                     </stackView>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="P7i-Lg-Pg9">
-                                        <rect key="frame" x="0.0" y="478" width="393" height="188"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <connections>
-                                            <outlet property="dataSource" destination="5U2-oS-BvU" id="QTe-Jf-Kdf"/>
-                                            <outlet property="delegate" destination="5U2-oS-BvU" id="Ree-49-BMA"/>
-                                        </connections>
-                                    </tableView>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ab-nT-G4t">
-                                        <rect key="frame" x="318" y="253" width="52" height="57"/>
+                                        <rect key="frame" x="318" y="441" width="52" height="57"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="13"/>
                                         <state key="normal" image="ic_current_redirect">
                                             <color key="titleColor" name="ButtonBackgroundColor"/>
@@ -1357,19 +1372,15 @@ at anytime </string>
                                 <constraints>
                                     <constraint firstItem="U3P-Wj-hnA" firstAttribute="top" secondItem="ucY-kZ-cpn" secondAttribute="top" id="1BH-Dy-qj3"/>
                                     <constraint firstItem="5OT-5T-MeH" firstAttribute="top" secondItem="UQ3-0x-9JD" secondAttribute="bottom" constant="24" id="1ck-5I-cFk"/>
-                                    <constraint firstItem="P7i-Lg-Pg9" firstAttribute="height" secondItem="ucY-kZ-cpn" secondAttribute="height" multiplier="0.282282" id="2Ya-Er-eSi"/>
                                     <constraint firstAttribute="trailing" secondItem="5OT-5T-MeH" secondAttribute="trailing" constant="22" id="2aG-rv-b9S"/>
                                     <constraint firstItem="U3P-Wj-hnA" firstAttribute="bottom" secondItem="0ab-nT-G4t" secondAttribute="bottom" constant="23" id="4uv-hP-q3D"/>
-                                    <constraint firstAttribute="trailing" secondItem="P7i-Lg-Pg9" secondAttribute="trailing" id="5VA-7r-MUv"/>
                                     <constraint firstItem="5OT-5T-MeH" firstAttribute="leading" secondItem="ucY-kZ-cpn" secondAttribute="leading" constant="22" id="7hE-uW-gnQ"/>
                                     <constraint firstItem="UQ3-0x-9JD" firstAttribute="top" secondItem="U3P-Wj-hnA" secondAttribute="bottom" constant="19" id="9SJ-h6-QK3"/>
-                                    <constraint firstItem="P7i-Lg-Pg9" firstAttribute="top" secondItem="5OT-5T-MeH" secondAttribute="bottom" constant="21" id="BZY-Yr-z9c"/>
                                     <constraint firstAttribute="trailing" secondItem="UQ3-0x-9JD" secondAttribute="trailing" constant="21" id="Pf2-ZK-gao"/>
                                     <constraint firstAttribute="trailing" secondItem="0ab-nT-G4t" secondAttribute="trailing" constant="23" id="ak9-bD-vPp"/>
+                                    <constraint firstAttribute="bottom" secondItem="5OT-5T-MeH" secondAttribute="bottom" constant="21" id="gjb-1j-IF6"/>
                                     <constraint firstItem="U3P-Wj-hnA" firstAttribute="leading" secondItem="ucY-kZ-cpn" secondAttribute="leading" id="hMl-jg-iAB"/>
                                     <constraint firstItem="UQ3-0x-9JD" firstAttribute="leading" secondItem="ucY-kZ-cpn" secondAttribute="leading" constant="21" id="iTY-5i-hBG"/>
-                                    <constraint firstItem="P7i-Lg-Pg9" firstAttribute="leading" secondItem="ucY-kZ-cpn" secondAttribute="leading" id="v0j-fd-sqb"/>
-                                    <constraint firstAttribute="bottom" secondItem="P7i-Lg-Pg9" secondAttribute="bottom" id="wm8-03-zem"/>
                                     <constraint firstAttribute="trailing" secondItem="U3P-Wj-hnA" secondAttribute="trailing" id="wuP-wD-TXy"/>
                                 </constraints>
                             </view>
@@ -1388,7 +1399,6 @@ at anytime </string>
                         <outlet property="btnSavedAddress" destination="POM-u9-xu4" id="4uw-PY-G2z"/>
                         <outlet property="imgStar" destination="UCk-s6-Jjd" id="cwa-Kg-a7e"/>
                         <outlet property="mapView" destination="U3P-Wj-hnA" id="LC0-Mb-fIH"/>
-                        <outlet property="tblSavedAddress" destination="P7i-Lg-Pg9" id="R4V-Mu-W1f"/>
                         <outlet property="txtSearchAddress" destination="UQ3-0x-9JD" id="9Yh-Kx-WCt"/>
                     </connections>
                 </viewController>
@@ -1422,6 +1432,9 @@ at anytime </string>
         </namedColor>
         <namedColor name="LabelPrimaryColor">
             <color red="0.29019607843137257" green="0.29411764705882354" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="LabelSecondaryColor">
+            <color red="0.48627450980392156" green="0.49019607843137253" blue="0.49411764705882355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="LineColor">
             <color red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="0.079999998211860657" colorSpace="custom" customColorSpace="sRGB"/>

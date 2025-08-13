@@ -4,6 +4,7 @@ class CartViewController: UIViewController {
     
     @IBOutlet weak var btnPlaceOrder: UIButton!
     @IBOutlet weak var tblCartView: UITableView!
+    @IBOutlet weak var lblNoItem: UILabel!
     
     var cartItems: [ProductModel] {
         return (UIApplication.shared.delegate as? AppDelegate)?.arrCart ?? []
@@ -13,11 +14,19 @@ class CartViewController: UIViewController {
         
         super.viewDidLoad()
         
+        lblNoItem.isHidden = true
+        
         setLeftAlignedTitleWithBack("Cart Page", target: self, action: #selector(btnBackTapped))
         
         viewStyle(cornerRadius: 28, borderWidth: 0, borderColor: .systemGray, textField: [btnPlaceOrder])
         
         tblCartView.register(UINib(nibName: "CartTableViewCell", bundle: nil), forCellReuseIdentifier: "CartTableViewCell")
+        tblCartView.reloadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        lblNoItem.isHidden = !app.arrCart.isEmpty
+        tblCartView.reloadData()
     }
     
     @IBAction func btnPlaceOrderClick(_ sender: Any) {

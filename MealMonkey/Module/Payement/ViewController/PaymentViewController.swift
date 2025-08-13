@@ -15,12 +15,12 @@ class PaymentViewController: UIViewController {
     @IBOutlet weak var viewEnterCard: UIView!
     @IBOutlet weak var viewAddCard2: UIView!
     @IBOutlet weak var viewTransperent: UIView!
-    
-    var arrCardData: [PaymentModel] = []
-    var objPaymentModel: PaymentModel?
+    @IBOutlet weak var lblNoItem: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        lblNoItem.isHidden = true
         
         viewEnterCard.isHidden = true
         viewTransperent.isHidden = true
@@ -45,6 +45,11 @@ class PaymentViewController: UIViewController {
         tblCard.reloadData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        lblNoItem.isHidden = !app.arrCardData.isEmpty
+        tblCard.reloadData()
+    }
+    
     func addCardData() {
         let obj = PaymentModel()
         obj.intCardNumber = Int(txtCardNumber.text ?? "")
@@ -53,7 +58,7 @@ class PaymentViewController: UIViewController {
         obj.intSecureCode = Int(txtSecureCode.text ?? "")
         obj.strFirstName = txtFirstName.text ?? ""
         obj.strLastName = txtLastName.text ?? ""
-        arrCardData.append(obj)
+        app.arrCardData.append(obj)
         
         tblCard.reloadData()
     }
@@ -71,6 +76,7 @@ class PaymentViewController: UIViewController {
     
     @IBAction func btnEnterCard(_ sender: Any) {
         addCardData()
+        lblNoItem.isHidden = !app.arrCardData.isEmpty
         tblCard.reloadData()
         UIView.animate(withDuration: 0.3, animations: {
             self.viewEnterCard.transform = CGAffineTransform(translationX: 0, y: self.view.frame.height)
