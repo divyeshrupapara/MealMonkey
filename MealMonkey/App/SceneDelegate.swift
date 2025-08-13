@@ -1,3 +1,10 @@
+//
+//  SceneDelegate.swift
+//  MealMonkey
+//
+//  Created by Divyesh Rupapara on 31/07/25.
+//
+
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
