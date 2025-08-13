@@ -79,20 +79,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6jy-Ni-xFE">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="365"/>
+                                <rect key="frame" x="0.0" y="119.99999999999999" width="393" height="153.66666666666663"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fRh-gv-G8W" userLabel="Shade">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="160"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="120"/>
                                 <color key="backgroundColor" name="cardCellBackColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="160" id="VW9-Sr-Ipz"/>
+                                    <constraint firstAttribute="height" constant="120" id="VW9-Sr-Ipz"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CRv-Wj-Thy">
-                                <rect key="frame" x="0.0" y="160" width="393" height="624"/>
+                                <rect key="frame" x="0.0" y="120" width="393" height="664"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8vQ-DY-pGO">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="624"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="664"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pKW-rP-i4V">
                                                 <rect key="frame" x="0.0" y="148.00000000000006" width="393" height="903.33333333333348"/>
@@ -422,7 +422,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="97" height="183"/>
                                                             </imageView>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_backImageA" translatesAutoresizingMaskIntoConstraints="NO" id="7xh-p9-A8M">
-                                                                <rect key="frame" x="54" y="24.999999999999886" width="274" height="134"/>
+                                                                <rect key="frame" x="54" y="25" width="274" height="134"/>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Total Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Z2-6m-5pA">
                                                                 <rect key="frame" x="158" y="43.999999999999886" width="56.333333333333343" height="14"/>
@@ -559,11 +559,11 @@
                         <constraints>
                             <constraint firstItem="0Sj-5R-96g" firstAttribute="bottom" secondItem="CRv-Wj-Thy" secondAttribute="bottom" id="8ia-Lz-JgA"/>
                             <constraint firstItem="CRv-Wj-Thy" firstAttribute="leading" secondItem="0Sj-5R-96g" secondAttribute="leading" id="AL1-Px-oed"/>
-                            <constraint firstItem="6jy-Ni-xFE" firstAttribute="height" secondItem="fRh-gv-G8W" secondAttribute="height" multiplier="2.28125" id="O6b-bF-k90"/>
+                            <constraint firstItem="6jy-Ni-xFE" firstAttribute="height" secondItem="fRh-gv-G8W" secondAttribute="height" multiplier="1.28125" id="O6b-bF-k90"/>
                             <constraint firstItem="6jy-Ni-xFE" firstAttribute="trailing" secondItem="0Sj-5R-96g" secondAttribute="trailing" id="S9c-Gv-P4s"/>
                             <constraint firstItem="fRh-gv-G8W" firstAttribute="top" secondItem="FBz-kK-51W" secondAttribute="top" id="T7h-Ts-55D"/>
                             <constraint firstItem="CRv-Wj-Thy" firstAttribute="trailing" secondItem="0Sj-5R-96g" secondAttribute="trailing" id="edK-Mz-IY7"/>
-                            <constraint firstItem="6jy-Ni-xFE" firstAttribute="top" secondItem="FBz-kK-51W" secondAttribute="top" id="gbc-Q0-eIs"/>
+                            <constraint firstItem="6jy-Ni-xFE" firstAttribute="top" secondItem="fRh-gv-G8W" secondAttribute="bottom" id="gbc-Q0-eIs"/>
                             <constraint firstItem="6jy-Ni-xFE" firstAttribute="leading" secondItem="0Sj-5R-96g" secondAttribute="leading" id="mud-dw-uED"/>
                             <constraint firstItem="0Sj-5R-96g" firstAttribute="trailing" secondItem="fRh-gv-G8W" secondAttribute="trailing" id="pXP-PV-qoK"/>
                             <constraint firstItem="fRh-gv-G8W" firstAttribute="leading" secondItem="0Sj-5R-96g" secondAttribute="leading" id="wFu-LB-KFp"/>

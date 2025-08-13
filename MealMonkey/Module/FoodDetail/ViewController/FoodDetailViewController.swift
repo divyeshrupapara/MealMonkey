@@ -168,6 +168,10 @@ class FoodDetailViewController: UIViewController {
     }
     
     @IBAction func btnAddToCartImageClick(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "MenuStoryboard", bundle: nil)
+        if let VC = storyboard.instantiateViewController(withIdentifier: "CartViewController") as? CartViewController {
+            self.navigationController?.pushViewController(VC, animated: true)
+        }
     }
     
     @IBAction func btnAddToCartTitleClick(_ sender: Any) {
