@@ -4,13 +4,19 @@ import UIKit
 extension PaymentViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 3
+        return arrCardData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell: CardTableViewCell = tableView.dequeueReusableCell(withIdentifier: "CardTableViewCell", for: indexPath) as! CardTableViewCell
         
+        cell.cardConfigureCell(card: arrCardData[indexPath.row])
+        
+        cell.deleteCard = {
+            self.arrCardData.remove(at: indexPath.row)
+            self.tblCard.reloadData()
+        }
         return cell
     }
 }

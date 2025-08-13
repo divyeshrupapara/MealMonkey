@@ -44,6 +44,9 @@
                                         <state key="normal" image="circle" catalog="system">
                                             <color key="titleColor" name="ButtonBackgroundColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="btnSelectUPIClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="8et-HN-Buz"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -66,6 +69,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="btnSelectUPI" destination="Fb3-aP-HHb" id="gaa-ia-Spo"/>
                 <outlet property="viewCell" destination="4Rk-hp-cXL" id="lki-bv-Bp7"/>
             </connections>
             <point key="canvasLocation" x="110.68702290076335" y="37.676056338028168"/>

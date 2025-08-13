@@ -37,6 +37,9 @@
                                         <state key="normal" image="circle" catalog="system">
                                             <color key="titleColor" name="ButtonBackgroundColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="btnSelectCODClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="isx-bO-PUk"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -59,6 +62,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="btnSelectCOD" destination="Wd0-TT-cPL" id="alc-qR-ePI"/>
                 <outlet property="viewCell" destination="CsG-yr-HB4" id="ZnV-Ma-3qS"/>
             </connections>
             <point key="canvasLocation" x="89.312977099236633" y="46.126760563380287"/>
