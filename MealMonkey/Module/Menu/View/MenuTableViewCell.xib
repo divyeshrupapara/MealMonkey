@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="116" id="KGk-i7-Jjw" customClass="MenuTableViewCell" customModule="MealMonkey" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="314" height="116"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="314" height="116"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FMv-8a-IsK">
+                        <rect key="frame" x="0.0" y="12" width="314" height="92"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_cellBackImage" translatesAutoresizingMaskIntoConstraints="NO" id="7Mg-cY-QF3">
+                                <rect key="frame" x="38" y="0.0" width="261" height="92"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Rj-ZQ-Yeh">
+                                <rect key="frame" x="0.0" y="11" width="70" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="X8c-Ah-rRg"/>
+                                    <constraint firstAttribute="width" constant="70" id="cxz-1p-Gzi"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="CjA-0F-hql">
+                                <rect key="frame" x="94" y="27" width="220" height="38"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nf7-vD-yj9">
+                                        <rect key="frame" x="0.0" y="0.0" width="220" height="25.333333333333332"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="22"/>
+                                        <color key="textColor" name="LabelPrimaryColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PXv-Mm-9KO">
+                                        <rect key="frame" x="0.0" y="25.333333333333329" width="220" height="12.666666666666664"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="11"/>
+                                        <color key="textColor" name="LabelSecondaryColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_arrowBackground" translatesAutoresizingMaskIntoConstraints="NO" id="upx-H5-c9x" userLabel="ic_arrowBackground">
+                                <rect key="frame" x="281" y="29.666666666666664" width="33" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="33" id="LwC-Dn-SFK"/>
+                                    <constraint firstAttribute="height" constant="33" id="cg6-ez-xtE"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="PIa-6r-pDq">
+                                <rect key="frame" x="281" y="29.666666666666664" width="33" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="XKl-oe-1Zi"/>
+                                    <constraint firstAttribute="width" constant="33" id="XyE-Ik-eC2"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="7Mg-cY-QF3" firstAttribute="top" secondItem="FMv-8a-IsK" secondAttribute="top" id="0gD-dN-u8a"/>
+                            <constraint firstItem="PIa-6r-pDq" firstAttribute="centerY" secondItem="7Mg-cY-QF3" secondAttribute="centerY" id="1Oo-EP-hsy"/>
+                            <constraint firstAttribute="trailing" secondItem="PIa-6r-pDq" secondAttribute="trailing" id="6VE-BY-nfZ"/>
+                            <constraint firstItem="PIa-6r-pDq" firstAttribute="trailing" secondItem="upx-H5-c9x" secondAttribute="trailing" id="8Em-GL-Kyw"/>
+                            <constraint firstItem="CjA-0F-hql" firstAttribute="leading" secondItem="4Rj-ZQ-Yeh" secondAttribute="trailing" constant="24" id="NpR-MZ-flN"/>
+                            <constraint firstItem="upx-H5-c9x" firstAttribute="centerY" secondItem="7Mg-cY-QF3" secondAttribute="centerY" id="TmN-qF-X4g"/>
+                            <constraint firstItem="7Mg-cY-QF3" firstAttribute="leading" secondItem="FMv-8a-IsK" secondAttribute="leading" constant="38" id="W7l-Ku-l0X"/>
+                            <constraint firstAttribute="bottom" secondItem="7Mg-cY-QF3" secondAttribute="bottom" id="dME-ii-04d"/>
+                            <constraint firstAttribute="trailing" secondItem="CjA-0F-hql" secondAttribute="trailing" id="dfa-cr-1Lc"/>
+                            <constraint firstItem="CjA-0F-hql" firstAttribute="centerY" secondItem="7Mg-cY-QF3" secondAttribute="centerY" id="eKr-YS-5f9"/>
+                            <constraint firstAttribute="trailing" secondItem="7Mg-cY-QF3" secondAttribute="trailing" constant="15" id="edg-4R-sj7"/>
+                            <constraint firstItem="4Rj-ZQ-Yeh" firstAttribute="leading" secondItem="FMv-8a-IsK" secondAttribute="leading" id="gEb-c8-QaA"/>
+                            <constraint firstItem="4Rj-ZQ-Yeh" firstAttribute="centerY" secondItem="7Mg-cY-QF3" secondAttribute="centerY" id="xdh-TL-iQg"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="FMv-8a-IsK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="7f6-o7-5p8"/>
+                    <constraint firstAttribute="bottom" secondItem="FMv-8a-IsK" secondAttribute="bottom" constant="12" id="YiS-Av-Xyi"/>
+                    <constraint firstItem="FMv-8a-IsK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="a05-lF-tTR"/>
+                    <constraint firstAttribute="trailing" secondItem="FMv-8a-IsK" secondAttribute="trailing" id="aYD-Yo-Q6w"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="imgCategory" destination="4Rj-ZQ-Yeh" id="Hek-K6-IWl"/>
+                <outlet property="lblCategoryTitle" destination="Nf7-vD-yj9" id="tFg-f4-uyw"/>
+                <outlet property="lblItems" destination="PXv-Mm-9KO" id="MaF-cE-Yg7"/>
+                <outlet property="viewMainMenu" destination="FMv-8a-IsK" id="BB5-CI-37E"/>
+            </connections>
+            <point key="canvasLocation" x="131.29770992366412" y="67.605633802816911"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ic_arrow" width="7" height="13.666666984558105"/>
+        <image name="ic_arrowBackground" width="39" height="39"/>
+        <image name="ic_cellBackImage" width="292" height="99"/>
+        <namedColor name="LabelPrimaryColor">
+            <color red="0.29019607843137257" green="0.29411764705882354" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="LabelSecondaryColor">
+            <color red="0.48627450980392156" green="0.49019607843137253" blue="0.49411764705882355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
