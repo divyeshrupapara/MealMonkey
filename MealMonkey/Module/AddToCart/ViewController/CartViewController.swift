@@ -14,6 +14,7 @@ class CartViewController: UIViewController {
         
         super.viewDidLoad()
         
+        btnPlaceOrder.isHidden = true
         lblNoItem.isHidden = true
         
         setLeftAlignedTitleWithBack("Cart Page", target: self, action: #selector(btnBackTapped))
@@ -27,6 +28,11 @@ class CartViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         lblNoItem.isHidden = !app.arrCart.isEmpty
         tblCartView.reloadData()
+        if app.arrCart.isEmpty {
+            btnPlaceOrder.isHidden = true
+        } else {
+            btnPlaceOrder.isHidden = false
+        }
     }
     
     @IBAction func btnPlaceOrderClick(_ sender: Any) {
@@ -35,11 +41,14 @@ class CartViewController: UIViewController {
          if !appDelegate.arrCart.isEmpty {
              // Save the current cart as a new order
              appDelegate.arrOrders.append(appDelegate.arrCart)
-             
+            
              // Clear the cart
              appDelegate.arrCart.removeAll()
          }
-        self.navigationController?.popViewController(animated: true)
+        let storyboard = UIStoryboard(name: "MoreStoryboard", bundle: nil)
+        if let VC = storyboard.instantiateViewController(withIdentifier: "OrderListViewController") as? OrderListViewController {
+            self.navigationController?.pushViewController(VC, animated: true)
+        }
     }
     
     @objc func btnBackTapped() {

@@ -1,6 +1,6 @@
 import Foundation
 
-class ProductModel {
+class ProductModel: Codable {
     var intId: Int = 0
     var strProductName: String = ""
     var strProductDescription: String = ""
@@ -921,13 +921,13 @@ class ProductModel {
     }
 }
 
-enum ProductType: String {
+enum ProductType: String,Codable {
     case food
     case Beverages
     case Desserts
 }
 
-enum ProductCategory: String, CaseIterable {
+enum ProductCategory: String,Codable, CaseIterable {
     case All = "All"
     case Punjabi = "Punjabi"
     case Chinese = "Chinese"

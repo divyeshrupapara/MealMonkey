@@ -27,12 +27,13 @@ class CheckoutViewController: UIViewController {
     @IBOutlet weak var lblTotal: UILabel!
     @IBOutlet weak var lblAddress: UILabel!
     
+    var addressText: String?
+    
     var objPaymentModel: PaymentModel?
     var subtotal: Double = 0.0
     var deliveryCost: Double = 0.0
     var discount: Double = 0.0
     var selectedPaymentIndex: Int? = nil
-    var selectedAddress: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +45,7 @@ class CheckoutViewController: UIViewController {
         viewEnterCard.isHidden = true
         viewTransperent.isHidden = true
         viewThankYou.isHidden = true
-    
+        
         calculate()
         
         setViewTopCornerRadius(views: [viewAddCard2, viewThankYou2])
@@ -63,10 +64,10 @@ class CheckoutViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        if let address = selectedAddress {
-            lblAddress.text = address
+        // Load from UserDefaults
+        if let savedAddress = UserDefaults.standard.string(forKey: "lastSelectedAddress") {
+            lblAddress.text = savedAddress
+            addressText = savedAddress // if you also use addressText internally
         }
     }
     
@@ -97,7 +98,6 @@ class CheckoutViewController: UIViewController {
     @IBAction func btnChangeAddressClick(_ sender: Any) {
         let storyboard = UIStoryboard(name: "MoreStoryboard", bundle: nil)
         if let VC = storyboard.instantiateViewController(withIdentifier: "AddressViewController") as? AddressViewController {
-            selectedAddress = VC.bubble
             self.navigationController?.pushViewController(VC, animated: true)
         }
     }

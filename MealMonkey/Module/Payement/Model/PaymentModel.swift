@@ -1,6 +1,6 @@
 import Foundation
 
-class PaymentModel: NSObject {
+class PaymentModel: Codable {
     var intCardNumber: Int?
     var intExpiryMonth: Int?
     var intExpiryYear: Int?

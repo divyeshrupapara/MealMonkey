@@ -87,24 +87,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6jy-Ni-xFE">
-                                <rect key="frame" x="0.0" y="119.99999999999999" width="393" height="153.66666666666663"/>
-                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fRh-gv-G8W" userLabel="Shade">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="120"/>
+                                <rect key="frame" x="0.0" y="80" width="393" height="120"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6jy-Ni-xFE">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="200"/>
+                                    </imageView>
+                                </subviews>
                                 <color key="backgroundColor" name="cardCellBackColor"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="6jy-Ni-xFE" secondAttribute="trailing" id="GvL-zX-Dgd"/>
                                     <constraint firstAttribute="height" constant="120" id="VW9-Sr-Ipz"/>
+                                    <constraint firstItem="6jy-Ni-xFE" firstAttribute="leading" secondItem="fRh-gv-G8W" secondAttribute="leading" id="acp-eV-0Qs"/>
+                                    <constraint firstAttribute="bottom" secondItem="6jy-Ni-xFE" secondAttribute="bottom" constant="-80" id="gXN-yj-guQ"/>
+                                    <constraint firstItem="6jy-Ni-xFE" firstAttribute="top" secondItem="fRh-gv-G8W" secondAttribute="top" id="l6x-b7-n0x"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CRv-Wj-Thy">
-                                <rect key="frame" x="0.0" y="120" width="393" height="664"/>
+                                <rect key="frame" x="0.0" y="280" width="393" height="504"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8vQ-DY-pGO">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="664"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="504"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pKW-rP-i4V">
-                                                <rect key="frame" x="0.0" y="148.00000000000006" width="393" height="903.33333333333348"/>
+                                                <rect key="frame" x="0.0" y="20" width="393" height="903.33333333333337"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Tandoori Chicken Pizza" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aq5-iC-onx">
                                                         <rect key="frame" x="22" y="31" width="230" height="25.333333333333329"/>
@@ -431,7 +437,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="97" height="183"/>
                                                             </imageView>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_backImageA" translatesAutoresizingMaskIntoConstraints="NO" id="7xh-p9-A8M">
-                                                                <rect key="frame" x="54" y="25" width="274" height="134"/>
+                                                                <rect key="frame" x="54" y="24.999999999999886" width="274" height="134"/>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Total Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Z2-6m-5pA">
                                                                 <rect key="frame" x="158" y="43.999999999999886" width="56.333333333333343" height="14"/>
@@ -547,7 +553,7 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="pKW-rP-i4V" firstAttribute="leading" secondItem="8vQ-DY-pGO" secondAttribute="leading" id="0gF-gp-UMD"/>
-                                            <constraint firstItem="pKW-rP-i4V" firstAttribute="top" secondItem="8vQ-DY-pGO" secondAttribute="top" constant="148" id="EbB-5f-IFm"/>
+                                            <constraint firstItem="pKW-rP-i4V" firstAttribute="top" secondItem="8vQ-DY-pGO" secondAttribute="top" constant="20" id="EbB-5f-IFm"/>
                                             <constraint firstItem="pKW-rP-i4V" firstAttribute="height" secondItem="8vQ-DY-pGO" secondAttribute="height" priority="250" id="HMc-tW-UW2"/>
                                             <constraint firstItem="pKW-rP-i4V" firstAttribute="width" secondItem="8vQ-DY-pGO" secondAttribute="width" id="b4A-Ia-C0J"/>
                                             <constraint firstAttribute="bottom" secondItem="pKW-rP-i4V" secondAttribute="bottom" id="k2a-pn-TgC"/>
@@ -568,15 +574,11 @@
                         <constraints>
                             <constraint firstItem="0Sj-5R-96g" firstAttribute="bottom" secondItem="CRv-Wj-Thy" secondAttribute="bottom" id="8ia-Lz-JgA"/>
                             <constraint firstItem="CRv-Wj-Thy" firstAttribute="leading" secondItem="0Sj-5R-96g" secondAttribute="leading" id="AL1-Px-oed"/>
-                            <constraint firstItem="6jy-Ni-xFE" firstAttribute="height" secondItem="fRh-gv-G8W" secondAttribute="height" multiplier="1.28125" id="O6b-bF-k90"/>
-                            <constraint firstItem="6jy-Ni-xFE" firstAttribute="trailing" secondItem="0Sj-5R-96g" secondAttribute="trailing" id="S9c-Gv-P4s"/>
-                            <constraint firstItem="fRh-gv-G8W" firstAttribute="top" secondItem="FBz-kK-51W" secondAttribute="top" id="T7h-Ts-55D"/>
+                            <constraint firstItem="fRh-gv-G8W" firstAttribute="top" secondItem="0Sj-5R-96g" secondAttribute="top" constant="-38" id="T7h-Ts-55D"/>
                             <constraint firstItem="CRv-Wj-Thy" firstAttribute="trailing" secondItem="0Sj-5R-96g" secondAttribute="trailing" id="edK-Mz-IY7"/>
-                            <constraint firstItem="6jy-Ni-xFE" firstAttribute="top" secondItem="fRh-gv-G8W" secondAttribute="bottom" id="gbc-Q0-eIs"/>
-                            <constraint firstItem="6jy-Ni-xFE" firstAttribute="leading" secondItem="0Sj-5R-96g" secondAttribute="leading" id="mud-dw-uED"/>
                             <constraint firstItem="0Sj-5R-96g" firstAttribute="trailing" secondItem="fRh-gv-G8W" secondAttribute="trailing" id="pXP-PV-qoK"/>
                             <constraint firstItem="fRh-gv-G8W" firstAttribute="leading" secondItem="0Sj-5R-96g" secondAttribute="leading" id="wFu-LB-KFp"/>
-                            <constraint firstItem="CRv-Wj-Thy" firstAttribute="top" secondItem="fRh-gv-G8W" secondAttribute="bottom" id="z9j-Ua-jwH"/>
+                            <constraint firstItem="CRv-Wj-Thy" firstAttribute="top" secondItem="fRh-gv-G8W" secondAttribute="bottom" constant="80" id="z9j-Ua-jwH"/>
                         </constraints>
                     </view>
                     <connections>
@@ -592,7 +594,7 @@
                         <outlet property="lblFoodPrice" destination="hCJ-Ms-D7n" id="Dn7-og-rEI"/>
                         <outlet property="lblQuantity" destination="9BR-0i-2K2" id="Xok-2q-6kW"/>
                         <outlet property="lblRating" destination="Xzu-B3-sfo" id="w0Z-pd-pkb"/>
-                        <outlet property="lblTotalPrice" destination="0Z2-6m-5pA" id="5Ge-IQ-fY5"/>
+                        <outlet property="lblTotalPrice" destination="x37-It-dgc" id="g6M-Z5-any"/>
                         <outlet property="stackIngredients" destination="6uV-rY-yLd" id="AT2-lN-eF7"/>
                         <outlet property="stackProtion" destination="qiV-Ci-keO" id="X9H-Wu-MAN"/>
                         <outlet property="stackStar" destination="NDR-VX-PZK" id="41G-79-Bgq"/>

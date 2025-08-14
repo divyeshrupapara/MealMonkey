@@ -190,7 +190,7 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="ZdJ-uX-Ykr">
                                                                         <rect key="frame" x="95" y="0.0" width="256" height="56"/>
                                                                         <subviews>
-                                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t9E-gc-xKX">
+                                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="MM" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t9E-gc-xKX">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="115" height="56"/>
                                                                                 <color key="backgroundColor" name="TextFieldBackgroundColor"/>
                                                                                 <constraints>
@@ -203,7 +203,7 @@
                                                                                     <outlet property="delegate" destination="dSD-99-UYs" id="ClU-u2-AEv"/>
                                                                                 </connections>
                                                                             </textField>
-                                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wmq-4j-0sX">
+                                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="YY" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wmq-4j-0sX">
                                                                                 <rect key="frame" x="141" y="0.0" width="115" height="56"/>
                                                                                 <color key="backgroundColor" name="TextFieldBackgroundColor"/>
                                                                                 <color key="textColor" name="LabelPrimaryColor"/>
@@ -413,7 +413,7 @@ at anytime </string>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k3b-kh-sAk">
                                         <rect key="frame" x="21" y="29" width="351" height="86"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_all" translatesAutoresizingMaskIntoConstraints="NO" id="JLw-vi-K1O">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_all" translatesAutoresizingMaskIntoConstraints="NO" id="JLw-vi-K1O">
                                                 <rect key="frame" x="0.0" y="3" width="80" height="80"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="80" id="6FU-4H-kav"/>
@@ -490,7 +490,7 @@ at anytime </string>
                                             <constraint firstAttribute="trailing" secondItem="KAa-bD-dN2" secondAttribute="trailing" id="z1Q-4Q-VuQ"/>
                                         </constraints>
                                     </view>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="hQd-LE-hDX">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="hQd-LE-hDX">
                                         <rect key="frame" x="0.0" y="149" width="393" height="243.66666666666663"/>
                                         <color key="backgroundColor" name="cardCellBackgroundColor"/>
                                         <connections>
@@ -677,7 +677,7 @@ at anytime </string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4KI-m7-AMU">
-                                                <rect key="frame" x="21" y="67" width="132.33333333333334" height="34.666666666666657"/>
+                                                <rect key="frame" x="21" y="67" width="295" height="34.666666666666657"/>
                                                 <string key="text">653 Nostrand Ave., 
 Brooklyn, NY 11216</string>
                                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="15"/>
@@ -687,6 +687,7 @@ Brooklyn, NY 11216</string>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HGC-FP-Lgf">
                                                 <rect key="frame" x="326" y="72.333333333333343" width="46" height="24"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="width" constant="46" id="JVg-h1-7I9"/>
                                                     <constraint firstAttribute="height" constant="24" id="U5i-72-dfo"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="13"/>
@@ -704,9 +705,10 @@ Brooklyn, NY 11216</string>
                                             <constraint firstItem="4KI-m7-AMU" firstAttribute="leading" secondItem="yLz-4q-LYN" secondAttribute="leading" constant="21" id="8Xh-5P-eqK"/>
                                             <constraint firstAttribute="trailing" secondItem="HGC-FP-Lgf" secondAttribute="trailing" constant="21" id="Aen-pY-d60"/>
                                             <constraint firstItem="anS-dZ-IHE" firstAttribute="leading" secondItem="yLz-4q-LYN" secondAttribute="leading" constant="21" id="BTF-T9-xN4"/>
+                                            <constraint firstItem="HGC-FP-Lgf" firstAttribute="leading" secondItem="4KI-m7-AMU" secondAttribute="trailing" constant="10" id="INU-9l-XSy"/>
                                             <constraint firstItem="4KI-m7-AMU" firstAttribute="top" secondItem="anS-dZ-IHE" secondAttribute="bottom" constant="14" id="Ke0-IW-e4n"/>
                                             <constraint firstAttribute="bottom" secondItem="4KI-m7-AMU" secondAttribute="bottom" constant="15" id="Pbh-n0-yX2"/>
-                                            <constraint firstItem="HGC-FP-Lgf" firstAttribute="centerY" secondItem="4KI-m7-AMU" secondAttribute="centerY" id="ZlU-L4-5VN"/>
+                                            <constraint firstItem="HGC-FP-Lgf" firstAttribute="centerY" secondItem="4KI-m7-AMU" secondAttribute="centerY" id="erx-6C-IKh"/>
                                             <constraint firstItem="anS-dZ-IHE" firstAttribute="top" secondItem="yLz-4q-LYN" secondAttribute="top" constant="37" id="sYt-au-Gqg"/>
                                         </constraints>
                                     </view>
@@ -982,7 +984,7 @@ Brooklyn, NY 11216</string>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="Hlq-kq-CQJ">
                                                                         <rect key="frame" x="95" y="0.0" width="256" height="56"/>
                                                                         <subviews>
-                                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bnP-yM-G99">
+                                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="MM" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bnP-yM-G99">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="115" height="56"/>
                                                                                 <color key="backgroundColor" name="TextFieldBackgroundColor"/>
                                                                                 <constraints>
@@ -995,7 +997,7 @@ Brooklyn, NY 11216</string>
                                                                                     <outlet property="delegate" destination="Ofl-jC-ve2" id="TFJ-xg-Td1"/>
                                                                                 </connections>
                                                                             </textField>
-                                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6pK-1P-xur">
+                                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="YY" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6pK-1P-xur">
                                                                                 <rect key="frame" x="141" y="0.0" width="115" height="56"/>
                                                                                 <color key="backgroundColor" name="TextFieldBackgroundColor"/>
                                                                                 <color key="textColor" name="LabelPrimaryColor"/>
