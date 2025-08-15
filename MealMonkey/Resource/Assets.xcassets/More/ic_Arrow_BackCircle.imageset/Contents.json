@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "ic_hakkanoodles.png",
+      "filename" : "c1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "c2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "c3.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

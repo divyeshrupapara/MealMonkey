@@ -59,8 +59,32 @@
                                                 <color key="textColor" name="ButtonBackgroundColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Minute by tuk tuk    Desserts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2iD-IA-M7D">
-                                                <rect key="frame" x="39" y="0.0" width="367" height="14.333333333333334"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2iD-IA-M7D">
+                                                <rect key="frame" x="39.000000000000007" y="0.0" width="77.666666666666686" height="14.333333333333334"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Meal Monkey">
+                                                        <attributes>
+                                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <font key="NSFont" metaFont="system" size="11"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                    <fragment content=" ">
+                                                        <attributes>
+                                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                            <font key="NSFont" metaFont="system" size="11"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                    <fragment content="•">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.91764705882352937" green="0.41960784313725491" blue="0.19215686274509802" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <font key="NSFont" metaFont="system" size="11"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Desserts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qkb-0A-Lxg">
+                                                <rect key="frame" x="121.66666666666666" y="0.0" width="284.33333333333337" height="14.333333333333334"/>
                                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
                                                 <color key="textColor" name="ButtonTextColor"/>
                                                 <nil key="highlightedColor"/>
@@ -98,7 +122,7 @@
                 <outlet property="imgDessert" destination="cUu-h3-epX" id="GWV-a7-ZJ0"/>
                 <outlet property="lblDessertTitle" destination="kQ0-BH-mYW" id="wdn-6P-d47"/>
                 <outlet property="lblRating" destination="lwu-gL-qgd" id="PAb-m3-nYs"/>
-                <outlet property="lblText" destination="2iD-IA-M7D" id="Vld-yY-dqr"/>
+                <outlet property="lblText" destination="Qkb-0A-Lxg" id="ULJ-ds-3y3"/>
             </connections>
             <point key="canvasLocation" x="145.03816793893128" y="151.40845070422537"/>
         </tableViewCell>

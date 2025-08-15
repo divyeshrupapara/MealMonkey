@@ -75,9 +75,52 @@ class PaymentViewController: UIViewController {
     }
     
     @IBAction func btnEnterCard(_ sender: Any) {
+        // Card number validation
+        let cardNumber = txtCardNumber.text ?? ""
+        if cardNumber.count != 16 {
+            UIAlertController.showAlert(
+                title: "Invalid Card Number",
+                message: "Card number must be exactly 16 digits.",
+                viewController: self
+            )
+            return
+        }
+        
+        // Expiry month validation (optional but recommended)
+        if let month = Int(txtExpiryMonth.text ?? ""), month < 1 || month > 12 {
+            UIAlertController.showAlert(
+                title: "Invalid Expiry Month",
+                message: "Please enter a valid month between 01 and 12.",
+                viewController: self
+            )
+            return
+        }
+        
+        // Expiry year validation (optional but recommended)
+        if (txtExpiryYear.text ?? "").count != 2 {
+            UIAlertController.showAlert(
+                title: "Invalid Expiry Year",
+                message: "Please enter a valid 2-digit year.",
+                viewController: self
+            )
+            return
+        }
+        
+        // Secure code validation (optional but recommended)
+        if (txtSecureCode.text ?? "").count != 3 {
+            UIAlertController.showAlert(
+                title: "Invalid CVV",
+                message: "Secure code must be 3 digits.",
+                viewController: self
+            )
+            return
+        }
+        
+        // If all validations pass, proceed
         addCardData()
         lblNoItem.isHidden = !app.arrCardData.isEmpty
         tblCard.reloadData()
+        
         UIView.animate(withDuration: 0.3, animations: {
             self.viewEnterCard.transform = CGAffineTransform(translationX: 0, y: self.view.frame.height)
         }) { _ in
@@ -85,6 +128,8 @@ class PaymentViewController: UIViewController {
             self.viewTransperent.isHidden = true
             self.tabBarController?.tabBar.isHidden = false
         }
+        
+        // Clear fields
         txtLastName.text = ""
         txtFirstName.text = ""
         txtCardNumber.text = ""

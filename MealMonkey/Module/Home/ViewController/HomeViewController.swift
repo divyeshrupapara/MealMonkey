@@ -4,6 +4,7 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var txtSearchFood: UITextField!
     @IBOutlet weak var tblHome: UITableView!
+    @IBOutlet weak var btnHomeLocation: UIButton!
     
     let productManager = ProductDataManager.shared
     var filteredProducts: [ProductModel] = []
@@ -27,6 +28,9 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
         tblHome.reloadData()
+        if let savedAddress = UserDefaults.standard.string(forKey: "lastSelectedAddress") {
+            btnHomeLocation.setTitle(savedAddress, for: .normal)
+        }
     }
     
     @objc func btnCartTapped() {
@@ -34,5 +38,7 @@ class HomeViewController: UIViewController {
         if let VC = storyboard.instantiateViewController(withIdentifier: "CartViewController") as? CartViewController {
             self.navigationController?.pushViewController(VC, animated: true)
         }
+    }
+    @IBAction func btnHomeLocation(_ sender: Any) {
     }
 }

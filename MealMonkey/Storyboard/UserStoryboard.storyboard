@@ -54,6 +54,9 @@
                                                         <color key="textColor" name="LabelPrimaryColor"/>
                                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="Oz4-AG-7JY" id="NU8-Ke-Gkc"/>
+                                                        </connections>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fhz-p2-32r">
                                                         <rect key="frame" x="34" y="231" width="325" height="56"/>
@@ -64,6 +67,9 @@
                                                         <color key="textColor" name="LabelPrimaryColor"/>
                                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="Oz4-AG-7JY" id="qFt-LN-ugZ"/>
+                                                        </connections>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2w0-l5-NG3">
                                                         <rect key="frame" x="34" y="315" width="325" height="56"/>
@@ -268,7 +274,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="666"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hNQ-0g-9iU">
-                                                <rect key="frame" x="0.0" y="0.0" width="393" height="765"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="775"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fGB-Zv-xJ5">
                                                         <rect key="frame" x="143" y="42" width="107" height="36"/>
@@ -297,9 +303,12 @@
                                                         <color key="textColor" name="LabelPrimaryColor"/>
                                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="dOy-Gm-jfb" id="AYt-L6-tqo"/>
+                                                        </connections>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y4L-1Q-GVz">
-                                                        <rect key="frame" x="34" y="221" width="325" height="56"/>
+                                                        <rect key="frame" x="34" y="231" width="325" height="56"/>
                                                         <color key="backgroundColor" name="TextFieldBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="MK3-D7-oda"/>
@@ -307,9 +316,12 @@
                                                         <color key="textColor" name="LabelPrimaryColor"/>
                                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="dOy-Gm-jfb" id="Nst-FB-FBD"/>
+                                                        </connections>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobile No" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DZJ-et-a2h">
-                                                        <rect key="frame" x="34" y="305" width="325" height="56"/>
+                                                        <rect key="frame" x="34" y="315" width="325" height="56"/>
                                                         <color key="backgroundColor" name="TextFieldBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="9K1-CL-S47"/>
@@ -317,9 +329,12 @@
                                                         <color key="textColor" name="LabelPrimaryColor"/>
                                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="dOy-Gm-jfb" id="d0M-r0-TrW"/>
+                                                        </connections>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2OA-8g-yN5">
-                                                        <rect key="frame" x="34" y="389" width="325" height="56"/>
+                                                        <rect key="frame" x="34" y="399" width="325" height="56"/>
                                                         <color key="backgroundColor" name="TextFieldBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="lnE-De-eJV"/>
@@ -327,9 +342,12 @@
                                                         <color key="textColor" name="LabelPrimaryColor"/>
                                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="dOy-Gm-jfb" id="ath-fi-Iec"/>
+                                                        </connections>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cm3-A1-dcJ">
-                                                        <rect key="frame" x="34" y="473" width="325" height="56"/>
+                                                        <rect key="frame" x="34" y="483" width="325" height="56"/>
                                                         <color key="backgroundColor" name="TextFieldBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="M1y-g3-vQf"/>
@@ -337,9 +355,12 @@
                                                         <color key="textColor" name="LabelPrimaryColor"/>
                                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="dOy-Gm-jfb" id="jpB-kK-LIL"/>
+                                                        </connections>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirem Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XCJ-vX-Ayd">
-                                                        <rect key="frame" x="34" y="557" width="325" height="56"/>
+                                                        <rect key="frame" x="34" y="567" width="325" height="56"/>
                                                         <color key="backgroundColor" name="TextFieldBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="0bx-pE-dYD"/>
@@ -347,9 +368,12 @@
                                                         <color key="textColor" name="LabelPrimaryColor"/>
                                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="dOy-Gm-jfb" id="gB7-dz-kns"/>
+                                                        </connections>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="93c-EF-7gE">
-                                                        <rect key="frame" x="34" y="641" width="325" height="56"/>
+                                                        <rect key="frame" x="34" y="651" width="325" height="56"/>
                                                         <color key="backgroundColor" name="ButtonBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="n6G-Kw-vrh"/>
@@ -359,9 +383,12 @@
                                                         <state key="normal" title="Sign Up">
                                                             <color key="titleColor" name="ButtonTextColor"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="btnSignUpClick:" destination="dOy-Gm-jfb" eventType="touchUpInside" id="ZGF-ag-XhW"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uOl-f0-t4a">
-                                                        <rect key="frame" x="96" y="722" width="201" height="17"/>
+                                                        <rect key="frame" x="96" y="732" width="201" height="17"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="17" id="s3k-D9-Vbb"/>
                                                         </constraints>
@@ -396,7 +423,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aF2-yt-0tn">
-                                                        <rect key="frame" x="313" y="557" width="46" height="56"/>
+                                                        <rect key="frame" x="313" y="567" width="46" height="56"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="a5y-cU-QTX"/>
                                                             <constraint firstAttribute="width" constant="46" id="u4S-MI-wdH"/>
@@ -411,7 +438,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6KW-D1-fHY">
-                                                        <rect key="frame" x="313" y="473" width="46" height="56"/>
+                                                        <rect key="frame" x="313" y="483" width="46" height="56"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="4kk-5L-hkm"/>
                                                             <constraint firstAttribute="width" constant="46" id="z1M-Xg-bDF"/>
@@ -459,7 +486,7 @@
                                                     <constraint firstItem="Cm3-A1-dcJ" firstAttribute="trailing" secondItem="2OA-8g-yN5" secondAttribute="trailing" id="lKI-Hi-UeO"/>
                                                     <constraint firstItem="93c-EF-7gE" firstAttribute="trailing" secondItem="XCJ-vX-Ayd" secondAttribute="trailing" id="mcN-25-xLR"/>
                                                     <constraint firstItem="aF2-yt-0tn" firstAttribute="trailing" secondItem="Cm3-A1-dcJ" secondAttribute="trailing" id="mk5-G4-qaI"/>
-                                                    <constraint firstItem="y4L-1Q-GVz" firstAttribute="top" secondItem="QVa-Yy-cxv" secondAttribute="bottom" constant="18" id="xy8-kl-lof"/>
+                                                    <constraint firstItem="y4L-1Q-GVz" firstAttribute="top" secondItem="QVa-Yy-cxv" secondAttribute="bottom" constant="28" id="xy8-kl-lof"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -637,7 +664,25 @@ link to  create a new password via email</string>
                                         <color key="textColor" name="LabelPrimaryColor"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="vk9-nt-8s7" id="BLB-uO-Txk"/>
+                                        </connections>
                                     </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5zh-Er-9E7">
+                                        <rect key="frame" x="313" y="192" width="46" height="56"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="56" id="7hN-V8-H95"/>
+                                            <constraint firstAttribute="width" constant="46" id="KOu-1j-iy1"/>
+                                        </constraints>
+                                        <color key="tintColor" name="TextFieldTextColor"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="eye.slash" catalog="system">
+                                            <color key="titleColor" name="TextFieldTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnEyeClick:" destination="vk9-nt-8s7" eventType="touchUpInside" id="79V-Kx-gNw"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dEw-zY-Zez">
                                         <rect key="frame" x="34" y="360" width="325" height="56"/>
                                         <color key="backgroundColor" name="ButtonBackgroundColor"/>
@@ -662,19 +707,41 @@ link to  create a new password via email</string>
                                         <color key="textColor" name="LabelPrimaryColor"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="vk9-nt-8s7" id="SHq-zj-DWl"/>
+                                        </connections>
                                     </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S1d-ZB-wxS">
+                                        <rect key="frame" x="313" y="276" width="46" height="56"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="46" id="LMV-Qj-c0c"/>
+                                            <constraint firstAttribute="height" constant="56" id="VcD-Bf-1JH"/>
+                                        </constraints>
+                                        <color key="tintColor" name="TextFieldTextColor"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="eye.slash" catalog="system">
+                                            <color key="titleColor" name="TextFieldTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnConfirmEyeClick:" destination="vk9-nt-8s7" eventType="touchUpInside" id="431-uS-W1Q"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="6Ek-4N-mcg" firstAttribute="top" secondItem="jOc-dj-UAd" secondAttribute="bottom" constant="28" id="8Ir-kd-3rh"/>
                                     <constraint firstItem="giv-1J-OfN" firstAttribute="top" secondItem="eoA-Ew-zdu" secondAttribute="top" constant="42" id="DJE-9k-g4B"/>
+                                    <constraint firstItem="S1d-ZB-wxS" firstAttribute="top" secondItem="6Ek-4N-mcg" secondAttribute="top" id="EKE-ao-CMz"/>
                                     <constraint firstItem="6Ek-4N-mcg" firstAttribute="leading" secondItem="jOc-dj-UAd" secondAttribute="leading" id="GIP-2l-nuS"/>
                                     <constraint firstItem="dEw-zY-Zez" firstAttribute="trailing" secondItem="6Ek-4N-mcg" secondAttribute="trailing" id="LF9-F6-h4K"/>
+                                    <constraint firstItem="5zh-Er-9E7" firstAttribute="top" secondItem="jOc-dj-UAd" secondAttribute="top" id="PsA-YP-KVz"/>
                                     <constraint firstAttribute="trailing" secondItem="jOc-dj-UAd" secondAttribute="trailing" constant="34" id="QhJ-Yj-8bC"/>
                                     <constraint firstItem="jOc-dj-UAd" firstAttribute="leading" secondItem="eoA-Ew-zdu" secondAttribute="leading" constant="34" id="Tfp-od-dQM"/>
+                                    <constraint firstItem="5zh-Er-9E7" firstAttribute="trailing" secondItem="jOc-dj-UAd" secondAttribute="trailing" id="Y2v-ia-z2F"/>
                                     <constraint firstItem="zDW-Hq-qxf" firstAttribute="centerX" secondItem="eoA-Ew-zdu" secondAttribute="centerX" id="bkH-wc-l9s"/>
                                     <constraint firstItem="jOc-dj-UAd" firstAttribute="top" secondItem="zDW-Hq-qxf" secondAttribute="bottom" constant="59" id="cpe-GJ-btY"/>
                                     <constraint firstItem="dEw-zY-Zez" firstAttribute="top" secondItem="6Ek-4N-mcg" secondAttribute="bottom" constant="28" id="dWw-LY-5GG"/>
+                                    <constraint firstItem="S1d-ZB-wxS" firstAttribute="trailing" secondItem="6Ek-4N-mcg" secondAttribute="trailing" id="dks-kD-FxU"/>
                                     <constraint firstItem="dEw-zY-Zez" firstAttribute="leading" secondItem="6Ek-4N-mcg" secondAttribute="leading" id="fmS-iw-pz1"/>
                                     <constraint firstItem="zDW-Hq-qxf" firstAttribute="top" secondItem="giv-1J-OfN" secondAttribute="bottom" constant="13" id="h76-HU-2oA"/>
                                     <constraint firstItem="giv-1J-OfN" firstAttribute="centerX" secondItem="eoA-Ew-zdu" secondAttribute="centerX" id="obu-1M-gSU"/>
@@ -692,6 +759,8 @@ link to  create a new password via email</string>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="btnConfirmEye" destination="S1d-ZB-wxS" id="0Ve-Hp-OJT"/>
+                        <outlet property="btnEye" destination="5zh-Er-9E7" id="gHe-Ic-U45"/>
                         <outlet property="btnNext" destination="dEw-zY-Zez" id="ML4-4l-qPx"/>
                         <outlet property="txtConfiemPassword" destination="6Ek-4N-mcg" id="Q71-iw-0nU"/>
                         <outlet property="txtNewPassword" destination="jOc-dj-UAd" id="Z8f-qQ-KaC"/>

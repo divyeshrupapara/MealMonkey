@@ -124,7 +124,7 @@ class FoodDetailViewController: UIViewController {
         // Find if the product already exists in the cart.
         if let existingIndex = appDelegate.arrCart.firstIndex(where: { $0.intId == productToAdd.intId }) {
             // If it exists, update its quantity and total price.
-            appDelegate.arrCart[existingIndex].intProductQty = quantity
+            appDelegate.arrCart[existingIndex].intProductQty = quantity + (productToAdd.intProductQty ?? 1)
             print("Updated \(productToAdd.strProductName) quantity to \(quantity).")
         } else {
             // If it's a new product, set its quantity and add it to the cart.

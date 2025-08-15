@@ -23,6 +23,7 @@ class MyOrderViewController: UIViewController {
         
         calculateTotals()
         
+        tblMyOrder.showsVerticalScrollIndicator = false
         tblMyOrder.register(UINib(nibName: "MyOrderTableViewCell", bundle: nil), forCellReuseIdentifier: "MyOrderTableViewCell")
         tblMyOrder.reloadData()
     }

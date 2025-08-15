@@ -19,15 +19,56 @@ class LoginViewController: UIViewController {
         
         viewStyle(cornerRadius: 28, borderWidth: 0, borderColor: .gray, textField: [txtEmail, txtPassword, btnLogin, btnGoogle, btnFacebook])
         
-        setPadding(textfield: [txtEmail, txtPassword])
+        setPadding(textfield: [txtEmail])
+        MealMonkey.setPadding.setPadding(left: 34, right: 40, textfield: [txtPassword])
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
+    func isValidEmail(_ email: String) -> Bool {
+        let emailRegex = "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$"
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegex)
+        return emailTest.evaluate(with: email)
+    }
+
+    func isValidPassword(_ password: String) -> Bool {
+        let passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$"
+        let passwordTest = NSPredicate(format: "SELF MATCHES %@", passwordRegex)
+        return passwordTest.evaluate(with: password)
+    }
+    
+    func validateLoginPassword() {
+        guard let email = txtEmail.text, !email.isEmpty else {
+            UIAlertController.showAlert(title: "Error", message: "Please enter your email address.", viewController: self)
+            return
+        }
+        
+        guard isValidEmail(email) else {
+            UIAlertController.showAlert(title: "Invalid Email", message: "Please enter a valid email address.", viewController: self)
+            return
+        }
+        
+        guard let password = txtPassword.text, !password.isEmpty else {
+            UIAlertController.showAlert(title: "Error", message: "Please enter your password.", viewController: self)
+            return
+        }
+        
+        guard isValidPassword(password) else {
+            UIAlertController.showAlert(
+                title: "Invalid Password",
+                message: "Password must have at least 8 characters, including uppercase, lowercase, a number, and a special symbol.",
+                viewController: self
+            )
+            return
+        }
+        showMainTabBar()
     }
     
     @IBAction func btnLoginClick(_ sender: Any) {
-        showMainTabBar()
+        validateLoginPassword()
     }
     
     private func showMainTabBar() {
@@ -41,6 +82,7 @@ class LoginViewController: UIViewController {
                 
                 sceneDelegate.window?.rootViewController = tabBarController
                 sceneDelegate.window?.makeKeyAndVisible()
+                tabBarController.selectedIndex = 2
             }
         }
     }

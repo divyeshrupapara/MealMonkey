@@ -5,7 +5,9 @@ extension MoreViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        switch indexPath.row {
+        let selectedItem = arrMore[indexPath.row]
+        
+        switch selectedItem.intTag {
         case 0:
             let storyboard = UIStoryboard(name: "MoreStoryboard", bundle: nil)
             if let VC = storyboard.instantiateViewController(withIdentifier: "PaymentViewController") as? PaymentViewController {
