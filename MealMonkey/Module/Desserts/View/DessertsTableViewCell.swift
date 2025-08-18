@@ -17,13 +17,13 @@ class DessertsTableViewCell: UITableViewCell {
     
     func dessertConfigureCell(dessert: ProductModel) {
         DispatchQueue.main.async {
-             self.lblDessertTitle.text = dessert.strProductName
+            self.lblDessertTitle.text = dessert.strProductName
             self.lblText.attributedText = self.getStyledText(dessert.objProductType.rawValue)
-             self.lblRating.text = "\(dessert.floatProductRating)"
-             self.imgDessert.image = UIImage(named: dessert.strProductImage)
-             self.setNeedsLayout()
-             self.layoutIfNeeded()
-         }
+            self.lblRating.text = "\(dessert.floatProductRating)"
+            self.imgDessert.image = UIImage(named: dessert.strProductImage)
+            self.setNeedsLayout()
+            self.layoutIfNeeded()
+        }
     }
     
     private func getStyledText(_ text: String) -> NSAttributedString {

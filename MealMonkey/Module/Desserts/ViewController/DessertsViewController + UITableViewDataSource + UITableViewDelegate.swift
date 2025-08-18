@@ -6,7 +6,7 @@ extension DessertsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedProduct = filteredProducts[indexPath.row]
         
-        productManager.addRecentProduct(selectedProduct.intId)
+//        productManager.addRecentProduct(selectedProduct.intId)
         
         let storyboard = UIStoryboard(name: "MenuStoryboard", bundle: nil)
         if let detailVC = storyboard.instantiateViewController(withIdentifier: "FoodDetailViewController") as? FoodDetailViewController {

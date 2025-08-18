@@ -17,7 +17,7 @@ class NewPasswordViewController: UIViewController {
         setLeftAlignedTitleWithBack("New Password", target: self, action: #selector(btnBackTapped))
         
         viewStyle(cornerRadius: 28, borderWidth: 0, borderColor: .gray, textField: [txtNewPassword, txtConfiemPassword, btnNext])
-        MealMonkey.setPadding.setPadding(left: 34, right: 40, textfield: [txtNewPassword, txtConfiemPassword])
+        setPadding.setPadding(left: 34, right: 40, textfield: [txtNewPassword, txtConfiemPassword])
     }
     
     func validateNewPasswordConfirmPassword() {

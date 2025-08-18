@@ -1,7 +1,7 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
-
+    
     @IBOutlet weak var imgProfile: UIImageView!
     @IBOutlet weak var txtName: UITextField!
     @IBOutlet weak var txtEmail: UITextField!
@@ -12,7 +12,7 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.navigationController?.isNavigationBarHidden = false
         
         let imgPicker = UITapGestureRecognizer(target: self, action: #selector(imgTap))
@@ -48,9 +48,21 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func btnSignOutClick(_ sender: Any) {
+        // Clear login state
+        UserDefaults.standard.set(false, forKey: "isLoggedIn")
+        UserDefaults.standard.removeObject(forKey: "loggedInEmail") // clear stored email
+        
+        // Redirect to Login screen
         let storyboard = UIStoryboard(name: "UserStoryboard", bundle: nil)
-        if let VC = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
-            self.navigationController?.pushViewController(VC, animated: true)
+        if let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
+            
+            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+               let sceneDelegate = windowScene.delegate as? SceneDelegate {
+                
+                let navController = UINavigationController(rootViewController: loginVC)
+                sceneDelegate.window?.rootViewController = navController
+                sceneDelegate.window?.makeKeyAndVisible()
+            }
         }
     }
 }

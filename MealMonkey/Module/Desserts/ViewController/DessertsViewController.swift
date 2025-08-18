@@ -22,7 +22,7 @@ class DessertsViewController: UIViewController {
         
         viewStyle(cornerRadius: txtSearchDesserts.frame.size.height/2, borderWidth: 0, borderColor: .systemGray, textField: [txtSearchDesserts])
         
-        setPadding(textfield: [txtSearchDesserts])
+       setPadding.setPadding(left: 34, right: 34, textfield: [txtSearchDesserts])
         
         txtSearchDesserts.delegate = self
         allProducts = productManager.products(for: selectedProductType)
@@ -60,9 +60,6 @@ class DessertsViewController: UIViewController {
         tblDesserts.reloadData()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-    }
-    
     @objc func btnBackTapped() {
         self.navigationController?.popViewController(animated: true)
     }
@@ -71,13 +68,6 @@ class DessertsViewController: UIViewController {
         let storyboard = UIStoryboard(name: "MenuStoryboard", bundle: nil)
         if let VC = storyboard.instantiateViewController(withIdentifier: "CartViewController") as? CartViewController {
             self.navigationController?.pushViewController(VC, animated: true)
-        }
-    }
-    
-    func setPadding(textfield: [UITextField]){
-        
-        for item in textfield {
-            item.setPadding(left: 34, right: 34)
         }
     }
 }

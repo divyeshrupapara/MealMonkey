@@ -44,6 +44,9 @@
                                         <color key="textColor" name="LabelPrimaryColor"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Y6W-OH-hqX" id="SHo-y3-p7S"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -503,22 +506,30 @@
                                                             <constraint firstItem="7xh-p9-A8M" firstAttribute="leading" secondItem="3wh-Iu-ZbG" secondAttribute="leading" constant="54" id="v7U-Et-q67"/>
                                                         </constraints>
                                                     </view>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_heart" translatesAutoresizingMaskIntoConstraints="NO" id="kBR-A9-Fou">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qP7-kE-TBh">
                                                         <rect key="frame" x="332.33333333333331" y="-8" width="19" height="15.666666666666666"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="19.109999999999999" id="7bc-2p-IyO"/>
-                                                            <constraint firstAttribute="height" constant="15.65" id="fNK-i8-dXi"/>
+                                                            <constraint firstAttribute="width" constant="19.109999999999999" id="7Ie-U1-Fyz"/>
+                                                            <constraint firstAttribute="height" constant="15.65" id="hjD-cZ-rbT"/>
                                                         </constraints>
-                                                    </imageView>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" image="ic_heart">
+                                                            <color key="titleColor" name="ButtonTextColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnHeartClick:" destination="TzM-OT-JNh" eventType="touchUpInside" id="pK1-W2-ltE"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
+                                                    <constraint firstItem="qP7-kE-TBh" firstAttribute="top" secondItem="pKW-rP-i4V" secondAttribute="top" constant="-8" id="0my-IJ-DV2"/>
                                                     <constraint firstItem="PYY-mH-8Qs" firstAttribute="leading" secondItem="KuZ-Nh-vWk" secondAttribute="leading" id="2LK-W0-ABs"/>
                                                     <constraint firstItem="s1o-fQ-Mud" firstAttribute="top" secondItem="hCJ-Ms-D7n" secondAttribute="bottom" constant="-1" id="48V-P4-1Ih"/>
                                                     <constraint firstItem="IFF-vt-r5Z" firstAttribute="top" secondItem="PYY-mH-8Qs" secondAttribute="bottom" constant="19.5" id="Bg6-Rl-1bG"/>
                                                     <constraint firstAttribute="trailing" secondItem="3wh-Iu-ZbG" secondAttribute="trailing" constant="21" id="C43-Yk-oUG"/>
-                                                    <constraint firstAttribute="trailing" secondItem="kBR-A9-Fou" secondAttribute="trailing" constant="41.700000000000003" id="FsT-FB-0Qx"/>
                                                     <constraint firstItem="7HA-5g-AOW" firstAttribute="top" secondItem="Lsv-h9-Wgs" secondAttribute="bottom" constant="24" id="Gq8-7h-wCo"/>
+                                                    <constraint firstAttribute="trailing" secondItem="qP7-kE-TBh" secondAttribute="trailing" constant="41.700000000000003" id="Hep-0d-vjv"/>
                                                     <constraint firstItem="7HA-5g-AOW" firstAttribute="leading" secondItem="Lsv-h9-Wgs" secondAttribute="leading" id="IUY-A0-BkU"/>
                                                     <constraint firstItem="NDR-VX-PZK" firstAttribute="top" secondItem="aq5-iC-onx" secondAttribute="bottom" constant="7" id="KGz-i4-eZP"/>
                                                     <constraint firstItem="aq5-iC-onx" firstAttribute="leading" secondItem="pKW-rP-i4V" secondAttribute="leading" constant="22" id="LSr-iQ-xxg"/>
@@ -532,7 +543,6 @@
                                                     <constraint firstItem="3wh-Iu-ZbG" firstAttribute="top" secondItem="7HA-5g-AOW" secondAttribute="bottom" constant="27" id="YEL-cD-cMf"/>
                                                     <constraint firstItem="PYY-mH-8Qs" firstAttribute="top" secondItem="KuZ-Nh-vWk" secondAttribute="bottom" constant="10" id="ZZt-m8-Tgw"/>
                                                     <constraint firstItem="Lsv-h9-Wgs" firstAttribute="trailing" secondItem="Ys6-08-E4D" secondAttribute="trailing" id="ZgH-3N-Xb3"/>
-                                                    <constraint firstItem="kBR-A9-Fou" firstAttribute="top" secondItem="pKW-rP-i4V" secondAttribute="top" constant="-8" id="ba9-yU-kbh"/>
                                                     <constraint firstAttribute="trailing" secondItem="s1o-fQ-Mud" secondAttribute="trailing" constant="20.82" id="bpw-eK-xeT"/>
                                                     <constraint firstAttribute="trailing" secondItem="IFF-vt-r5Z" secondAttribute="trailing" constant="22" id="dtj-Gb-AXI"/>
                                                     <constraint firstItem="Lsv-h9-Wgs" firstAttribute="leading" secondItem="Ys6-08-E4D" secondAttribute="leading" id="gaS-Fq-JuY"/>
@@ -584,6 +594,7 @@
                     <connections>
                         <outlet property="btnAddToCartImage" destination="QbZ-hC-MmP" id="tla-jC-Yre"/>
                         <outlet property="btnAddToCartTitle" destination="SXZ-ed-7uC" id="J6S-9a-D8S"/>
+                        <outlet property="btnHeart" destination="qP7-kE-TBh" id="mDx-Lq-FbP"/>
                         <outlet property="btnIngredients" destination="t2k-3a-P4q" id="IQZ-jy-HbB"/>
                         <outlet property="btnMinusQty" destination="i6t-rN-vyQ" id="edh-y3-Aot"/>
                         <outlet property="btnPlusQty" destination="S51-v3-UK7" id="Zol-sR-S3D"/>
