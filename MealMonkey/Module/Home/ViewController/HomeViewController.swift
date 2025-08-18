@@ -22,7 +22,11 @@ class HomeViewController: UIViewController {
         
         tblHome.showsVerticalScrollIndicator = false
         tblHome.register(UINib(nibName: "HomeTableViewCell", bundle: nil), forCellReuseIdentifier: "HomeTableViewCell")
-        tblHome.reloadData()
+        
+        ApiServices.fetchProducts { [weak self] products in
+            ProductDataManager.shared.setProductsFromAPI(products)
+            self?.tblHome.reloadData()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

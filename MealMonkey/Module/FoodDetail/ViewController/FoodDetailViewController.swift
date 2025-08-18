@@ -21,6 +21,7 @@ class FoodDetailViewController: UIViewController {
     @IBOutlet weak var btnProtion: UIButton!
     @IBOutlet weak var btnIngredients: UIButton!
     @IBOutlet weak var stackStar: UIStackView!
+    @IBOutlet weak var btnHeart: UIButton!
     
     private var appDelegate: AppDelegate? {
         return UIApplication.shared.delegate as? AppDelegate
@@ -173,11 +174,16 @@ class FoodDetailViewController: UIViewController {
     @IBAction func btnAddToCartTitleClick(_ sender: Any) {
         guard let product = product else { return }
         
-        checkProduct(productToAdd: product)
-        
-        let alert = UIAlertController(title: "Success", message: "Added to cart!", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
+        if let user = CoreDataManager.shared.fetchCurrentUser() {
+                // Save to Core Data instead of AppDelegate array
+                CoreDataManager.shared.addToCart(for: user, product: product, quantity: quantity)
+                
+                let alert = UIAlertController(title: "Success", message: "Added to cart!", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                present(alert, animated: true, completion: nil)
+            } else {
+                print(" No logged-in user found")
+            }
     }
     
     @IBAction func btnMinusQtyClick(_ sender: Any) {
@@ -190,5 +196,17 @@ class FoodDetailViewController: UIViewController {
     @IBAction func btnPlusQtyClick(_ sender: Any) {
         quantity += 1
         updatePriceAndQuantityUI()
+    }
+    
+    @IBAction func btnHeartClick(_ sender: Any) {
+    }
+}
+
+extension CoreDataManager {
+    func fetchCurrentUser() -> User? {
+        if let email = UserDefaults.standard.string(forKey: "loggedInEmail") {
+            return fetchUser(byEmail: email)
+        }
+        return nil
     }
 }

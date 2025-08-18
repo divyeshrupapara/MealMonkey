@@ -1,11 +1,16 @@
 final class ProductDataManager {
     static let shared = ProductDataManager()
     
-    var allProducts: [ProductModel] = ProductModel.addProductData()
+    var allProducts: [ProductModel] = []
     
     private init() {}
     
-    private(set) var products: [ProductModel] = ProductModel.addProductData()
+    func setProductsFromAPI(_ products: [ProductModel]) {
+        self.allProducts = products
+        self.products = products
+    }
+    
+    private(set) var products: [ProductModel] = []
     
     private var currentCategory: ProductCategory = .All
     

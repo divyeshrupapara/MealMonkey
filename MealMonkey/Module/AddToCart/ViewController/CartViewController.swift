@@ -6,12 +6,10 @@ class CartViewController: UIViewController {
     @IBOutlet weak var tblCartView: UITableView!
     @IBOutlet weak var lblNoItem: UILabel!
     
-    var cartItems: [ProductModel] {
-        return (UIApplication.shared.delegate as? AppDelegate)?.arrCart ?? []
-    }
+    var cartItems: [ProductModel] = []
+    var currentUser: User?
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         
         btnPlaceOrder.isHidden = true
@@ -22,29 +20,42 @@ class CartViewController: UIViewController {
         viewStyle(cornerRadius: 28, borderWidth: 0, borderColor: .systemGray, textField: [btnPlaceOrder])
         
         tblCartView.register(UINib(nibName: "CartTableViewCell", bundle: nil), forCellReuseIdentifier: "CartTableViewCell")
-        tblCartView.reloadData()
+        
+        loadCart()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        lblNoItem.isHidden = !app.arrCart.isEmpty
-        tblCartView.reloadData()
-        if app.arrCart.isEmpty {
-            btnPlaceOrder.isHidden = true
+        super.viewWillAppear(animated)
+        loadCart()
+    }
+    
+    func loadCart() {
+        if let email = UserDefaults.standard.string(forKey: "loggedInEmail"),
+           let user = CoreDataManager.shared.fetchUser(byEmail: email) {
+            self.currentUser = user
+            self.cartItems = CoreDataManager.shared.fetchCart(for: user)
         } else {
-            btnPlaceOrder.isHidden = false
+            self.cartItems = []
         }
+        
+        lblNoItem.isHidden = !cartItems.isEmpty
+        btnPlaceOrder.isHidden = cartItems.isEmpty
+        tblCartView.reloadData()
     }
     
     @IBAction func btnPlaceOrderClick(_ sender: Any) {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-         
-         if !appDelegate.arrCart.isEmpty {
-             // Save the current cart as a new order
-             appDelegate.arrOrders.append(appDelegate.arrCart)
-            
-             // Clear the cart
-             appDelegate.arrCart.removeAll()
-         }
+        guard let user = currentUser, !cartItems.isEmpty else { return }
+        
+        // Save current cart as new order
+        CoreDataManager.shared.saveOrder(for: user, products: cartItems)
+        
+        // Clear cart
+        CoreDataManager.shared.clearCart(for: user)
+        
+        // Reload
+        loadCart()
+        
+        // Navigate to OrderList
         let storyboard = UIStoryboard(name: "MoreStoryboard", bundle: nil)
         if let VC = storyboard.instantiateViewController(withIdentifier: "OrderListViewController") as? OrderListViewController {
             self.navigationController?.pushViewController(VC, animated: true)

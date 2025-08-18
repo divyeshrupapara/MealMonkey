@@ -21,8 +21,8 @@ class SignUpViewController: UIViewController {
         setLeftAlignedTitleWithBack("Sign Up", target: self, action: #selector(btnBackTapped))
         
         viewStyle(cornerRadius: 28, borderWidth: 0, borderColor: .systemGray, textField: [txtName, txtEmail, txtMobileNo, txtAddress, txtPassword, txtConfirmPassword, btnSignUp])
-        MealMonkey.setPadding.setPadding(left: 34, right: 34, textfield: [txtName, txtEmail, txtMobileNo, txtAddress])
-        MealMonkey.setPadding.setPadding(left: 34, right: 40, textfield: [txtPassword, txtConfirmPassword])
+        setPadding.setPadding(left: 34, right: 34, textfield: [txtName, txtEmail, txtMobileNo, txtAddress])
+        setPadding.setPadding(left: 34, right: 40, textfield: [txtPassword, txtConfirmPassword])
     }
     
     func validateSignUpForm() {
@@ -60,6 +60,21 @@ class SignUpViewController: UIViewController {
         } else if password != confirmPassword {
             UIAlertController.showAlert(title: "Passwords Do Not Match", message: "The password and confirm password must be the same.", viewController: self)
         } else {
+            if CoreDataManager.shared.isEmailExists(email: email) {
+                UIAlertController.showAlert(title: "Email Exists", message: "This email is already registered. Please use another email.", viewController: self)
+                return
+            }
+            
+            // Save user in Core Data
+            CoreDataManager.shared.saveUser(
+                name: name,
+                email: email,
+                mobile: mobile,
+                address: address,
+                password: password
+            )
+            
+            // Redirect to Login
             let storyboard = UIStoryboard(name: "UserStoryboard", bundle: nil)
             if let VC = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
                 self.navigationController?.pushViewController(VC, animated: true)

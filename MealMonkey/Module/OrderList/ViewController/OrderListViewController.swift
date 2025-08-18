@@ -5,23 +5,28 @@ class OrderListViewController: UIViewController {
     @IBOutlet weak var tblOrderList: UITableView!
     @IBOutlet weak var lblNoItem: UILabel!
     
-    var orders: [[ProductModel]] {
-        return (UIApplication.shared.delegate as? AppDelegate)?.arrOrders ?? []
-    }
+    var orders: [[ProductModel]] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if orders.count == 0 {
-            lblNoItem.isHidden = false
-        } else {
-            lblNoItem.isHidden = true
-        }
+        loadUserOrders()
+        
+        lblNoItem.isHidden = !orders.isEmpty
         
         setLeftAlignedTitleWithBack("Order List", target: self, action: #selector(btnBackTapped))
         
         tblOrderList.register(UINib(nibName: "OrderListTableViewCell", bundle: nil), forCellReuseIdentifier: "OrderListTableViewCell")
         tblOrderList.reloadData()
+    }
+    
+    private func loadUserOrders() {
+        if let email = UserDefaults.standard.string(forKey: "loggedInEmail"),
+           let user = CoreDataManager.shared.fetchUser(byEmail: email) {
+            orders = CoreDataManager.shared.fetchOrders(for: user)
+        } else {
+            orders = []
+        }
     }
     
     @objc func btnBackTapped() {
