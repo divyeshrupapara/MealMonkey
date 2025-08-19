@@ -1,7 +1,9 @@
 import UIKit
 
+// MARK: - Food Detail View Controller
 class FoodDetailViewController: UIViewController {
     
+    // MARK: - IBOutlets
     @IBOutlet weak var imgFood: UIImageView!
     @IBOutlet weak var lblFoodName: UILabel!
     @IBOutlet weak var lblFoodPrice: UILabel!
@@ -23,18 +25,20 @@ class FoodDetailViewController: UIViewController {
     @IBOutlet weak var stackStar: UIStackView!
     @IBOutlet weak var btnHeart: UIButton!
     
+    // MARK: - Properties
     private var appDelegate: AppDelegate? {
         return UIApplication.shared.delegate as? AppDelegate
     }
     
     var product: ProductModel?
     var quantity: Int = 1
-    
     var cartItems: [(product: ProductModel, quantity: Int)] = []
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Initialize quantity and UI
         quantity = 1
         lblQuantity.text = "\(quantity)"
         
@@ -47,29 +51,21 @@ class FoodDetailViewController: UIViewController {
         }
         
         self.navigationController?.isNavigationBarHidden = false
-        setLeftAlignedTitleWithBack("",
-                                    textColor: .buttonText,
-                                    target: self,
-                                    action: #selector(btnBackTapped)
-        )
-        setCartButton(target: self,
-                      action: #selector(btnCartTapped),
-                      tintColor: .buttonText
-        )
+        setLeftAlignedTitleWithBack("", textColor: .buttonText, target: self, action: #selector(btnBackTapped))
+        setCartButton(target: self, action: #selector(btnCartTapped), tintColor: .buttonText)
         
+        // Hide portions and ingredients stacks initially
         stackProtion.isHidden = true
         stackIngredients.isHidden = true
         
+        // Apply UI styles
         viewStyle(cornerRadius: 4, borderWidth: 0, borderColor: .systemGray, textField: [viewPortion, viewIngredients])
-        
         viewStyle(cornerRadius: btnPlusQty.frame.size.height/2, borderWidth: 0, borderColor: .systemGray, textField: [btnPlusQty, btnMinusQty])
-        
         viewStyle(cornerRadius: btnAddToCartImage.frame.size.height/2, borderWidth: 0, borderColor: .systemGray, textField: [btnAddToCartImage])
-        
         viewStyle(cornerRadius: btnAddToCartTitle.frame.size.height/2, borderWidth: 0, borderColor: .systemGray, textField: [btnAddToCartTitle])
-        
         viewStyle(cornerRadius: lblQuantity.frame.size.height/2, borderWidth: 1, borderColor: .buttonBackground, textField: [lblQuantity])
         
+        // Detail view corner radius and shadow
         viewDetail.layer.cornerRadius = 20
         viewDetail.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         viewDetail.layer.shadowColor = UIColor.black.cgColor
@@ -77,32 +73,43 @@ class FoodDetailViewController: UIViewController {
         viewDetail.layer.shadowOffset = CGSize(width: 0, height: -2)
         viewDetail.layer.shadowRadius = 10
         
+        // Fill star rating
         fillStars(for: product?.floatProductRating ?? 0.0, in: stackStar)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        // Wishlist button setup based on Core Data
+        if let user = CoreDataManager.shared.fetchCurrentUser(),
+           let product = product {
+            if CoreDataManager.shared.isInWishlist(for: user, productId: product.intId) {
+                btnHeart.setImage(UIImage(named: "ic_heart"), for: .normal)
+            } else {
+                btnHeart.setImage(UIImage(named: "ic_heart_unfill"), for: .normal)
+            }
+        }
+    }
+    // MARK: - Helper Methods
+    
+    /// Fill the star rating UI
     func fillStars(for rating: Float, in stackView: UIStackView) {
         for (index, view) in stackView.arrangedSubviews.enumerated() {
             if let imageView = view as? UIImageView {
                 let starIndex = Float(index) + 1.0
-                
                 if rating >= starIndex {
-                    // Full star
                     imageView.image = UIImage(named: "ic_starFill")
                 } else if rating + 0.5 >= starIndex {
-                    // Half star (using same as unfilled)
                     imageView.image = UIImage(named: "ic_star")
                 } else {
-                    // Empty star
                     imageView.image = UIImage(named: "ic_star")
                 }
             }
         }
     }
     
+    /// Update UI elements for product details
     func configureUI() {
         guard let product = product else { return }
         self.title = product.strProductName
-        // Set the UI elements using the product's properties.
         lblFoodName.text = product.strProductName
         lblFoodDescription.text = product.strProductDescription
         imgFood.image = UIImage(named: product.strProductImage)
@@ -110,6 +117,7 @@ class FoodDetailViewController: UIViewController {
         updatePriceAndQuantityUI()
     }
     
+    /// Update price and quantity labels
     func updatePriceAndQuantityUI() {
         guard let product = product else { return }
         let total = product.doubleProductPrice * Double(quantity)
@@ -119,22 +127,21 @@ class FoodDetailViewController: UIViewController {
         btnProtion.isEnabled = quantity > 1
     }
     
+    /// Check if product exists in cart and update quantity
     func checkProduct(productToAdd: ProductModel) {
         guard let appDelegate = appDelegate else { return }
-        
-        // Find if the product already exists in the cart.
         if let existingIndex = appDelegate.arrCart.firstIndex(where: { $0.intId == productToAdd.intId }) {
-            // If it exists, update its quantity and total price.
             appDelegate.arrCart[existingIndex].intProductQty = quantity + (productToAdd.intProductQty ?? 1)
             print("Updated \(productToAdd.strProductName) quantity to \(quantity).")
         } else {
-            // If it's a new product, set its quantity and add it to the cart.
             let newProduct = productToAdd
             newProduct.intProductQty = quantity
             appDelegate.arrCart.append(newProduct)
             print("Added \(productToAdd.strProductName) with quantity \(quantity).")
         }
     }
+    
+    // MARK: - IBActions
     
     @objc func btnBackTapped() {
         self.navigationController?.popViewController(animated: true)
@@ -156,7 +163,6 @@ class FoodDetailViewController: UIViewController {
     }
     
     @IBAction func btnIngredientsClick(_ sender: Any) {
-        
         stackIngredients.isHidden = false
     }
     
@@ -173,17 +179,14 @@ class FoodDetailViewController: UIViewController {
     
     @IBAction func btnAddToCartTitleClick(_ sender: Any) {
         guard let product = product else { return }
-        
         if let user = CoreDataManager.shared.fetchCurrentUser() {
-                // Save to Core Data instead of AppDelegate array
-                CoreDataManager.shared.addToCart(for: user, product: product, quantity: quantity)
-                
-                let alert = UIAlertController(title: "Success", message: "Added to cart!", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                present(alert, animated: true, completion: nil)
-            } else {
-                print(" No logged-in user found")
-            }
+            CoreDataManager.shared.addToCart(for: user, product: product, quantity: quantity)
+            let alert = UIAlertController(title: "Success", message: "Added to cart!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+        } else {
+            print(" No logged-in user found")
+        }
     }
     
     @IBAction func btnMinusQtyClick(_ sender: Any) {
@@ -199,10 +202,23 @@ class FoodDetailViewController: UIViewController {
     }
     
     @IBAction func btnHeartClick(_ sender: Any) {
+        guard let product = product,
+              let user = CoreDataManager.shared.fetchCurrentUser() else { return }
+        
+        if CoreDataManager.shared.isInWishlist(for: user, productId: product.intId) {
+            CoreDataManager.shared.removeFromWishlist(for: user, productId: product.intId)
+            btnHeart.setImage(UIImage(named: "ic_heart_unfill"), for: .normal)
+        } else {
+            CoreDataManager.shared.addToWishlist(for: user, productId: product.intId)
+            btnHeart.setImage(UIImage(named: "ic_heart"), for: .normal)
+        }
     }
 }
 
+// MARK: - CoreDataManager Extension
 extension CoreDataManager {
+    
+    /// Fetch the currently logged-in user from UserDefaults
     func fetchCurrentUser() -> User? {
         if let email = UserDefaults.standard.string(forKey: "loggedInEmail") {
             return fetchUser(byEmail: email)

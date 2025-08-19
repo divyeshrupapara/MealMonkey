@@ -1,15 +1,23 @@
 import UIKit
 
+/// LoginViewController handles the login screen UI and login logic for the app.
 class LoginViewController: UIViewController {
     
-    @IBOutlet weak var txtEmail: UITextField!
-    @IBOutlet weak var txtPassword: UITextField!
-    @IBOutlet weak var btnLogin: UIButton!
-    @IBOutlet weak var btnFacebook: UIButton!
-    @IBOutlet weak var btnGoogle: UIButton!
-    @IBOutlet weak var btnEye: UIButton!
+    // MARK: - IBOutlets
     
+    @IBOutlet weak var txtEmail: UITextField!       // Email input field
+    @IBOutlet weak var txtPassword: UITextField!    // Password input field
+    @IBOutlet weak var btnLogin: UIButton!          // Login button
+    @IBOutlet weak var btnFacebook: UIButton!       // Facebook login button
+    @IBOutlet weak var btnGoogle: UIButton!         // Google login button
+    @IBOutlet weak var btnEye: UIButton!            // Toggle password visibility button
+    
+    // MARK: - Properties
+    
+    /// Tracks the password visibility state
     var isPasswordVisible: Bool = false
+    
+    // MARK: - Lifecycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,29 +25,41 @@ class LoginViewController: UIViewController {
         self.title = "Log in"
         self.navigationController?.isNavigationBarHidden = true
         
+        // Apply UI styling
         viewStyle(cornerRadius: 28, borderWidth: 0, borderColor: .gray, textField: [txtEmail, txtPassword, btnLogin, btnGoogle, btnFacebook])
         
+        // Set padding for text fields
         setPadding.setPadding(left: 34, right: 34, textfield: [txtEmail])
         setPadding.setPadding(left: 34, right: 40, textfield: [txtPassword])
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
         self.tabBarController?.tabBar.isHidden = true
     }
     
+    // MARK: - Validation Methods
+    
+    /// Validates email format using regex
+    /// - Parameter email: Email string to validate
+    /// - Returns: `true` if valid, `false` otherwise
     func isValidEmail(_ email: String) -> Bool {
         let emailRegex = "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$"
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegex)
         return emailTest.evaluate(with: email)
     }
     
+    /// Validates password format using regex
+    /// - Parameter password: Password string to validate
+    /// - Returns: `true` if valid, `false` otherwise
     func isValidPassword(_ password: String) -> Bool {
         let passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$"
         let passwordTest = NSPredicate(format: "SELF MATCHES %@", passwordRegex)
         return passwordTest.evaluate(with: password)
     }
     
+    /// Validates login inputs and performs authentication against Core Data
     func validateLoginPassword() {
         guard let email = txtEmail.text, !email.isEmpty else {
             UIAlertController.showAlert(title: "Error", message: "Please enter your email address.", viewController: self)
@@ -62,12 +82,15 @@ class LoginViewController: UIViewController {
         }
     }
     
+    // MARK: - IBActions
+    
+    /// Handles login button click
     @IBAction func btnLoginClick(_ sender: Any) {
         validateLoginPassword()
     }
     
+    /// Shows main tab bar controller after successful login
     private func showMainTabBar() {
-        
         let storyboard = UIStoryboard(name: "HomeStoryboard", bundle: nil)
         if let tabBarController = storyboard.instantiateViewController(withIdentifier: "MainTabViewController") as? UITabBarController {
             
@@ -82,22 +105,23 @@ class LoginViewController: UIViewController {
         }
     }
     
+    /// Handles forget password button click
     @IBAction func btnForgetPasswordClick(_ sender: Any) {
-        
         let storyboard = UIStoryboard(name: "UserStoryboard", bundle: nil)
-        if let VC = storyboard.instantiateViewController(withIdentifier: "ForgetPasswordViewController") as? ForgetPasswordViewController{
+        if let VC = storyboard.instantiateViewController(withIdentifier: "ForgetPasswordViewController") as? ForgetPasswordViewController {
             self.navigationController?.pushViewController(VC, animated: true)
         }
     }
     
+    /// Handles sign up button click
     @IBAction func btnSignUpClick(_ sender: Any) {
-        
         let storyboard = UIStoryboard(name: "UserStoryboard", bundle: nil)
-        if let VC = storyboard.instantiateViewController(withIdentifier: "SignUpViewController") as? SignUpViewController{
+        if let VC = storyboard.instantiateViewController(withIdentifier: "SignUpViewController") as? SignUpViewController {
             self.navigationController?.pushViewController(VC, animated: true)
         }
     }
     
+    /// Toggles password visibility
     @IBAction func btnEyeClick(_ sender: Any) {
         isPasswordVisible = !isPasswordVisible
         txtPassword.isSecureTextEntry = !isPasswordVisible

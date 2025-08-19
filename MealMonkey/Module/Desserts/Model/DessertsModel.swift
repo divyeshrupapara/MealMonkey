@@ -1,12 +1,26 @@
 import Foundation
 
+/// Model representing a dessert item
 class DessertsModel: NSObject {
     
+    /// Image name of the dessert
     var imgDesserts: String?
+    
+    /// Title of the dessert
     var strDessertsTitle: String?
+    
+    /// Rating of the dessert
     var floatRating: Float?
+    
+    /// Additional description text for the dessert
     var strText: String?
     
+    /// Initializer for DessertModel
+    /// - Parameters:
+    ///   - imgDesserts: Image name
+    ///   - strDessertsTitle: Dessert title
+    ///   - floatRating: Dessert rating
+    ///   - strText: Additional description
     init(imgDesserts: String? = nil, strDessertsTitle: String? = nil, floatRating: Float? = nil, strText: String? = nil) {
         self.imgDesserts = imgDesserts
         self.strDessertsTitle = strDessertsTitle
@@ -14,7 +28,9 @@ class DessertsModel: NSObject {
         self.strText = strText
     }
     
-    class func addDesserts()-> [DessertsModel] {
+    /// Returns a sample list of desserts
+    /// - Returns: Array of `DessertsModel` objects
+    class func addDesserts() -> [DessertsModel] {
         return [
             DessertsModel(
                 imgDesserts: "ic_desserts1", strDessertsTitle: "French Apple Pie",

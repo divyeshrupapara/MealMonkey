@@ -1,37 +1,45 @@
 import UIKit
 import CoreData
 
+// Global reference to AppDelegate
 var app = UIApplication.shared.delegate as! AppDelegate
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    var arrCart: [ProductModel] = []
-    var arrOrders: [[ProductModel]] = []
-    var arrCardData: [PaymentModel] = []
+    // MARK: - App Data Arrays
+    var arrCart: [ProductModel] = []             // Stores cart products
+    var arrWishlist: [ProductModel] = []         // Stores wishlist products
+    var arrOrders: [[ProductModel]] = []         // Stores placed orders (array of arrays of products)
+    var arrCardData: [PaymentModel] = []         // Stores saved payment card data
     
+    // MARK: - Core Data Persistent Container
     lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "Model") // your .xcdatamodeld name
+        let container = NSPersistentContainer(name: "Model") // CoreData model name
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
+                // Fatal error if Core Data fails to load
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         })
         return container
     }()
     
+    // MARK: - Save Core Data Context
     func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {
             do {
                 try context.save()
             } catch {
+                // Handle save error
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
     }
     
+    // MARK: - Application Lifecycle
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         loadCart()
         loadOrders()
@@ -40,20 +48,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     // MARK: UISceneSession Lifecycle
-    
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        // Called when a new scene session is being created.
-        // Use this method to select a configuration to create the new scene with.
+        // Create new scene session configuration
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
     
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-        // Called when the user discards a scene session.
-        // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-        // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+        // Cleanup resources for discarded scenes
     }
     
     func applicationWillTerminate(_ application: UIApplication) {
+        // Save data before app terminates
         saveCart()
         saveOrders()
         saveCardData()

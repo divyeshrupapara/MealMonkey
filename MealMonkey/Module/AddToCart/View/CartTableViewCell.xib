@@ -29,16 +29,29 @@
                         <rect key="frame" x="126" y="10" width="380" height="99"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="roJ-yi-ZU3">
-                                <rect key="frame" x="0.0" y="0.0" width="380" height="21"/>
+                                <rect key="frame" x="0.0" y="0.0" width="380" height="22"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Food Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pFH-9V-b0o">
-                                        <rect key="frame" x="0.0" y="0.0" width="360" height="21"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="341" height="22"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
                                         <color key="textColor" name="loginsignupcolor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nsg-eG-g6U">
+                                        <rect key="frame" x="341" y="0.0" width="19" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="19.109999999999999" id="6nm-wK-1M4"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="ic_heart">
+                                            <color key="titleColor" name="ButtonTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnHeartClick:" destination="FoA-zs-4tp" eventType="touchUpInside" id="cJr-Vf-3s3"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SiU-J8-bJo">
-                                        <rect key="frame" x="360" y="0.0" width="20" height="21"/>
+                                        <rect key="frame" x="360" y="0.0" width="20" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="dph-AS-b3x"/>
                                         </constraints>
@@ -55,7 +68,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="j2m-Xm-9DC">
-                                <rect key="frame" x="0.0" y="26" width="380" height="15"/>
+                                <rect key="frame" x="0.0" y="27" width="380" height="15"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category :" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CBR-7z-UrK">
                                         <rect key="frame" x="0.0" y="0.0" width="60" height="15"/>
@@ -75,7 +88,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CUV-Qd-skA">
-                                <rect key="frame" x="0.0" y="46" width="380" height="15"/>
+                                <rect key="frame" x="0.0" y="47" width="380" height="15"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type :" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1e3-bp-Ov6" userLabel="Type">
                                         <rect key="frame" x="0.0" y="0.0" width="40" height="15"/>
@@ -95,7 +108,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ksN-L8-XSB">
-                                <rect key="frame" x="0.0" y="66" width="380" height="15"/>
+                                <rect key="frame" x="0.0" y="67" width="380" height="15"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price :       " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GrO-Aq-MJl">
                                         <rect key="frame" x="0.0" y="0.0" width="40" height="15"/>
@@ -115,10 +128,10 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eLE-vq-KFE">
-                                <rect key="frame" x="0.0" y="86" width="380" height="13"/>
+                                <rect key="frame" x="0.0" y="87" width="380" height="12"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Qty : " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rHe-gR-T1g">
-                                        <rect key="frame" x="0.0" y="0.0" width="380" height="13"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="380" height="12"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                         <color key="textColor" name="secondarylabelcolor"/>
                                         <nil key="highlightedColor"/>
@@ -140,6 +153,7 @@
             <viewLayoutGuide key="safeArea" id="olR-Hj-h95"/>
             <connections>
                 <outlet property="btnDelete" destination="SiU-J8-bJo" id="DiE-NF-tX7"/>
+                <outlet property="btnHeart" destination="Nsg-eG-g6U" id="pYF-uh-DrB"/>
                 <outlet property="imgProduct" destination="1Gg-YB-kNe" id="yk5-0F-BrL"/>
                 <outlet property="lblCategory" destination="2IH-Rf-53b" id="3DD-bE-WnA"/>
                 <outlet property="lblPrice" destination="t8N-VK-FFW" id="IOl-w8-8gf"/>
@@ -151,7 +165,11 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="ic_heart" width="20.666666030883789" height="17"/>
         <image name="trash.fill" catalog="system" width="117" height="128"/>
+        <namedColor name="ButtonTextColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="loginbtnbg">
             <color red="0.9882352941176471" green="0.37647058823529411" blue="0.066666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

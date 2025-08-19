@@ -1,7 +1,9 @@
 import UIKit
 
+// MARK: - SignUpViewController
 class SignUpViewController: UIViewController {
     
+    // MARK: - IBOutlets
     @IBOutlet weak var txtName: UITextField!
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtMobileNo: UITextField!
@@ -12,19 +14,32 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var btnEye: UIButton!
     @IBOutlet weak var btnConfirmEye: UIButton!
     
+    // MARK: - Properties
     var isPasswordVisible: Bool = false
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationController?.isNavigationBarHidden = false
+        
         setLeftAlignedTitleWithBack("Sign Up", target: self, action: #selector(btnBackTapped))
         
-        viewStyle(cornerRadius: 28, borderWidth: 0, borderColor: .systemGray, textField: [txtName, txtEmail, txtMobileNo, txtAddress, txtPassword, txtConfirmPassword, btnSignUp])
+        // Style textfields and button
+        viewStyle(
+            cornerRadius: 28,
+            borderWidth: 0,
+            borderColor: .systemGray,
+            textField: [txtName, txtEmail, txtMobileNo, txtAddress, txtPassword, txtConfirmPassword, btnSignUp]
+        )
+        
+        // Set paddings for textfields
         setPadding.setPadding(left: 34, right: 34, textfield: [txtName, txtEmail, txtMobileNo, txtAddress])
         setPadding.setPadding(left: 34, right: 40, textfield: [txtPassword, txtConfirmPassword])
     }
     
+    // MARK: - Validation Methods
+    /// Validates the SignUp form fields and handles user registration
     func validateSignUpForm() {
         let name = txtName.text ?? ""
         let email = txtEmail.text ?? ""
@@ -33,6 +48,7 @@ class SignUpViewController: UIViewController {
         let password = txtPassword.text ?? ""
         let confirmPassword = txtConfirmPassword.text ?? ""
 
+        // Check for empty fields
         if name.isEmpty && email.isEmpty && mobile.isEmpty && address.isEmpty && password.isEmpty && confirmPassword.isEmpty {
             UIAlertController.showAlert(title: "Missing Info", message: "Please enter all fields.", viewController: self)
         } else if name.isEmpty && email.isEmpty {
@@ -60,12 +76,13 @@ class SignUpViewController: UIViewController {
         } else if password != confirmPassword {
             UIAlertController.showAlert(title: "Passwords Do Not Match", message: "The password and confirm password must be the same.", viewController: self)
         } else {
+            // Check if email already exists
             if CoreDataManager.shared.isEmailExists(email: email) {
                 UIAlertController.showAlert(title: "Email Exists", message: "This email is already registered. Please use another email.", viewController: self)
                 return
             }
             
-            // Save user in Core Data
+            // Save user to Core Data
             CoreDataManager.shared.saveUser(
                 name: name,
                 email: email,
@@ -74,7 +91,7 @@ class SignUpViewController: UIViewController {
                 password: password
             )
             
-            // Redirect to Login
+            // Redirect to Login screen
             let storyboard = UIStoryboard(name: "UserStoryboard", bundle: nil)
             if let VC = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
                 self.navigationController?.pushViewController(VC, animated: true)
@@ -82,22 +99,26 @@ class SignUpViewController: UIViewController {
         }
     }
     
+    /// Validates email using regex
     func isValidEmail(_ email: String) -> Bool {
         let emailRegex = "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$"
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegex)
         return emailTest.evaluate(with: email)
     }
 
+    /// Validates password using regex for at least 8 characters including uppercase, lowercase, number, and special character
     func isValidPassword(_ password: String) -> Bool {
         let passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$"
         let passwordTest = NSPredicate(format: "SELF MATCHES %@", passwordRegex)
         return passwordTest.evaluate(with: password)
     }
     
+    // MARK: - Navigation
     @objc func btnBackTapped() {
         self.navigationController?.popViewController(animated: true)
     }
     
+    // MARK: - IBActions
     @IBAction func btnSignUpClick(_ sender: Any) {
         validateSignUpForm()
     }
@@ -109,6 +130,7 @@ class SignUpViewController: UIViewController {
         }
     }
     
+    /// Toggles visibility of the password field
     @IBAction func btnEyeClick(_ sender: Any) {
         isPasswordVisible = !isPasswordVisible
         txtPassword.isSecureTextEntry = !isPasswordVisible
@@ -118,6 +140,7 @@ class SignUpViewController: UIViewController {
         }
     }
     
+    /// Toggles visibility of the confirm password field
     @IBAction func btnConfirmEyeClick(_ sender: Any) {
         isPasswordVisible = !isPasswordVisible
         txtConfirmPassword.isSecureTextEntry = !isPasswordVisible
