@@ -1,18 +1,23 @@
 import Foundation
 import UIKit
 
+/// UITableViewDataSource methods for PaymentViewController
 extension PaymentViewController: UITableViewDataSource {
+    
+    /// Returns the number of rows in the table view based on saved cards
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return app.arrCardData.count
     }
     
+    /// Configures each cell in the table view with card data
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell: CardTableViewCell = tableView.dequeueReusableCell(withIdentifier: "CardTableViewCell", for: indexPath) as! CardTableViewCell
         
+        // Configure the cell with the card model
         cell.cardConfigureCell(card: app.arrCardData[indexPath.row])
         
+        // Closure to handle card deletion
         cell.deleteCard = {
             app.arrCardData.remove(at: indexPath.row)
             self.lblNoItem.isHidden = !app.arrCardData.isEmpty
@@ -22,27 +27,31 @@ extension PaymentViewController: UITableViewDataSource {
     }
 }
 
+/// UITextFieldDelegate methods for PaymentViewController
 extension PaymentViewController: UITextFieldDelegate {
     
+    /// Controls character input and maximum length for text fields
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-        // Handle allowed characters
+        // Handle allowed characters for number fields
         if [txtCardNumber, txtExpiryMonth, txtExpiryYear, txtSecureCode].contains(textField) {
             let allowedCharacters = CharacterSet.decimalDigits
             let characterSet = CharacterSet(charactersIn: string)
             guard allowedCharacters.isSuperset(of: characterSet) || string.isEmpty else { return false }
-        } else if [txtFirstName, txtLastName].contains(textField) {
+        }
+        // Handle allowed characters for name fields
+        else if [txtFirstName, txtLastName].contains(textField) {
             let allowedLetters = CharacterSet.letters.union(.whitespaces)
             let characterSet = CharacterSet(charactersIn: string)
             guard allowedLetters.isSuperset(of: characterSet) || string.isEmpty else { return false }
         }
         
-        // Current text after change
+        // Determine the new text after applying the change
         let currentText = textField.text ?? ""
         guard let stringRange = Range(range, in: currentText) else { return false }
         let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
         
-        // Set max length rules
+        // Set maximum length rules based on text field type
         var maxLength = Int.max
         switch textField {
         case txtCardNumber:
@@ -57,6 +66,7 @@ extension PaymentViewController: UITextFieldDelegate {
             break
         }
         
+        // Auto-focus to next field if maximum length reached
         if updatedText.count == maxLength {
             DispatchQueue.main.async { [weak self] in
                 switch textField {
@@ -71,6 +81,7 @@ extension PaymentViewController: UITextFieldDelegate {
         return updatedText.count <= maxLength
     }
     
+    /// Handles "Return" key behavior for text fields
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
         case txtCardNumber:

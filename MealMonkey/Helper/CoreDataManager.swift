@@ -1,15 +1,23 @@
 import UIKit
 import CoreData
 
+/// CoreDataManager handles all Core Data operations: saving, fetching, and updating User, Order, Cart, and Wishlist data.
 class CoreDataManager {
+    
+    /// Shared singleton instance
     static let shared = CoreDataManager()
+    
+    /// Private initializer to enforce singleton
     private init() {}
     
+    /// Convenience property for accessing the NSManagedObjectContext
     private var context: NSManagedObjectContext {
         (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     }
     
-    private func saveContext() {
+    // MARK: - Core Data Save
+    /// Saves the current context if there are changes
+    func saveContext() {
         if context.hasChanges {
             do {
                 try context.save()
@@ -19,7 +27,8 @@ class CoreDataManager {
         }
     }
     
-    // Save user
+    // MARK: - User Management
+    /// Saves a new user to Core Data
     func saveUser(name: String, email: String, mobile: String, address: String, password: String) {
         let user = User(context: context)
         user.name = name
@@ -31,7 +40,7 @@ class CoreDataManager {
         print("User saved successfully")
     }
     
-    // Fetch user by email & password
+    /// Fetches a user by email and password (login)
     func fetchUser(email: String, password: String) -> User? {
         let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "email == %@ AND password == %@", email, password)
@@ -44,7 +53,7 @@ class CoreDataManager {
         }
     }
     
-    // Fetch user by email only (for SplashScreen auto-login)
+    /// Fetches a user by email only (used for auto-login on SplashScreen)
     func fetchUser(byEmail email: String) -> User? {
         let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "email == %@", email)
@@ -57,7 +66,7 @@ class CoreDataManager {
         }
     }
     
-    // Check if email already exists
+    /// Checks if an email already exists in Core Data
     func isEmailExists(email: String) -> Bool {
         let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "email == %@", email)
@@ -70,7 +79,8 @@ class CoreDataManager {
         }
     }
     
-    // Save order for a user
+    // MARK: - Order Management
+    /// Saves an order for a specific user
     func saveOrder(for user: User, products: [ProductModel]) {
         let order = Order(context: context)
         order.date = Date()
@@ -80,7 +90,7 @@ class CoreDataManager {
         print("Order saved for user: \(user.email ?? "")")
     }
     
-    // Fetch all orders for a user
+    /// Fetches all orders for a specific user
     func fetchOrders(for user: User) -> [[ProductModel]] {
         let fetchRequest: NSFetchRequest<Order> = Order.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "user == %@", user.email ?? "")
@@ -94,7 +104,8 @@ class CoreDataManager {
         }
     }
     
-    // Add/update cart item
+    // MARK: - Cart Management
+    /// Adds or updates a product in the user's cart
     func addToCart(for user: User, product: ProductModel, quantity: Int) {
         let request: NSFetchRequest<CartItem> = CartItem.fetchRequest()
         request.predicate = NSPredicate(format: "user == %@ AND id == %d", user, product.intId)
@@ -117,7 +128,7 @@ class CoreDataManager {
         }
     }
     
-    // Fetch cart -> back to ProductModel
+    /// Fetches the cart items for a user and converts them to ProductModel
     func fetchCart(for user: User) -> [ProductModel] {
         let request: NSFetchRequest<CartItem> = CartItem.fetchRequest()
         request.predicate = NSPredicate(format: "user == %@", user)
@@ -132,7 +143,7 @@ class CoreDataManager {
                     floatProductRating: 0.0,
                     doubleProductPrice: $0.price,
                     strProductImage: $0.image ?? "",
-                    intProductQty: Int($0.quantity), 
+                    intProductQty: Int($0.quantity),
                     intTotalNumberOfRatings: 0,
                     objProductCategory: .Gujarati,
                     objProductType: .food
@@ -144,7 +155,7 @@ class CoreDataManager {
         }
     }
     
-    // Clear all cart items for a user
+    /// Clears all cart items for a user
     func clearCart(for user: User) {
         let request: NSFetchRequest<CartItem> = CartItem.fetchRequest()
         request.predicate = NSPredicate(format: "user == %@", user)
@@ -161,7 +172,7 @@ class CoreDataManager {
         }
     }
     
-    // Remove a single product from the user's cart
+    /// Removes a single product from the user's cart
     func removeFromCart(for user: User, productId: Int) {
         let request: NSFetchRequest<CartItem> = CartItem.fetchRequest()
         request.predicate = NSPredicate(format: "user == %@ AND id == %d", user, productId)
@@ -177,5 +188,36 @@ class CoreDataManager {
         } catch {
             print("Failed to remove item: \(error.localizedDescription)")
         }
+    }
+    
+    // MARK: - Wishlist Management
+    /// Adds a product to the user's wishlist
+    func addToWishlist(for user: User, productId: Int) {
+        let item = WishlistItem(context: context)
+        item.id = Int64(productId)
+        item.user = user
+        saveContext()
+    }
+    
+    /// Removes a product from the user's wishlist
+    func removeFromWishlist(for user: User, productId: Int) {
+        if let items = user.wishlistItems as? Set<WishlistItem>,
+           let toRemove = items.first(where: { $0.id == Int64(productId) }) {
+            context.delete(toRemove)
+            saveContext()
+        }
+    }
+    
+    /// Checks if a product is in the user's wishlist
+    func isInWishlist(for user: User, productId: Int) -> Bool {
+        if let items = user.wishlistItems as? Set<WishlistItem> {
+            return items.contains { $0.id == Int64(productId) }
+        }
+        return false
+    }
+    
+    /// Fetches all product IDs from the user's wishlist
+    func fetchWishlistIds(for user: User) -> [Int] {
+        return (user.wishlistItems as? Set<WishlistItem>)?.map { Int($0.id) } ?? []
     }
 }

@@ -252,13 +252,21 @@ meals and more!</string>
                                             <outlet property="delegate" destination="3Ze-pN-OGb" id="Nqw-vo-ocH"/>
                                         </connections>
                                     </tableView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="No Product Found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vA9-cm-jUY">
+                                        <rect key="frame" x="91.000000000000014" y="345" width="211.33333333333337" height="30"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="26"/>
+                                        <color key="textColor" name="LabelSecondaryColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="xRU-BW-naR" firstAttribute="top" secondItem="lTD-nK-5Dy" secondAttribute="bottom" constant="1" id="0Z1-Vg-VYx"/>
                                     <constraint firstItem="xRU-BW-naR" firstAttribute="leading" secondItem="lTD-nK-5Dy" secondAttribute="leading" id="6dg-Yz-mcR"/>
+                                    <constraint firstItem="vA9-cm-jUY" firstAttribute="centerY" secondItem="3ki-it-XS5" secondAttribute="centerY" id="9U8-E5-doC"/>
                                     <constraint firstItem="lTD-nK-5Dy" firstAttribute="top" secondItem="cyS-Xr-b6B" secondAttribute="top" constant="20" id="GBh-vT-U4x"/>
                                     <constraint firstAttribute="bottom" secondItem="3ki-it-XS5" secondAttribute="bottom" constant="22" id="Nnd-DH-OSo"/>
+                                    <constraint firstItem="vA9-cm-jUY" firstAttribute="centerX" secondItem="3ki-it-XS5" secondAttribute="centerX" id="XhZ-Mt-twb"/>
                                     <constraint firstItem="MhY-1B-HJa" firstAttribute="top" secondItem="xRU-BW-naR" secondAttribute="bottom" constant="35" id="bUh-Tt-6EU"/>
                                     <constraint firstAttribute="trailing" secondItem="MhY-1B-HJa" secondAttribute="trailing" constant="21" id="cP7-w8-lBk"/>
                                     <constraint firstItem="3ki-it-XS5" firstAttribute="top" secondItem="MhY-1B-HJa" secondAttribute="bottom" constant="10" id="eiJ-Nx-nX5"/>
@@ -281,6 +289,7 @@ meals and more!</string>
                     <navigationItem key="navigationItem" id="0zT-tY-mce"/>
                     <connections>
                         <outlet property="btnHomeLocation" destination="ifA-5X-jcf" id="eLG-fp-FSg"/>
+                        <outlet property="lblNoItem" destination="vA9-cm-jUY" id="atd-nD-YMw"/>
                         <outlet property="tblHome" destination="3ki-it-XS5" id="fXn-bJ-oYt"/>
                         <outlet property="txtSearchFood" destination="MhY-1B-HJa" id="X25-Fg-f3d"/>
                     </connections>
@@ -417,6 +426,9 @@ meals and more!</string>
                                                         <state key="normal" title="Save">
                                                             <color key="titleColor" name="ButtonTextColor"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="btnSaveClick:" destination="tgk-By-OlE" eventType="touchUpInside" id="gnn-nK-fug"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -483,6 +495,7 @@ meals and more!</string>
                         <outlet property="btnSave" destination="Guk-T9-L6m" id="WAs-Tg-W5i"/>
                         <outlet property="btnSignOut" destination="3rt-AJ-NGK" id="Dz5-YX-ZuM"/>
                         <outlet property="imgProfile" destination="A0t-R1-yD0" id="yYn-wb-9Mc"/>
+                        <outlet property="lblUserName" destination="cr1-Gu-zRz" id="d3M-qp-TfP"/>
                         <outlet property="txtAddress" destination="3AL-p8-rIX" id="JyL-xE-tyR"/>
                         <outlet property="txtEmail" destination="bKI-mo-ZeY" id="vrV-vk-Mqk"/>
                         <outlet property="txtMobileNo" destination="LrL-bq-N4Z" id="zyI-CY-jsy"/>

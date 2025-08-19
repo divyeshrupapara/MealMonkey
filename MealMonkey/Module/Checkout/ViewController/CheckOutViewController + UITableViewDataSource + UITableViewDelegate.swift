@@ -1,23 +1,33 @@
 import Foundation
 import UIKit
 
+// MARK: - UITableViewDelegate
 extension CheckoutViewController: UITableViewDelegate {
+    
+    /// Called when a table view row is selected
+    /// Updates the selectedPaymentIndex and reloads the table to reflect selection
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedPaymentIndex = indexPath.row
         tableView.reloadData()
     }
 }
 
+// MARK: - UITableViewDataSource
 extension CheckoutViewController: UITableViewDataSource {
     
+    /// Returns the number of rows in the checkout table
+    /// Includes 2 default payment options + number of saved cards
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2 + app.arrCardData.count
     }
     
+    /// Configures and returns the cell for the corresponding row
+    /// Handles Cash on Delivery, UPI, and saved cards
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         switch indexPath.row {
         case 0:
+            // Cash on Delivery cell
             let cell = tableView.dequeueReusableCell(withIdentifier: "CashOnDeliveryTableViewCell", for: indexPath) as! CashOnDeliveryTableViewCell
             let isSelected = (selectedPaymentIndex == indexPath.row)
             let imageName = isSelected ? "ic_circle_fill" : "ic_circle"
@@ -25,6 +35,7 @@ extension CheckoutViewController: UITableViewDataSource {
             return cell
             
         case 1:
+            // UPI cell
             let cell = tableView.dequeueReusableCell(withIdentifier: "UPITableViewCell", for: indexPath) as! UPITableViewCell
             let isSelected = (selectedPaymentIndex == indexPath.row)
             let imageName = isSelected ? "ic_circle_fill" : "ic_circle"
@@ -32,6 +43,7 @@ extension CheckoutViewController: UITableViewDataSource {
             return cell
             
         default:
+            // Saved card cells
             let cell = tableView.dequeueReusableCell(withIdentifier: "AddCardTableViewCell", for: indexPath) as! AddCardTableViewCell
             let cardIndex = indexPath.row - 2
             if cardIndex < app.arrCardData.count {
@@ -45,8 +57,11 @@ extension CheckoutViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - UITextFieldDelegate
 extension CheckoutViewController: UITextFieldDelegate {
     
+    /// Determines whether text should change in a text field
+    /// Enforces allowed characters and max lengths for each field
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         // Handle allowed characters
@@ -89,6 +104,8 @@ extension CheckoutViewController: UITextFieldDelegate {
         return updatedText.count <= maxLength
     }
     
+    /// Handles return key behavior for text fields
+    /// Moves focus to next text field or resigns keyboard
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
         case txtCardNumber:

@@ -1408,6 +1408,49 @@ at anytime </string>
             </objects>
             <point key="canvasLocation" x="4036" y="-2"/>
         </scene>
+        <!--Wish List View Controller-->
+        <scene sceneID="yY9-lb-yi5">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VnE-Mo-Xrr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="WishListViewController" id="tLX-x2-hIi" customClass="WishListViewController" customModule="MealMonkey" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0lf-R0-xNd">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="UOn-hi-hB4">
+                                <rect key="frame" x="0.0" y="128" width="393" height="646"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="tLX-x2-hIi" id="VYQ-Zn-sDX"/>
+                                    <outlet property="delegate" destination="tLX-x2-hIi" id="fGl-vv-wsx"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Wishlist is Empty" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cH0-X8-zLy">
+                                <rect key="frame" x="98.333333333333329" y="436" width="196.66666666666669" height="30"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="26"/>
+                                <color key="textColor" name="LabelSecondaryColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="FPa-aV-ULG"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="FPa-aV-ULG" firstAttribute="bottom" secondItem="UOn-hi-hB4" secondAttribute="bottom" constant="10" id="Fgz-Nn-WRg"/>
+                            <constraint firstItem="UOn-hi-hB4" firstAttribute="leading" secondItem="FPa-aV-ULG" secondAttribute="leading" id="cYv-WW-wk5"/>
+                            <constraint firstItem="FPa-aV-ULG" firstAttribute="trailing" secondItem="UOn-hi-hB4" secondAttribute="trailing" id="fuB-GV-RNz"/>
+                            <constraint firstItem="cH0-X8-zLy" firstAttribute="centerY" secondItem="UOn-hi-hB4" secondAttribute="centerY" id="gUD-Jk-W9o"/>
+                            <constraint firstItem="UOn-hi-hB4" firstAttribute="top" secondItem="FPa-aV-ULG" secondAttribute="top" constant="10" id="heV-A5-nOn"/>
+                            <constraint firstItem="cH0-X8-zLy" firstAttribute="centerX" secondItem="UOn-hi-hB4" secondAttribute="centerX" id="quV-Pa-aCF"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="lblNoItem" destination="cH0-X8-zLy" id="gy1-7w-aeJ"/>
+                        <outlet property="tblWishList" destination="UOn-hi-hB4" id="AgG-qe-cKF"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="-738" y="-2"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ic_add_notes" width="6.3333334922790527" height="12"/>

@@ -3,7 +3,12 @@
 
 import Foundation
 
+/// Provides API services for fetching products
 class ApiServices {
+    
+    /// Fetches products from the API
+    ///
+    /// - Parameter completion: Closure called on the main thread with an array of ProductModel
     static func fetchProducts(completion: @escaping ([ProductModel]) -> Void) {
         guard let url = URL(string: "https://mocki.io/v1/4dd44615-def8-4c8f-b267-f7e891d1a576") else {return}
         

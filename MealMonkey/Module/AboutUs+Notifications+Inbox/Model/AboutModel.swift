@@ -1,12 +1,27 @@
 import Foundation
 
+/// Model representing various textual information such as About, Notifications, and Inbox items
 class AboutModel {
 
+    /// Main text content
     var strText: String?
+    
+    /// Time or timestamp associated with the content
     var strTimezone: String?
+    
+    /// Secondary text displayed on the right side (used for Inbox)
     var strRightSideText: String?
+    
+    /// Additional text content (used for Inbox)
     var strText2: String?
 
+    /// Initializes a new instance of AboutModel
+    ///
+    /// - Parameters:
+    ///   - strText: Main text content
+    ///   - strTimezone: Time or timestamp
+    ///   - strRightSideText: Right side text for inbox items
+    ///   - strText2: Additional text for inbox items
     init(
         strText: String? = nil,
         strTimezone: String? = nil,
@@ -19,8 +34,12 @@ class AboutModel {
         self.strText2 = strText2
     }
 
+    // MARK: - About Section Data
+
+    /// Provides static About section data
+    ///
+    /// - Returns: Array of AboutModel representing app/company information
     class func addAboutData() -> [AboutModel] {
-        
         return [
             AboutModel(strText: "Our mission is to deliver a seamless and intuitive shopping experience that prioritizes user satisfaction. We aim to create a platform where browsing, purchasing, and managing products feels effortless, thanks to our simple user interface and reliable service."),
             AboutModel(strText: "We are dedicated to maintaining high standards of performance, transparency, and trust. Our team continuously works to enhance app functionality, ensure data privacy, and provide responsive customer support, making your shopping journey smooth and secure."),
@@ -32,90 +51,53 @@ class AboutModel {
         ]
     }
 
+    // MARK: - Notification Section Data
+
+    /// Provides static Notification section data
+    ///
+    /// - Returns: Array of AboutModel representing notifications with timestamp
     class func addNotificationData() -> [AboutModel] {
-        
         return [
-            AboutModel(strText: "Order placed successfully",
-                       strTimezone: "Just now"),
-            AboutModel(strText: "Your payment has been confirmed",
-                       strTimezone: "5m ago"),
-            AboutModel(strText: "Your food is being prepared",
-                       strTimezone: "10m ago"),
-            AboutModel(strText: "Delivery agent assigned",
-                       strTimezone: "30m ago"),
-            AboutModel(strText: "Your order is on the way",
-                       strTimezone: "1h ago"),
-            AboutModel(strText: "Special discount available!",
-                       strTimezone: "2h ago"),
-            AboutModel(strText: "Download our new app update",
-                       strTimezone: "3h ago"),
-            AboutModel(strText: "Refer a friend and earn",
-                       strTimezone: "5h ago"),
-            AboutModel(strText: "Limited-time deal ending soon",
-                       strTimezone: "12h ago"),
-            AboutModel(strText: "Delivery completed",
-                       strTimezone: "1d ago"),
-            AboutModel(strText: "Rate your last meal",
-                       strTimezone: "2d ago"),
-            AboutModel(strText: "Weekend offer just for you",
-                       strTimezone: "3d ago"),
-            AboutModel(strText: "Free delivery on orders above ₹299",
-                       strTimezone: "5d ago"),
-            AboutModel(strText: "Thanks for being with us!",
-                       strTimezone: "6d ago"),
-            AboutModel(strText: "New restaurants added near you",
-                       strTimezone: "1w ago")
+            AboutModel(strText: "Order placed successfully", strTimezone: "Just now"),
+            AboutModel(strText: "Your payment has been confirmed", strTimezone: "5m ago"),
+            AboutModel(strText: "Your food is being prepared", strTimezone: "10m ago"),
+            AboutModel(strText: "Delivery agent assigned", strTimezone: "30m ago"),
+            AboutModel(strText: "Your order is on the way", strTimezone: "1h ago"),
+            AboutModel(strText: "Special discount available!", strTimezone: "2h ago"),
+            AboutModel(strText: "Download our new app update", strTimezone: "3h ago"),
+            AboutModel(strText: "Refer a friend and earn", strTimezone: "5h ago"),
+            AboutModel(strText: "Limited-time deal ending soon", strTimezone: "12h ago"),
+            AboutModel(strText: "Delivery completed", strTimezone: "1d ago"),
+            AboutModel(strText: "Rate your last meal", strTimezone: "2d ago"),
+            AboutModel(strText: "Weekend offer just for you", strTimezone: "3d ago"),
+            AboutModel(strText: "Free delivery on orders above ₹299", strTimezone: "5d ago"),
+            AboutModel(strText: "Thanks for being with us!", strTimezone: "6d ago"),
+            AboutModel(strText: "New restaurants added near you", strTimezone: "1w ago")
         ]
     }
 
+    // MARK: - Inbox Section Data
+
+    /// Provides static Inbox section data
+    ///
+    /// - Returns: Array of AboutModel representing inbox messages with right-side text and additional details
     class func addInboxData() -> [AboutModel] {
-        
         return [
-            AboutModel(strText: "MealMonkey Promotions",
-                       strRightSideText: "6th July",
-                       strText2: "Get 20% off on your next meal!"),
-            AboutModel(strText: "Order Update",
-                       strRightSideText: "6th July",
-                       strText2: "Your order is being prepared by the restaurant."),
-            AboutModel(strText: "Delivery Reminder",
-                       strRightSideText: "6th July",
-                       strText2: "Your delivery agent is on the way."),
-            AboutModel(strText: "Welcome to MealMonkey",
-                       strRightSideText: "6th July",
-                       strText2: "Thanks for joining us! Start exploring meals."),
-            AboutModel(strText: "Rate Your Experience",
-                       strRightSideText: "6th July",
-                       strText2: "How was your recent meal order?"),
-            AboutModel(strText: "Flash Sale",
-                       strRightSideText: "6th July",
-                       strText2: "Enjoy 30% off on all pasta orders today only."),
-            AboutModel(strText: "New Restaurants",
-                       strRightSideText: "6th July",
-                       strText2: "Discover trending restaurants in your area."),
-            AboutModel(strText: "Refer & Earn",
-                       strRightSideText: "6th July",
-                       strText2: "Invite friends and earn ₹100 credits!"),
-            AboutModel(strText: "Weekend Special",
-                       strRightSideText: "6th July",
-                       strText2: "Free dessert on orders above ₹499."),
-            AboutModel(strText: "MealMonkey Tips",
-                       strRightSideText: "6th July",
-                       strText2: "Customize your orders with special instructions."),
-            AboutModel(strText: "Order Cancelled",
-                       strRightSideText: "6th July",
-                       strText2: "Your order has been cancelled as requested."),
-            AboutModel(strText: "Loyalty Program",
-                       strRightSideText: "6th July",
-                       strText2: "Collect Monkey Points with every purchase."),
-            AboutModel(strText: "Security Update",
-                       strRightSideText: "6th July",
-                       strText2: "Your password was recently changed."),
-            AboutModel(strText: "Account Verified",
-                       strRightSideText: "6th July",
-                       strText2: "Your account has been successfully verified."),
-            AboutModel(strText: "Limited Time Deal",
-                       strRightSideText: "6th July",
-                       strText2: "Flat ₹50 off on biryani orders today.")
+            AboutModel(strText: "MealMonkey Promotions", strRightSideText: "6th July", strText2: "Get 20% off on your next meal!"),
+            AboutModel(strText: "Order Update", strRightSideText: "6th July", strText2: "Your order is being prepared by the restaurant."),
+            AboutModel(strText: "Delivery Reminder", strRightSideText: "6th July", strText2: "Your delivery agent is on the way."),
+            AboutModel(strText: "Welcome to MealMonkey", strRightSideText: "6th July", strText2: "Thanks for joining us! Start exploring meals."),
+            AboutModel(strText: "Rate Your Experience", strRightSideText: "6th July", strText2: "How was your recent meal order?"),
+            AboutModel(strText: "Flash Sale", strRightSideText: "6th July", strText2: "Enjoy 30% off on all pasta orders today only."),
+            AboutModel(strText: "New Restaurants", strRightSideText: "6th July", strText2: "Discover trending restaurants in your area."),
+            AboutModel(strText: "Refer & Earn", strRightSideText: "6th July", strText2: "Invite friends and earn ₹100 credits!"),
+            AboutModel(strText: "Weekend Special", strRightSideText: "6th July", strText2: "Free dessert on orders above ₹499."),
+            AboutModel(strText: "MealMonkey Tips", strRightSideText: "6th July", strText2: "Customize your orders with special instructions."),
+            AboutModel(strText: "Order Cancelled", strRightSideText: "6th July", strText2: "Your order has been cancelled as requested."),
+            AboutModel(strText: "Loyalty Program", strRightSideText: "6th July", strText2: "Collect Monkey Points with every purchase."),
+            AboutModel(strText: "Security Update", strRightSideText: "6th July", strText2: "Your password was recently changed."),
+            AboutModel(strText: "Account Verified", strRightSideText: "6th July", strText2: "Your account has been successfully verified."),
+            AboutModel(strText: "Limited Time Deal", strRightSideText: "6th July", strText2: "Flat ₹50 off on biryani orders today.")
         ]
     }
 }
