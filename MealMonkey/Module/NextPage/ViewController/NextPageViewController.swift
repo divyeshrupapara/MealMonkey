@@ -38,15 +38,25 @@ class NextPageViewController: UIViewController {
     /**
      Sets the MainTabViewController as the rootViewController to show the main app interface.
      */
-    private func showMainTabBar() {
-        let storyboard = UIStoryboard(name: "HomeStoryboard", bundle: nil)
-        if let tabBarController = storyboard.instantiateViewController(withIdentifier: "MainTabViewController") as? UITabBarController {
+    private func navigateNext() {
+        if UserDefaults.standard.bool(forKey: "isLoggedIn"),
+           let email = UserDefaults.standard.string(forKey: "loggedInEmail"),
+           let user = CoreDataManager.shared.fetchUser(byEmail: email) {
             
-            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-               let sceneDelegate = windowScene.delegate as? SceneDelegate {
-                
-                sceneDelegate.window?.rootViewController = tabBarController
-                sceneDelegate.window?.makeKeyAndVisible()
+            // Auto-login detected
+            print("Auto-login as \(user.name ?? "")")
+            
+            // Navigate to MainTabViewController
+            let storyboard = UIStoryboard(name: "HomeStoryboard", bundle: nil)
+            if let VC = storyboard.instantiateViewController(withIdentifier: "MainTabViewController") as? UITabBarController {
+                VC.selectedIndex = 2
+                self.navigationController?.pushViewController(VC, animated: true)
+            }
+        } else {
+            // Not logged in; navigate to Login screen
+            let storyboard = UIStoryboard(name: "UserStoryboard", bundle: nil)
+            if let VC = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
+                self.navigationController?.pushViewController(VC, animated: true)
             }
         }
     }
@@ -75,7 +85,7 @@ class NextPageViewController: UIViewController {
                 btnDone.setTitle(buttonTitle, for: .normal)
             }
         } else {
-            showMainTabBar()
+            navigateNext()
         }
     }
 }

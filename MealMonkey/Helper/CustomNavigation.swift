@@ -52,10 +52,41 @@ extension UIViewController {
     ///   - target: The target object for the cart button action
     ///   - action: The selector to call when the cart button is tapped
     ///   - tintColor: The tint color for the cart button (default uses named "NavigationColor" or fallback)
-    func setCartButton(target: Any?, action: Selector, tintColor: UIColor = UIColor(named: "NavigationColor") ?? .labelPrimary) {
+    func setCartButton(target: Any?, action: Selector, tintColor: UIColor = UIColor(named: "NavigationColor") ?? .labelPrimary, badgeCount: Int = 0) {
         let cartImage = UIImage(systemName: "cart.fill")?.withRenderingMode(.alwaysTemplate)
-        let cartButton = UIBarButtonItem(image: cartImage, style: .plain, target: target, action: action)
-        cartButton.tintColor = tintColor
-        self.navigationItem.rightBarButtonItem = cartButton
+        let button = UIButton(type: .system)
+        button.setImage(cartImage, for: .normal)
+        button.tintColor = tintColor
+        button.addTarget(target, action: action, for: .touchUpInside)
+        
+        // Automatically get current cart count
+        var badgeCount = 0
+        if let user = CoreDataManager.shared.fetchCurrentUser() {
+            badgeCount = CoreDataManager.shared.fetchCart(for: user).count
+        }
+        
+        // Badge
+        if badgeCount > 0 {
+            let badge = UILabel()
+            badge.text = "\(badgeCount)"
+            badge.textColor = .white
+            badge.backgroundColor = .systemRed
+            badge.font = .systemFont(ofSize: 12, weight: .bold)
+            badge.textAlignment = .center
+            badge.layer.cornerRadius = 10
+            badge.clipsToBounds = true
+            badge.translatesAutoresizingMaskIntoConstraints = false
+            button.addSubview(badge)
+            
+            NSLayoutConstraint.activate([
+                badge.topAnchor.constraint(equalTo: button.topAnchor, constant: -4),
+                badge.trailingAnchor.constraint(equalTo: button.trailingAnchor, constant: 4),
+                badge.widthAnchor.constraint(greaterThanOrEqualToConstant: 20),
+                badge.heightAnchor.constraint(equalToConstant: 20)
+            ])
+        }
+        
+        let cartItem = UIBarButtonItem(customView: button)
+        self.navigationItem.rightBarButtonItem = cartItem
     }
 }

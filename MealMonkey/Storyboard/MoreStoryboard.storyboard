@@ -1210,7 +1210,6 @@ at anytime </string>
                                                 </constraints>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" name="ButtonTextColor"/>
                                         <constraints>
                                             <constraint firstItem="ydE-aa-6p8" firstAttribute="height" secondItem="oyV-BY-LiV" secondAttribute="height" priority="250" id="HGc-Od-GQh"/>
                                             <constraint firstAttribute="trailing" secondItem="ydE-aa-6p8" secondAttribute="trailing" id="HjR-Wd-1lf"/>
@@ -1411,7 +1410,6 @@ at anytime </string>
         <!--Wish List View Controller-->
         <scene sceneID="yY9-lb-yi5">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VnE-Mo-Xrr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="WishListViewController" id="tLX-x2-hIi" customClass="WishListViewController" customModule="MealMonkey" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0lf-R0-xNd">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
@@ -1448,6 +1446,7 @@ at anytime </string>
                         <outlet property="tblWishList" destination="UOn-hi-hB4" id="AgG-qe-cKF"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VnE-Mo-Xrr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-738" y="-2"/>
         </scene>

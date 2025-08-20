@@ -21,10 +21,18 @@ class FoodDetailViewController: UIViewController {
     @IBOutlet weak var stackProtion: UIStackView!
     @IBOutlet weak var stackIngredients: UIStackView!
     @IBOutlet weak var btnProtion: UIButton!
+    @IBOutlet weak var btnProtion1: UIButton!
+    @IBOutlet weak var btnProtion2: UIButton!
+    @IBOutlet weak var btnProtion3: UIButton!
     @IBOutlet weak var btnIngredients: UIButton!
+    @IBOutlet weak var btnIngredients1: UIButton!
+    @IBOutlet weak var btnIngredients2: UIButton!
+    @IBOutlet weak var btnIngredients3: UIButton!
     @IBOutlet weak var stackStar: UIStackView!
     @IBOutlet weak var btnHeart: UIButton!
-    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var viewFoodDetail: UIView!
+    @IBOutlet weak var viewShade: UIView!
     // MARK: - Properties
     private var appDelegate: AppDelegate? {
         return UIApplication.shared.delegate as? AppDelegate
@@ -37,6 +45,20 @@ class FoodDetailViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Added activity indicator
+        self.viewShade.isHidden = true
+        self.viewFoodDetail.isHidden = true
+        activityIndicator.startAnimating()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            self.activityIndicator.stopAnimating()
+            self.viewShade.isHidden = false
+            self.viewFoodDetail.isHidden = false
+            self.configureUI()
+            self.checkWishlistStatus()
+            self.activityIndicator.isHidden = true
+        }
         
         // Initialize quantity and UI
         quantity = 1
@@ -78,6 +100,10 @@ class FoodDetailViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        checkWishlistStatus()
+    }
+    
+    func checkWishlistStatus() {
         // Wishlist button setup based on Core Data
         if let user = CoreDataManager.shared.fetchCurrentUser(),
            let product = product {
@@ -109,7 +135,6 @@ class FoodDetailViewController: UIViewController {
     /// Update UI elements for product details
     func configureUI() {
         guard let product = product else { return }
-        self.title = product.strProductName
         lblFoodName.text = product.strProductName
         lblFoodDescription.text = product.strProductDescription
         imgFood.image = UIImage(named: product.strProductImage)
@@ -124,7 +149,7 @@ class FoodDetailViewController: UIViewController {
         lblFoodPrice.text = "$\(String(format: "%.2f", product.doubleProductPrice))"
         lblTotalPrice.text = "$\(String(format: "%.2f", total))"
         lblQuantity.text = "\(quantity)"
-        btnProtion.isEnabled = quantity > 1
+        btnProtion.isEnabled = quantity >= 1
     }
     
     /// Check if product exists in cart and update quantity
@@ -154,12 +179,32 @@ class FoodDetailViewController: UIViewController {
         }
     }
     
-    @IBAction func btnIngredientsNameClick(_ sender: Any) {
+    @IBAction func btnIngredientsNameClick(_ sender: UIButton) {
         stackIngredients.isHidden = true
+        
+        // Set main button title to the tapped button’s title
+        if let selectedTitle = sender.currentTitle {
+            btnIngredients.setTitle(selectedTitle, for: .normal)
+        }
+        
+        // visually mark selected button
+        for button in [btnIngredients1, btnIngredients2, btnIngredients3] {
+            button?.isSelected = (button == sender)
+        }
     }
     
-    @IBAction func btnProtionNameClick(_ sender: Any) {
+    @IBAction func btnProtionNameClick(_ sender: UIButton) {
         stackProtion.isHidden = true
+        
+        // Set main button title to the tapped button’s title
+        if let selectedTitle = sender.currentTitle {
+            btnProtion.setTitle(selectedTitle, for: .normal)
+        }
+        
+        // visually mark selected button
+        for button in [btnProtion1, btnProtion2, btnProtion3] {
+            button?.isSelected = (button == sender)
+        }
     }
     
     @IBAction func btnIngredientsClick(_ sender: Any) {

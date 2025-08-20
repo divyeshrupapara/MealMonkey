@@ -21,6 +21,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         lblNoItem.isHidden = true
+        btnHomeLocation.titleLabel?.numberOfLines = 0
         
         // Setup cart button in navigation bar
         setCartButton(target: self, action: #selector(btnCartTapped))

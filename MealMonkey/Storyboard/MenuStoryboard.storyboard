@@ -190,10 +190,10 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eRD-Xx-imi" userLabel="portionView">
                                                                 <rect key="frame" x="0.0" y="0.0" width="349" height="45"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m0J-ZR-ODf">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vjh-e6-2T1">
                                                                         <rect key="frame" x="0.0" y="0.0" width="349" height="45"/>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="height" constant="45" id="AFe-1V-Ocz"/>
+                                                                            <constraint firstAttribute="height" constant="45" id="jte-bn-g67"/>
                                                                         </constraints>
                                                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                                                                         <inset key="titleEdgeInsets" minX="32" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -202,7 +202,7 @@
                                                                             <color key="titleColor" name="LabelPrimaryColor"/>
                                                                         </state>
                                                                         <connections>
-                                                                            <action selector="btnProtionClick:" destination="TzM-OT-JNh" eventType="touchUpInside" id="C1s-ip-TOl"/>
+                                                                            <action selector="btnProtionClick:" destination="TzM-OT-JNh" eventType="touchUpInside" id="bo3-Uj-RsT"/>
                                                                         </connections>
                                                                     </button>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_dropDown" translatesAutoresizingMaskIntoConstraints="NO" id="jbl-Es-YwX">
@@ -212,13 +212,13 @@
                                                                 <color key="backgroundColor" name="LineColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="trailing" secondItem="jbl-Es-YwX" secondAttribute="trailing" constant="2" id="3Ub-t1-VAD"/>
+                                                                    <constraint firstItem="Vjh-e6-2T1" firstAttribute="leading" secondItem="eRD-Xx-imi" secondAttribute="leading" id="84y-Qm-hpi"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="Vjh-e6-2T1" secondAttribute="trailing" id="KeU-nh-XfS"/>
                                                                     <constraint firstAttribute="height" constant="45" id="NDg-v8-tAo"/>
-                                                                    <constraint firstItem="m0J-ZR-ODf" firstAttribute="top" secondItem="eRD-Xx-imi" secondAttribute="top" id="PH6-4H-XJB"/>
                                                                     <constraint firstItem="jbl-Es-YwX" firstAttribute="top" secondItem="eRD-Xx-imi" secondAttribute="top" id="TkN-rt-lNN"/>
-                                                                    <constraint firstItem="m0J-ZR-ODf" firstAttribute="leading" secondItem="eRD-Xx-imi" secondAttribute="leading" id="qig-No-gYf"/>
+                                                                    <constraint firstItem="Vjh-e6-2T1" firstAttribute="top" secondItem="eRD-Xx-imi" secondAttribute="top" id="TkQ-WZ-tMv"/>
                                                                     <constraint firstAttribute="bottom" secondItem="jbl-Es-YwX" secondAttribute="bottom" id="qne-V6-9Gu"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="m0J-ZR-ODf" secondAttribute="bottom" id="rMS-kg-Rb3"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="m0J-ZR-ODf" secondAttribute="trailing" id="y40-gi-ldv"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="Vjh-e6-2T1" secondAttribute="bottom" id="uCX-PN-DWv"/>
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lwg-3u-Iz4" userLabel="LineView">
@@ -478,7 +478,7 @@
                                                                     <constraint firstAttribute="width" constant="47" id="jaC-mF-yLH"/>
                                                                 </constraints>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                <state key="normal" image="ic_cart_detail">
+                                                                <state key="normal" image="ic_cart_detail_withBack">
                                                                     <color key="titleColor" name="ButtonTextColor"/>
                                                                 </state>
                                                                 <connections>
@@ -578,13 +578,19 @@
                                     <constraint firstAttribute="bottom" secondItem="8vQ-DY-pGO" secondAttribute="bottom" id="yWn-gF-AUD"/>
                                 </constraints>
                             </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="dDA-ji-QT1">
+                                <rect key="frame" x="186.66666666666666" y="416" width="20" height="20"/>
+                                <color key="color" name="ButtonBackgroundColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0Sj-5R-96g"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="0Sj-5R-96g" firstAttribute="bottom" secondItem="CRv-Wj-Thy" secondAttribute="bottom" id="8ia-Lz-JgA"/>
                             <constraint firstItem="CRv-Wj-Thy" firstAttribute="leading" secondItem="0Sj-5R-96g" secondAttribute="leading" id="AL1-Px-oed"/>
+                            <constraint firstItem="dDA-ji-QT1" firstAttribute="centerX" secondItem="FBz-kK-51W" secondAttribute="centerX" id="GAh-DW-bb6"/>
                             <constraint firstItem="fRh-gv-G8W" firstAttribute="top" secondItem="0Sj-5R-96g" secondAttribute="top" constant="-38" id="T7h-Ts-55D"/>
+                            <constraint firstItem="dDA-ji-QT1" firstAttribute="centerY" secondItem="FBz-kK-51W" secondAttribute="centerY" id="YWD-Aj-b6H"/>
                             <constraint firstItem="CRv-Wj-Thy" firstAttribute="trailing" secondItem="0Sj-5R-96g" secondAttribute="trailing" id="edK-Mz-IY7"/>
                             <constraint firstItem="0Sj-5R-96g" firstAttribute="trailing" secondItem="fRh-gv-G8W" secondAttribute="trailing" id="pXP-PV-qoK"/>
                             <constraint firstItem="fRh-gv-G8W" firstAttribute="leading" secondItem="0Sj-5R-96g" secondAttribute="leading" id="wFu-LB-KFp"/>
@@ -592,13 +598,20 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="dDA-ji-QT1" id="JiK-qV-7vD"/>
                         <outlet property="btnAddToCartImage" destination="QbZ-hC-MmP" id="tla-jC-Yre"/>
                         <outlet property="btnAddToCartTitle" destination="SXZ-ed-7uC" id="J6S-9a-D8S"/>
                         <outlet property="btnHeart" destination="qP7-kE-TBh" id="mDx-Lq-FbP"/>
                         <outlet property="btnIngredients" destination="t2k-3a-P4q" id="IQZ-jy-HbB"/>
+                        <outlet property="btnIngredients1" destination="awa-OV-nQQ" id="682-J5-XWi"/>
+                        <outlet property="btnIngredients2" destination="86R-Ci-hOT" id="iHb-9m-UMy"/>
+                        <outlet property="btnIngredients3" destination="Dra-xy-dbg" id="vDa-GI-LZJ"/>
                         <outlet property="btnMinusQty" destination="i6t-rN-vyQ" id="edh-y3-Aot"/>
                         <outlet property="btnPlusQty" destination="S51-v3-UK7" id="Zol-sR-S3D"/>
-                        <outlet property="btnProtion" destination="m0J-ZR-ODf" id="3P1-ge-UEK"/>
+                        <outlet property="btnProtion" destination="Vjh-e6-2T1" id="vbd-kr-2fu"/>
+                        <outlet property="btnProtion1" destination="Qeb-gN-8rr" id="GaB-pq-JXa"/>
+                        <outlet property="btnProtion2" destination="CfF-F4-O37" id="2Ii-3b-WUO"/>
+                        <outlet property="btnProtion3" destination="Seb-nS-TuK" id="ZQl-Mb-rmJ"/>
                         <outlet property="imgFood" destination="6jy-Ni-xFE" id="KvR-yG-XeJ"/>
                         <outlet property="lblFoodDescription" destination="PYY-mH-8Qs" id="a7g-0c-U05"/>
                         <outlet property="lblFoodName" destination="aq5-iC-onx" id="V8f-6k-DgP"/>
@@ -607,11 +620,13 @@
                         <outlet property="lblRating" destination="Xzu-B3-sfo" id="w0Z-pd-pkb"/>
                         <outlet property="lblTotalPrice" destination="x37-It-dgc" id="g6M-Z5-any"/>
                         <outlet property="stackIngredients" destination="6uV-rY-yLd" id="AT2-lN-eF7"/>
-                        <outlet property="stackProtion" destination="qiV-Ci-keO" id="X9H-Wu-MAN"/>
+                        <outlet property="stackProtion" destination="qiV-Ci-keO" id="sd9-G9-rFH"/>
                         <outlet property="stackStar" destination="NDR-VX-PZK" id="41G-79-Bgq"/>
                         <outlet property="viewDetail" destination="pKW-rP-i4V" id="uiI-Xp-8D5"/>
+                        <outlet property="viewFoodDetail" destination="CRv-Wj-Thy" id="Trh-f0-Iro"/>
                         <outlet property="viewIngredients" destination="9wV-l3-dMD" id="cWh-1Z-XlC"/>
                         <outlet property="viewPortion" destination="eRD-Xx-imi" id="cmw-4h-zp3"/>
+                        <outlet property="viewShade" destination="fRh-gv-G8W" id="FTV-Hw-QhM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1hH-Fh-ULd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -626,7 +641,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="MiN-sb-Liq">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="MiN-sb-Liq">
                                 <rect key="frame" x="0.0" y="118" width="393" height="575"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
@@ -684,7 +699,7 @@
     <resources>
         <image name="ic_backImageA" width="289" height="134"/>
         <image name="ic_backImageB" width="97" height="171"/>
-        <image name="ic_cart_detail" width="23" height="20"/>
+        <image name="ic_cart_detail_withBack" width="54.333332061767578" height="54.333332061767578"/>
         <image name="ic_dropDown" width="15.333333015441895" height="9.3333330154418945"/>
         <image name="ic_heart_unfill" width="20.333333969116211" height="17"/>
         <image name="ic_star" width="16.666666030883789" height="16"/>
