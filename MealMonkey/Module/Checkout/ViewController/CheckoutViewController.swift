@@ -23,6 +23,7 @@ class CheckoutViewController: UIViewController {
     
     /// UIView container for second add card view
     @IBOutlet weak var viewAddCard2: UIView!
+    @IBOutlet weak var scrollViewAddCard: UIScrollView!
     
     /// UITextField for card number input
     @IBOutlet weak var txtCardNumber: UITextField!
@@ -50,6 +51,7 @@ class CheckoutViewController: UIViewController {
     
     /// UIView container for second thank you view
     @IBOutlet weak var viewThankYou2: UIView!
+    @IBOutlet weak var scrollViewThankYou: UIScrollView!
     
     /// UIButton to close thank you message
     @IBOutlet weak var btnThankYouCross: UIButton!
@@ -107,7 +109,7 @@ class CheckoutViewController: UIViewController {
         
         calculate()
         
-        setViewTopCornerRadius(views: [viewAddCard2, viewThankYou2])
+        setViewTopCornerRadius(views: [viewEnterCard, scrollViewAddCard, viewAddCard2, viewThankYou, scrollViewThankYou, viewThankYou2])
         
         viewStyle(cornerRadius: 28, borderWidth: 0, borderColor: .systemGray, textField: [txtCardNumber, txtExpiryMonth, txtExpiryYear, txtSecureCode, txtFirstName, txtLastName, btnEnterCard, btnTrackYourOrder])
         

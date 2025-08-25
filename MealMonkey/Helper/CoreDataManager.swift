@@ -220,4 +220,55 @@ class CoreDataManager {
     func fetchWishlistIds(for user: User) -> [Int] {
         return (user.wishlistItems as? Set<WishlistItem>)?.map { Int($0.id) } ?? []
     }
+    
+    func saveCard(for user: User, model: PaymentModel) {
+        let context = self.context
+        
+        let card = Card(context: context)
+        card.cardNumber = "\(model.intCardNumber ?? 0)"
+        card.expiryMonth = Int16(model.intExpiryMonth ?? 0)
+        card.expiryYear = Int16(model.intExpiryYear ?? 0)
+        card.secureCode = Int16(model.intSecureCode ?? 0)
+        card.firstName = model.strFirstName ?? ""
+        card.lastName = model.strLastName ?? ""
+        
+        // Establish relationship
+        card.user = user
+        
+        do {
+            try context.save()
+        } catch {
+            print("Failed to save card: \(error.localizedDescription)")
+        }
+    }
+
+    func fetchCards(for user: User) -> [Card] {
+        let context = self.context
+        let request: NSFetchRequest<Card> = Card.fetchRequest()
+        request.predicate = NSPredicate(format: "user == %@", user)
+        
+        do {
+            return try context.fetch(request)
+        } catch {
+            print("Failed to fetch cards: \(error.localizedDescription)")
+            return []
+        }
+    }
+
+    func deleteCard(for user: User, cardNumber: String) {
+        let context = self.context
+        let request: NSFetchRequest<Card> = Card.fetchRequest()
+        request.predicate = NSPredicate(format: "user == %@ AND cardNumber == %@", user, cardNumber)
+        
+        do {
+            let cards = try context.fetch(request)
+            for card in cards {
+                context.delete(card)
+            }
+            try context.save()
+        } catch {
+            print("Failed to delete card: \(error.localizedDescription)")
+        }
+    }
+
 }

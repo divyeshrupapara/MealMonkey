@@ -226,6 +226,7 @@ class FoodDetailViewController: UIViewController {
         guard let product = product else { return }
         if let user = CoreDataManager.shared.fetchCurrentUser() {
             CoreDataManager.shared.addToCart(for: user, product: product, quantity: quantity)
+            setCartButton(target: self, action: #selector(btnCartTapped), tintColor: .buttonText)
             let alert = UIAlertController(title: "Success", message: "Added to cart!", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(alert, animated: true, completion: nil)

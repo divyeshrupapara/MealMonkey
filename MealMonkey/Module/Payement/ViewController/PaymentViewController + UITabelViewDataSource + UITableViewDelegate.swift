@@ -19,9 +19,23 @@ extension PaymentViewController: UITableViewDataSource {
         
         // Closure to handle card deletion
         cell.deleteCard = {
-            app.arrCardData.remove(at: indexPath.row)
-            self.lblNoItem.isHidden = !app.arrCardData.isEmpty
-            self.tblCard.reloadData()
+            if let user = self.currentUser {
+                let cardNumber = "\(app.arrCardData[indexPath.row].intCardNumber ?? 0)"
+                CoreDataManager.shared.deleteCard(for: user, cardNumber: cardNumber)
+                let coreDataCards = CoreDataManager.shared.fetchCards(for: user)
+                app.arrCardData = coreDataCards.map { card in
+                    let model = PaymentModel()
+                    model.intCardNumber = Int(card.cardNumber ?? "")
+                    model.intExpiryMonth = Int(card.expiryMonth)
+                    model.intExpiryYear = Int(card.expiryYear)
+                    model.intSecureCode = Int(card.secureCode)
+                    model.strFirstName = card.firstName ?? ""
+                    model.strLastName = card.lastName ?? ""
+                    return model
+                }
+                self.lblNoItem.isHidden = !app.arrCardData.isEmpty
+                self.tblCard.reloadData()
+            }
         }
         return cell
     }

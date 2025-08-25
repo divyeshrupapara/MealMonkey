@@ -38,12 +38,15 @@ class PaymentViewController: UIViewController {
     
     /// Additional "Add Card" view
     @IBOutlet weak var viewAddCard2: UIView!
+    @IBOutlet weak var scrollViewAddCard: UIScrollView!
     
     /// Transparent overlay behind "Add Card" view
     @IBOutlet weak var viewTransperent: UIView!
     
     /// Label to show when no cards exist
     @IBOutlet weak var lblNoItem: UILabel!
+    
+    var currentUser: User?
     
     /// Called after the controller's view is loaded into memory
     override func viewDidLoad() {
@@ -55,17 +58,11 @@ class PaymentViewController: UIViewController {
         viewEnterCard.isHidden = true
         viewTransperent.isHidden = true
         
-        // Style the add card view with rounded top corners and shadow
-        viewAddCard2.layer.cornerRadius = 20
-        viewAddCard2.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        viewAddCard2.layer.shadowColor = UIColor.black.cgColor
-        viewAddCard2.layer.shadowOpacity = 0.2
-        viewAddCard2.layer.shadowOffset = CGSize(width: 0, height: -2)
-        viewAddCard2.layer.shadowRadius = 10
-        
         // Apply corner radius and padding to input fields and buttons
         viewStyle(cornerRadius: 28, borderWidth: 0, borderColor: .systemGray, textField: [txtCardNumber, txtExpiryMonth, txtExpiryYear, txtSecureCode, txtFirstName, txtLastName, btnEnterCard])
         setPadding.setPadding(left: 34, right: 34, textfield: [txtCardNumber, txtExpiryMonth, txtExpiryYear, txtSecureCode, txtFirstName, txtLastName])
+        
+        addUpperCornerRadius(view: [viewAddCard2, viewEnterCard, scrollViewAddCard])
         
         // Setup navigation bar and cart button
         setLeftAlignedTitleWithBack("Payment Details", target: self, action: #selector(btnBackTapped))
@@ -82,12 +79,43 @@ class PaymentViewController: UIViewController {
     
     /// Called before the view appears
     override func viewWillAppear(_ animated: Bool) {
+        if let email = UserDefaults.standard.string(forKey: "loggedInEmail"),
+           let user = CoreDataManager.shared.fetchUser(byEmail: email) {
+            self.currentUser = user
+            let coreDataCards = CoreDataManager.shared.fetchCards(for: user)
+            app.arrCardData = coreDataCards.map { card in
+                PaymentModel(
+                    intCardNumber: Int(card.cardNumber ?? ""),
+                    intExpiryMonth: Int(card.expiryMonth),
+                    intExpiryYear: Int(card.expiryYear),
+                    intSecureCode: Int(card.secureCode),
+                    strFirstName: card.firstName,
+                    strLastName: card.lastName
+                )
+            }
+        } else {
+            app.arrCardData = []
+        }
         lblNoItem.isHidden = !app.arrCardData.isEmpty
         tblCard.reloadData()
     }
     
+    func addUpperCornerRadius(view: [UIView]) {
+        // Style the add card view with rounded top corners and shadow
+        for items in view {
+            items.layer.cornerRadius = 20
+            items.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+            items.layer.shadowColor = UIColor.black.cgColor
+            items.layer.shadowOpacity = 0.2
+            items.layer.shadowOffset = CGSize(width: 0, height: -2)
+            items.layer.shadowRadius = 10
+        }
+    }
+    
     /// Adds the entered card data to the app's card array
     func addCardData() {
+        guard let user = currentUser else { return }
+
         let obj = PaymentModel()
         obj.intCardNumber = Int(txtCardNumber.text ?? "")
         obj.intExpiryMonth = Int(txtExpiryMonth.text ?? "")
@@ -95,9 +123,24 @@ class PaymentViewController: UIViewController {
         obj.intSecureCode = Int(txtSecureCode.text ?? "")
         obj.strFirstName = txtFirstName.text ?? ""
         obj.strLastName = txtLastName.text ?? ""
-        app.arrCardData.append(obj)
-        
+
+        // Save to Core Data
+        CoreDataManager.shared.saveCard(for: user, model: obj)
+
+        // Refresh local array
+        let coreDataCards = CoreDataManager.shared.fetchCards(for: user)
+        app.arrCardData = coreDataCards.map { card in
+            PaymentModel(
+                intCardNumber: Int(card.cardNumber ?? ""),
+                intExpiryMonth: Int(card.expiryMonth),
+                intExpiryYear: Int(card.expiryYear),
+                intSecureCode: Int(card.secureCode),
+                strFirstName: card.firstName,
+                strLastName: card.lastName
+            )
+        }
         tblCard.reloadData()
+
     }
     
     /// Action to go back to the previous screen

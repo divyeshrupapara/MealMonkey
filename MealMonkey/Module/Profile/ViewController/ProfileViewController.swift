@@ -87,23 +87,37 @@ class ProfileViewController: UIViewController {
     /// Saves updated user profile data
     @IBAction func btnSaveClick(_ sender: Any) {
         guard let user = currentUser else { return }
-            
-        user.name = txtName.text
-        user.mobile = txtMobileNo.text
-        user.address = txtAddress.text
-        
-        if let image = imgProfile.image {
-            user.profileImage = image.jpegData(compressionQuality: 0.8)
-        }
-        
-        CoreDataManager.shared.saveContext()
-        
-        // Show success alert
-        let alert = UIAlertController(title: "Success",
-                                      message: "Profile updated successfully!",
-                                      preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
-        present(alert, animated: true)
+           
+           // Get the updated email from the text field
+           let newEmail = txtEmail.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+           
+           // Check if email is empty
+           if newEmail.isEmpty {
+               UIAlertController.showAlert(title: "Error", message: "Email cannot be empty.", viewController: self)
+               return
+           }
+           
+           // Check if this email is already registered with another user
+           if let existingUser = CoreDataManager.shared.fetchUser(byEmail: newEmail), existingUser != user {
+               UIAlertController.showAlert(title: "Email Exists", message: "This email is already registered with another account.", viewController: self)
+               return
+           }
+           
+           // Update the user details
+           user.name = txtName.text
+           user.mobile = txtMobileNo.text
+           user.address = txtAddress.text
+           user.email = newEmail
+           
+           // Update profile image
+           if let image = imgProfile.image {
+               user.profileImage = image.jpegData(compressionQuality: 0.8)
+           }
+           
+           // Save changes to Core Data
+           CoreDataManager.shared.saveContext()
+           
+        UIAlertController.showAlert(title: "Success", message: "Profile updated successfully!", viewController: self)
     }
     
     /// Signs out the user and returns to Login screen

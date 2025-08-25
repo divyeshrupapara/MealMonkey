@@ -71,7 +71,7 @@ extension UIViewController {
             badge.text = "\(badgeCount)"
             badge.textColor = .white
             badge.backgroundColor = .systemRed
-            badge.font = .systemFont(ofSize: 12, weight: .bold)
+            badge.font = .systemFont(ofSize: 14, weight: .bold)
             badge.textAlignment = .center
             badge.layer.cornerRadius = 10
             badge.clipsToBounds = true
@@ -79,7 +79,7 @@ extension UIViewController {
             button.addSubview(badge)
             
             NSLayoutConstraint.activate([
-                badge.topAnchor.constraint(equalTo: button.topAnchor, constant: -4),
+                badge.topAnchor.constraint(equalTo: button.topAnchor, constant: -6),
                 badge.trailingAnchor.constraint(equalTo: button.trailingAnchor, constant: 4),
                 badge.widthAnchor.constraint(greaterThanOrEqualToConstant: 20),
                 badge.heightAnchor.constraint(equalToConstant: 20)
