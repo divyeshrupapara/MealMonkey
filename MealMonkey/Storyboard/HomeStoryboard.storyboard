@@ -46,17 +46,25 @@
                                             <outlet property="delegate" destination="Y6W-OH-hqX" id="99F-OK-Ndx"/>
                                         </connections>
                                     </tableView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="No Product Found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ifM-o3-RlO">
+                                        <rect key="frame" x="91.000000000000014" y="271.66666666666669" width="211.33333333333337" height="30"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="26"/>
+                                        <color key="textColor" name="LabelSecondaryColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="T0S-ZJ-4Ht" firstAttribute="top" secondItem="mWv-3d-bJk" secondAttribute="top" constant="25" id="93k-zO-g1u"/>
                                     <constraint firstAttribute="trailing" secondItem="Wdc-jR-OQr" secondAttribute="trailing" constant="21" id="CTE-zr-4uF"/>
+                                    <constraint firstItem="ifM-o3-RlO" firstAttribute="centerX" secondItem="mWv-3d-bJk" secondAttribute="centerX" id="GqC-qb-YtS"/>
                                     <constraint firstAttribute="bottom" secondItem="Wdc-jR-OQr" secondAttribute="bottom" constant="22" id="JUj-eC-mQg"/>
                                     <constraint firstItem="SeF-M3-7Kp" firstAttribute="leading" secondItem="mWv-3d-bJk" secondAttribute="leading" id="OOy-DI-Djf"/>
                                     <constraint firstItem="Wdc-jR-OQr" firstAttribute="leading" secondItem="mWv-3d-bJk" secondAttribute="leading" constant="21" id="R9L-xX-jgw"/>
                                     <constraint firstItem="T0S-ZJ-4Ht" firstAttribute="leading" secondItem="mWv-3d-bJk" secondAttribute="leading" constant="21" id="Szb-Uw-5FY"/>
                                     <constraint firstItem="Wdc-jR-OQr" firstAttribute="leading" secondItem="SeF-M3-7Kp" secondAttribute="trailing" constant="-76" id="hEf-OF-zjb"/>
                                     <constraint firstItem="SeF-M3-7Kp" firstAttribute="top" secondItem="T0S-ZJ-4Ht" secondAttribute="bottom" constant="30" id="mgF-P0-Kj8"/>
+                                    <constraint firstItem="ifM-o3-RlO" firstAttribute="centerY" secondItem="mWv-3d-bJk" secondAttribute="centerY" id="mnl-jk-XeO"/>
                                     <constraint firstItem="Wdc-jR-OQr" firstAttribute="top" secondItem="T0S-ZJ-4Ht" secondAttribute="bottom" constant="30" id="rQ5-dt-5jC"/>
                                     <constraint firstAttribute="bottom" secondItem="SeF-M3-7Kp" secondAttribute="bottom" constant="22" id="vne-HP-jgn"/>
                                     <constraint firstAttribute="trailing" secondItem="T0S-ZJ-4Ht" secondAttribute="trailing" constant="21" id="wrC-8W-io1"/>
@@ -75,6 +83,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="LYt-j8-2pp"/>
                     <connections>
+                        <outlet property="lblNoItem" destination="ifM-o3-RlO" id="fRr-RJ-Qjh"/>
                         <outlet property="tblBackView" destination="SeF-M3-7Kp" id="TxY-Gm-fC0"/>
                         <outlet property="tblCategory" destination="Wdc-jR-OQr" id="o6V-OV-vZR"/>
                         <outlet property="txtSearchFood" destination="T0S-ZJ-4Ht" id="lMl-04-Tih"/>
@@ -363,6 +372,9 @@ meals and more!</string>
                                                         <state key="normal" title="Edit Profile" image="ic_edit">
                                                             <color key="titleColor" name="ButtonBackgroundColor"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="btnEditProfileClick:" destination="tgk-By-OlE" eventType="touchUpInside" id="82c-kC-wc7"/>
+                                                        </connections>
                                                     </button>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nbQ-FU-sfb">
                                                         <rect key="frame" x="21" y="262.66666666666669" width="351" height="56"/>
@@ -493,6 +505,7 @@ meals and more!</string>
                     </view>
                     <navigationItem key="navigationItem" id="Cut-pt-9wq"/>
                     <connections>
+                        <outlet property="btnEditProfile" destination="qzx-BW-weI" id="gp9-4c-vsh"/>
                         <outlet property="btnSave" destination="Guk-T9-L6m" id="WAs-Tg-W5i"/>
                         <outlet property="btnSignOut" destination="3rt-AJ-NGK" id="Dz5-YX-ZuM"/>
                         <outlet property="imgProfile" destination="A0t-R1-yD0" id="yYn-wb-9Mc"/>

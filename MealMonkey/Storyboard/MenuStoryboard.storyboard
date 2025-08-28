@@ -578,8 +578,8 @@
                                     <constraint firstAttribute="bottom" secondItem="8vQ-DY-pGO" secondAttribute="bottom" id="yWn-gF-AUD"/>
                                 </constraints>
                             </view>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="dDA-ji-QT1">
-                                <rect key="frame" x="186.66666666666666" y="416" width="20" height="20"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="dDA-ji-QT1">
+                                <rect key="frame" x="178" y="407.66666666666669" width="37" height="37"/>
                                 <color key="color" name="ButtonBackgroundColor"/>
                             </activityIndicatorView>
                         </subviews>

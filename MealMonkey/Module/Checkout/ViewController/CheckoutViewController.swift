@@ -5,118 +5,80 @@ class CheckoutViewController: UIViewController {
     
     /// UIButton to send the order
     @IBOutlet weak var btnSendOrder: UIButton!
-    
     /// UITableView to display saved cards and payment options
     @IBOutlet weak var tblCheckOutCard: UITableView!
-    
     /// UIButton to add a new card
     @IBOutlet weak var btnAddCard: UIButton!
-    
     /// UIButton to close the add card view
     @IBOutlet weak var btnCross: UIButton!
-    
     /// UIView container for entering card details
     @IBOutlet weak var viewEnterCard: UIView!
-    
     /// UIView overlay to make background transparent
     @IBOutlet weak var viewTransperent: UIView!
-    
     /// UIView container for second add card view
     @IBOutlet weak var viewAddCard2: UIView!
     @IBOutlet weak var scrollViewAddCard: UIScrollView!
-    
     /// UITextField for card number input
     @IBOutlet weak var txtCardNumber: UITextField!
-    
     /// UITextField for expiry month input
     @IBOutlet weak var txtExpiryMonth: UITextField!
-    
     /// UITextField for expiry year input
     @IBOutlet weak var txtExpiryYear: UITextField!
-    
     /// UITextField for secure code input
     @IBOutlet weak var txtSecureCode: UITextField!
-    
     /// UITextField for first name input
     @IBOutlet weak var txtFirstName: UITextField!
-    
     /// UITextField for last name input
     @IBOutlet weak var txtLastName: UITextField!
-    
     /// UIButton to confirm adding card
     @IBOutlet weak var btnEnterCard: UIButton!
-    
     /// UIView container for thank you message
     @IBOutlet weak var viewThankYou: UIView!
-    
     /// UIView container for second thank you view
     @IBOutlet weak var viewThankYou2: UIView!
     @IBOutlet weak var scrollViewThankYou: UIScrollView!
-    
     /// UIButton to close thank you message
     @IBOutlet weak var btnThankYouCross: UIButton!
-    
     /// UIButton to track the placed order
     @IBOutlet weak var btnTrackYourOrder: UIButton!
-    
     /// UIButton to change delivery address
     @IBOutlet weak var btnChangeAddress: UIButton!
-    
     /// UILabel to display subtotal amount
     @IBOutlet weak var lblSubTotal: UILabel!
-    
     /// UILabel to display delivery cost
     @IBOutlet weak var lblDeliveryCost: UILabel!
-    
     /// UILabel to display discount amount
     @IBOutlet weak var lblDiscount: UILabel!
-    
     /// UILabel to display total amount
     @IBOutlet weak var lblTotal: UILabel!
-    
     /// UILabel to display selected address
     @IBOutlet weak var lblAddress: UILabel!
     
     /// Stores the selected address text
     var addressText: String?
-    
     /// Stores the selected payment model
     var objPaymentModel: PaymentModel?
-    
     /// Subtotal amount
     var subtotal: Double = 0.0
-    
     /// Delivery cost
     var deliveryCost: Double = 0.0
-    
     /// Discount amount
     var discount: Double = 0.0
-    
     /// Index of selected payment method
     var selectedPaymentIndex: Int? = nil
     
     /// Called after the controller's view is loaded into memory
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setLeftAlignedTitleWithBack("Checkout",
-                                    target: self,
-                                    action: #selector(btnBackTapped))
-        
+        setLeftAlignedTitleWithBack("Checkout", target: self, action: #selector(btnBackTapped))
         viewEnterCard.isHidden = true
         viewTransperent.isHidden = true
         viewThankYou.isHidden = true
-        
         calculate()
-        
         setViewTopCornerRadius(views: [viewEnterCard, scrollViewAddCard, viewAddCard2, viewThankYou, scrollViewThankYou, viewThankYou2])
-        
         viewStyle(cornerRadius: 28, borderWidth: 0, borderColor: .systemGray, textField: [txtCardNumber, txtExpiryMonth, txtExpiryYear, txtSecureCode, txtFirstName, txtLastName, btnEnterCard, btnTrackYourOrder])
-        
         setPadding.setPadding(left: 34, right: 34, textfield: [txtCardNumber, txtExpiryMonth, txtExpiryYear, txtSecureCode, txtFirstName, txtLastName])
-        
         viewStyle(cornerRadius: 28, borderWidth: 0, borderColor: .systemGray, textField: [btnSendOrder])
-        
         tblCheckOutCard.backgroundColor = .clear
         tblCheckOutCard.showsVerticalScrollIndicator = false
         tblCheckOutCard.register(UINib(nibName: "CashOnDeliveryTableViewCell", bundle: nil), forCellReuseIdentifier: "CashOnDeliveryTableViewCell")
@@ -126,10 +88,9 @@ class CheckoutViewController: UIViewController {
     
     /// Called before the view appears on screen
     override func viewWillAppear(_ animated: Bool) {
-        // Load from UserDefaults
         if let savedAddress = UserDefaults.standard.string(forKey: "lastSelectedAddress") {
             lblAddress.text = savedAddress
-            addressText = savedAddress // if you also use addressText internally
+            addressText = savedAddress
         }
     }
     
@@ -138,7 +99,6 @@ class CheckoutViewController: UIViewController {
         lblSubTotal.text = "$\(String(format: "%.2f", subtotal))"
         lblDeliveryCost.text = "$\(String(format: "%.2f", deliveryCost))"
         lblDiscount.text = "-$\(String(format: "%.2f", discount))"
-        
         let total = subtotal + deliveryCost - discount
         lblTotal.text = "$\(String(format: "%.2f", total))"
     }
@@ -172,9 +132,7 @@ class CheckoutViewController: UIViewController {
     @IBAction func btnAddCardClick(_ sender: Any) {
         viewEnterCard.isHidden = false
         viewTransperent.isHidden = false
-        UIView.animate(withDuration: 0.3) {
-            self.viewEnterCard.transform = .identity
-        }
+        UIView.animate(withDuration: 0.3) { self.viewEnterCard.transform = .identity }
         setTabBar(hidden: true)
     }
     
@@ -187,34 +145,25 @@ class CheckoutViewController: UIViewController {
     @IBAction func btnSendOrderClick(_ sender: Any) {
         viewThankYou.isHidden = false
         viewTransperent.isHidden = false
-        UIView.animate(withDuration: 0.3) {
-            self.viewThankYou.transform = .identity
-        }
+        UIView.animate(withDuration: 0.3) { self.viewThankYou.transform = .identity }
         setTabBar(hidden: true)
     }
     
     /// Closes the thank you view
     @IBAction func btnThankYouCrossClick(_ sender: Any) {
-        UIView.animate(withDuration: 0.3, animations: {
-            self.viewThankYou.transform = CGAffineTransform(translationX: 0, y: self.view.frame.height)
-        }) { _ in
-            self.viewThankYou.isHidden = true
-            self.viewTransperent.isHidden = true
-            self.setTabBar(hidden: false)
+        let storyboard = UIStoryboard(name: "MoreStoryboard", bundle: nil)
+        if let VC = storyboard.instantiateViewController(withIdentifier: "OrderListViewController") as? OrderListViewController {
+            self.navigationController?.pushViewController(VC, animated: true)
         }
     }
     
     /// Shows or hides the tab bar
     func setTabBar(hidden: Bool, animated: Bool = true) {
         guard let tabBar = self.tabBarController?.tabBar else { return }
-        
         let frame = tabBar.frame
         let offsetY = hidden ? UIScreen.main.bounds.height : UIScreen.main.bounds.height - frame.height
-        
         if animated {
-            UIView.animate(withDuration: 0.3) {
-                tabBar.frame.origin.y = offsetY
-            }
+            UIView.animate(withDuration: 0.3) { tabBar.frame.origin.y = offsetY }
         } else {
             tabBar.frame.origin.y = offsetY
         }
@@ -224,10 +173,8 @@ class CheckoutViewController: UIViewController {
     private func showMainTabBar() {
         let storyboard = UIStoryboard(name: "HomeStoryboard", bundle: nil)
         if let tabBarController = storyboard.instantiateViewController(withIdentifier: "MainTabViewController") as? UITabBarController {
-            
             if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
                let sceneDelegate = windowScene.delegate as? SceneDelegate {
-                
                 sceneDelegate.window?.rootViewController = tabBarController
                 sceneDelegate.window?.makeKeyAndVisible()
                 tabBarController.selectedIndex = 2
@@ -245,7 +192,6 @@ class CheckoutViewController: UIViewController {
         obj.strFirstName = txtFirstName.text ?? ""
         obj.strLastName = txtLastName.text ?? ""
         app.arrCardData.append(obj)
-        
         tblCheckOutCard.reloadData()
     }
     

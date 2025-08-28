@@ -16,19 +16,19 @@ class OrderListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Load orders from Core Data for the logged-in user
+        /// Load orders from Core Data for the logged-in user
         loadUserOrders()
         
-        // Show or hide the "no item" label depending on whether orders exist
+        /// Show or hide the "no item" label depending on whether orders exist
         lblNoItem.isHidden = !orders.isEmpty
         
-        // Set the navigation bar title with a back button
+        /// Set the navigation bar title with a back button
         setLeftAlignedTitleWithBack("Order List", target: self, action: #selector(btnBackTapped))
         
-        // Register the custom table view cell
+        /// Register the custom table view cell
         tblOrderList.register(UINib(nibName: "OrderListTableViewCell", bundle: nil), forCellReuseIdentifier: "OrderListTableViewCell")
         
-        // Reload table view to display orders
+        /// Reload table view to display orders
         tblOrderList.reloadData()
     }
     
@@ -42,8 +42,23 @@ class OrderListViewController: UIViewController {
         }
     }
     
+    /// Shows the main tab bar controller
+    private func showMainTabBar() {
+        let storyboard = UIStoryboard(name: "HomeStoryboard", bundle: nil)
+        if let tabBarController = storyboard.instantiateViewController(withIdentifier: "MainTabViewController") as? UITabBarController {
+            
+            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+               let sceneDelegate = windowScene.delegate as? SceneDelegate {
+                
+                sceneDelegate.window?.rootViewController = tabBarController
+                sceneDelegate.window?.makeKeyAndVisible()
+                tabBarController.selectedIndex = 4
+            }
+        }
+    }
+    
     /// Action called when the back button is tapped
     @objc func btnBackTapped() {
-        self.navigationController?.popViewController(animated: true)
+        showMainTabBar()
     }
 }
