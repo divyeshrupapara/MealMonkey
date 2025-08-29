@@ -15,12 +15,13 @@ class OrderListTableViewCell: UITableViewCell {
     /// Label displaying the total price of the order
     @IBOutlet weak var lblTotal: UILabel!
     
+    @IBOutlet weak var viewBack: UIView!
     /// Called after the cell has been loaded from the nib
     override func awakeFromNib() {
         super.awakeFromNib()
         
         // Apply corner radius and styling to the first food image
-        viewStyle.viewStyle(cornerRadius: 10, borderWidth: 0, borderColor: .systemGray, textField: [imgFirstFood])
+        viewStyle.viewStyle(cornerRadius: 10, borderWidth: 0, borderColor: .systemGray, textField: [imgFirstFood, viewBack])
     }
     
     /// Called when the selection state of the cell changes

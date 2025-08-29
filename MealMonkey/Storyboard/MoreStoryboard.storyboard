@@ -128,7 +128,7 @@
                                 <rect key="frame" x="0.0" y="305" width="393" height="547"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3T9-Vq-3Pa">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="547"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="533"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2x1-MO-OP8">
                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="594"/>
@@ -310,9 +310,10 @@ at anytime </string>
                                         </constraints>
                                     </scrollView>
                                 </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="3T9-Vq-3Pa" secondAttribute="trailing" id="PgF-vU-pxT"/>
-                                    <constraint firstAttribute="bottom" secondItem="3T9-Vq-3Pa" secondAttribute="bottom" id="Qzw-3Y-g46"/>
+                                    <constraint firstAttribute="bottom" secondItem="3T9-Vq-3Pa" secondAttribute="bottom" constant="14" id="Qzw-3Y-g46"/>
                                     <constraint firstItem="3T9-Vq-3Pa" firstAttribute="top" secondItem="GSd-D9-blw" secondAttribute="top" id="aTQ-sg-iXM"/>
                                     <constraint firstItem="3T9-Vq-3Pa" firstAttribute="leading" secondItem="GSd-D9-blw" secondAttribute="leading" id="oX9-5Z-B8l"/>
                                 </constraints>
@@ -340,6 +341,7 @@ at anytime </string>
                         <outlet property="btnCross" destination="Oj7-I1-Feb" id="2mm-kK-ZpH"/>
                         <outlet property="btnEnterCard" destination="1km-Go-ZBE" id="mul-vc-iTx"/>
                         <outlet property="lblNoItem" destination="r6r-D3-NBF" id="VJs-Ab-nOe"/>
+                        <outlet property="scrollViewAddCard" destination="3T9-Vq-3Pa" id="Lai-mX-T6g"/>
                         <outlet property="tblCard" destination="1zT-tt-CRu" id="QRD-Zt-Acs"/>
                         <outlet property="txtCardNumber" destination="Gpz-9e-VuR" id="otB-WQ-4Ah"/>
                         <outlet property="txtExpiryMonth" destination="t9E-gc-xKX" id="7v2-2R-V4q"/>
@@ -922,7 +924,7 @@ Brooklyn, NY 11216</string>
                                 <rect key="frame" x="0.0" y="305" width="393" height="547"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ctr-9D-5bR">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="547"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="533"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9c7-RI-qb8">
                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="594"/>
@@ -1104,9 +1106,10 @@ at anytime </string>
                                         </constraints>
                                     </scrollView>
                                 </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Ctr-9D-5bR" secondAttribute="trailing" id="38h-Hc-6nw"/>
-                                    <constraint firstAttribute="bottom" secondItem="Ctr-9D-5bR" secondAttribute="bottom" id="J7G-ln-FeO"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ctr-9D-5bR" secondAttribute="bottom" constant="14" id="J7G-ln-FeO"/>
                                     <constraint firstItem="Ctr-9D-5bR" firstAttribute="top" secondItem="sGb-3b-1XF" secondAttribute="top" id="YHm-Bd-heC"/>
                                     <constraint firstItem="Ctr-9D-5bR" firstAttribute="leading" secondItem="sGb-3b-1XF" secondAttribute="leading" id="cVI-og-YW3"/>
                                 </constraints>
@@ -1115,7 +1118,7 @@ at anytime </string>
                                 <rect key="frame" x="0.0" y="305" width="393" height="547"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oyV-BY-LiV">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="547"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="533"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ydE-aa-6p8">
                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="628"/>
@@ -1210,7 +1213,6 @@ at anytime </string>
                                                 </constraints>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" name="ButtonTextColor"/>
                                         <constraints>
                                             <constraint firstItem="ydE-aa-6p8" firstAttribute="height" secondItem="oyV-BY-LiV" secondAttribute="height" priority="250" id="HGc-Od-GQh"/>
                                             <constraint firstAttribute="trailing" secondItem="ydE-aa-6p8" secondAttribute="trailing" id="HjR-Wd-1lf"/>
@@ -1221,9 +1223,10 @@ at anytime </string>
                                         </constraints>
                                     </scrollView>
                                 </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="oyV-BY-LiV" firstAttribute="top" secondItem="DlJ-2p-1kR" secondAttribute="top" id="2rj-Qz-f2Y"/>
-                                    <constraint firstAttribute="bottom" secondItem="oyV-BY-LiV" secondAttribute="bottom" id="ZlT-wn-pLu"/>
+                                    <constraint firstAttribute="bottom" secondItem="oyV-BY-LiV" secondAttribute="bottom" constant="14" id="ZlT-wn-pLu"/>
                                     <constraint firstItem="oyV-BY-LiV" firstAttribute="leading" secondItem="DlJ-2p-1kR" secondAttribute="leading" id="ehG-uB-Ne8"/>
                                     <constraint firstAttribute="trailing" secondItem="oyV-BY-LiV" secondAttribute="trailing" id="zo6-I7-1Uq"/>
                                 </constraints>
@@ -1263,6 +1266,8 @@ at anytime </string>
                         <outlet property="lblDiscount" destination="lgK-Za-dlr" id="Bm9-JF-xNZ"/>
                         <outlet property="lblSubTotal" destination="309-Aq-K5R" id="YQ2-Uq-e6H"/>
                         <outlet property="lblTotal" destination="5L3-l7-4vx" id="sP4-ap-AXK"/>
+                        <outlet property="scrollViewAddCard" destination="Ctr-9D-5bR" id="gnU-d3-yBO"/>
+                        <outlet property="scrollViewThankYou" destination="oyV-BY-LiV" id="wTY-aw-wnb"/>
                         <outlet property="tblCheckOutCard" destination="PAh-qz-vDu" id="lNe-Ll-Glq"/>
                         <outlet property="txtCardNumber" destination="i9w-IQ-NC9" id="kLx-AC-07n"/>
                         <outlet property="txtExpiryMonth" destination="bnP-yM-G99" id="y5a-DB-r3v"/>
@@ -1411,7 +1416,6 @@ at anytime </string>
         <!--Wish List View Controller-->
         <scene sceneID="yY9-lb-yi5">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VnE-Mo-Xrr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="WishListViewController" id="tLX-x2-hIi" customClass="WishListViewController" customModule="MealMonkey" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0lf-R0-xNd">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
@@ -1448,6 +1452,7 @@ at anytime </string>
                         <outlet property="tblWishList" destination="UOn-hi-hB4" id="AgG-qe-cKF"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VnE-Mo-Xrr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-738" y="-2"/>
         </scene>

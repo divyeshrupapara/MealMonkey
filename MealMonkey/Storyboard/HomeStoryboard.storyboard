@@ -46,17 +46,25 @@
                                             <outlet property="delegate" destination="Y6W-OH-hqX" id="99F-OK-Ndx"/>
                                         </connections>
                                     </tableView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="No Product Found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ifM-o3-RlO">
+                                        <rect key="frame" x="91.000000000000014" y="271.66666666666669" width="211.33333333333337" height="30"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="26"/>
+                                        <color key="textColor" name="LabelSecondaryColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="T0S-ZJ-4Ht" firstAttribute="top" secondItem="mWv-3d-bJk" secondAttribute="top" constant="25" id="93k-zO-g1u"/>
                                     <constraint firstAttribute="trailing" secondItem="Wdc-jR-OQr" secondAttribute="trailing" constant="21" id="CTE-zr-4uF"/>
+                                    <constraint firstItem="ifM-o3-RlO" firstAttribute="centerX" secondItem="mWv-3d-bJk" secondAttribute="centerX" id="GqC-qb-YtS"/>
                                     <constraint firstAttribute="bottom" secondItem="Wdc-jR-OQr" secondAttribute="bottom" constant="22" id="JUj-eC-mQg"/>
                                     <constraint firstItem="SeF-M3-7Kp" firstAttribute="leading" secondItem="mWv-3d-bJk" secondAttribute="leading" id="OOy-DI-Djf"/>
                                     <constraint firstItem="Wdc-jR-OQr" firstAttribute="leading" secondItem="mWv-3d-bJk" secondAttribute="leading" constant="21" id="R9L-xX-jgw"/>
                                     <constraint firstItem="T0S-ZJ-4Ht" firstAttribute="leading" secondItem="mWv-3d-bJk" secondAttribute="leading" constant="21" id="Szb-Uw-5FY"/>
                                     <constraint firstItem="Wdc-jR-OQr" firstAttribute="leading" secondItem="SeF-M3-7Kp" secondAttribute="trailing" constant="-76" id="hEf-OF-zjb"/>
                                     <constraint firstItem="SeF-M3-7Kp" firstAttribute="top" secondItem="T0S-ZJ-4Ht" secondAttribute="bottom" constant="30" id="mgF-P0-Kj8"/>
+                                    <constraint firstItem="ifM-o3-RlO" firstAttribute="centerY" secondItem="mWv-3d-bJk" secondAttribute="centerY" id="mnl-jk-XeO"/>
                                     <constraint firstItem="Wdc-jR-OQr" firstAttribute="top" secondItem="T0S-ZJ-4Ht" secondAttribute="bottom" constant="30" id="rQ5-dt-5jC"/>
                                     <constraint firstAttribute="bottom" secondItem="SeF-M3-7Kp" secondAttribute="bottom" constant="22" id="vne-HP-jgn"/>
                                     <constraint firstAttribute="trailing" secondItem="T0S-ZJ-4Ht" secondAttribute="trailing" constant="21" id="wrC-8W-io1"/>
@@ -75,6 +83,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="LYt-j8-2pp"/>
                     <connections>
+                        <outlet property="lblNoItem" destination="ifM-o3-RlO" id="fRr-RJ-Qjh"/>
                         <outlet property="tblBackView" destination="SeF-M3-7Kp" id="TxY-Gm-fC0"/>
                         <outlet property="tblCategory" destination="Wdc-jR-OQr" id="o6V-OV-vZR"/>
                         <outlet property="txtSearchFood" destination="T0S-ZJ-4Ht" id="lMl-04-Tih"/>
@@ -199,10 +208,10 @@ meals and more!</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xRU-BW-naR" userLabel="portionView">
-                                        <rect key="frame" x="21" y="33.666666666666657" width="172" height="45"/>
+                                        <rect key="frame" x="21" y="33.666666666666657" width="351" height="45"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ifA-5X-jcf">
-                                                <rect key="frame" x="0.0" y="0.0" width="119" height="45"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="298.33333333333331" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="kHj-AN-RQY"/>
                                                 </constraints>
@@ -216,7 +225,7 @@ meals and more!</string>
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_dropdown_home" translatesAutoresizingMaskIntoConstraints="NO" id="Cjl-iO-AYP">
-                                                <rect key="frame" x="158.66666666666666" y="0.0" width="11.333333333333343" height="45"/>
+                                                <rect key="frame" x="337.66666666666669" y="0.0" width="11.333333333333314" height="45"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" name="ButtonTextColor"/>
@@ -270,6 +279,7 @@ meals and more!</string>
                                     <constraint firstItem="MhY-1B-HJa" firstAttribute="top" secondItem="xRU-BW-naR" secondAttribute="bottom" constant="35" id="bUh-Tt-6EU"/>
                                     <constraint firstAttribute="trailing" secondItem="MhY-1B-HJa" secondAttribute="trailing" constant="21" id="cP7-w8-lBk"/>
                                     <constraint firstItem="3ki-it-XS5" firstAttribute="top" secondItem="MhY-1B-HJa" secondAttribute="bottom" constant="10" id="eiJ-Nx-nX5"/>
+                                    <constraint firstAttribute="trailing" secondItem="xRU-BW-naR" secondAttribute="trailing" constant="21" id="g3n-gX-cZo"/>
                                     <constraint firstItem="3ki-it-XS5" firstAttribute="leading" secondItem="cyS-Xr-b6B" secondAttribute="leading" id="h6e-Qz-Ih8"/>
                                     <constraint firstItem="lTD-nK-5Dy" firstAttribute="leading" secondItem="cyS-Xr-b6B" secondAttribute="leading" constant="21" id="nXq-4S-mSq"/>
                                     <constraint firstAttribute="trailing" secondItem="3ki-it-XS5" secondAttribute="trailing" id="rEQ-aY-eTv"/>
@@ -362,6 +372,9 @@ meals and more!</string>
                                                         <state key="normal" title="Edit Profile" image="ic_edit">
                                                             <color key="titleColor" name="ButtonBackgroundColor"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="btnEditProfileClick:" destination="tgk-By-OlE" eventType="touchUpInside" id="82c-kC-wc7"/>
+                                                        </connections>
                                                     </button>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nbQ-FU-sfb">
                                                         <rect key="frame" x="21" y="262.66666666666669" width="351" height="56"/>
@@ -492,6 +505,7 @@ meals and more!</string>
                     </view>
                     <navigationItem key="navigationItem" id="Cut-pt-9wq"/>
                     <connections>
+                        <outlet property="btnEditProfile" destination="qzx-BW-weI" id="gp9-4c-vsh"/>
                         <outlet property="btnSave" destination="Guk-T9-L6m" id="WAs-Tg-W5i"/>
                         <outlet property="btnSignOut" destination="3rt-AJ-NGK" id="Dz5-YX-ZuM"/>
                         <outlet property="imgProfile" destination="A0t-R1-yD0" id="yYn-wb-9Mc"/>

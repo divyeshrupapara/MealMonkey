@@ -65,20 +65,6 @@ final class ProductDataManager {
         return products.filter { $0.objProductType == type }
     }
     
-    // MARK: - Search
-    /// Searches products by name or description containing the query string
-    ///
-    /// - Parameter query: Search string
-    /// - Returns: Array of ProductModel matching the query
-    func searchProducts(_ query: String) -> [ProductModel] {
-        guard !query.isEmpty else { return products }
-        let lowerQuery = query.lowercased()
-        return products.filter {
-            $0.strProductName.lowercased().contains(lowerQuery) ||
-            $0.strProductDescription.lowercased().contains(lowerQuery)
-        }
-    }
-    
     // MARK: - Popular
     /// Returns products sorted by rating in descending order
     var popularProducts: [ProductModel] {

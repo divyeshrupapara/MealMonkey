@@ -41,6 +41,7 @@
                                         <rect key="frame" x="341" y="0.0" width="19" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="19.109999999999999" id="6nm-wK-1M4"/>
+                                            <constraint firstAttribute="height" constant="22" id="W9P-4h-f6X"/>
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="ic_heart">
@@ -53,6 +54,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SiU-J8-bJo">
                                         <rect key="frame" x="360" y="0.0" width="20" height="22"/>
                                         <constraints>
+                                            <constraint firstAttribute="height" constant="22" id="HlD-6R-52v"/>
                                             <constraint firstAttribute="width" constant="20" id="dph-AS-b3x"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>

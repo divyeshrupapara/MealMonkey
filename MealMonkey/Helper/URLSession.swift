@@ -12,6 +12,9 @@ class ApiServices {
     static func fetchProducts(completion: @escaping ([ProductModel]) -> Void) {
         guard let url = URL(string: "https://mocki.io/v1/4dd44615-def8-4c8f-b267-f7e891d1a576") else {return}
         
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        
         URLSession.shared.dataTask(with: url) { data, response, error in
             if let error = error {
                 print("Error: \(error)")

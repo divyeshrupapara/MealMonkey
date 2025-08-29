@@ -39,6 +39,7 @@ class SplashScreenViewController: UIViewController {
             // Navigate to MainTabViewController
             let storyboard = UIStoryboard(name: "HomeStoryboard", bundle: nil)
             if let VC = storyboard.instantiateViewController(withIdentifier: "MainTabViewController") as? UITabBarController {
+                VC.selectedIndex = 2
                 self.navigationController?.pushViewController(VC, animated: true)
             }
         } else {

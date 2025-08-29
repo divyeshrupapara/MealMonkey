@@ -663,7 +663,7 @@ link to  create a new password via email</string>
                                         </constraints>
                                         <color key="textColor" name="LabelPrimaryColor"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                         <connections>
                                             <outlet property="delegate" destination="vk9-nt-8s7" id="BLB-uO-Txk"/>
                                         </connections>
@@ -706,7 +706,7 @@ link to  create a new password via email</string>
                                         </constraints>
                                         <color key="textColor" name="LabelPrimaryColor"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                         <connections>
                                             <outlet property="delegate" destination="vk9-nt-8s7" id="SHq-zj-DWl"/>
                                         </connections>

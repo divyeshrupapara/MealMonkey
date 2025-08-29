@@ -1,47 +1,74 @@
 import UIKit
 
 // MARK: - Food Detail View Controller
+/// Handles the food detail screen, including displaying product info, managing quantity, and handling cart/wishlist actions.
 class FoodDetailViewController: UIViewController {
     
     // MARK: - IBOutlets
-    @IBOutlet weak var imgFood: UIImageView!
-    @IBOutlet weak var lblFoodName: UILabel!
-    @IBOutlet weak var lblFoodPrice: UILabel!
-    @IBOutlet weak var lblRating: UILabel!
-    @IBOutlet weak var lblFoodDescription: UILabel!
-    @IBOutlet weak var lblTotalPrice: UILabel!
-    @IBOutlet weak var viewDetail: UIView!
-    @IBOutlet weak var btnMinusQty: UIButton!
-    @IBOutlet weak var btnPlusQty: UIButton!
-    @IBOutlet weak var btnAddToCartTitle: UIButton!
-    @IBOutlet weak var btnAddToCartImage: UIButton!
-    @IBOutlet weak var lblQuantity: UILabel!
-    @IBOutlet weak var viewPortion: UIView!
-    @IBOutlet weak var viewIngredients: UIView!
-    @IBOutlet weak var stackProtion: UIStackView!
-    @IBOutlet weak var stackIngredients: UIStackView!
-    @IBOutlet weak var btnProtion: UIButton!
-    @IBOutlet weak var btnIngredients: UIButton!
-    @IBOutlet weak var stackStar: UIStackView!
-    @IBOutlet weak var btnHeart: UIButton!
+    @IBOutlet weak var imgFood: UIImageView!                /// Image view for food item
+    @IBOutlet weak var lblFoodName: UILabel!                /// Label for food name
+    @IBOutlet weak var lblFoodPrice: UILabel!               /// Label for food price
+    @IBOutlet weak var lblRating: UILabel!                  /// Label for food rating
+    @IBOutlet weak var lblFoodDescription: UILabel!         /// Label for food description
+    @IBOutlet weak var lblTotalPrice: UILabel!              /// Label for total price
+    @IBOutlet weak var viewDetail: UIView!                  /// Main detail view container
+    @IBOutlet weak var btnMinusQty: UIButton!               /// Button to decrease quantity
+    @IBOutlet weak var btnPlusQty: UIButton!                /// Button to increase quantity
+    @IBOutlet weak var btnAddToCartTitle: UIButton!         /// Button for "Add to Cart" text
+    @IBOutlet weak var btnAddToCartImage: UIButton!         /// Button for cart image
+    @IBOutlet weak var lblQuantity: UILabel!                /// Label showing selected quantity
+    @IBOutlet weak var viewPortion: UIView!                 /// Portion selection view
+    @IBOutlet weak var viewIngredients: UIView!             /// Ingredients selection view
+    @IBOutlet weak var stackProtion: UIStackView!           /// Stack view for portion options
+    @IBOutlet weak var stackIngredients: UIStackView!       /// Stack view for ingredient options
+    @IBOutlet weak var btnProtion: UIButton!                /// Main portion button
+    @IBOutlet weak var btnProtion1: UIButton!               /// Portion option button 1
+    @IBOutlet weak var btnProtion2: UIButton!               /// Portion option button 2
+    @IBOutlet weak var btnProtion3: UIButton!               /// Portion option button 3
+    @IBOutlet weak var btnIngredients: UIButton!            /// Main ingredients button
+    @IBOutlet weak var btnIngredients1: UIButton!           /// Ingredient option button 1
+    @IBOutlet weak var btnIngredients2: UIButton!           /// Ingredient option button 2
+    @IBOutlet weak var btnIngredients3: UIButton!           /// Ingredient option button 3
+    @IBOutlet weak var stackStar: UIStackView!              /// Stack view for star rating
+    @IBOutlet weak var btnHeart: UIButton!                  /// Wishlist heart button
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView! /// Loading indicator
+    @IBOutlet weak var viewFoodDetail: UIView!              /// Food detail content view
+    @IBOutlet weak var viewShade: UIView!                   /// Shade overlay view
     
     // MARK: - Properties
-    private var appDelegate: AppDelegate? {
-        return UIApplication.shared.delegate as? AppDelegate
-    }
-    
-    var product: ProductModel?
-    var quantity: Int = 1
-    var cartItems: [(product: ProductModel, quantity: Int)] = []
+    private var appDelegate: AppDelegate? { return UIApplication.shared.delegate as? AppDelegate } /// AppDelegate reference
+    var product: ProductModel?                              /// Product model for food item
+    var quantity: Int = 1                                   /// Quantity of selected product
+    var cartItems: [(product: ProductModel, quantity: Int)] = [] /// List of cart items
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Initialize quantity and UI
+        // Show loading and hide details initially
+        self.viewShade.isHidden = true
+        self.viewFoodDetail.isHidden = true
+        activityIndicator.startAnimating()
+        self.navigationController?.isNavigationBarHidden = true
+        
+        // Delay to simulate loading
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            self.activityIndicator.stopAnimating()
+            self.viewShade.isHidden = false
+            self.viewFoodDetail.isHidden = false
+            self.configureUI()
+            self.checkWishlistStatus()
+            self.activityIndicator.isHidden = true
+            self.navigationController?.isNavigationBarHidden = false
+            self.setLeftAlignedTitleWithBack("", textColor: .buttonText, target: self, action: #selector(self.btnBackTapped))
+            self.setCartButton(target: self, action: #selector(self.btnCartTapped), tintColor: .buttonText)
+        }
+        
+        // Initialize quantity and set default UI
         quantity = 1
         lblQuantity.text = "\(quantity)"
         
+        // Populate data if product exists
         if let product = product {
             imgFood.image = UIImage(named: product.strProductImage)
             lblFoodName.text = product.strProductName
@@ -50,22 +77,18 @@ class FoodDetailViewController: UIViewController {
             lblRating.text = "\(product.floatProductRating) Star Ratings"
         }
         
-        self.navigationController?.isNavigationBarHidden = false
-        setLeftAlignedTitleWithBack("", textColor: .buttonText, target: self, action: #selector(btnBackTapped))
-        setCartButton(target: self, action: #selector(btnCartTapped), tintColor: .buttonText)
-        
-        // Hide portions and ingredients stacks initially
+        // Hide portion and ingredient options initially
         stackProtion.isHidden = true
         stackIngredients.isHidden = true
         
-        // Apply UI styles
+        // Apply rounded corners and styles
         viewStyle(cornerRadius: 4, borderWidth: 0, borderColor: .systemGray, textField: [viewPortion, viewIngredients])
         viewStyle(cornerRadius: btnPlusQty.frame.size.height/2, borderWidth: 0, borderColor: .systemGray, textField: [btnPlusQty, btnMinusQty])
         viewStyle(cornerRadius: btnAddToCartImage.frame.size.height/2, borderWidth: 0, borderColor: .systemGray, textField: [btnAddToCartImage])
         viewStyle(cornerRadius: btnAddToCartTitle.frame.size.height/2, borderWidth: 0, borderColor: .systemGray, textField: [btnAddToCartTitle])
         viewStyle(cornerRadius: lblQuantity.frame.size.height/2, borderWidth: 1, borderColor: .buttonBackground, textField: [lblQuantity])
         
-        // Detail view corner radius and shadow
+        // Add shadow to detail view
         viewDetail.layer.cornerRadius = 20
         viewDetail.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         viewDetail.layer.shadowColor = UIColor.black.cgColor
@@ -73,14 +96,17 @@ class FoodDetailViewController: UIViewController {
         viewDetail.layer.shadowOffset = CGSize(width: 0, height: -2)
         viewDetail.layer.shadowRadius = 10
         
-        // Fill star rating
+        // Fill stars based on rating
         fillStars(for: product?.floatProductRating ?? 0.0, in: stackStar)
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        // Wishlist button setup based on Core Data
-        if let user = CoreDataManager.shared.fetchCurrentUser(),
-           let product = product {
+        checkWishlistStatus()
+    }
+    
+    /// Check and update wishlist button status
+    func checkWishlistStatus() {
+        if let user = CoreDataManager.shared.fetchCurrentUser(), let product = product {
             if CoreDataManager.shared.isInWishlist(for: user, productId: product.intId) {
                 btnHeart.setImage(UIImage(named: "ic_heart"), for: .normal)
             } else {
@@ -88,8 +114,8 @@ class FoodDetailViewController: UIViewController {
             }
         }
     }
-    // MARK: - Helper Methods
     
+    // MARK: - Helper Methods
     /// Fill the star rating UI
     func fillStars(for rating: Float, in stackView: UIStackView) {
         for (index, view) in stackView.arrangedSubviews.enumerated() {
@@ -106,10 +132,9 @@ class FoodDetailViewController: UIViewController {
         }
     }
     
-    /// Update UI elements for product details
+    /// Configure UI with product details
     func configureUI() {
         guard let product = product else { return }
-        self.title = product.strProductName
         lblFoodName.text = product.strProductName
         lblFoodDescription.text = product.strProductDescription
         imgFood.image = UIImage(named: product.strProductImage)
@@ -124,7 +149,7 @@ class FoodDetailViewController: UIViewController {
         lblFoodPrice.text = "$\(String(format: "%.2f", product.doubleProductPrice))"
         lblTotalPrice.text = "$\(String(format: "%.2f", total))"
         lblQuantity.text = "\(quantity)"
-        btnProtion.isEnabled = quantity > 1
+        btnProtion.isEnabled = quantity >= 1
     }
     
     /// Check if product exists in cart and update quantity
@@ -142,10 +167,7 @@ class FoodDetailViewController: UIViewController {
     }
     
     // MARK: - IBActions
-    
-    @objc func btnBackTapped() {
-        self.navigationController?.popViewController(animated: true)
-    }
+    @objc func btnBackTapped() { self.navigationController?.popViewController(animated: true) }
     
     @objc func btnCartTapped() {
         let storyboard = UIStoryboard(name: "MenuStoryboard", bundle: nil)
@@ -154,21 +176,20 @@ class FoodDetailViewController: UIViewController {
         }
     }
     
-    @IBAction func btnIngredientsNameClick(_ sender: Any) {
+    @IBAction func btnIngredientsNameClick(_ sender: UIButton) {
         stackIngredients.isHidden = true
+        if let selectedTitle = sender.currentTitle { btnIngredients.setTitle(selectedTitle, for: .normal) }
+        for button in [btnIngredients1, btnIngredients2, btnIngredients3] { button?.isSelected = (button == sender) }
     }
     
-    @IBAction func btnProtionNameClick(_ sender: Any) {
+    @IBAction func btnProtionNameClick(_ sender: UIButton) {
         stackProtion.isHidden = true
+        if let selectedTitle = sender.currentTitle { btnProtion.setTitle(selectedTitle, for: .normal) }
+        for button in [btnProtion1, btnProtion2, btnProtion3] { button?.isSelected = (button == sender) }
     }
     
-    @IBAction func btnIngredientsClick(_ sender: Any) {
-        stackIngredients.isHidden = false
-    }
-    
-    @IBAction func btnProtionClick(_ sender: Any) {
-        stackProtion.isHidden = false
-    }
+    @IBAction func btnIngredientsClick(_ sender: Any) { stackIngredients.isHidden = false }
+    @IBAction func btnProtionClick(_ sender: Any) { stackProtion.isHidden = false }
     
     @IBAction func btnAddToCartImageClick(_ sender: Any) {
         let storyboard = UIStoryboard(name: "MenuStoryboard", bundle: nil)
@@ -181,19 +202,15 @@ class FoodDetailViewController: UIViewController {
         guard let product = product else { return }
         if let user = CoreDataManager.shared.fetchCurrentUser() {
             CoreDataManager.shared.addToCart(for: user, product: product, quantity: quantity)
+            setCartButton(target: self, action: #selector(btnCartTapped), tintColor: .buttonText)
             let alert = UIAlertController(title: "Success", message: "Added to cart!", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(alert, animated: true, completion: nil)
-        } else {
-            print(" No logged-in user found")
-        }
+        } else { print(" No logged-in user found") }
     }
     
     @IBAction func btnMinusQtyClick(_ sender: Any) {
-        if quantity > 1 {
-            quantity -= 1
-            updatePriceAndQuantityUI()
-        }
+        if quantity > 1 { quantity -= 1; updatePriceAndQuantityUI() }
     }
     
     @IBAction func btnPlusQtyClick(_ sender: Any) {
@@ -202,9 +219,7 @@ class FoodDetailViewController: UIViewController {
     }
     
     @IBAction func btnHeartClick(_ sender: Any) {
-        guard let product = product,
-              let user = CoreDataManager.shared.fetchCurrentUser() else { return }
-        
+        guard let product = product, let user = CoreDataManager.shared.fetchCurrentUser() else { return }
         if CoreDataManager.shared.isInWishlist(for: user, productId: product.intId) {
             CoreDataManager.shared.removeFromWishlist(for: user, productId: product.intId)
             btnHeart.setImage(UIImage(named: "ic_heart_unfill"), for: .normal)
@@ -217,7 +232,6 @@ class FoodDetailViewController: UIViewController {
 
 // MARK: - CoreDataManager Extension
 extension CoreDataManager {
-    
     /// Fetch the currently logged-in user from UserDefaults
     func fetchCurrentUser() -> User? {
         if let email = UserDefaults.standard.string(forKey: "loggedInEmail") {

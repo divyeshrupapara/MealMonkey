@@ -4,17 +4,18 @@ import UIKit
 class ProfileViewController: UIViewController {
     
     // MARK: - Outlets
-    @IBOutlet weak var imgProfile: UIImageView!
-    @IBOutlet weak var txtName: UITextField!
-    @IBOutlet weak var txtEmail: UITextField!
-    @IBOutlet weak var txtMobileNo: UITextField!
-    @IBOutlet weak var txtAddress: UITextField!
-    @IBOutlet weak var btnSave: UIButton!
-    @IBOutlet weak var btnSignOut: UIButton!
-    @IBOutlet weak var lblUserName: UILabel!
+    @IBOutlet weak var imgProfile: UIImageView! /// Profile image view
+    @IBOutlet weak var txtName: UITextField! /// Text field for user's name
+    @IBOutlet weak var txtEmail: UITextField! /// Text field for user's email
+    @IBOutlet weak var txtMobileNo: UITextField! /// Text field for user's mobile number
+    @IBOutlet weak var txtAddress: UITextField! /// Text field for user's address
+    @IBOutlet weak var btnSave: UIButton! /// Button to save profile changes
+    @IBOutlet weak var btnSignOut: UIButton! /// Button to sign out
+    @IBOutlet weak var lblUserName: UILabel! /// Label showing user greeting
+    @IBOutlet weak var btnEditProfile: UIButton! /// Button to enable profile editing
     
     // MARK: - Properties
-    var currentUser: User?
+    var currentUser: User? /// Stores the current logged-in user
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -22,20 +23,23 @@ class ProfileViewController: UIViewController {
         
         self.navigationController?.isNavigationBarHidden = false
         
-        // Enable tapping on profile image
+        /// Adds tap gesture to profile image for image picker
         let imgPicker = UITapGestureRecognizer(target: self, action: #selector(imgTap))
         imgProfile.addGestureRecognizer(imgPicker)
         
-        // Apply styles to UI elements
+        /// Applies corner radius and styles to UI elements
         viewStyle(cornerRadius: imgProfile.frame.size.width/2, borderWidth: 0, borderColor: .systemGray, textField: [imgProfile])
         viewStyle(cornerRadius: 28, borderWidth: 0, borderColor: .systemGray, textField: [txtName, txtEmail, txtAddress, txtMobileNo, btnSave])
         setPadding(textfield: [txtName, txtEmail, txtAddress, txtMobileNo])
         
+        /// Sets navigation title and adds cart button
         setLeftAlignedTitle("Profile")
         setCartButton(target: self, action: #selector(btnCartTapped))
         
-        // Load saved user data
+        /// Loads user data from Core Data
         loadUserData()
+        
+        btnSaveEnable(isEnabled: false)
     }
     
     // MARK: - Load Data
@@ -46,14 +50,14 @@ class ProfileViewController: UIViewController {
             
             currentUser = user
             
-            // Fill text fields
+            /// Populates text fields with user details
             lblUserName.text = "Hi there \(user.name ?? "")!"
             txtName.text = user.name
-            txtEmail.text = user.email   // probably read-only
+            txtEmail.text = user.email   /// Email field is likely read-only
             txtMobileNo.text = user.mobile
             txtAddress.text = user.address
             
-            // Load profile image if saved
+            /// Sets profile image if available
             if let imageData = user.profileImage {
                 imgProfile.image = UIImage(data: imageData)
             }
@@ -84,35 +88,64 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    /// Saves updated user profile data
-    @IBAction func btnSaveClick(_ sender: Any) {
-        guard let user = currentUser else { return }
-            
-        user.name = txtName.text
-        user.mobile = txtMobileNo.text
-        user.address = txtAddress.text
-        
-        if let image = imgProfile.image {
-            user.profileImage = image.jpegData(compressionQuality: 0.8)
-        }
-        
-        CoreDataManager.shared.saveContext()
-        
-        // Show success alert
-        let alert = UIAlertController(title: "Success",
-                                      message: "Profile updated successfully!",
-                                      preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
-        present(alert, animated: true)
+    /// Enables or disables Save button and text fields
+    func btnSaveEnable(isEnabled: Bool) {
+        btnSave.isHidden = !isEnabled
+        txtName.isUserInteractionEnabled = isEnabled
+        txtEmail.isUserInteractionEnabled = isEnabled
+        txtAddress.isUserInteractionEnabled = isEnabled
+        txtMobileNo.isUserInteractionEnabled = isEnabled
     }
     
-    /// Signs out the user and returns to Login screen
+    /// Saves updated user profile data to Core Data
+    @IBAction func btnSaveClick(_ sender: Any) {
+        guard let user = currentUser else { return }
+           
+           /// Gets updated email and trims whitespaces
+           let newEmail = txtEmail.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+           
+           /// Validates that email is not empty
+           if newEmail.isEmpty {
+               UIAlertController.showAlert(title: "Error", message: "Email cannot be empty.", viewController: self)
+               return
+           }
+           
+           /// Checks if new email is already registered
+           if let existingUser = CoreDataManager.shared.fetchUser(byEmail: newEmail), existingUser != user {
+               UIAlertController.showAlert(title: "Email Exists", message: "This email is already registered with another account.", viewController: self)
+               return
+           }
+           
+           /// Updates user details with entered data
+           user.name = txtName.text
+           user.mobile = txtMobileNo.text
+           user.address = txtAddress.text
+           user.email = newEmail
+           
+           /// Updates profile image
+           if let image = imgProfile.image {
+               user.profileImage = image.jpegData(compressionQuality: 0.8)
+           }
+           
+           /// Saves changes to Core Data
+           CoreDataManager.shared.saveContext()
+           
+        btnSaveEnable(isEnabled: false)
+        UIAlertController.showAlert(title: "Success", message: "Profile updated successfully!", viewController: self)
+    }
+    
+    /// Enables profile editing mode
+    @IBAction func btnEditProfileClick(_ sender: Any) {
+        btnSaveEnable(isEnabled: true)
+    }
+    
+    /// Signs out the user and navigates to Login screen
     @IBAction func btnSignOutClick(_ sender: Any) {
-        // Clear login state
+        /// Clears user login state
         UserDefaults.standard.set(false, forKey: "isLoggedIn")
-        UserDefaults.standard.removeObject(forKey: "loggedInEmail") // clear stored email
+        UserDefaults.standard.removeObject(forKey: "loggedInEmail") /// Removes stored email
         
-        // Redirect to Login screen
+        /// Navigates to Login screen
         let storyboard = UIStoryboard(name: "UserStoryboard", bundle: nil)
         if let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
             
@@ -130,7 +163,7 @@ class ProfileViewController: UIViewController {
 // MARK: - UIImagePickerControllerDelegate & UINavigationControllerDelegate
 extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    /// Handles selected profile image
+    /// Handles selected profile image and saves to Core Data
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[.editedImage] as? UIImage {
