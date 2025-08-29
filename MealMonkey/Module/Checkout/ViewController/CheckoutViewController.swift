@@ -221,9 +221,73 @@ class CheckoutViewController: UIViewController {
     
     /// Handles adding a new card and closing the add card view
     @IBAction func btnEnterCardClick(_ sender: Any) {
+        // Card number validation
+        let cardNumber = txtCardNumber.text ?? ""
+        if cardNumber.count != 16 {
+            UIAlertController.showAlert(
+                title: "Invalid Card Number",
+                message: "Card number must be exactly 16 digits.",
+                viewController: self
+            )
+            return
+        }
+        
+        // Expiry month validation
+        if let month = Int(txtExpiryMonth.text ?? ""), month < 1 || month > 12 {
+            UIAlertController.showAlert(
+                title: "Invalid Expiry Month",
+                message: "Please enter a valid month between 01 and 12.",
+                viewController: self
+            )
+            return
+        }
+        
+        // Expiry year validation
+        if (txtExpiryYear.text ?? "").count != 2 {
+            UIAlertController.showAlert(
+                title: "Invalid Expiry Year",
+                message: "Please enter a valid 2-digit year.",
+                viewController: self
+            )
+            return
+        }
+        
+        // Secure code (CVV) validation
+        if (txtSecureCode.text ?? "").count != 3 {
+            UIAlertController.showAlert(
+                title: "Invalid CVV",
+                message: "Secure code must be 3 digits.",
+                viewController: self
+            )
+            return
+        }
+        
+        // First name validation
+        if (txtFirstName.text ?? "").isEmpty {
+            UIAlertController.showAlert(
+                title: "Missing First Name",
+                message: "Please enter your first name.",
+                viewController: self
+            )
+            return
+        }
+        
+        // Last name validation
+        if (txtLastName.text ?? "").isEmpty {
+            UIAlertController.showAlert(
+                title: "Missing Last Name",
+                message: "Please enter your last name.",
+                viewController: self
+            )
+            return
+        }
+        
+        // If all validations pass, add the card data
         addCardData()
         tblCheckOutCard.reloadData()
         closeAddCardView()
+        
+        // Clear input fields
         txtLastName.text = ""
         txtFirstName.text = ""
         txtCardNumber.text = ""
