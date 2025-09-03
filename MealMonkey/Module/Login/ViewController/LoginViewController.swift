@@ -62,15 +62,23 @@ class LoginViewController: UIViewController {
     /// Validates login inputs and performs authentication against Core Data
     func validateLoginPassword() {
         guard let email = txtEmail.text, !email.isEmpty else {
-            UIAlertController.showAlert(title: "Error", message: "Please enter your email address.", viewController: self)
+            UIAlertController.showAlert(
+                title: Main.Alert.LoginViewController.EmailMissing.title,
+                message: Main.Alert.LoginViewController.EmailMissing.message,
+                viewController: self
+            )
             return
         }
-        
+
         guard let password = txtPassword.text, !password.isEmpty else {
-            UIAlertController.showAlert(title: "Error", message: "Please enter your password.", viewController: self)
+            UIAlertController.showAlert(
+                title: Main.Alert.LoginViewController.PasswordMissing.title,
+                message: Main.Alert.LoginViewController.PasswordMissing.message,
+                viewController: self
+            )
             return
         }
-        
+
         // Fetch from Core Data
         if let user = CoreDataManager.shared.fetchUser(email: email, password: password) {
             print("Login Success! Welcome \(user.name ?? "")")
@@ -78,7 +86,11 @@ class LoginViewController: UIViewController {
             UserDefaults.standard.set(user.email, forKey: "loggedInEmail")
             showMainTabBar()
         } else {
-            UIAlertController.showAlert(title: "Login Failed", message: "Invalid email or password.", viewController: self)
+            UIAlertController.showAlert(
+                title: Main.Alert.LoginViewController.LoginFailed.title,
+                message: Main.Alert.LoginViewController.LoginFailed.message,
+                viewController: self
+            )
         }
     }
     
@@ -91,8 +103,8 @@ class LoginViewController: UIViewController {
     
     /// Shows main tab bar controller after successful login
     private func showMainTabBar() {
-        let storyboard = UIStoryboard(name: "HomeStoryboard", bundle: nil)
-        if let tabBarController = storyboard.instantiateViewController(withIdentifier: "MainTabViewController") as? UITabBarController {
+        let storyboard = UIStoryboard(name: Main.StoryBoard.HomeStoryboard, bundle: nil)
+        if let tabBarController = storyboard.instantiateViewController(withIdentifier: Main.ViewController.MainTabViewController) as? UITabBarController {
             
             // Set as rootViewController
             if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
@@ -107,16 +119,16 @@ class LoginViewController: UIViewController {
     
     /// Handles forget password button click
     @IBAction func btnForgetPasswordClick(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "UserStoryboard", bundle: nil)
-        if let VC = storyboard.instantiateViewController(withIdentifier: "ForgetPasswordViewController") as? ForgetPasswordViewController {
+        let storyboard = UIStoryboard(name: Main.StoryBoard.UserStoryboard, bundle: nil)
+        if let VC = storyboard.instantiateViewController(withIdentifier: Main.ViewController.ForgetPasswordViewController) as? ForgetPasswordViewController {
             self.navigationController?.pushViewController(VC, animated: true)
         }
     }
     
     /// Handles sign up button click
     @IBAction func btnSignUpClick(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "UserStoryboard", bundle: nil)
-        if let VC = storyboard.instantiateViewController(withIdentifier: "SignUpViewController") as? SignUpViewController {
+        let storyboard = UIStoryboard(name: Main.StoryBoard.UserStoryboard, bundle: nil)
+        if let VC = storyboard.instantiateViewController(withIdentifier: Main.ViewController.SignUpViewController) as? SignUpViewController {
             self.navigationController?.pushViewController(VC, animated: true)
         }
     }

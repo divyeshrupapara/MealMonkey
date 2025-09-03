@@ -1,4 +1,5 @@
 import UIKit
+import NVActivityIndicatorView
 
 // MARK: - Food Detail View Controller
 /// Handles the food detail screen, including displaying product info, managing quantity, and handling cart/wishlist actions.
@@ -31,7 +32,7 @@ class FoodDetailViewController: UIViewController {
     @IBOutlet weak var btnIngredients3: UIButton!           /// Ingredient option button 3
     @IBOutlet weak var stackStar: UIStackView!              /// Stack view for star rating
     @IBOutlet weak var btnHeart: UIButton!                  /// Wishlist heart button
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView! /// Loading indicator
+    @IBOutlet weak var activityIndicatorView: NVActivityIndicatorView! /// Loading indicator
     @IBOutlet weak var viewFoodDetail: UIView!              /// Food detail content view
     @IBOutlet weak var viewShade: UIView!                   /// Shade overlay view
     
@@ -45,20 +46,24 @@ class FoodDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        activityIndicatorView.type = .ballPulseSync
+        activityIndicatorView.color = .buttonBackground
+        activityIndicatorView.isHidden = false
+        activityIndicatorView.startAnimating()
+        
         // Show loading and hide details initially
         self.viewShade.isHidden = true
         self.viewFoodDetail.isHidden = true
-        activityIndicator.startAnimating()
         self.navigationController?.isNavigationBarHidden = true
         
         // Delay to simulate loading
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-            self.activityIndicator.stopAnimating()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            self.activityIndicatorView.stopAnimating()
+            self.activityIndicatorView.isHidden = true
             self.viewShade.isHidden = false
             self.viewFoodDetail.isHidden = false
             self.configureUI()
             self.checkWishlistStatus()
-            self.activityIndicator.isHidden = true
             self.navigationController?.isNavigationBarHidden = false
             self.setLeftAlignedTitleWithBack("", textColor: .buttonText, target: self, action: #selector(self.btnBackTapped))
             self.setCartButton(target: self, action: #selector(self.btnCartTapped), tintColor: .buttonText)
@@ -170,8 +175,8 @@ class FoodDetailViewController: UIViewController {
     @objc func btnBackTapped() { self.navigationController?.popViewController(animated: true) }
     
     @objc func btnCartTapped() {
-        let storyboard = UIStoryboard(name: "MenuStoryboard", bundle: nil)
-        if let VC = storyboard.instantiateViewController(withIdentifier: "CartViewController") as? CartViewController {
+        let storyboard = UIStoryboard(name: Main.StoryBoard.MenuStoryboard, bundle: nil)
+        if let VC = storyboard.instantiateViewController(withIdentifier: Main.ViewController.CartViewController) as? CartViewController {
             self.navigationController?.pushViewController(VC, animated: true)
         }
     }
@@ -192,8 +197,8 @@ class FoodDetailViewController: UIViewController {
     @IBAction func btnProtionClick(_ sender: Any) { stackProtion.isHidden = false }
     
     @IBAction func btnAddToCartImageClick(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "MenuStoryboard", bundle: nil)
-        if let VC = storyboard.instantiateViewController(withIdentifier: "CartViewController") as? CartViewController {
+        let storyboard = UIStoryboard(name: Main.StoryBoard.MenuStoryboard, bundle: nil)
+        if let VC = storyboard.instantiateViewController(withIdentifier: Main.ViewController.CartViewController) as? CartViewController {
             self.navigationController?.pushViewController(VC, animated: true)
         }
     }

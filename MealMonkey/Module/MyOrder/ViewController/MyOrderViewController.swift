@@ -46,7 +46,7 @@ class MyOrderViewController: UIViewController {
         
         // Setup tableView
         tblMyOrder.showsVerticalScrollIndicator = false
-        tblMyOrder.register(UINib(nibName: "MyOrderTableViewCell", bundle: nil), forCellReuseIdentifier: "MyOrderTableViewCell")
+        tblMyOrder.register(UINib(nibName: Main.CellIdentifiers.MyOrderTableViewCell, bundle: nil), forCellReuseIdentifier: Main.CellIdentifiers.MyOrderTableViewCell)
         tblMyOrder.reloadData()
     }
     
@@ -66,8 +66,8 @@ class MyOrderViewController: UIViewController {
     /// Handles checkout button tap
     /// Passes subtotal, delivery cost, and discount to CheckoutViewController
     @IBAction func btnCheckOutClick(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "MoreStoryboard", bundle: nil)
-        if let VC = storyboard.instantiateViewController(withIdentifier: "CheckoutViewController") as? CheckoutViewController {
+        let storyboard = UIStoryboard(name: Main.StoryBoard.MoreStoryboard, bundle: nil)
+        if let VC = storyboard.instantiateViewController(withIdentifier: Main.ViewController.CheckoutViewController) as? CheckoutViewController {
             
             // Calculate subtotal from current orders
             let subtotal = ordersProducts.reduce(0) { $0 + ($1.doubleProductPrice * Double($1.intProductQty ?? 0)) }

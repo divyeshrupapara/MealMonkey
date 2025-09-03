@@ -41,13 +41,13 @@ class AboutModel {
     /// - Returns: Array of AboutModel representing app/company information
     class func addAboutData() -> [AboutModel] {
         return [
-            AboutModel(strText: "Our mission is to deliver a seamless and intuitive shopping experience that prioritizes user satisfaction. We aim to create a platform where browsing, purchasing, and managing products feels effortless, thanks to our simple user interface and reliable service."),
-            AboutModel(strText: "We are dedicated to maintaining high standards of performance, transparency, and trust. Our team continuously works to enhance app functionality, ensure data privacy, and provide responsive customer support, making your shopping journey smooth and secure."),
-            AboutModel(strText: "Your feedback matters. If you have any questions, suggestions, or encounter any issues, we’re here to help. Reach out through our support page or email us directly. Together, we strive to build a better and more inclusive experience for everyone."),
-            AboutModel(strText: "We believe that technology should serve people. That’s why we constantly refine our platform based on real user behavior and needs, aiming to make every interaction faster, simpler, and more enjoyable."),
-            AboutModel(strText: "Security is our priority. We use industry-standard protocols to safeguard your personal information and provide a safe and secure shopping environment at all times."),
-            AboutModel(strText: "We value accessibility and inclusiveness. Our platform is designed to be usable by people of all backgrounds, devices, and technical abilities, ensuring that everyone can benefit from our services."),
-            AboutModel(strText: "Sustainability matters to us. We support eco-friendly business practices and work with partners who share our values to reduce our environmental impact.")
+            AboutModel(strText: Main.addAboutMessage.strText1),
+            AboutModel(strText: Main.addAboutMessage.strText2),
+            AboutModel(strText: Main.addAboutMessage.strText3),
+            AboutModel(strText: Main.addAboutMessage.strText4),
+            AboutModel(strText: Main.addAboutMessage.strText5),
+            AboutModel(strText: Main.addAboutMessage.strText6),
+            AboutModel(strText: Main.addAboutMessage.strText7)
         ]
     }
 
@@ -58,21 +58,21 @@ class AboutModel {
     /// - Returns: Array of AboutModel representing notifications with timestamp
     class func addNotificationData() -> [AboutModel] {
         return [
-            AboutModel(strText: "Order placed successfully", strTimezone: "Just now"),
-            AboutModel(strText: "Your payment has been confirmed", strTimezone: "5m ago"),
-            AboutModel(strText: "Your food is being prepared", strTimezone: "10m ago"),
-            AboutModel(strText: "Delivery agent assigned", strTimezone: "30m ago"),
-            AboutModel(strText: "Your order is on the way", strTimezone: "1h ago"),
-            AboutModel(strText: "Special discount available!", strTimezone: "2h ago"),
-            AboutModel(strText: "Download our new app update", strTimezone: "3h ago"),
-            AboutModel(strText: "Refer a friend and earn", strTimezone: "5h ago"),
-            AboutModel(strText: "Limited-time deal ending soon", strTimezone: "12h ago"),
-            AboutModel(strText: "Delivery completed", strTimezone: "1d ago"),
-            AboutModel(strText: "Rate your last meal", strTimezone: "2d ago"),
-            AboutModel(strText: "Weekend offer just for you", strTimezone: "3d ago"),
-            AboutModel(strText: "Free delivery on orders above ₹299", strTimezone: "5d ago"),
-            AboutModel(strText: "Thanks for being with us!", strTimezone: "6d ago"),
-            AboutModel(strText: "New restaurants added near you", strTimezone: "1w ago")
+            AboutModel(strText: Main.addNotiMessage.strText1, strTimezone: Main.addNotiMessage.strTimezone1),
+            AboutModel(strText: Main.addNotiMessage.strText2, strTimezone: Main.addNotiMessage.strTimezone2),
+            AboutModel(strText: Main.addNotiMessage.strText3, strTimezone: Main.addNotiMessage.strTimezone3),
+            AboutModel(strText: Main.addNotiMessage.strText4, strTimezone: Main.addNotiMessage.strTimezone4),
+            AboutModel(strText: Main.addNotiMessage.strText5, strTimezone: Main.addNotiMessage.strTimezone5),
+            AboutModel(strText: Main.addNotiMessage.strText6, strTimezone: Main.addNotiMessage.strTimezone6),
+            AboutModel(strText: Main.addNotiMessage.strText7, strTimezone: Main.addNotiMessage.strTimezone7),
+            AboutModel(strText: Main.addNotiMessage.strText8, strTimezone: Main.addNotiMessage.strTimezone8),
+            AboutModel(strText: Main.addNotiMessage.strText9, strTimezone: Main.addNotiMessage.strTimezone9),
+            AboutModel(strText: Main.addNotiMessage.strText10, strTimezone: Main.addNotiMessage.strTimezone10),
+            AboutModel(strText: Main.addNotiMessage.strText11, strTimezone: Main.addNotiMessage.strTimezone11),
+            AboutModel(strText: Main.addNotiMessage.strText12, strTimezone: Main.addNotiMessage.strTimezone12),
+            AboutModel(strText: Main.addNotiMessage.strText13, strTimezone: Main.addNotiMessage.strTimezone13),
+            AboutModel(strText: Main.addNotiMessage.strText14, strTimezone: Main.addNotiMessage.strTimezone14),
+            AboutModel(strText: Main.addNotiMessage.strText15, strTimezone: Main.addNotiMessage.strTimezone15)
         ]
     }
 
@@ -83,21 +83,21 @@ class AboutModel {
     /// - Returns: Array of AboutModel representing inbox messages with right-side text and additional details
     class func addInboxData() -> [AboutModel] {
         return [
-            AboutModel(strText: "MealMonkey Promotions", strRightSideText: "6th July", strText2: "Get 20% off on your next meal!"),
-            AboutModel(strText: "Order Update", strRightSideText: "6th July", strText2: "Your order is being prepared by the restaurant."),
-            AboutModel(strText: "Delivery Reminder", strRightSideText: "6th July", strText2: "Your delivery agent is on the way."),
-            AboutModel(strText: "Welcome to MealMonkey", strRightSideText: "6th July", strText2: "Thanks for joining us! Start exploring meals."),
-            AboutModel(strText: "Rate Your Experience", strRightSideText: "6th July", strText2: "How was your recent meal order?"),
-            AboutModel(strText: "Flash Sale", strRightSideText: "6th July", strText2: "Enjoy 30% off on all pasta orders today only."),
-            AboutModel(strText: "New Restaurants", strRightSideText: "6th July", strText2: "Discover trending restaurants in your area."),
-            AboutModel(strText: "Refer & Earn", strRightSideText: "6th July", strText2: "Invite friends and earn ₹100 credits!"),
-            AboutModel(strText: "Weekend Special", strRightSideText: "6th July", strText2: "Free dessert on orders above ₹499."),
-            AboutModel(strText: "MealMonkey Tips", strRightSideText: "6th July", strText2: "Customize your orders with special instructions."),
-            AboutModel(strText: "Order Cancelled", strRightSideText: "6th July", strText2: "Your order has been cancelled as requested."),
-            AboutModel(strText: "Loyalty Program", strRightSideText: "6th July", strText2: "Collect Monkey Points with every purchase."),
-            AboutModel(strText: "Security Update", strRightSideText: "6th July", strText2: "Your password was recently changed."),
-            AboutModel(strText: "Account Verified", strRightSideText: "6th July", strText2: "Your account has been successfully verified."),
-            AboutModel(strText: "Limited Time Deal", strRightSideText: "6th July", strText2: "Flat ₹50 off on biryani orders today.")
+            AboutModel(strText: Main.addInboxMessage.strText1, strRightSideText: Main.addInboxMessage.strRightSideText1, strText2: Main.addInboxMessage.strText21),
+            AboutModel(strText: Main.addInboxMessage.strText2, strRightSideText: Main.addInboxMessage.strRightSideText2, strText2: Main.addInboxMessage.strText22),
+            AboutModel(strText: Main.addInboxMessage.strText3, strRightSideText: Main.addInboxMessage.strRightSideText3, strText2: Main.addInboxMessage.strText23),
+            AboutModel(strText: Main.addInboxMessage.strText4, strRightSideText: Main.addInboxMessage.strRightSideText4, strText2: Main.addInboxMessage.strText24),
+            AboutModel(strText: Main.addInboxMessage.strText5, strRightSideText: Main.addInboxMessage.strRightSideText5, strText2: Main.addInboxMessage.strText25),
+            AboutModel(strText: Main.addInboxMessage.strText6, strRightSideText: Main.addInboxMessage.strRightSideText6, strText2: Main.addInboxMessage.strText26),
+            AboutModel(strText: Main.addInboxMessage.strText7, strRightSideText: Main.addInboxMessage.strRightSideText7, strText2: Main.addInboxMessage.strText27),
+            AboutModel(strText: Main.addInboxMessage.strText8, strRightSideText: Main.addInboxMessage.strRightSideText8, strText2: Main.addInboxMessage.strText28),
+            AboutModel(strText: Main.addInboxMessage.strText9, strRightSideText: Main.addInboxMessage.strRightSideText9, strText2: Main.addInboxMessage.strText29),
+            AboutModel(strText: Main.addInboxMessage.strText10, strRightSideText: Main.addInboxMessage.strRightSideText10, strText2: Main.addInboxMessage.strText210),
+            AboutModel(strText: Main.addInboxMessage.strText11, strRightSideText: Main.addInboxMessage.strRightSideText11, strText2: Main.addInboxMessage.strText211),
+            AboutModel(strText: Main.addInboxMessage.strText12, strRightSideText: Main.addInboxMessage.strRightSideText12, strText2: Main.addInboxMessage.strText212),
+            AboutModel(strText: Main.addInboxMessage.strText13, strRightSideText: Main.addInboxMessage.strRightSideText13, strText2: Main.addInboxMessage.strText213),
+            AboutModel(strText: Main.addInboxMessage.strText14, strRightSideText: Main.addInboxMessage.strRightSideText14, strText2: Main.addInboxMessage.strText214),
+            AboutModel(strText: Main.addInboxMessage.strText15, strRightSideText: Main.addInboxMessage.strRightSideText15, strText2: Main.addInboxMessage.strText215)
         ]
     }
 }

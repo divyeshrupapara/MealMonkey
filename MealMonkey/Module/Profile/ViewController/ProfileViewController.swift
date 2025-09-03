@@ -75,8 +75,8 @@ class ProfileViewController: UIViewController {
     
     /// Opens Cart screen
     @objc func btnCartTapped() {
-        let storyboard = UIStoryboard(name: "MenuStoryboard", bundle: nil)
-        if let VC = storyboard.instantiateViewController(withIdentifier: "CartViewController") as? CartViewController {
+        let storyboard = UIStoryboard(name: Main.StoryBoard.MenuStoryboard, bundle: nil)
+        if let VC = storyboard.instantiateViewController(withIdentifier: Main.ViewController.CartViewController) as? CartViewController {
             self.navigationController?.pushViewController(VC, animated: true)
         }
     }
@@ -100,38 +100,44 @@ class ProfileViewController: UIViewController {
     /// Saves updated user profile data to Core Data
     @IBAction func btnSaveClick(_ sender: Any) {
         guard let user = currentUser else { return }
-           
-           /// Gets updated email and trims whitespaces
-           let newEmail = txtEmail.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-           
-           /// Validates that email is not empty
-           if newEmail.isEmpty {
-               UIAlertController.showAlert(title: "Error", message: "Email cannot be empty.", viewController: self)
-               return
-           }
-           
-           /// Checks if new email is already registered
-           if let existingUser = CoreDataManager.shared.fetchUser(byEmail: newEmail), existingUser != user {
-               UIAlertController.showAlert(title: "Email Exists", message: "This email is already registered with another account.", viewController: self)
-               return
-           }
-           
-           /// Updates user details with entered data
-           user.name = txtName.text
-           user.mobile = txtMobileNo.text
-           user.address = txtAddress.text
-           user.email = newEmail
-           
-           /// Updates profile image
-           if let image = imgProfile.image {
-               user.profileImage = image.jpegData(compressionQuality: 0.8)
-           }
-           
-           /// Saves changes to Core Data
-           CoreDataManager.shared.saveContext()
-           
+        
+        let newEmail = txtEmail.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        
+        if newEmail.isEmpty {
+            UIAlertController.showAlert(
+                title: Main.Alert.ProfileViewController.EmailMissing.title,
+                message: Main.Alert.ProfileViewController.EmailMissing.message,
+                viewController: self
+            )
+            return
+        }
+        
+        if let existingUser = CoreDataManager.shared.fetchUser(byEmail: newEmail), existingUser != user {
+            UIAlertController.showAlert(
+                title: Main.Alert.ProfileViewController.EmailExists.title,
+                message: Main.Alert.ProfileViewController.EmailExists.message,
+                viewController: self
+            )
+            return
+        }
+        
+        user.name = txtName.text
+        user.mobile = txtMobileNo.text
+        user.address = txtAddress.text
+        user.email = newEmail
+        
+        if let image = imgProfile.image {
+            user.profileImage = image.jpegData(compressionQuality: 0.8)
+        }
+        
+        CoreDataManager.shared.saveContext()
         btnSaveEnable(isEnabled: false)
-        UIAlertController.showAlert(title: "Success", message: "Profile updated successfully!", viewController: self)
+        
+        UIAlertController.showAlert(
+            title: Main.Alert.ProfileViewController.UpdateSuccess.title,
+            message: Main.Alert.ProfileViewController.UpdateSuccess.message,
+            viewController: self
+        )
     }
     
     /// Enables profile editing mode
@@ -146,8 +152,8 @@ class ProfileViewController: UIViewController {
         UserDefaults.standard.removeObject(forKey: "loggedInEmail") /// Removes stored email
         
         /// Navigates to Login screen
-        let storyboard = UIStoryboard(name: "UserStoryboard", bundle: nil)
-        if let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
+        let storyboard = UIStoryboard(name: Main.StoryBoard.UserStoryboard, bundle: nil)
+        if let loginVC = storyboard.instantiateViewController(withIdentifier: Main.ViewController.LoginViewController) as? LoginViewController {
             
             if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
                let sceneDelegate = windowScene.delegate as? SceneDelegate {

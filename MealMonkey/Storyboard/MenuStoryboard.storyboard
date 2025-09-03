@@ -29,12 +29,6 @@
                                             <outlet property="delegate" destination="Y6W-OH-hqX" id="FG9-gN-nV0"/>
                                         </connections>
                                     </tableView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="No Product Found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8X-4V-l6C">
-                                        <rect key="frame" x="91.000000000000014" y="354" width="211.33333333333337" height="30"/>
-                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="26"/>
-                                        <color key="textColor" name="LabelSecondaryColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search Food" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kt9-SL-8ee">
                                         <rect key="frame" x="21" y="25" width="351" height="45"/>
                                         <color key="backgroundColor" name="TextFieldBackgroundColor"/>
@@ -52,9 +46,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="kt9-SL-8ee" firstAttribute="leading" secondItem="NoV-il-yee" secondAttribute="leading" constant="21" id="2ei-3b-gwp"/>
-                                    <constraint firstItem="F8X-4V-l6C" firstAttribute="centerX" secondItem="kPP-fV-u6Q" secondAttribute="centerX" id="8VQ-po-YhX"/>
                                     <constraint firstItem="kPP-fV-u6Q" firstAttribute="top" secondItem="kt9-SL-8ee" secondAttribute="bottom" constant="17" id="Bpg-pL-uOs"/>
-                                    <constraint firstItem="F8X-4V-l6C" firstAttribute="centerY" secondItem="kPP-fV-u6Q" secondAttribute="centerY" id="RIy-YG-gAd"/>
                                     <constraint firstAttribute="trailing" secondItem="kPP-fV-u6Q" secondAttribute="trailing" id="WQt-Pc-aMJ"/>
                                     <constraint firstAttribute="trailing" secondItem="kt9-SL-8ee" secondAttribute="trailing" constant="21" id="Xz5-pB-wrF"/>
                                     <constraint firstItem="kPP-fV-u6Q" firstAttribute="leading" secondItem="NoV-il-yee" secondAttribute="leading" id="faX-RH-vHa"/>
@@ -73,7 +65,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="lblNoItem" destination="F8X-4V-l6C" id="XTB-px-2Zo"/>
                         <outlet property="tblDesserts" destination="kPP-fV-u6Q" id="Mbo-x7-DSL"/>
                         <outlet property="txtSearchDesserts" destination="kt9-SL-8ee" id="sud-X6-Vb6"/>
                     </connections>
@@ -439,7 +430,7 @@
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_backImageB" translatesAutoresizingMaskIntoConstraints="NO" id="bHc-AD-6dW" userLabel="Image Viewb">
                                                                 <rect key="frame" x="0.0" y="0.0" width="97" height="183"/>
                                                             </imageView>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_backImageA" translatesAutoresizingMaskIntoConstraints="NO" id="7xh-p9-A8M">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_backImageA" translatesAutoresizingMaskIntoConstraints="NO" id="7xh-p9-A8M">
                                                                 <rect key="frame" x="54" y="25" width="274" height="134"/>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Total Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Z2-6m-5pA">
@@ -578,27 +569,31 @@
                                     <constraint firstAttribute="bottom" secondItem="8vQ-DY-pGO" secondAttribute="bottom" id="yWn-gF-AUD"/>
                                 </constraints>
                             </view>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="dDA-ji-QT1">
-                                <rect key="frame" x="178" y="407.66666666666669" width="37" height="37"/>
-                                <color key="color" name="ButtonBackgroundColor"/>
-                            </activityIndicatorView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aR2-8a-y2A" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
+                                <rect key="frame" x="171.66666666666666" y="401" width="50" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="I8i-p3-M3r"/>
+                                    <constraint firstAttribute="width" constant="50" id="h5P-Y4-GIg"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0Sj-5R-96g"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="0Sj-5R-96g" firstAttribute="bottom" secondItem="CRv-Wj-Thy" secondAttribute="bottom" id="8ia-Lz-JgA"/>
                             <constraint firstItem="CRv-Wj-Thy" firstAttribute="leading" secondItem="0Sj-5R-96g" secondAttribute="leading" id="AL1-Px-oed"/>
-                            <constraint firstItem="dDA-ji-QT1" firstAttribute="centerX" secondItem="FBz-kK-51W" secondAttribute="centerX" id="GAh-DW-bb6"/>
+                            <constraint firstItem="aR2-8a-y2A" firstAttribute="centerY" secondItem="FBz-kK-51W" secondAttribute="centerY" id="Hjk-gB-ddT"/>
                             <constraint firstItem="fRh-gv-G8W" firstAttribute="top" secondItem="0Sj-5R-96g" secondAttribute="top" constant="-38" id="T7h-Ts-55D"/>
-                            <constraint firstItem="dDA-ji-QT1" firstAttribute="centerY" secondItem="FBz-kK-51W" secondAttribute="centerY" id="YWD-Aj-b6H"/>
                             <constraint firstItem="CRv-Wj-Thy" firstAttribute="trailing" secondItem="0Sj-5R-96g" secondAttribute="trailing" id="edK-Mz-IY7"/>
                             <constraint firstItem="0Sj-5R-96g" firstAttribute="trailing" secondItem="fRh-gv-G8W" secondAttribute="trailing" id="pXP-PV-qoK"/>
+                            <constraint firstItem="aR2-8a-y2A" firstAttribute="centerX" secondItem="FBz-kK-51W" secondAttribute="centerX" id="uoY-CG-ich"/>
                             <constraint firstItem="fRh-gv-G8W" firstAttribute="leading" secondItem="0Sj-5R-96g" secondAttribute="leading" id="wFu-LB-KFp"/>
                             <constraint firstItem="CRv-Wj-Thy" firstAttribute="top" secondItem="fRh-gv-G8W" secondAttribute="bottom" constant="80" id="z9j-Ua-jwH"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="activityIndicator" destination="dDA-ji-QT1" id="JiK-qV-7vD"/>
+                        <outlet property="activityIndicatorView" destination="aR2-8a-y2A" id="UQc-GA-hCF"/>
                         <outlet property="btnAddToCartImage" destination="QbZ-hC-MmP" id="tla-jC-Yre"/>
                         <outlet property="btnAddToCartTitle" destination="SXZ-ed-7uC" id="J6S-9a-D8S"/>
                         <outlet property="btnHeart" destination="qP7-kE-TBh" id="mDx-Lq-FbP"/>
@@ -649,12 +644,6 @@
                                     <outlet property="delegate" destination="o2f-O0-BNz" id="lpf-JL-VRd"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Cart is Empty" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aTx-Re-3aY">
-                                <rect key="frame" x="118.33333333333333" y="390.66666666666669" width="156.33333333333337" height="30"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="26"/>
-                                <color key="textColor" name="LabelSecondaryColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cVc-03-adP">
                                 <rect key="frame" x="21" y="708" width="351" height="56"/>
                                 <color key="backgroundColor" name="ButtonBackgroundColor"/>
@@ -674,20 +663,17 @@
                         <viewLayoutGuide key="safeArea" id="CTm-P8-kLg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="aTx-Re-3aY" firstAttribute="centerX" secondItem="MiN-sb-Liq" secondAttribute="centerX" id="0bc-Kq-QCV"/>
                             <constraint firstItem="CTm-P8-kLg" firstAttribute="bottom" secondItem="cVc-03-adP" secondAttribute="bottom" constant="20" id="Iou-SY-Zy4"/>
                             <constraint firstItem="CTm-P8-kLg" firstAttribute="trailing" secondItem="cVc-03-adP" secondAttribute="trailing" constant="21" id="OZc-Vg-DTk"/>
                             <constraint firstItem="MiN-sb-Liq" firstAttribute="top" secondItem="CTm-P8-kLg" secondAttribute="top" id="d5c-Gk-kHz"/>
                             <constraint firstItem="CTm-P8-kLg" firstAttribute="trailing" secondItem="MiN-sb-Liq" secondAttribute="trailing" id="dWn-Nm-w3N"/>
                             <constraint firstItem="MiN-sb-Liq" firstAttribute="leading" secondItem="CTm-P8-kLg" secondAttribute="leading" id="doy-eL-J5r"/>
-                            <constraint firstItem="aTx-Re-3aY" firstAttribute="centerY" secondItem="MiN-sb-Liq" secondAttribute="centerY" id="gnB-S4-nRD"/>
                             <constraint firstItem="cVc-03-adP" firstAttribute="leading" secondItem="CTm-P8-kLg" secondAttribute="leading" constant="21" id="qKp-ek-G72"/>
                             <constraint firstItem="cVc-03-adP" firstAttribute="top" secondItem="MiN-sb-Liq" secondAttribute="bottom" constant="15" id="shT-4P-Oc5"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="btnPlaceOrder" destination="cVc-03-adP" id="iuJ-6d-Tyg"/>
-                        <outlet property="lblNoItem" destination="aTx-Re-3aY" id="VUg-Lx-KT3"/>
                         <outlet property="tblCartView" destination="MiN-sb-Liq" id="Gkq-Cf-H6l"/>
                     </connections>
                 </viewController>
@@ -711,9 +697,6 @@
         </namedColor>
         <namedColor name="LabelPrimaryColor">
             <color red="0.29019607843137257" green="0.29411764705882354" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="LabelSecondaryColor">
-            <color red="0.48627450980392156" green="0.49019607843137253" blue="0.49411764705882355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="LineColor">
             <color red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="0.079999998211860657" colorSpace="custom" customColorSpace="sRGB"/>

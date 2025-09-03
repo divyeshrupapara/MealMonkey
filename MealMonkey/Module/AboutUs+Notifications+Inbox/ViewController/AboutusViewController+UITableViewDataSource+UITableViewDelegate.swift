@@ -23,7 +23,7 @@ extension AboutUsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         // Dequeue reusable AboutUsTableViewCell
-        let cell: AboutUsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "AboutUsTableViewCell", for: indexPath) as! AboutUsTableViewCell
+        let cell: AboutUsTableViewCell = tableView.dequeueReusableCell(withIdentifier: Main.CellIdentifiers.AboutUsTableViewCell, for: indexPath) as! AboutUsTableViewCell
         
         // Configure cell based on current page type
         switch objPageType {

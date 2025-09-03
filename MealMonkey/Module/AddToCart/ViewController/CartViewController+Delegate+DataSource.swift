@@ -11,7 +11,7 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
     /// Returns the cell configured for a given row at indexPath
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Dequeue reusable cell
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CartTableViewCell", for: indexPath) as! CartTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: Main.CellIdentifiers.CartTableViewCell, for: indexPath) as! CartTableViewCell
         
         // Get product corresponding to current row
         let product = cartItems[indexPath.row]

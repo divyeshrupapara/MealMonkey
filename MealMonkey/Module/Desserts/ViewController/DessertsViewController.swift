@@ -9,9 +9,6 @@ class DessertsViewController: UIViewController {
     /// UITableView to display the list of desserts
     @IBOutlet weak var tblDesserts: UITableView!
     
-    /// UILabel displayed when no items match the search/filter
-    @IBOutlet weak var lblNoItem: UILabel!
-    
     /// Shared product data manager
     let productManager = ProductDataManager.shared
     
@@ -32,9 +29,6 @@ class DessertsViewController: UIViewController {
     /// Called after the view has been loaded
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Hide "No Item" label initially
-        lblNoItem.isHidden = true
         
         // Apply rounded corner style to search text field
         viewStyle(cornerRadius: txtSearchDesserts.frame.size.height/2,
@@ -84,8 +78,8 @@ class DessertsViewController: UIViewController {
                       action: #selector(btnCartTapped))
         
         // Register custom cell for desserts
-        tblDesserts.register(UINib(nibName: "DessertsTableViewCell", bundle: nil),
-                             forCellReuseIdentifier: "DessertsTableViewCell")
+        tblDesserts.register(UINib(nibName: Main.CellIdentifiers.DessertsTableViewCell, bundle: nil),
+                             forCellReuseIdentifier: Main.CellIdentifiers.DessertsTableViewCell)
         tblDesserts.reloadData()
     }
     
@@ -96,8 +90,8 @@ class DessertsViewController: UIViewController {
     
     /// Handles cart button tap, navigates to CartViewController
     @objc func btnCartTapped() {
-        let storyboard = UIStoryboard(name: "MenuStoryboard", bundle: nil)
-        if let VC = storyboard.instantiateViewController(withIdentifier: "CartViewController") as? CartViewController {
+        let storyboard = UIStoryboard(name: Main.StoryBoard.MenuStoryboard, bundle: nil)
+        if let VC = storyboard.instantiateViewController(withIdentifier: Main.ViewController.CartViewController) as? CartViewController {
             self.navigationController?.pushViewController(VC, animated: true)
         }
     }

@@ -12,7 +12,7 @@ extension PaymentViewController: UITableViewDataSource {
     /// Configures each cell in the table view with card data
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell: CardTableViewCell = tableView.dequeueReusableCell(withIdentifier: "CardTableViewCell", for: indexPath) as! CardTableViewCell
+        let cell: CardTableViewCell = tableView.dequeueReusableCell(withIdentifier: Main.CellIdentifiers.CardTableViewCell, for: indexPath) as! CardTableViewCell
         
         // Configure the cell with the card model
         cell.cardConfigureCell(card: app.arrCardData[indexPath.row])
@@ -33,7 +33,7 @@ extension PaymentViewController: UITableViewDataSource {
                     model.strLastName = card.lastName ?? ""
                     return model
                 }
-                self.lblNoItem.isHidden = !app.arrCardData.isEmpty
+                self.updateEmptyStateView()
                 self.tblCard.reloadData()
             }
         }

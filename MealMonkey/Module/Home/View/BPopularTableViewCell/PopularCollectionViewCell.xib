@@ -13,20 +13,20 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="PopularCollectionViewCell" customModule="MealMonkey" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="410" height="302"/>
+            <rect key="frame" x="0.0" y="0.0" width="410" height="286"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="410" height="302"/>
+                <rect key="frame" x="0.0" y="0.0" width="410" height="286"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0E3-lA-P3W">
-                        <rect key="frame" x="0.0" y="16" width="410" height="270"/>
+                        <rect key="frame" x="0.0" y="16" width="410" height="254"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_Popular_sample" translatesAutoresizingMaskIntoConstraints="NO" id="bPv-oh-u6L">
-                                <rect key="frame" x="0.0" y="0.0" width="410" height="226.66666666666666"/>
+                                <rect key="frame" x="0.0" y="0.0" width="410" height="210.66666666666666"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Kar-VV-cBl">
-                                <rect key="frame" x="21" y="234.66666666666666" width="368" height="33.333333333333343"/>
+                                <rect key="frame" x="21" y="218.66666666666666" width="368" height="33.333333333333343"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Minute by tuk tuk" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rrm-Ud-Q0u">
                                         <rect key="frame" x="0.0" y="0.0" width="368" height="14"/>
@@ -35,7 +35,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="34H-jz-49l">
-                                        <rect key="frame" x="0.0" y="19.000000000000028" width="368" height="14.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="19" width="368" height="14.333333333333336"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="fPB-IY-nW3">
                                                 <rect key="frame" x="0.0" y="0.0" width="137.33333333333334" height="14.333333333333334"/>
@@ -101,14 +101,14 @@
                 <constraint firstItem="0E3-lA-P3W" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="16" id="vxb-R0-qj1"/>
                 <constraint firstAttribute="trailing" secondItem="0E3-lA-P3W" secondAttribute="trailing" id="w36-Tb-i3w"/>
             </constraints>
-            <size key="customSize" width="410" height="302"/>
+            <size key="customSize" width="410" height="286"/>
             <connections>
                 <outlet property="imgPopular" destination="bPv-oh-u6L" id="fTl-KR-bah"/>
                 <outlet property="lblFoodName" destination="rrm-Ud-Q0u" id="1Ka-Ou-ftl"/>
                 <outlet property="lblFoodRating" destination="p26-Ca-9df" id="9ho-nD-jxl"/>
                 <outlet property="lblFoodType" destination="vkM-Zk-hAw" id="Mvr-QL-CGP"/>
             </connections>
-            <point key="canvasLocation" x="358.77862595419845" y="108.45070422535211"/>
+            <point key="canvasLocation" x="358.77862595419845" y="114.08450704225352"/>
         </collectionViewCell>
     </objects>
     <resources>

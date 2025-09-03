@@ -12,9 +12,6 @@ class MenuViewController: UIViewController {
     /// Background view for the table view
     @IBOutlet weak var tblBackView: UIView!
     
-    /// Label displayed when no items are available
-    @IBOutlet weak var lblNoItem: UILabel!
-    
     /// Array of categories to display
     var arrCategory: [ClassCategory] = ClassCategory.addCategory()
     
@@ -42,17 +39,21 @@ class MenuViewController: UIViewController {
         /// Configure table view appearance
         tblCategory.showsVerticalScrollIndicator = false
         tblCategory.backgroundColor = .clear
-        tblCategory.register(UINib(nibName: "MenuTableViewCell", bundle: nil), forCellReuseIdentifier: "MenuTableViewCell")
+        tblCategory.register(UINib(nibName: Main.CellIdentifiers.MenuTableViewCell, bundle: nil), forCellReuseIdentifier: Main.CellIdentifiers.MenuTableViewCell)
         
         /// Initialize filtered category array and hide "No Item" label
         arrFilterCategory = arrCategory
-        lblNoItem.isHidden = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setLeftAlignedTitle("Menu")
+        setCartButton(target: self, action: #selector(btnCartTapped))
     }
     
     /// Action triggered when the cart button is tapped
     @objc func btnCartTapped() {
-        let storyboard = UIStoryboard(name: "MenuStoryboard", bundle: nil)
-        if let VC = storyboard.instantiateViewController(withIdentifier: "CartViewController") as? CartViewController {
+        let storyboard = UIStoryboard(name: Main.StoryBoard.MenuStoryboard, bundle: nil)
+        if let VC = storyboard.instantiateViewController(withIdentifier: Main.ViewController.CartViewController) as? CartViewController {
             self.navigationController?.pushViewController(VC, animated: true)
         }
     }

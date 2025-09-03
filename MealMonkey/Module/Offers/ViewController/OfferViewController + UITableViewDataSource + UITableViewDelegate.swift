@@ -25,7 +25,7 @@ extension OffersViewController: UITableViewDataSource {
      - Returns: Configured OffersTableViewCell displaying offer information.
      */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: OffersTableViewCell = tableView.dequeueReusableCell(withIdentifier: "OffersTableViewCell", for: indexPath) as! OffersTableViewCell
+        let cell: OffersTableViewCell = tableView.dequeueReusableCell(withIdentifier: Main.CellIdentifiers.OffersTableViewCell, for: indexPath) as! OffersTableViewCell
         
         // Configure the cell with offer data
         cell.offerConfigureCell(offer: arrOffer[indexPath.row])

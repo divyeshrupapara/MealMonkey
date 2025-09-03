@@ -29,9 +29,7 @@ class CartViewController: UIViewController {
         super.viewDidLoad()
         
         // Initially hide order button and no-item label
-        btnPlaceOrder.isHidden = true
-        lblNoItem.isHidden = true
-        
+        btnPlaceOrder.isHidden = true        
         // Setup navigation title with back button
         setLeftAlignedTitleWithBack("Cart Page", target: self, action: #selector(btnBackTapped))
         
@@ -39,7 +37,7 @@ class CartViewController: UIViewController {
         viewStyle(cornerRadius: 28, borderWidth: 0, borderColor: .systemGray, textField: [btnPlaceOrder])
         
         // Register custom table view cell
-        tblCartView.register(UINib(nibName: "CartTableViewCell", bundle: nil), forCellReuseIdentifier: "CartTableViewCell")
+        tblCartView.register(UINib(nibName: Main.CellIdentifiers.CartTableViewCell, bundle: nil), forCellReuseIdentifier: Main.CellIdentifiers.CartTableViewCell)
         
         // Load cart items
         loadCart()
@@ -64,7 +62,13 @@ class CartViewController: UIViewController {
         }
         
         // Show/hide UI elements based on cart contents
-        lblNoItem.isHidden = !cartItems.isEmpty
+        if cartItems.isEmpty {
+            LottieAnimationHelper.showEmptyState(on: tblCartView,
+                                                     animationName: "Shopping Cart",
+                                                     message: "Cart is Empty")
+        } else {
+            LottieAnimationHelper.removeEmptyState(from: tblCartView)
+        }
         btnPlaceOrder.isHidden = cartItems.isEmpty
         
         // Reload TableView
@@ -87,8 +91,8 @@ class CartViewController: UIViewController {
         loadCart()
         
         // Navigate to Order List screen
-        let storyboard = UIStoryboard(name: "MoreStoryboard", bundle: nil)
-        if let VC = storyboard.instantiateViewController(withIdentifier: "OrderListViewController") as? OrderListViewController {
+        let storyboard = UIStoryboard(name: Main.StoryBoard.MoreStoryboard, bundle: nil)
+        if let VC = storyboard.instantiateViewController(withIdentifier: Main.ViewController.OrderListViewController) as? OrderListViewController {
             self.navigationController?.pushViewController(VC, animated: true)
         }
     }

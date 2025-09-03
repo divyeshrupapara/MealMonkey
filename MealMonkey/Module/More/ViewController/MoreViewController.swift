@@ -22,7 +22,7 @@ class MoreViewController: UIViewController {
         
         // Configure table view appearance
         tblMenu.showsVerticalScrollIndicator = false
-        tblMenu.register(UINib(nibName: "MoreTableViewCell", bundle: nil), forCellReuseIdentifier: "MoreTableViewCell")
+        tblMenu.register(UINib(nibName: Main.CellIdentifiers.MoreTableViewCell, bundle: nil), forCellReuseIdentifier: Main.CellIdentifiers.MoreTableViewCell)
     }
     
     /// Called just before the view appears on screen
@@ -32,8 +32,8 @@ class MoreViewController: UIViewController {
     
     /// Handles tap on the cart button in the navigation bar
     @objc func btnCartTapped() {
-        let storyboard = UIStoryboard(name: "MenuStoryboard", bundle: nil)
-        if let VC = storyboard.instantiateViewController(withIdentifier: "CartViewController") as? CartViewController {
+        let storyboard = UIStoryboard(name: Main.StoryBoard.MenuStoryboard, bundle: nil)
+        if let VC = storyboard.instantiateViewController(withIdentifier: Main.ViewController.CartViewController) as? CartViewController {
             self.navigationController?.pushViewController(VC, animated: true)
         }
     }
