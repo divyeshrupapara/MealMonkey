@@ -193,6 +193,24 @@ class PaymentViewController: UIViewController {
             return
         }
 
+        // Expiry date must not be expired
+        if let month = Int(txtExpiryMonth.text ?? ""),
+           let year = Int(txtExpiryYear.text ?? "") {
+            
+            let calendar = Calendar.current
+            let currentYear = calendar.component(.year, from: Date()) % 100 // last 2 digits
+            let currentMonth = calendar.component(.month, from: Date())
+            
+            if year < currentYear || (year == currentYear && month < currentMonth) {
+                UIAlertController.showAlert(
+                    title: Main.Alert.CheckoutViewController.CheckExpiryMonthYear.title,
+                    message: Main.Alert.CheckoutViewController.CheckExpiryMonthYear.message,
+                    viewController: self
+                )
+                return
+            }
+        }
+
         // Secure code (CVV) validation
         if (txtSecureCode.text ?? "").count != 3 {
             UIAlertController.showAlert(

@@ -46,6 +46,10 @@ struct Main {
                 static let title = "Invalid Expiry Year"
                 static let message = "Please enter a valid 2-digit year."
             }
+            struct CheckExpiryMonthYear {
+                static let title = "Invalid Expiry Date"
+                static let message = "Your card has already expired."
+            }
             struct CVV {
                 static let title = "Invalid CVV"
                 static let message = "Secure code must be 3 digits."
@@ -155,6 +159,10 @@ struct Main {
             struct MobileMissing {
                 static let title = "Mobile Missing"
                 static let message = "Please enter your mobile number."
+            }
+            struct CheckMobileDigit {
+                static let title = "Invalid Mobile Number"
+                static let message = "Mobile number must be exactly 10 digits."
             }
             struct AddressMissing {
                 static let title = "Address Missing"

@@ -91,6 +91,12 @@ class SignUpViewController: UIViewController {
                 message: Main.Alert.SignUpViewController.MobileMissing.message,
                 viewController: self
             )
+        } else if mobile.count != 10 {
+            UIAlertController.showAlert(
+                title: Main.Alert.SignUpViewController.CheckMobileDigit.title,
+                message: Main.Alert.SignUpViewController.CheckMobileDigit.message,
+                viewController: self
+            )
         } else if address.isEmpty {
             UIAlertController.showAlert(
                 title: Main.Alert.SignUpViewController.AddressMissing.title,
