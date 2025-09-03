@@ -1,0 +1,26 @@
+PODS:
+  - lottie-ios (4.5.2)
+  - NVActivityIndicatorView (5.2.0):
+    - NVActivityIndicatorView/Base (= 5.2.0)
+  - NVActivityIndicatorView/Base (5.2.0)
+  - OTPFieldView (1.0.1)
+
+DEPENDENCIES:
+  - lottie-ios (~> 4.3)
+  - NVActivityIndicatorView
+  - OTPFieldView
+
+SPEC REPOS:
+  trunk:
+    - lottie-ios
+    - NVActivityIndicatorView
+    - OTPFieldView
+
+SPEC CHECKSUMS:
+  lottie-ios: 96784afc26ea031d3e2b6cae342a4b8915072489
+  NVActivityIndicatorView: fe52a6a68664c2df8991d7d9e3d86d8d19453c53
+  OTPFieldView: 700a752fe62c41d1c4914c78aa500fb30d97c255
+
+PODFILE CHECKSUM: 90e593446ddd379ef9b55702f79c810c2cc9b329
+
+COCOAPODS: 1.16.2
