@@ -13,8 +13,8 @@ extension DessertsViewController: UITableViewDelegate {
         productManager.addRecentProduct(selectedProduct.intId)
         
         // Instantiate FoodDetailViewController and pass the selected product
-        let storyboard = UIStoryboard(name: "MenuStoryboard", bundle: nil)
-        if let detailVC = storyboard.instantiateViewController(withIdentifier: "FoodDetailViewController") as? FoodDetailViewController {
+        let storyboard = UIStoryboard(name: Main.StoryBoard.MenuStoryboard, bundle: nil)
+        if let detailVC = storyboard.instantiateViewController(withIdentifier: Main.ViewController.FoodDetailViewController) as? FoodDetailViewController {
             detailVC.product = selectedProduct
             navigationController?.pushViewController(detailVC, animated: true)
         }
@@ -31,7 +31,7 @@ extension DessertsViewController: UITableViewDataSource {
     
     /// Configures each table view cell with the corresponding dessert product
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: DessertsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "DessertsTableViewCell", for: indexPath) as! DessertsTableViewCell
+        let cell: DessertsTableViewCell = tableView.dequeueReusableCell(withIdentifier: Main.CellIdentifiers.DessertsTableViewCell, for: indexPath) as! DessertsTableViewCell
         
         let product = filteredProducts[indexPath.row]
         cell.dessertConfigureCell(dessert: product)
@@ -59,7 +59,13 @@ extension DessertsViewController: UITextFieldDelegate {
             }
             
             // Show/hide "No Item" label
-            lblNoItem.isHidden = !filteredProducts.isEmpty
+            if filteredProducts.isEmpty {
+                LottieAnimationHelper.showEmptyState(on: tblDesserts,
+                                                         animationName: "Food Prepared - Food app",
+                                                         message: "No Such Product")
+            } else {
+                LottieAnimationHelper.removeEmptyState(from: tblDesserts)
+            }
             
             // Reload table view with filtered results
             tblDesserts.reloadData()

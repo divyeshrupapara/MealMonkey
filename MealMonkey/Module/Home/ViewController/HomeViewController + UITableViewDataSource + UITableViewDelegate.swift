@@ -15,7 +15,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     /// Configure each table view cell based on row index
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell", for: indexPath) as! HomeTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: Main.CellIdentifiers.HomeTableViewCell, for: indexPath) as! HomeTableViewCell
         cell.delegate = self
         
         // Configure collection view layout (horizontal/vertical)
@@ -102,8 +102,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let storyboard = UIStoryboard(name: "MenuStoryboard", bundle: nil)
-        if let detailVC = storyboard.instantiateViewController(withIdentifier: "FoodDetailViewController") as? FoodDetailViewController {
+        let storyboard = UIStoryboard(name: Main.StoryBoard.MenuStoryboard, bundle: nil)
+        if let detailVC = storyboard.instantiateViewController(withIdentifier: Main.ViewController.FoodDetailViewController) as? FoodDetailViewController {
             let product = ProductDataManager.shared.allProducts[indexPath.row]
             detailVC.product = product // Pass the selected product
             navigationController?.pushViewController(detailVC, animated: true)
@@ -113,12 +113,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     /// Return the image name for a given product category
     func imageNameForCategory(_ category: ProductCategory) -> String {
         switch category {
-        case .All : return "ic_all"
-        case .Punjabi: return "ic_punjabi"
-        case .Chinese: return "ic_chinese"
-        case .Gujarati: return "ic_gujarati"
-        case .SouthIndian: return "ic_southindian"
-        case .WesternFood: return "ic_westernfood"
+        case .All : return Main.Image.ic_all
+        case .Punjabi: return Main.Image.ic_punjabi
+        case .Chinese: return Main.Image.ic_chinese
+        case .Gujarati: return Main.Image.ic_gujarati
+        case .SouthIndian: return Main.Image.ic_southindian
+        case .WesternFood: return Main.Image.ic_westernfood
         }
     }
 }
@@ -137,8 +137,8 @@ extension HomeViewController: HomeTableViewCellDelegate {
         ProductDataManager.shared.addRecentProduct(product.intId)
         tblHome.reloadRows(at: [IndexPath(row: 3, section: 0)], with: .automatic)
         
-        let storyboard = UIStoryboard(name: "MenuStoryboard", bundle: nil)
-        if let detailVC = storyboard.instantiateViewController(withIdentifier: "FoodDetailViewController") as? FoodDetailViewController {
+        let storyboard = UIStoryboard(name: Main.StoryBoard.MenuStoryboard, bundle: nil)
+        if let detailVC = storyboard.instantiateViewController(withIdentifier: Main.ViewController.FoodDetailViewController) as? FoodDetailViewController {
             detailVC.product = product
             navigationController?.pushViewController(detailVC, animated: true)
         }

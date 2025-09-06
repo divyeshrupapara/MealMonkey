@@ -7,7 +7,6 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var txtSearchFood: UITextField!       /// Search bar for food
     @IBOutlet weak var tblHome: UITableView!            /// Main table view displaying home content
     @IBOutlet weak var btnHomeLocation: UIButton!       /// Button to show/change location
-    @IBOutlet weak var lblNoItem: UILabel!              /// Label to show when no items found
     
     // MARK: - Properties
     let productManager = ProductDataManager.shared      /// Singleton for managing products
@@ -20,7 +19,6 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        lblNoItem.isHidden = true
         btnHomeLocation.titleLabel?.numberOfLines = 0
         
         /// Setup cart button in navigation bar
@@ -32,7 +30,7 @@ class HomeViewController: UIViewController {
         
         /// Configure table view
         tblHome.showsVerticalScrollIndicator = false
-        tblHome.register(UINib(nibName: "HomeTableViewCell", bundle: nil), forCellReuseIdentifier: "HomeTableViewCell")
+        tblHome.register(UINib(nibName: Main.CellIdentifiers.HomeTableViewCell, bundle: nil), forCellReuseIdentifier: Main.CellIdentifiers.HomeTableViewCell)
         
         /// Fetch products from API
         ApiServices.fetchProducts { [weak self] products in
@@ -75,8 +73,8 @@ class HomeViewController: UIViewController {
     // MARK: - Actions
     /// Navigate to cart screen
     @objc func btnCartTapped() {
-        let storyboard = UIStoryboard(name: "MenuStoryboard", bundle: nil)
-        if let VC = storyboard.instantiateViewController(withIdentifier: "CartViewController") as? CartViewController {
+        let storyboard = UIStoryboard(name: Main.StoryBoard.MenuStoryboard, bundle: nil)
+        if let VC = storyboard.instantiateViewController(withIdentifier: Main.ViewController.CartViewController) as? CartViewController {
             self.navigationController?.pushViewController(VC, animated: true)
         }
     }
@@ -84,8 +82,8 @@ class HomeViewController: UIViewController {
     /// Handle home location button tap
     @IBAction func btnHomeLocation(_ sender: Any) {
         /// TODO: Implement location selection
-        let storyboard = UIStoryboard(name: "MoreStoryboard", bundle: nil)
-        if let VC = storyboard.instantiateViewController(withIdentifier: "AddressViewController") as? AddressViewController {
+        let storyboard = UIStoryboard(name: Main.StoryBoard.MoreStoryboard, bundle: nil)
+        if let VC = storyboard.instantiateViewController(withIdentifier: Main.ViewController.AddressViewController) as? AddressViewController {
             self.navigationController?.pushViewController(VC, animated: true)
         }
     }

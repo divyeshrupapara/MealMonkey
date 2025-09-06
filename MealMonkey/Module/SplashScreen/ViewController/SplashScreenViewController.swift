@@ -37,15 +37,15 @@ class SplashScreenViewController: UIViewController {
             print("Auto-login as \(user.name ?? "")")
             
             // Navigate to MainTabViewController
-            let storyboard = UIStoryboard(name: "HomeStoryboard", bundle: nil)
-            if let VC = storyboard.instantiateViewController(withIdentifier: "MainTabViewController") as? UITabBarController {
+            let storyboard = UIStoryboard(name: Main.StoryBoard.HomeStoryboard, bundle: nil)
+            if let VC = storyboard.instantiateViewController(withIdentifier: Main.ViewController.MainTabViewController) as? UITabBarController {
                 VC.selectedIndex = 2
                 self.navigationController?.pushViewController(VC, animated: true)
             }
         } else {
             // Not logged in; navigate to Login screen
-            let storyboard = UIStoryboard(name: "UserStoryboard", bundle: nil)
-            if let VC = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
+            let storyboard = UIStoryboard(name: Main.StoryBoard.UserStoryboard, bundle: nil)
+            if let VC = storyboard.instantiateViewController(withIdentifier: Main.ViewController.LoginViewController) as? LoginViewController {
                 self.navigationController?.pushViewController(VC, animated: true)
             }
         }

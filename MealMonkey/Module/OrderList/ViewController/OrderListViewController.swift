@@ -6,9 +6,6 @@ class OrderListViewController: UIViewController {
     /// UITableView displaying the orders
     @IBOutlet weak var tblOrderList: UITableView!
     
-    /// UILabel displayed when there are no orders
-    @IBOutlet weak var lblNoItem: UILabel!
-    
     /// Array of orders, where each order is an array of ProductModel
     var orders: [[ProductModel]] = []
     
@@ -20,13 +17,19 @@ class OrderListViewController: UIViewController {
         loadUserOrders()
         
         /// Show or hide the "no item" label depending on whether orders exist
-        lblNoItem.isHidden = !orders.isEmpty
+        if orders.isEmpty {
+            LottieAnimationHelper.showEmptyState(on: tblOrderList,
+                                                     animationName: "Shopping checlist app!",
+                                                     message: "Order List is Empty")
+        } else {
+            LottieAnimationHelper.removeEmptyState(from: tblOrderList)
+        }
         
         /// Set the navigation bar title with a back button
         setLeftAlignedTitleWithBack("Order List", target: self, action: #selector(btnBackTapped))
         
         /// Register the custom table view cell
-        tblOrderList.register(UINib(nibName: "OrderListTableViewCell", bundle: nil), forCellReuseIdentifier: "OrderListTableViewCell")
+        tblOrderList.register(UINib(nibName: Main.CellIdentifiers.OrderListTableViewCell, bundle: nil), forCellReuseIdentifier: Main.CellIdentifiers.OrderListTableViewCell)
         
         /// Reload table view to display orders
         tblOrderList.reloadData()
@@ -44,8 +47,8 @@ class OrderListViewController: UIViewController {
     
     /// Shows the main tab bar controller
     private func showMainTabBar() {
-        let storyboard = UIStoryboard(name: "HomeStoryboard", bundle: nil)
-        if let tabBarController = storyboard.instantiateViewController(withIdentifier: "MainTabViewController") as? UITabBarController {
+        let storyboard = UIStoryboard(name: Main.StoryBoard.HomeStoryboard, bundle: nil)
+        if let tabBarController = storyboard.instantiateViewController(withIdentifier: Main.ViewController.MainTabViewController) as? UITabBarController {
             
             if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
                let sceneDelegate = windowScene.delegate as? SceneDelegate {

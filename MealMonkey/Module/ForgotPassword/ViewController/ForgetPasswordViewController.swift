@@ -49,8 +49,8 @@ class ForgetPasswordViewController: UIViewController {
     func showAlert(title: String, message: String, viewController: UIViewController) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { _ in
-            let storyboard = UIStoryboard(name: "UserStoryboard", bundle: nil)
-            if let VC = storyboard.instantiateViewController(withIdentifier: "OTPViewController") as? OTPViewController {
+            let storyboard = UIStoryboard(name: Main.StoryBoard.UserStoryboard, bundle: nil)
+            if let VC = storyboard.instantiateViewController(withIdentifier: Main.ViewController.OTPViewController) as? OTPViewController {
                 self.navigationController?.pushViewController(VC, animated: true)
             }
         }))
@@ -64,9 +64,9 @@ class ForgetPasswordViewController: UIViewController {
         let email = txtEmail.text ?? ""
         
         if isValidEmail(email) {
-            showAlert(title: "Success", message: "OTP Sent Successfully", viewController: self)
+            showAlert(title: Main.Alert.ForgetPasswordViewController.Success.title, message: Main.Alert.ForgetPasswordViewController.Success.message, viewController: self)
         } else if email.isEmpty {
-            UIAlertController.showAlert(title: "Email Missing", message: "Please enter your Email.", viewController: self)
+            UIAlertController.showAlert(title: Main.Alert.ForgetPasswordViewController.EmailMissing.title, message: Main.Alert.ForgetPasswordViewController.EmailMissing.message, viewController: self)
         }
     }
 }

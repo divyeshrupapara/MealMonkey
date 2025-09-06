@@ -46,7 +46,7 @@ extension AddressViewController: MKMapViewDelegate {
             annotationView?.annotation = annotation
         }
         
-        annotationView?.image = UIImage(named: "ic_current_position") /// Custom pin image
+        annotationView?.image = UIImage(named: Main.Image.ic_current_position) /// Custom pin image
         annotationView?.frame.size = CGSize(width: 30, height: 30) /// Resize pin image
         annotationView?.centerOffset = CGPoint(x: 0, y: -15) /// Adjust position to center
         

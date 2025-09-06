@@ -50,35 +50,97 @@ class SignUpViewController: UIViewController {
 
         // Check for empty fields
         if name.isEmpty && email.isEmpty && mobile.isEmpty && address.isEmpty && password.isEmpty && confirmPassword.isEmpty {
-            UIAlertController.showAlert(title: "Missing Info", message: "Please enter all fields.", viewController: self)
+            UIAlertController.showAlert(
+                title: Main.Alert.SignUpViewController.MissingAllFields.title,
+                message: Main.Alert.SignUpViewController.MissingAllFields.message,
+                viewController: self
+            )
         } else if name.isEmpty && email.isEmpty {
-            UIAlertController.showAlert(title: "Missing Info", message: "Please enter your name and email.", viewController: self)
+            UIAlertController.showAlert(
+                title: Main.Alert.SignUpViewController.MissingNameEmail.title,
+                message: Main.Alert.SignUpViewController.MissingNameEmail.message,
+                viewController: self
+            )
         } else if email.isEmpty && password.isEmpty {
-            UIAlertController.showAlert(title: "Missing Info", message: "Please enter your email and password.", viewController: self)
+            UIAlertController.showAlert(
+                title: Main.Alert.SignUpViewController.MissingEmailPassword.title,
+                message: Main.Alert.SignUpViewController.MissingEmailPassword.message,
+                viewController: self
+            )
         } else if password.isEmpty && confirmPassword.isEmpty {
-            UIAlertController.showAlert(title: "Missing Info", message: "Please enter your password and confirm password.", viewController: self)
+            UIAlertController.showAlert(
+                title: Main.Alert.SignUpViewController.MissingPasswordConfirm.title,
+                message: Main.Alert.SignUpViewController.MissingPasswordConfirm.message,
+                viewController: self
+            )
         } else if name.isEmpty {
-            UIAlertController.showAlert(title: "Name Missing", message: "Please enter your name.", viewController: self)
+            UIAlertController.showAlert(
+                title: Main.Alert.SignUpViewController.NameMissing.title,
+                message: Main.Alert.SignUpViewController.NameMissing.message,
+                viewController: self
+            )
         } else if email.isEmpty {
-            UIAlertController.showAlert(title: "Email Missing", message: "Please enter your email.", viewController: self)
+            UIAlertController.showAlert(
+                title: Main.Alert.SignUpViewController.EmailMissing.title,
+                message: Main.Alert.SignUpViewController.EmailMissing.message,
+                viewController: self
+            )
         } else if mobile.isEmpty {
-            UIAlertController.showAlert(title: "Mobile Missing", message: "Please enter your mobile number.", viewController: self)
+            UIAlertController.showAlert(
+                title: Main.Alert.SignUpViewController.MobileMissing.title,
+                message: Main.Alert.SignUpViewController.MobileMissing.message,
+                viewController: self
+            )
+        } else if mobile.count != 10 {
+            UIAlertController.showAlert(
+                title: Main.Alert.SignUpViewController.CheckMobileDigit.title,
+                message: Main.Alert.SignUpViewController.CheckMobileDigit.message,
+                viewController: self
+            )
         } else if address.isEmpty {
-            UIAlertController.showAlert(title: "Address Missing", message: "Please enter your address.", viewController: self)
+            UIAlertController.showAlert(
+                title: Main.Alert.SignUpViewController.AddressMissing.title,
+                message: Main.Alert.SignUpViewController.AddressMissing.message,
+                viewController: self
+            )
         } else if password.isEmpty {
-            UIAlertController.showAlert(title: "Password Missing", message: "Please enter your password.", viewController: self)
+            UIAlertController.showAlert(
+                title: Main.Alert.SignUpViewController.PasswordMissing.title,
+                message: Main.Alert.SignUpViewController.PasswordMissing.message,
+                viewController: self
+            )
         } else if confirmPassword.isEmpty {
-            UIAlertController.showAlert(title: "Confirm Password Missing", message: "Please confirm your password.", viewController: self)
+            UIAlertController.showAlert(
+                title: Main.Alert.SignUpViewController.ConfirmPasswordMissing.title,
+                message: Main.Alert.SignUpViewController.ConfirmPasswordMissing.message,
+                viewController: self
+            )
         } else if !isValidEmail(email) {
-            UIAlertController.showAlert(title: "Invalid Email", message: "Please enter a valid email address.", viewController: self)
+            UIAlertController.showAlert(
+                title: Main.Alert.SignUpViewController.InvalidEmail.title,
+                message: Main.Alert.SignUpViewController.InvalidEmail.message,
+                viewController: self
+            )
         } else if !isValidPassword(password) {
-            UIAlertController.showAlert(title: "Invalid Password", message: "Password must be at least 8 characters long and include uppercase, lowercase, number, and special character.", viewController: self)
+            UIAlertController.showAlert(
+                title: Main.Alert.SignUpViewController.InvalidPassword.title,
+                message: Main.Alert.SignUpViewController.InvalidPassword.message,
+                viewController: self
+            )
         } else if password != confirmPassword {
-            UIAlertController.showAlert(title: "Passwords Do Not Match", message: "The password and confirm password must be the same.", viewController: self)
+            UIAlertController.showAlert(
+                title: Main.Alert.SignUpViewController.PasswordMismatch.title,
+                message: Main.Alert.SignUpViewController.PasswordMismatch.message,
+                viewController: self
+            )
         } else {
             // Check if email already exists
             if CoreDataManager.shared.isEmailExists(email: email) {
-                UIAlertController.showAlert(title: "Email Exists", message: "This email is already registered. Please use another email.", viewController: self)
+                UIAlertController.showAlert(
+                    title: Main.Alert.SignUpViewController.EmailExists.title,
+                    message: Main.Alert.SignUpViewController.EmailExists.message,
+                    viewController: self
+                )
                 return
             }
             
@@ -92,8 +154,8 @@ class SignUpViewController: UIViewController {
             )
             
             // Redirect to Login screen
-            let storyboard = UIStoryboard(name: "UserStoryboard", bundle: nil)
-            if let VC = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
+            let storyboard = UIStoryboard(name: Main.StoryBoard.UserStoryboard, bundle: nil)
+            if let VC = storyboard.instantiateViewController(withIdentifier: Main.ViewController.LoginViewController) as? LoginViewController {
                 self.navigationController?.pushViewController(VC, animated: true)
             }
         }
@@ -124,8 +186,8 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func btnBackToLoginClick(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "UserStoryboard", bundle: nil)
-        if storyboard.instantiateViewController(withIdentifier: "LoginViewController") is LoginViewController{
+        let storyboard = UIStoryboard(name: Main.StoryBoard.UserStoryboard, bundle: nil)
+        if storyboard.instantiateViewController(withIdentifier: Main.ViewController.LoginViewController) is LoginViewController{
             self.navigationController?.popViewController(animated: true)
         }
     }

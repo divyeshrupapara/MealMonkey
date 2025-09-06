@@ -27,7 +27,7 @@ class OffersViewController: UIViewController {
         
         // Configure the table view
         tblOffers.showsVerticalScrollIndicator = false
-        tblOffers.register(UINib(nibName: "OffersTableViewCell", bundle: nil), forCellReuseIdentifier: "OffersTableViewCell")
+        tblOffers.register(UINib(nibName: Main.CellIdentifiers.OffersTableViewCell, bundle: nil), forCellReuseIdentifier: Main.CellIdentifiers.OffersTableViewCell)
     }
     
     /**
@@ -35,8 +35,8 @@ class OffersViewController: UIViewController {
      Pushes the CartViewController onto the navigation stack.
      */
     @objc func btnCartTapped() {
-        let storyboard = UIStoryboard(name: "MenuStoryboard", bundle: nil)
-        if let VC = storyboard.instantiateViewController(withIdentifier: "CartViewController") as? CartViewController {
+        let storyboard = UIStoryboard(name: Main.StoryBoard.MenuStoryboard, bundle: nil)
+        if let VC = storyboard.instantiateViewController(withIdentifier: Main.ViewController.CartViewController) as? CartViewController {
             self.navigationController?.pushViewController(VC, animated: true)
         }
     }

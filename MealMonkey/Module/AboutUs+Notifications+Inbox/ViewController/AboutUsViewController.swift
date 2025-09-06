@@ -51,7 +51,7 @@ class AboutUsViewController: UIViewController {
         }
         
         // Register custom table view cell
-        tblMoreOpions.register(UINib(nibName: "AboutUsTableViewCell", bundle: nil), forCellReuseIdentifier: "AboutUsTableViewCell")
+        tblMoreOpions.register(UINib(nibName: Main.CellIdentifiers.AboutUsTableViewCell, bundle: nil), forCellReuseIdentifier: Main.CellIdentifiers.AboutUsTableViewCell)
     }
     
     // MARK: - Button Actions
@@ -63,8 +63,8 @@ class AboutUsViewController: UIViewController {
     
     /// Handles cart button tap action, pushes CartViewController
     @objc func btnCartTapped() {
-        let storyboard = UIStoryboard(name: "MenuStoryboard", bundle: nil)
-        if let VC = storyboard.instantiateViewController(withIdentifier: "CartViewController") as? CartViewController {
+        let storyboard = UIStoryboard(name: Main.StoryBoard.MenuStoryboard, bundle: nil)
+        if let VC = storyboard.instantiateViewController(withIdentifier: Main.ViewController.CartViewController) as? CartViewController {
             self.navigationController?.pushViewController(VC, animated: true)
         }
     }

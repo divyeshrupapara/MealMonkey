@@ -14,24 +14,24 @@ extension MenuViewController: UITableViewDelegate {
             
         case 0:
             /// Navigate to DessertsViewController for food category
-            let storyboard = UIStoryboard(name: "MenuStoryboard", bundle: nil)
-            if let VC = storyboard.instantiateViewController(withIdentifier: "DessertsViewController") as? DessertsViewController {
+            let storyboard = UIStoryboard(name: Main.StoryBoard.MenuStoryboard, bundle: nil)
+            if let VC = storyboard.instantiateViewController(withIdentifier: Main.ViewController.DessertsViewController) as? DessertsViewController {
                 VC.selectedProductType = .food
                 self.navigationController?.pushViewController(VC, animated: true)
             }
            
         case 1:
             /// Navigate to DessertsViewController for beverages category
-            let storyboard = UIStoryboard(name: "MenuStoryboard", bundle: nil)
-            if let VC = storyboard.instantiateViewController(withIdentifier: "DessertsViewController") as? DessertsViewController {
+            let storyboard = UIStoryboard(name: Main.StoryBoard.MenuStoryboard, bundle: nil)
+            if let VC = storyboard.instantiateViewController(withIdentifier: Main.ViewController.DessertsViewController) as? DessertsViewController {
                 VC.selectedProductType = .Beverages
                 self.navigationController?.pushViewController(VC, animated: true)
             }
            
         case 2:
             /// Navigate to DessertsViewController for desserts category
-            let storyboard = UIStoryboard(name: "MenuStoryboard", bundle: nil)
-            if let VC = storyboard.instantiateViewController(withIdentifier: "DessertsViewController") as? DessertsViewController {
+            let storyboard = UIStoryboard(name: Main.StoryBoard.MenuStoryboard, bundle: nil)
+            if let VC = storyboard.instantiateViewController(withIdentifier: Main.ViewController.DessertsViewController) as? DessertsViewController {
                 VC.selectedProductType = .Desserts
                 self.navigationController?.pushViewController(VC, animated: true)
             }
@@ -61,7 +61,7 @@ extension MenuViewController: UITableViewDataSource {
     /// - Returns: Configured `MenuTableViewCell` for the category
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell: MenuTableViewCell = tableView.dequeueReusableCell(withIdentifier: "MenuTableViewCell", for: indexPath) as! MenuTableViewCell
+        let cell: MenuTableViewCell = tableView.dequeueReusableCell(withIdentifier: Main.CellIdentifiers.MenuTableViewCell, for: indexPath) as! MenuTableViewCell
         /// Set transparent background for cell
         cell.backgroundColor = .clear
         cell.contentView.backgroundColor = .clear
@@ -93,8 +93,13 @@ extension MenuViewController: UITextFieldDelegate {
             }
             
             /// Show/hide "No Item" label
-            lblNoItem.isHidden = !arrFilterCategory.isEmpty
-            
+            if arrFilterCategory.isEmpty {
+                LottieAnimationHelper.showEmptyState(on: tblCategory,
+                                                         animationName: "Food Prepared - Food app",
+                                                         message: "No Such Product")
+            } else {
+                LottieAnimationHelper.removeEmptyState(from: tblCategory)
+            }
             /// Reload table view with filtered results
             tblCategory.reloadData()
         }

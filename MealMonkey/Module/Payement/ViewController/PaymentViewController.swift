@@ -43,16 +43,11 @@ class PaymentViewController: UIViewController {
     /// Transparent overlay behind "Add Card" view
     @IBOutlet weak var viewTransperent: UIView!
     
-    /// Label to show when no cards exist
-    @IBOutlet weak var lblNoItem: UILabel!
-    
     var currentUser: User?
     
     /// Called after the controller's view is loaded into memory
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        lblNoItem.isHidden = true
         
         // Hide enter card and overlay views initially
         viewEnterCard.isHidden = true
@@ -73,7 +68,7 @@ class PaymentViewController: UIViewController {
         
         // Setup table view for cards
         tblCard.showsVerticalScrollIndicator = false
-        tblCard.register(UINib(nibName: "CardTableViewCell", bundle: nil), forCellReuseIdentifier: "CardTableViewCell")
+        tblCard.register(UINib(nibName: Main.CellIdentifiers.CardTableViewCell, bundle: nil), forCellReuseIdentifier: Main.CellIdentifiers.CardTableViewCell)
         tblCard.reloadData()
     }
     
@@ -96,7 +91,7 @@ class PaymentViewController: UIViewController {
         } else {
             app.arrCardData = []
         }
-        lblNoItem.isHidden = !app.arrCardData.isEmpty
+        updateEmptyStateView()
         tblCard.reloadData()
     }
     
@@ -140,7 +135,16 @@ class PaymentViewController: UIViewController {
             )
         }
         tblCard.reloadData()
-
+    }
+    
+    func updateEmptyStateView() {
+        if app.arrCardData.isEmpty {
+            LottieAnimationHelper.showEmptyState(on: tblCard,
+                                                 animationName: "Credit card",
+                                                 message: "No Card")
+        } else {
+            LottieAnimationHelper.removeEmptyState(from: tblCard)
+        }
     }
     
     /// Action to go back to the previous screen
@@ -150,8 +154,8 @@ class PaymentViewController: UIViewController {
     
     /// Action to open the Cart screen
     @objc func btnCartTapped() {
-        let storyboard = UIStoryboard(name: "MenuStoryboard", bundle: nil)
-        if let VC = storyboard.instantiateViewController(withIdentifier: "CartViewController") as? CartViewController {
+        let storyboard = UIStoryboard(name: Main.StoryBoard.MenuStoryboard, bundle: nil)
+        if let VC = storyboard.instantiateViewController(withIdentifier: Main.ViewController.CartViewController) as? CartViewController {
             self.navigationController?.pushViewController(VC, animated: true)
         }
     }
@@ -162,38 +166,56 @@ class PaymentViewController: UIViewController {
         let cardNumber = txtCardNumber.text ?? ""
         if cardNumber.count != 16 {
             UIAlertController.showAlert(
-                title: "Invalid Card Number",
-                message: "Card number must be exactly 16 digits.",
+                title: Main.Alert.CheckoutViewController.CardNumber.title,
+                message: Main.Alert.CheckoutViewController.CardNumber.message,
                 viewController: self
             )
             return
         }
-        
+
         // Expiry month validation
         if let month = Int(txtExpiryMonth.text ?? ""), month < 1 || month > 12 {
             UIAlertController.showAlert(
-                title: "Invalid Expiry Month",
-                message: "Please enter a valid month between 01 and 12.",
+                title: Main.Alert.CheckoutViewController.ExpiryMonth.title,
+                message: Main.Alert.CheckoutViewController.ExpiryMonth.message,
                 viewController: self
             )
             return
         }
-        
+
         // Expiry year validation
         if (txtExpiryYear.text ?? "").count != 2 {
             UIAlertController.showAlert(
-                title: "Invalid Expiry Year",
-                message: "Please enter a valid 2-digit year.",
+                title: Main.Alert.CheckoutViewController.ExpiryYear.title,
+                message: Main.Alert.CheckoutViewController.ExpiryYear.message,
                 viewController: self
             )
             return
         }
-        
+
+        // Expiry date must not be expired
+        if let month = Int(txtExpiryMonth.text ?? ""),
+           let year = Int(txtExpiryYear.text ?? "") {
+            
+            let calendar = Calendar.current
+            let currentYear = calendar.component(.year, from: Date()) % 100 // last 2 digits
+            let currentMonth = calendar.component(.month, from: Date())
+            
+            if year < currentYear || (year == currentYear && month < currentMonth) {
+                UIAlertController.showAlert(
+                    title: Main.Alert.CheckoutViewController.CheckExpiryMonthYear.title,
+                    message: Main.Alert.CheckoutViewController.CheckExpiryMonthYear.message,
+                    viewController: self
+                )
+                return
+            }
+        }
+
         // Secure code (CVV) validation
         if (txtSecureCode.text ?? "").count != 3 {
             UIAlertController.showAlert(
-                title: "Invalid CVV",
-                message: "Secure code must be 3 digits.",
+                title: Main.Alert.CheckoutViewController.CVV.title,
+                message: Main.Alert.CheckoutViewController.CVV.message,
                 viewController: self
             )
             return
@@ -201,7 +223,7 @@ class PaymentViewController: UIViewController {
         
         // If all validations pass, add the card data
         addCardData()
-        lblNoItem.isHidden = !app.arrCardData.isEmpty
+        updateEmptyStateView()
         tblCard.reloadData()
         
         // Animate hiding of card entry view

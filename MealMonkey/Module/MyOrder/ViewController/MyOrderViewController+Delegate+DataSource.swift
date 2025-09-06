@@ -12,7 +12,7 @@ extension MyOrderViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         // Dequeue reusable cell
-        let cell: MyOrderTableViewCell = tableView.dequeueReusableCell(withIdentifier: "MyOrderTableViewCell", for: indexPath) as! MyOrderTableViewCell
+        let cell: MyOrderTableViewCell = tableView.dequeueReusableCell(withIdentifier: Main.CellIdentifiers.MyOrderTableViewCell, for: indexPath) as! MyOrderTableViewCell
         
         // Configure cell with the product order
         cell.myOrderConfigureCell(order: ordersProducts[indexPath.row])

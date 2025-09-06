@@ -31,7 +31,7 @@ extension NextPageViewController: UICollectionViewDataSource {
      - Returns: Configured UICollectionViewCell.
      */
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: CollectionViewCellNextPageCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCellNextPageCollectionViewCell", for: indexPath) as! CollectionViewCellNextPageCollectionViewCell
+        let cell: CollectionViewCellNextPageCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: Main.CellIdentifiers.CollectionViewCellNextPageCollectionViewCell, for: indexPath) as! CollectionViewCellNextPageCollectionViewCell
         cell.configureCell(nextPage: arrNextPageData[indexPath.item])
         return cell
     }

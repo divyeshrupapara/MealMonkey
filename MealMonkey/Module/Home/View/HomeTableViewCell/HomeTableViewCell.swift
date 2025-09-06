@@ -41,14 +41,14 @@ class HomeTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Register different collection view cells
-        collectionViewHome.register(UINib(nibName: "HomeCategoryCollectionViewCell", bundle: nil),
-                                    forCellWithReuseIdentifier: "HomeCategoryCollectionViewCell")
-        collectionViewHome.register(UINib(nibName: "PopularCollectionViewCell", bundle: nil),
-                                    forCellWithReuseIdentifier: "PopularCollectionViewCell")
-        collectionViewHome.register(UINib(nibName: "MostPopularCollectionViewCell", bundle: nil),
-                                    forCellWithReuseIdentifier: "MostPopularCollectionViewCell")
-        collectionViewHome.register(UINib(nibName: "RecentItemsCollectionViewCell", bundle: nil),
-                                    forCellWithReuseIdentifier: "RecentItemsCollectionViewCell")
+        collectionViewHome.register(UINib(nibName: Main.CellIdentifiers.HomeCategoryCollectionViewCell, bundle: nil),
+                                    forCellWithReuseIdentifier: Main.CellIdentifiers.HomeCategoryCollectionViewCell)
+        collectionViewHome.register(UINib(nibName: Main.CellIdentifiers.PopularCollectionViewCell, bundle: nil),
+                                    forCellWithReuseIdentifier: Main.CellIdentifiers.PopularCollectionViewCell)
+        collectionViewHome.register(UINib(nibName: Main.CellIdentifiers.MostPopularCollectionViewCell, bundle: nil),
+                                    forCellWithReuseIdentifier: Main.CellIdentifiers.MostPopularCollectionViewCell)
+        collectionViewHome.register(UINib(nibName: Main.CellIdentifiers.RecentItemsCollectionViewCell , bundle: nil),
+                                    forCellWithReuseIdentifier: Main.CellIdentifiers.RecentItemsCollectionViewCell)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -75,23 +75,23 @@ extension HomeTableViewCell: UICollectionViewDataSource, UICollectionViewDelegat
         
         switch collectionType {
         case .category:
-            let cell: HomeCategoryCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeCategoryCollectionViewCell", for: indexPath) as! HomeCategoryCollectionViewCell
+            let cell: HomeCategoryCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: Main.CellIdentifiers.HomeCategoryCollectionViewCell, for: indexPath) as! HomeCategoryCollectionViewCell
             let categoryProduct = products[indexPath.row]
             cell.categoryConfigureCell(category: categoryProduct)
             return cell
             
         case .popular:
-            let cell: PopularCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "PopularCollectionViewCell", for: indexPath) as! PopularCollectionViewCell
+            let cell: PopularCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: Main.CellIdentifiers.PopularCollectionViewCell, for: indexPath) as! PopularCollectionViewCell
             cell.popularConfigureCell(product: product)
             return cell
             
         case .mostPopular:
-            let cell: MostPopularCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MostPopularCollectionViewCell", for: indexPath) as! MostPopularCollectionViewCell
+            let cell: MostPopularCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: Main.CellIdentifiers.MostPopularCollectionViewCell, for: indexPath) as! MostPopularCollectionViewCell
             cell.mostPopularConfigureCell(product: product)
             return cell
             
         case .RecentItems:
-            let cell: RecentItemsCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecentItemsCollectionViewCell", for: indexPath) as! RecentItemsCollectionViewCell
+            let cell: RecentItemsCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: Main.CellIdentifiers.RecentItemsCollectionViewCell, for: indexPath) as! RecentItemsCollectionViewCell
             cell.recentItemConfigureCell(product: product)
             return cell
         }

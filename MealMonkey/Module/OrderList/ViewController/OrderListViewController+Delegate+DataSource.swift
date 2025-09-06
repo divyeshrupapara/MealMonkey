@@ -12,7 +12,7 @@ extension OrderListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         // Dequeue reusable cell
-        let cell: OrderListTableViewCell = tableView.dequeueReusableCell(withIdentifier: "OrderListTableViewCell", for: indexPath) as! OrderListTableViewCell
+        let cell: OrderListTableViewCell = tableView.dequeueReusableCell(withIdentifier: Main.CellIdentifiers.OrderListTableViewCell, for: indexPath) as! OrderListTableViewCell
         
         // Get the products for the current order
         let orderProducts = orders[indexPath.row]
@@ -31,8 +31,8 @@ extension OrderListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         // Load MyOrderViewController from storyboard
-        let storyboard = UIStoryboard(name: "MoreStoryboard", bundle: nil)
-        if let VC = storyboard.instantiateViewController(withIdentifier: "MyOrderViewController") as? MyOrderViewController {
+        let storyboard = UIStoryboard(name: Main.StoryBoard.MoreStoryboard, bundle: nil)
+        if let VC = storyboard.instantiateViewController(withIdentifier: Main.ViewController.MyOrderViewController) as? MyOrderViewController {
             
             // Pass selected order's products to MyOrderViewController
             VC.ordersProducts = orders[indexPath.row]

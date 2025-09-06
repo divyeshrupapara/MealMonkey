@@ -30,32 +30,44 @@ class NewPasswordViewController: UIViewController {
     /// Validates the new password and confirm password fields
     func validateNewPasswordConfirmPassword() {
         guard let newPassword = txtNewPassword.text, !newPassword.isEmpty else {
-            UIAlertController.showAlert(title: "Error", message: "Please enter your new password.", viewController: self)
+            UIAlertController.showAlert(
+                title: Main.Alert.NewPasswordViewController.NewPasswordMissing.title,
+                message: Main.Alert.NewPasswordViewController.NewPasswordMissing.message,
+                viewController: self
+            )
             return
         }
-        
+
         guard isValidPassword(newPassword) else {
             UIAlertController.showAlert(
-                title: "Invalid Password",
-                message: "Password must have at least 8 characters, including uppercase, lowercase, a number, and a special symbol.",
+                title: Main.Alert.NewPasswordViewController.InvalidPassword.title,
+                message: Main.Alert.NewPasswordViewController.InvalidPassword.message,
+                viewController: self
+            )
+            return
+        }
+
+        guard let confirmPassword = txtConfiemPassword.text, !confirmPassword.isEmpty else {
+            UIAlertController.showAlert(
+                title: Main.Alert.NewPasswordViewController.ConfirmPasswordMissing.title,
+                message: Main.Alert.NewPasswordViewController.ConfirmPasswordMissing.message,
+                viewController: self
+            )
+            return
+        }
+
+        guard confirmPassword == newPassword else {
+            UIAlertController.showAlert(
+                title: Main.Alert.NewPasswordViewController.PasswordMismatch.title,
+                message: Main.Alert.NewPasswordViewController.PasswordMismatch.message,
                 viewController: self
             )
             return
         }
         
-        guard let confirmPassword = txtConfiemPassword.text, !confirmPassword.isEmpty else {
-            UIAlertController.showAlert(title: "Error", message: "Please confirm your password.", viewController: self)
-            return
-        }
-        
-        guard confirmPassword == newPassword else {
-            UIAlertController.showAlert(title: "Error", message: "Passwords do not match.", viewController: self)
-            return
-        }
-        
         // Navigate to next page if validation succeeds
-        let storyboard = UIStoryboard(name: "UserStoryboard", bundle: nil)
-        if let VC = storyboard.instantiateViewController(withIdentifier: "NextPageViewController") as? NextPageViewController {
+        let storyboard = UIStoryboard(name: Main.StoryBoard.UserStoryboard, bundle: nil)
+        if let VC = storyboard.instantiateViewController(withIdentifier: Main.ViewController.NextPageViewController) as? NextPageViewController {
             self.navigationController?.pushViewController(VC, animated: true)
         }
     }

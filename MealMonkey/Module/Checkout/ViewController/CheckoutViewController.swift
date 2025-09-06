@@ -81,18 +81,40 @@ class CheckoutViewController: UIViewController {
         viewStyle(cornerRadius: 28, borderWidth: 0, borderColor: .systemGray, textField: [btnSendOrder])
         tblCheckOutCard.backgroundColor = .clear
         tblCheckOutCard.showsVerticalScrollIndicator = false
-        tblCheckOutCard.register(UINib(nibName: "CashOnDeliveryTableViewCell", bundle: nil), forCellReuseIdentifier: "CashOnDeliveryTableViewCell")
-        tblCheckOutCard.register(UINib(nibName: "AddCardTableViewCell", bundle: nil), forCellReuseIdentifier: "AddCardTableViewCell")
-        tblCheckOutCard.register(UINib(nibName: "UPITableViewCell", bundle: nil), forCellReuseIdentifier: "UPITableViewCell")
+        tblCheckOutCard.register(UINib(nibName: Main.CellIdentifiers.CashOnDeliveryTableViewCell, bundle: nil), forCellReuseIdentifier: Main.CellIdentifiers.CashOnDeliveryTableViewCell)
+        tblCheckOutCard.register(UINib(nibName: Main.CellIdentifiers.AddCardTableViewCell, bundle: nil), forCellReuseIdentifier: Main.CellIdentifiers.AddCardTableViewCell)
+        tblCheckOutCard.register(UINib(nibName: Main.CellIdentifiers.UPITableViewCell, bundle: nil), forCellReuseIdentifier: Main.CellIdentifiers.UPITableViewCell)
     }
     
     /// Called before the view appears on screen
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        /// Fetch last selected address
         if let savedAddress = UserDefaults.standard.string(forKey: "lastSelectedAddress") {
             lblAddress.text = savedAddress
             addressText = savedAddress
         }
+
+        /// Fetch saved cards from Core Data
+        if let email = UserDefaults.standard.string(forKey: "loggedInEmail"),
+           let user = CoreDataManager.shared.fetchUser(byEmail: email) {
+            let coreDataCards = CoreDataManager.shared.fetchCards(for: user)
+            app.arrCardData = coreDataCards.map { card in
+                PaymentModel(
+                    intCardNumber: Int(card.cardNumber ?? ""),
+                    intExpiryMonth: Int(card.expiryMonth),
+                    intExpiryYear: Int(card.expiryYear),
+                    intSecureCode: Int(card.secureCode),
+                    strFirstName: card.firstName,
+                    strLastName: card.lastName
+                )
+            }
+        }
+        /// Refresh table
+        tblCheckOutCard.reloadData()
     }
+
     
     /// Calculates subtotal, delivery cost, discount and total
     func calculate() {
@@ -122,8 +144,8 @@ class CheckoutViewController: UIViewController {
     
     /// Opens AddressViewController for changing address
     @IBAction func btnChangeAddressClick(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "MoreStoryboard", bundle: nil)
-        if let VC = storyboard.instantiateViewController(withIdentifier: "AddressViewController") as? AddressViewController {
+        let storyboard = UIStoryboard(name: Main.StoryBoard.MoreStoryboard, bundle: nil)
+        if let VC = storyboard.instantiateViewController(withIdentifier: Main.ViewController.AddressViewController) as? AddressViewController {
             self.navigationController?.pushViewController(VC, animated: true)
         }
     }
@@ -151,8 +173,8 @@ class CheckoutViewController: UIViewController {
     
     /// Closes the thank you view
     @IBAction func btnThankYouCrossClick(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "MoreStoryboard", bundle: nil)
-        if let VC = storyboard.instantiateViewController(withIdentifier: "OrderListViewController") as? OrderListViewController {
+        let storyboard = UIStoryboard(name: Main.StoryBoard.MoreStoryboard, bundle: nil)
+        if let VC = storyboard.instantiateViewController(withIdentifier: Main.ViewController.OrderListViewController) as? OrderListViewController {
             self.navigationController?.pushViewController(VC, animated: true)
         }
     }
@@ -171,8 +193,8 @@ class CheckoutViewController: UIViewController {
     
     /// Shows the main tab bar controller
     private func showMainTabBar() {
-        let storyboard = UIStoryboard(name: "HomeStoryboard", bundle: nil)
-        if let tabBarController = storyboard.instantiateViewController(withIdentifier: "MainTabViewController") as? UITabBarController {
+        let storyboard = UIStoryboard(name: Main.StoryBoard.HomeStoryboard, bundle: nil)
+        if let tabBarController = storyboard.instantiateViewController(withIdentifier: Main.ViewController.MainTabViewController) as? UITabBarController {
             if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
                let sceneDelegate = windowScene.delegate as? SceneDelegate {
                 sceneDelegate.window?.rootViewController = tabBarController
@@ -184,6 +206,11 @@ class CheckoutViewController: UIViewController {
     
     /// Adds a card to the list of saved cards
     func addCardData() {
+        guard let email = UserDefaults.standard.string(forKey: "loggedInEmail"),
+              let user = CoreDataManager.shared.fetchUser(byEmail: email) else {
+            return
+        }
+
         let obj = PaymentModel()
         obj.intCardNumber = Int(txtCardNumber.text ?? "")
         obj.intExpiryMonth = Int(txtExpiryMonth.text ?? "")
@@ -191,9 +218,25 @@ class CheckoutViewController: UIViewController {
         obj.intSecureCode = Int(txtSecureCode.text ?? "")
         obj.strFirstName = txtFirstName.text ?? ""
         obj.strLastName = txtLastName.text ?? ""
-        app.arrCardData.append(obj)
+
+        /// Save card in Core Data
+        CoreDataManager.shared.saveCard(for: user, model: obj)
+
+        /// Refresh from Core Data
+        let coreDataCards = CoreDataManager.shared.fetchCards(for: user)
+        app.arrCardData = coreDataCards.map { card in
+            PaymentModel(
+                intCardNumber: Int(card.cardNumber ?? ""),
+                intExpiryMonth: Int(card.expiryMonth),
+                intExpiryYear: Int(card.expiryYear),
+                intSecureCode: Int(card.secureCode),
+                strFirstName: card.firstName,
+                strLastName: card.lastName
+            )
+        }
         tblCheckOutCard.reloadData()
     }
+
     
     /// Closes the add card view with animation
     func closeAddCardView() {
@@ -213,8 +256,8 @@ class CheckoutViewController: UIViewController {
     
     /// Placeholder for tracking order
     @IBAction func btnTrackYourOrderClick(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "MoreStoryboard", bundle: nil)
-        if let VC = storyboard.instantiateViewController(withIdentifier: "AddressViewController") as? AddressViewController {
+        let storyboard = UIStoryboard(name: Main.StoryBoard.MoreStoryboard, bundle: nil)
+        if let VC = storyboard.instantiateViewController(withIdentifier: Main.ViewController.AddressViewController) as? AddressViewController {
             self.navigationController?.pushViewController(VC, animated: true)
         }
     }
@@ -225,8 +268,8 @@ class CheckoutViewController: UIViewController {
         let cardNumber = txtCardNumber.text ?? ""
         if cardNumber.count != 16 {
             UIAlertController.showAlert(
-                title: "Invalid Card Number",
-                message: "Card number must be exactly 16 digits.",
+                title: Main.Alert.CheckoutViewController.CardNumber.title,
+                message: Main.Alert.CheckoutViewController.CardNumber.message,
                 viewController: self
             )
             return
@@ -235,8 +278,8 @@ class CheckoutViewController: UIViewController {
         // Expiry month validation
         if let month = Int(txtExpiryMonth.text ?? ""), month < 1 || month > 12 {
             UIAlertController.showAlert(
-                title: "Invalid Expiry Month",
-                message: "Please enter a valid month between 01 and 12.",
+                title: Main.Alert.CheckoutViewController.ExpiryMonth.title,
+                message: Main.Alert.CheckoutViewController.ExpiryMonth.message,
                 viewController: self
             )
             return
@@ -245,18 +288,36 @@ class CheckoutViewController: UIViewController {
         // Expiry year validation
         if (txtExpiryYear.text ?? "").count != 2 {
             UIAlertController.showAlert(
-                title: "Invalid Expiry Year",
-                message: "Please enter a valid 2-digit year.",
+                title: Main.Alert.CheckoutViewController.ExpiryYear.title,
+                message: Main.Alert.CheckoutViewController.ExpiryYear.message,
                 viewController: self
             )
             return
         }
         
+        // Expiry date must not be expired
+        if let month = Int(txtExpiryMonth.text ?? ""),
+           let year = Int(txtExpiryYear.text ?? "") {
+            
+            let calendar = Calendar.current
+            let currentYear = calendar.component(.year, from: Date()) % 100 // last 2 digits
+            let currentMonth = calendar.component(.month, from: Date())
+            
+            if year < currentYear || (year == currentYear && month < currentMonth) {
+                UIAlertController.showAlert(
+                    title: Main.Alert.CheckoutViewController.CheckExpiryMonthYear.title,
+                    message: Main.Alert.CheckoutViewController.CheckExpiryMonthYear.message,
+                    viewController: self
+                )
+                return
+            }
+        }
+        
         // Secure code (CVV) validation
         if (txtSecureCode.text ?? "").count != 3 {
             UIAlertController.showAlert(
-                title: "Invalid CVV",
-                message: "Secure code must be 3 digits.",
+                title: Main.Alert.CheckoutViewController.CVV.title,
+                message: Main.Alert.CheckoutViewController.CVV.message,
                 viewController: self
             )
             return
@@ -265,8 +326,8 @@ class CheckoutViewController: UIViewController {
         // First name validation
         if (txtFirstName.text ?? "").isEmpty {
             UIAlertController.showAlert(
-                title: "Missing First Name",
-                message: "Please enter your first name.",
+                title: Main.Alert.CheckoutViewController.FirstName.title,
+                message: Main.Alert.CheckoutViewController.FirstName.message,
                 viewController: self
             )
             return
@@ -275,8 +336,8 @@ class CheckoutViewController: UIViewController {
         // Last name validation
         if (txtLastName.text ?? "").isEmpty {
             UIAlertController.showAlert(
-                title: "Missing Last Name",
-                message: "Please enter your last name.",
+                title: Main.Alert.CheckoutViewController.LastName.title,
+                message: Main.Alert.CheckoutViewController.LastName.message,
                 viewController: self
             )
             return
