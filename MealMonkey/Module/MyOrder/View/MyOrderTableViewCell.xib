@@ -60,6 +60,7 @@
             <connections>
                 <outlet property="lblFoodNameXQty" destination="zFV-vf-2aW" id="vst-hA-2ff"/>
                 <outlet property="lblFoodPrice" destination="YBV-y5-Qsb" id="rTz-Jn-2yC"/>
+                <outlet property="viewBack" destination="0UP-aW-Eau" id="p9I-b9-2Jb"/>
             </connections>
             <point key="canvasLocation" x="101" y="20"/>
         </tableViewCell>

@@ -16,7 +16,8 @@ extension PaymentViewController: UITableViewDataSource {
         
         // Configure the cell with the card model
         cell.cardConfigureCell(card: app.arrCardData[indexPath.row])
-        
+        cell.contentView.backgroundColor = .clear
+        cell.backgroundColor = .clear
         // Closure to handle card deletion
         cell.deleteCard = {
             if let user = self.currentUser {

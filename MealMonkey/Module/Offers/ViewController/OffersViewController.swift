@@ -4,6 +4,7 @@ import UIKit
 class OffersViewController: UIViewController {
 
     /// UIButton to check the current offer
+    @IBOutlet weak var viewMain: UIView!
     @IBOutlet weak var lblSubTitle: UILabel!
     @IBOutlet weak var btnCheckOffer: UIButton!
     
@@ -30,7 +31,27 @@ class OffersViewController: UIViewController {
         
         // Configure the table view
         tblOffers.showsVerticalScrollIndicator = false
+        tblOffers.backgroundColor = .clear
         tblOffers.register(UINib(nibName: Main.CellIdentifiers.OffersTableViewCell, bundle: nil), forCellReuseIdentifier: Main.CellIdentifiers.OffersTableViewCell)
+        
+        applyTheme()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(applyTheme),
+            name: .themeChanged,
+            object: nil
+        )
+    }
+    
+    @objc func applyTheme() {
+        let theme = ThemeManager.shared.currentTheme
+        self.view.backgroundColor = theme.AppBackgroundColor
+        self.navigationController?.navigationBar.backgroundColor = theme.AppBackgroundColor
+        self.tabBarController?.tabBar.backgroundColor = theme.AppBackgroundColor
+        viewMain.backgroundColor = theme.AppBackgroundColor
+        lblSubTitle.textColor = theme.SecondaryFontColor
+        btnCheckOffer.backgroundColor = theme.MainColor
+        btnCheckOffer.setTitleColor(theme.AppBackgroundColor, for: .normal)
     }
     
     /**

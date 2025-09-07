@@ -19,6 +19,13 @@ class OrderListTableViewCell: UITableViewCell {
     /// Called after the cell has been loaded from the nib
     override func awakeFromNib() {
         super.awakeFromNib()
+        applyTheme()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(applyTheme),
+            name: .themeChanged,
+            object: nil
+        )
         
         // Apply corner radius and styling to the first food image
         viewStyle.viewStyle(cornerRadius: 10, borderWidth: 0, borderColor: .systemGray, textField: [imgFirstFood, viewBack])
@@ -53,5 +60,13 @@ class OrderListTableViewCell: UITableViewCell {
         if let firstImage = products.first?.strProductImage {
             imgFirstFood.image = UIImage(named: firstImage)
         }
+    }
+    
+    @objc func applyTheme() {
+        let theme = ThemeManager.shared.currentTheme
+        lblOrderNo.textColor = theme.PrimaryFontColor
+        lblTotal.textColor = theme.PrimaryFontColor
+        lblAddedProducts.textColor = theme.SecondaryFontColor
+        viewBack.backgroundColor = theme.MoreCellBackgroundColor
     }
 }

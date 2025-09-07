@@ -3,6 +3,7 @@ import UIKit
 /// Custom table view cell for displaying a dessert item
 class DessertsTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var lblMealMonkey: UILabel!
     /// UIImageView to display the dessert image
     @IBOutlet weak var imgDessert: UIImageView!
     
@@ -21,11 +22,26 @@ class DessertsTableViewCell: UITableViewCell {
     /// Called after the view has been loaded from the nib
     override func awakeFromNib() {
         super.awakeFromNib()
+        applyTheme()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(applyTheme),
+            name: .themeChanged,
+            object: nil
+        )
     }
     
     /// Configure the selection behavior for the cell
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
+    
+    @objc func applyTheme() {
+        let theme = ThemeManager.shared.currentTheme
+        lblDessertTitle.textColor = theme.AppBackgroundColor
+        lblRating.textColor = theme.MainColor
+        lblMealMonkey.textColor = theme.AppBackgroundColor
+        lblText.textColor = theme.AppBackgroundColor
     }
     
     /// Configures the cell with dessert data

@@ -42,6 +42,13 @@ class CartTableViewCell: UITableViewCell {
     /// Called after the cell has been loaded from nib
     override func awakeFromNib() {
         super.awakeFromNib()
+        applyTheme()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(applyTheme),
+            name: .themeChanged,
+            object: nil
+        )
         
         // Apply corner radius styling to product image
         viewStyle.viewStyle(cornerRadius: 20, borderWidth: 0, borderColor: .systemGray, textField: [imgProduct])
@@ -50,6 +57,15 @@ class CartTableViewCell: UITableViewCell {
     /// Called when the cell selection state changes
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
+    
+    @objc func applyTheme() {
+        let theme = ThemeManager.shared.currentTheme
+        lblProductTitle.textColor = theme.PrimaryFontColor
+        lblCategory.textColor = theme.PrimaryFontColor
+        lblType.textColor = theme.PrimaryFontColor
+        lblPrice.textColor = theme.PrimaryFontColor
+        lblQty.textColor = theme.PrimaryFontColor
     }
     
     // MARK: - IBActions

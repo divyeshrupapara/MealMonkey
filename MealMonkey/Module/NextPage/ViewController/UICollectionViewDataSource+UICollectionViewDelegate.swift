@@ -32,6 +32,8 @@ extension NextPageViewController: UICollectionViewDataSource {
      */
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: CollectionViewCellNextPageCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: Main.CellIdentifiers.CollectionViewCellNextPageCollectionViewCell, for: indexPath) as! CollectionViewCellNextPageCollectionViewCell
+        cell.contentView.backgroundColor = .clear
+        cell.backgroundColor = .clear
         cell.configureCell(nextPage: arrNextPageData[indexPath.item])
         return cell
     }
@@ -71,7 +73,7 @@ extension NextPageViewController: UIScrollViewDelegate {
         lblTitle.text = currentPageData.strTitle
         lblDescription.text = currentPageData.strTitleDescription
         
-        let buttonTitle = currentPageData.strButtonText == .Done ? "Done" : "Next"
+        let buttonTitle = currentPageData.strButtonText == .Done ? L("onboarding_btnDone") : L("onboarding_btnNext")
         btnDone.setTitle(buttonTitle, for: .normal)
     }
 }

@@ -3,6 +3,7 @@ import UIKit
 /// Custom UITableViewCell to display offer information
 class OffersTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var viewMain: UIView!
     /// UIImageView to display the offer image
     @IBOutlet weak var imgOffer: UIImageView!
     
@@ -24,6 +25,13 @@ class OffersTableViewCell: UITableViewCell {
     /// Called when the cell is loaded from Nib
     override func awakeFromNib() {
         super.awakeFromNib()
+        applyTheme()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(applyTheme),
+            name: .themeChanged,
+            object: nil
+        )
     }
 
     /// Called when the cell is selected
@@ -50,5 +58,14 @@ class OffersTableViewCell: UITableViewCell {
         lblRating.text = "\(offer.intRating ?? 0.0)"
         lblRater.text = "(\(offer.intRater ?? 0) \(L("offer_lblRater")))"
         lblFoodVariety.text = offer.strFoodVariety
+    }
+    
+    @objc func applyTheme() {
+        let theme = ThemeManager.shared.currentTheme
+        viewMain.backgroundColor = theme.AppBackgroundColor
+        lblOfferTitle.textColor = theme.PrimaryFontColor
+        lblRating.textColor = theme.MainColor
+        lblRater.textColor = theme.PlaceholderColor
+        lblFoodVariety.textColor = theme.PlaceholderColor
     }
 }

@@ -38,16 +38,35 @@ class CartViewController: UIViewController {
         viewStyle(cornerRadius: 28, borderWidth: 0, borderColor: .systemGray, textField: [btnPlaceOrder])
         
         // Register custom table view cell
+        tblCartView.showsVerticalScrollIndicator = false
+        tblCartView.backgroundColor = .clear
         tblCartView.register(UINib(nibName: Main.CellIdentifiers.CartTableViewCell, bundle: nil), forCellReuseIdentifier: Main.CellIdentifiers.CartTableViewCell)
         
         // Load cart items
         loadCart()
+        
+        applyTheme()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(applyTheme),
+            name: .themeChanged,
+            object: nil
+        )
     }
     
     /// Called before the view appears
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadCart()
+    }
+    
+    @objc func applyTheme() {
+        let theme = ThemeManager.shared.currentTheme
+        self.view.backgroundColor = theme.AppBackgroundColor
+        self.navigationController?.navigationBar.backgroundColor = theme.AppBackgroundColor
+        self.tabBarController?.tabBar.backgroundColor = theme.AppBackgroundColor
+        btnPlaceOrder.setTitleColor(theme.AppBackgroundColor, for: .normal)
+        btnPlaceOrder.backgroundColor = theme.MainColor
     }
     
     // MARK: - Helper Methods

@@ -67,6 +67,7 @@
                     <connections>
                         <outlet property="tblDesserts" destination="kPP-fV-u6Q" id="Mbo-x7-DSL"/>
                         <outlet property="txtSearchDesserts" destination="kt9-SL-8ee" id="sud-X6-Vb6"/>
+                        <outlet property="viewMain" destination="NoV-il-yee" id="4cp-WE-hXT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -622,6 +623,7 @@
                         <outlet property="stackIngredients" destination="6uV-rY-yLd" id="AT2-lN-eF7"/>
                         <outlet property="stackProtion" destination="qiV-Ci-keO" id="sd9-G9-rFH"/>
                         <outlet property="stackStar" destination="NDR-VX-PZK" id="41G-79-Bgq"/>
+                        <outlet property="viewAddToCartBack" destination="3wh-Iu-ZbG" id="pwy-we-dM9"/>
                         <outlet property="viewDetail" destination="pKW-rP-i4V" id="uiI-Xp-8D5"/>
                         <outlet property="viewFoodDetail" destination="CRv-Wj-Thy" id="Trh-f0-Iro"/>
                         <outlet property="viewIngredients" destination="9wV-l3-dMD" id="cWh-1Z-XlC"/>

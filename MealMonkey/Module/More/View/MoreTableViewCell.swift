@@ -15,7 +15,13 @@ class MoreTableViewCell: UITableViewCell {
     /// Called when the cell is loaded from the nib/storyboard
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        applyTheme()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(applyTheme),
+            name: .themeChanged,
+            object: nil
+        )
         // Apply corner radius to image and main view
         imgMenu.layer.cornerRadius = 28
         viewMain.layer.cornerRadius = 7
@@ -32,4 +38,10 @@ class MoreTableViewCell: UITableViewCell {
         imgMenu.image = UIImage(named: more.imgMenu)
         lblMenu.text = more.strMoreName
     }
+    
+    @objc func applyTheme() {
+          let theme = ThemeManager.shared.currentTheme
+          lblMenu.textColor = theme.PrimaryFontColor
+        viewMain.backgroundColor = theme.MoreCellBackgroundColor
+      }
 }

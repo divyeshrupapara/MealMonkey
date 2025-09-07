@@ -3,6 +3,7 @@ import UIKit
 /// UITableViewCell subclass for displaying and selecting Cash On Delivery (COD) option
 class CashOnDeliveryTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var lblCOD: UILabel!
     /// The main container view of the cell
     @IBOutlet weak var viewCell: UIView!
     
@@ -12,7 +13,13 @@ class CashOnDeliveryTableViewCell: UITableViewCell {
     /// Called when the cell is loaded from Nib
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        applyTheme()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(applyTheme),
+            name: .themeChanged,
+            object: nil
+        )
         // Apply rounded corners and border styling to the cell view
         viewStyle.viewStyle(cornerRadius: 6, borderWidth: 1, borderColor: .labelPrimary, textField: [viewCell])
     }
@@ -20,6 +27,12 @@ class CashOnDeliveryTableViewCell: UITableViewCell {
     /// Handles selection state changes
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
+    
+    @objc func applyTheme() {
+        let theme = ThemeManager.shared.currentTheme
+        lblCOD.textColor = theme.PrimaryFontColor
+        viewCell.backgroundColor = theme.MoreCellBackgroundColor
     }
     
     /// Action triggered when the user taps the select COD button

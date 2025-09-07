@@ -346,6 +346,7 @@ at anytime </string>
                         <outlet property="txtSecureCode" destination="btY-JR-v6n" id="ev9-yo-UWh"/>
                         <outlet property="viewAddCard2" destination="2x1-MO-OP8" id="a6P-Xl-Wgh"/>
                         <outlet property="viewEnterCard" destination="GSd-D9-blw" id="2NL-5h-XH6"/>
+                        <outlet property="viewMain" destination="N7t-Gc-iQZ" id="tnK-SV-ZH9"/>
                         <outlet property="viewTransperent" destination="64S-7H-Eat" id="fHB-3H-rOl"/>
                     </connections>
                 </viewController>
@@ -468,7 +469,6 @@ at anytime </string>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" name="ButtonTextColor"/>
                                         <constraints>
                                             <constraint firstItem="KAa-bD-dN2" firstAttribute="leading" secondItem="JLw-vi-K1O" secondAttribute="trailing" constant="17" id="6eL-IQ-NRw"/>
                                             <constraint firstItem="JLw-vi-K1O" firstAttribute="leading" secondItem="k3b-kh-sAk" secondAttribute="leading" id="SZw-Z3-V1L"/>
@@ -636,12 +636,14 @@ at anytime </string>
                         <outlet property="lblDeliveryCostTitle" destination="xBa-UG-b8y" id="PSn-7Y-3G9"/>
                         <outlet property="lblDeliveryInstructions" destination="5Q2-ME-mIZ" id="hgt-Z3-msa"/>
                         <outlet property="lblLocation" destination="5vX-oG-7fp" id="4gx-Gv-SHp"/>
+                        <outlet property="lblRatingTitle" destination="1XI-a7-WBv" id="fiW-zr-iNT"/>
                         <outlet property="lblSubTitleRating" destination="29M-RY-MPv" id="Hkj-OM-xGb"/>
                         <outlet property="lblSubTotal" destination="pAc-PE-MUX" id="ZbS-Hf-GYX"/>
                         <outlet property="lblSubTotalTitle" destination="pIr-70-f8I" id="Zyr-ks-Biv"/>
                         <outlet property="lblTotal" destination="dAE-l9-xXA" id="xZd-zF-qH1"/>
                         <outlet property="lblTotalTitle" destination="YTv-h6-81N" id="ucZ-qu-e2h"/>
                         <outlet property="tblMyOrder" destination="hQd-LE-hDX" id="CLe-l2-O8k"/>
+                        <outlet property="viewMain" destination="Kcd-JX-k19" id="rXf-be-HLS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4O2-gb-7ws" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -695,7 +697,6 @@ Brooklyn, NY 11216</string>
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="4KI-m7-AMU" firstAttribute="leading" secondItem="yLz-4q-LYN" secondAttribute="leading" constant="21" id="8Xh-5P-eqK"/>
                                             <constraint firstAttribute="trailing" secondItem="HGC-FP-Lgf" secondAttribute="trailing" constant="21" id="Aen-pY-d60"/>
@@ -750,7 +751,6 @@ Brooklyn, NY 11216</string>
                                                 </connections>
                                             </tableView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="ulZ-SM-Y3y" firstAttribute="centerY" secondItem="5Hr-At-ZOB" secondAttribute="centerY" id="6Dw-0f-QF8"/>
                                             <constraint firstItem="PAh-qz-vDu" firstAttribute="top" secondItem="5Hr-At-ZOB" secondAttribute="bottom" constant="20" id="HOk-cG-DuY"/>
@@ -853,7 +853,6 @@ Brooklyn, NY 11216</string>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="xvV-cw-YJ8" secondAttribute="bottom" constant="17" id="HqD-3O-tXd"/>
                                             <constraint firstItem="xvV-cw-YJ8" firstAttribute="leading" secondItem="Jiq-vf-HVL" secondAttribute="leading" constant="21" id="NB6-Bd-Vx2"/>
@@ -1352,7 +1351,6 @@ at anytime </string>
                                                         <rect key="frame" x="295" y="0.0" width="9" height="36"/>
                                                     </imageView>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="cqh-zA-tWb" secondAttribute="bottom" id="Aff-qe-Igo"/>
                                                     <constraint firstAttribute="trailing" secondItem="POM-u9-xu4" secondAttribute="trailing" id="JDx-td-gS5"/>
@@ -1413,6 +1411,7 @@ at anytime </string>
                         <outlet property="imgStar" destination="UCk-s6-Jjd" id="cwa-Kg-a7e"/>
                         <outlet property="mapView" destination="U3P-Wj-hnA" id="LC0-Mb-fIH"/>
                         <outlet property="txtSearchAddress" destination="UQ3-0x-9JD" id="9Yh-Kx-WCt"/>
+                        <outlet property="viewMain" destination="ucY-kZ-cpn" id="f87-u7-IlY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k0K-0K-ApS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

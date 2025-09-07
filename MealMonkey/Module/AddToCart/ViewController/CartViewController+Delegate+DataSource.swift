@@ -18,6 +18,8 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
         
         // Configure the cell for Cart
         cell.configCartCell(product: product)
+        cell.backgroundColor = .clear
+        cell.contentView.backgroundColor = .clear
         
         // Handle deletion of cart item
         cell.onDelete = { [weak self] in

@@ -58,6 +58,7 @@
             <connections>
                 <outlet property="imgCategory" destination="ZNF-wF-NdS" id="gGD-Yi-XZG"/>
                 <outlet property="lblCategory" destination="lXo-gG-YKc" id="CPg-dh-DKE"/>
+                <outlet property="viewMain" destination="1fu-AD-KkL" id="rkp-FY-bnO"/>
             </connections>
             <point key="canvasLocation" x="91.603053435114504" y="51.408450704225352"/>
         </collectionViewCell>

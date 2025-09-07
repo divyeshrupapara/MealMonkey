@@ -3,6 +3,8 @@ import UIKit
 /// ViewController to display the user's current orders and allow checkout
 class MyOrderViewController: UIViewController {
     
+    @IBOutlet weak var viewMain: UIView!
+    @IBOutlet weak var lblRatingTitle: UILabel!
     /// ImageView to display the restaurant image
     @IBOutlet weak var lblAppName: UILabel!
     @IBOutlet weak var lblSubTitleRating: UILabel!
@@ -63,6 +65,37 @@ class MyOrderViewController: UIViewController {
         tblMyOrder.showsVerticalScrollIndicator = false
         tblMyOrder.register(UINib(nibName: Main.CellIdentifiers.MyOrderTableViewCell, bundle: nil), forCellReuseIdentifier: Main.CellIdentifiers.MyOrderTableViewCell)
         tblMyOrder.reloadData()
+        
+        applyTheme()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(applyTheme),
+            name: .themeChanged,
+            object: nil
+        )
+    }
+    
+    @objc func applyTheme() {
+        let theme = ThemeManager.shared.currentTheme
+        viewMain.backgroundColor = theme.AppBackgroundColor
+        self.view.backgroundColor = theme.AppBackgroundColor
+        self.navigationController?.navigationBar.backgroundColor = theme.AppBackgroundColor
+        self.tabBarController?.tabBar.backgroundColor = theme.AppBackgroundColor
+        lblAppName.textColor = theme.PrimaryFontColor
+        lblRatingTitle.textColor = theme.MainColor
+        lblSubTitleRating.textColor = theme.PlaceholderColor
+        lblLocation.textColor = theme.PlaceholderColor
+        lblDeliveryInstructions.textColor = theme.PrimaryFontColor
+        lblSubTotalTitle.textColor = theme.PrimaryFontColor
+        lblDeliveryCostTitle.textColor = theme.PrimaryFontColor
+        lblTotalTitle.textColor = theme.PrimaryFontColor
+        lblSubTotal.textColor = theme.MainColor
+        lblDeliveryCost.textColor = theme.MainColor
+        lblTotal.textColor = theme.MainColor
+        btnAddNotes.setTitleColor(theme.MainColor, for: .normal)
+        btnCheckOut.setTitleColor(theme.AppBackgroundColor, for: .normal)
+        btnCheckOut.backgroundColor = theme.MainColor
+        tblMyOrder.backgroundColor = theme.MoreCellBackgroundColor
     }
     
     /// Calculates subtotal, delivery cost, and total amount

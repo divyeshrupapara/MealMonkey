@@ -36,6 +36,8 @@ extension DessertsViewController: UITableViewDataSource {
         let product = filteredProducts[indexPath.row]
         cell.dessertConfigureCell(dessert: product)
         cell.layoutIfNeeded()
+        cell.backgroundColor = .clear
+        cell.contentView.backgroundColor = .clear
         return cell
     }
 }

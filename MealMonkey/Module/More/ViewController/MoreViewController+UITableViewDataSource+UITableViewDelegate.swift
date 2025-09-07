@@ -79,6 +79,30 @@ extension MoreViewController: UITableViewDelegate {
             alert.addAction(UIAlertAction(title: L("cancel"), style: .cancel, handler: nil))
             
             present(alert, animated: true, completion: nil)
+        case 7:
+            let alert = UIAlertController(title: "Select Theme", message: nil, preferredStyle: .actionSheet)
+            
+            alert.addAction(UIAlertAction(title: "Default Theme", style: .default, handler: { _ in
+                ThemeManager.shared.currentThemeType = .default
+            }))
+            alert.addAction(UIAlertAction(title: "Maroon & Cream", style: .default, handler: { _ in
+                ThemeManager.shared.currentThemeType = .Maroon
+            }))
+            alert.addAction(UIAlertAction(title: "Olive & Mustard", style: .default, handler: { _ in
+                ThemeManager.shared.currentThemeType = .Olive
+            }))
+            alert.addAction(UIAlertAction(title: "Indigo & Sky", style: .default, handler: { _ in
+                ThemeManager.shared.currentThemeType = .Indigo
+            }))
+            alert.addAction(UIAlertAction(title: "Peach & Plum", style: .default, handler: { _ in
+                ThemeManager.shared.currentThemeType = .Peach
+            }))
+            alert.addAction(UIAlertAction(title: "Cyan & Charcoal", style: .default, handler: { _ in
+                ThemeManager.shared.currentThemeType = .Cyan
+            }))
+            
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            present(alert, animated: true)
         default:
             break
         }
@@ -98,6 +122,8 @@ extension MoreViewController: UITableViewDataSource {
         
         let cell: MoreTableViewCell = tableView.dequeueReusableCell(withIdentifier: Main.CellIdentifiers.MoreTableViewCell, for: indexPath) as! MoreTableViewCell
         cell.configureMenuCell(more: arrMore[indexPath.row])
+        cell.backgroundColor = .clear
+        cell.contentView.backgroundColor = .clear
         return cell
     }
 }

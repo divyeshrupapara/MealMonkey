@@ -3,6 +3,8 @@ import UIKit
 /// ViewController that manages the onboarding flow with multiple pages.
 class NextPageViewController: UIViewController {
     
+    @IBOutlet weak var viewMain: UIView!
+    @IBOutlet weak var viewScrollView: UIView!
     /// UICollectionView displaying the onboarding pages.
     @IBOutlet weak var collectionViewNextPage: UICollectionView!
     
@@ -32,7 +34,28 @@ class NextPageViewController: UIViewController {
         viewStyle(cornerRadius: 28, borderWidth: 0, borderColor: .systemGray, textField: [btnDone])
         
         // Register the collection view cell.
+        collectionViewNextPage.backgroundColor = .clear
         collectionViewNextPage.register(UINib(nibName: Main.CellIdentifiers.CollectionViewCellNextPageCollectionViewCell, bundle: nil), forCellWithReuseIdentifier: Main.CellIdentifiers.CollectionViewCellNextPageCollectionViewCell)
+        collectionViewNextPage.reloadData()
+        
+        applyTheme()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(applyTheme),
+            name: .themeChanged,
+            object: nil
+        )
+    }
+    
+    @objc func applyTheme() {
+        let theme = ThemeManager.shared.currentTheme
+        viewMain.backgroundColor = theme.AppBackgroundColor
+        self.view.backgroundColor = theme.AppBackgroundColor
+        viewScrollView.backgroundColor = theme.AppBackgroundColor
+        lblTitle.textColor = theme.PrimaryFontColor
+        lblDescription.textColor = theme.SecondaryFontColor
+        btnDone.setTitleColor(theme.AppBackgroundColor, for: .normal)
+        btnDone.backgroundColor = theme.MainColor
     }
     
     /**

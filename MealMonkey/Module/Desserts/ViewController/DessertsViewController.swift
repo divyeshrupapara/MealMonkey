@@ -3,6 +3,7 @@ import UIKit
 /// ViewController responsible for displaying desserts, beverages, or food items
 class DessertsViewController: UIViewController {
 
+    @IBOutlet weak var viewMain: UIView!
     /// UITextField for searching desserts
     @IBOutlet weak var txtSearchDesserts: UITextField!
     
@@ -30,6 +31,13 @@ class DessertsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        applyTheme()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(applyTheme),
+            name: .themeChanged,
+            object: nil
+        )
         // Apply rounded corner style to search text field
         viewStyle(cornerRadius: txtSearchDesserts.frame.size.height/2,
                   borderWidth: 0,
@@ -80,9 +88,21 @@ class DessertsViewController: UIViewController {
         txtSearchDesserts.placeholder = L("desserts_txtSearch_placeholder")
         
         // Register custom cell for desserts
+        tblDesserts.showsVerticalScrollIndicator = false
+        tblDesserts.backgroundColor = .clear
         tblDesserts.register(UINib(nibName: Main.CellIdentifiers.DessertsTableViewCell, bundle: nil),
                              forCellReuseIdentifier: Main.CellIdentifiers.DessertsTableViewCell)
         tblDesserts.reloadData()
+    }
+    
+    @objc func applyTheme() {
+        let theme = ThemeManager.shared.currentTheme
+        viewMain.backgroundColor = theme.AppBackgroundColor
+        view.backgroundColor = theme.AppBackgroundColor
+        navigationController?.navigationBar.backgroundColor = theme.AppBackgroundColor
+        tabBarController?.tabBar.backgroundColor = theme.AppBackgroundColor
+        txtSearchDesserts.textColor = theme.PrimaryFontColor
+        txtSearchDesserts.backgroundColor = theme.TextFieldBackgroundColor
     }
     
     /// Handles back button tap

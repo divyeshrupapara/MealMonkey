@@ -49,6 +49,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             cell.lblCollectionViewTitle.isHidden = true
             cell.btnViewAll.isHidden = true
             cell.collectionViewHomeHeight.constant = 113
+            cell.backgroundColor = .clear
+            cell.contentView.backgroundColor = .clear
             
         case 1:
             // Popular section
@@ -63,6 +65,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             cell.collectionViewHomeHeight.constant =
                 cell.collectionViewHome.collectionViewLayout.collectionViewContentSize.height
             cell.lblCollectionViewTitle.text = "Popular"
+            cell.backgroundColor = .clear
+            cell.contentView.backgroundColor = .clear
             
         case 2:
             // Most Popular section
@@ -75,6 +79,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             cell.btnViewAll.isHidden = false
             cell.lblCollectionViewTitle.text = "Most Popular"
             cell.collectionViewHomeHeight.constant = 185
+            cell.backgroundColor = .clear
+            cell.contentView.backgroundColor = .clear
             
         case 3:
             // Recent Items section
@@ -89,11 +95,15 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             cell.collectionViewHomeHeight.constant =
                 cell.collectionViewHome.collectionViewLayout.collectionViewContentSize.height
             cell.lblCollectionViewTitle.text = "Recent Items"
+            cell.backgroundColor = .clear
+            cell.contentView.backgroundColor = .clear
             
         default:
             break
         }
         
+        cell.backgroundColor = .clear
+        cell.contentView.backgroundColor = .clear
         cell.collectionViewHome.reloadData()
         return cell
     }

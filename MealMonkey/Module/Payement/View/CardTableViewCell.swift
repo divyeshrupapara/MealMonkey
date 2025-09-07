@@ -3,6 +3,8 @@ import UIKit
 /// Custom UITableViewCell to display payment card details
 class CardTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var viewBack: UIView!
+    @IBOutlet weak var viewHide: UIView!
     /// Image view for card type or category (e.g., Visa, MasterCard)
     @IBOutlet weak var imgCardCategory: UIImageView!
     
@@ -18,6 +20,13 @@ class CardTableViewCell: UITableViewCell {
     /// Called after the view has been loaded from the nib
     override func awakeFromNib() {
         super.awakeFromNib()
+        applyTheme()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(applyTheme),
+            name: .themeChanged,
+            object: nil
+        )
         
         // Apply circular style to the delete button
         viewStyle.viewStyle(cornerRadius: btnCardDelete.frame.size.height / 2, borderWidth: 1, borderColor: .buttonBackground, textField: [btnCardDelete])
@@ -43,5 +52,12 @@ class CardTableViewCell: UITableViewCell {
     /// Action triggered when the delete button is tapped
     @IBAction func btnCardDeleteClick(_ sender: Any) {
         deleteCard?()
+    }
+    
+    @objc func applyTheme() {
+        let theme = ThemeManager.shared.currentTheme
+        lblCardNumber.textColor = theme.PrimaryFontColor
+        viewBack.backgroundColor = theme.MoreCellBackgroundColor
+        viewHide.backgroundColor = theme.SecondaryFontColor
     }
 }

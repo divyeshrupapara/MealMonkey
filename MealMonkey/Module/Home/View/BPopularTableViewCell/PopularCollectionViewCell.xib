@@ -104,9 +104,12 @@
             <size key="customSize" width="410" height="286"/>
             <connections>
                 <outlet property="imgPopular" destination="bPv-oh-u6L" id="fTl-KR-bah"/>
+                <outlet property="lblCafe" destination="AbH-It-pZj" id="kpB-90-xY9"/>
                 <outlet property="lblFoodName" destination="rrm-Ud-Q0u" id="1Ka-Ou-ftl"/>
                 <outlet property="lblFoodRating" destination="p26-Ca-9df" id="9ho-nD-jxl"/>
                 <outlet property="lblFoodType" destination="vkM-Zk-hAw" id="Mvr-QL-CGP"/>
+                <outlet property="lblRater" destination="m4W-6u-KrU" id="3Tx-ta-7PG"/>
+                <outlet property="viewMain" destination="0E3-lA-P3W" id="JBW-BL-DGn"/>
             </connections>
             <point key="canvasLocation" x="358.77862595419845" y="114.08450704225352"/>
         </collectionViewCell>

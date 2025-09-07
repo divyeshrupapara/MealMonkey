@@ -20,9 +20,19 @@ class AboutUsViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = false
         
         // Register custom table view cell
+        tblMoreOpions.showsVerticalScrollIndicator = false
+        tblMoreOpions.backgroundColor = .clear
         tblMoreOpions.register(
             UINib(nibName: Main.CellIdentifiers.AboutUsTableViewCell, bundle: nil),
             forCellReuseIdentifier: Main.CellIdentifiers.AboutUsTableViewCell
+        )
+        
+        applyTheme()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(applyTheme),
+            name: .themeChanged,
+            object: nil
         )
     }
     
@@ -62,6 +72,13 @@ class AboutUsViewController: UIViewController {
         }
         
         tblMoreOpions.reloadData() // refresh table with updated strings
+    }
+    
+    @objc func applyTheme() {
+        let theme = ThemeManager.shared.currentTheme
+        self.view.backgroundColor = theme.AppBackgroundColor
+        self.navigationController?.navigationBar.backgroundColor = theme.AppBackgroundColor
+        self.tabBarController?.tabBar.backgroundColor = theme.AppBackgroundColor
     }
     
     // MARK: - Button Actions

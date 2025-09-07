@@ -3,6 +3,7 @@ import UIKit
 /// Custom UITableViewCell used for About Us, Notifications, and Inbox sections
 class AboutUsTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var viewBack: UIView!
     /// Main text label
     @IBOutlet weak var lblText: UILabel!
     
@@ -27,6 +28,13 @@ class AboutUsTableViewCell: UITableViewCell {
     /// Called after the view has been loaded from the nib
     override func awakeFromNib() {
         super.awakeFromNib()
+        applyTheme()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(applyTheme),
+            name: .themeChanged,
+            object: nil
+        )
     }
 
     /// Configures the cell’s selected state
@@ -73,6 +81,14 @@ class AboutUsTableViewCell: UITableViewCell {
         btnStar.isHidden = false
         stackViewLeading.constant = 5
         stackViewTrailing.constant = 12
+    }
+    
+    @objc func applyTheme() {
+        let theme = ThemeManager.shared.currentTheme
+        viewBack.backgroundColor = theme.AppBackgroundColor
+        lblText.textColor = theme.PrimaryFontColor
+        lblText2.textColor = theme.SecondaryFontColor
+        lblTimezone.textColor = theme.SecondaryFontColor
     }
     
     /// Action for star button click in Inbox

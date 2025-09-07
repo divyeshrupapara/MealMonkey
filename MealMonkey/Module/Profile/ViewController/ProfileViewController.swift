@@ -4,6 +4,8 @@ import UIKit
 class ProfileViewController: UIViewController {
     
     // MARK: - Outlets
+    @IBOutlet weak var viewMain: UIView!
+    @IBOutlet weak var viewScrollView: UIView!
     @IBOutlet weak var imgProfile: UIImageView! /// Profile image view
     @IBOutlet weak var txtName: UITextField! /// Text field for user's name
     @IBOutlet weak var txtEmail: UITextField! /// Text field for user's email
@@ -50,8 +52,36 @@ class ProfileViewController: UIViewController {
         loadUserData()
         
         btnSaveEnable(isEnabled: false)
+        applyTheme()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(applyTheme),
+            name: .themeChanged,
+            object: nil
+        )
     }
     
+    @objc func applyTheme() {
+        let theme = ThemeManager.shared.currentTheme
+        self.view.backgroundColor = theme.AppBackgroundColor
+        self.navigationController?.navigationBar.backgroundColor = theme.AppBackgroundColor
+        self.tabBarController?.tabBar.backgroundColor = theme.AppBackgroundColor
+        viewMain.backgroundColor = theme.AppBackgroundColor
+        viewScrollView.backgroundColor = theme.AppBackgroundColor
+        btnEditProfile.setTitleColor(theme.MainColor, for: .normal)
+        lblUserName.textColor = theme.PrimaryFontColor
+        btnSignOut.setTitleColor(theme.SecondaryFontColor, for: .normal)
+        txtName.backgroundColor = theme.TextFieldBackgroundColor
+        txtEmail.backgroundColor = theme.TextFieldBackgroundColor
+        txtAddress.backgroundColor = theme.TextFieldBackgroundColor
+        txtMobileNo.backgroundColor = theme.TextFieldBackgroundColor
+        txtName.textColor = theme.PrimaryFontColor
+        txtEmail.textColor = theme.PrimaryFontColor
+        txtAddress.textColor = theme.PrimaryFontColor
+        txtMobileNo.textColor = theme.PrimaryFontColor
+        btnSave.backgroundColor = theme.MainColor
+        btnSave.setTitleColor(theme.AppBackgroundColor, for: .normal)
+    }
     // MARK: - Load Data
     /// Fetches user data from CoreData and populates the UI
     func loadUserData() {

@@ -29,10 +29,27 @@ class OrderListViewController: UIViewController {
         setLeftAlignedTitleWithBack(L("orderlist_screen_title"), target: self, action: #selector(btnBackTapped))
         
         /// Register the custom table view cell
+        tblOrderList.showsVerticalScrollIndicator = false
+        tblOrderList.backgroundColor = .clear
         tblOrderList.register(UINib(nibName: Main.CellIdentifiers.OrderListTableViewCell, bundle: nil), forCellReuseIdentifier: Main.CellIdentifiers.OrderListTableViewCell)
         
         /// Reload table view to display orders
         tblOrderList.reloadData()
+        
+        applyTheme()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(applyTheme),
+            name: .themeChanged,
+            object: nil
+        )
+    }
+    
+    @objc func applyTheme() {
+        let theme = ThemeManager.shared.currentTheme
+        self.view.backgroundColor = theme.AppBackgroundColor
+        self.navigationController?.navigationBar.backgroundColor = theme.AppBackgroundColor
+        self.tabBarController?.tabBar.backgroundColor = theme.AppBackgroundColor
     }
     
     /// Loads orders for the currently logged-in user from Core Data

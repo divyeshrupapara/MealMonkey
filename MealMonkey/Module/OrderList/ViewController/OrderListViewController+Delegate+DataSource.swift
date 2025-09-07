@@ -19,6 +19,8 @@ extension OrderListViewController: UITableViewDataSource {
         
         // Configure cell with products and order number
         cell.orderListConfigureCell(products: orderProducts, orderNumber: indexPath.row + 1)
+        cell.backgroundColor = .clear
+        cell.contentView.backgroundColor = .clear
         
         return cell
     }

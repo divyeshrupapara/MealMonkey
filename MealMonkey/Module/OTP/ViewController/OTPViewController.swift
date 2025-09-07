@@ -5,11 +5,14 @@ import OTPFieldView
 class OTPViewController: UIViewController {
 
     // MARK: - IBOutlets
+    @IBOutlet weak var viewMain: UIView!
     @IBOutlet weak var lblOTPHeading: UILabel!
     @IBOutlet weak var otpTextFieldView: OTPFieldView!   // New OTP Field View
     @IBOutlet weak var lblSubTitle: UILabel!
     @IBOutlet weak var btnNext: UIButton!
     @IBOutlet weak var btnDidNotReceive: UIButton!
+
+    let theme = ThemeManager.shared.currentTheme
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -25,7 +28,7 @@ class OTPViewController: UIViewController {
         let part1 = NSAttributedString(
             string: L("otp_btnDidNotReceive_part1"),
             attributes: [
-                .foregroundColor: UIColor.labelSecondary,
+                .foregroundColor: theme.SecondaryFontColor,
                 .font: UIFont(name: "Helvetica", size: 14) ?? UIFont.systemFont(ofSize: 14)
             ]
         )
@@ -33,7 +36,7 @@ class OTPViewController: UIViewController {
         let part2 = NSAttributedString(
             string: L("otp_btnDidNotReceive_part2"),
             attributes: [
-                .foregroundColor: UIColor.buttonBackground,
+                .foregroundColor: theme.MainColor,
                 .font: UIFont(name: "Helvetica", size: 14) ?? UIFont.systemFont(ofSize: 14)
             ]
         )
@@ -49,6 +52,23 @@ class OTPViewController: UIViewController {
         
         // Style buttons
         viewStyle(cornerRadius: 28, borderWidth: 0, borderColor: .systemGray, textField: [btnNext])
+        
+        applyTheme()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(applyTheme),
+            name: .themeChanged,
+            object: nil
+        )
+    }
+    
+    @objc func applyTheme() {
+        viewMain.backgroundColor = theme.AppBackgroundColor
+        self.view.backgroundColor = theme.AppBackgroundColor
+        lblOTPHeading.textColor = theme.PrimaryFontColor
+        lblSubTitle.textColor = theme.SecondaryFontColor
+        btnNext.setTitleColor(theme.AppBackgroundColor, for: .normal)
+        btnNext.backgroundColor = theme.MainColor
     }
 
     // MARK: - OTP Setup

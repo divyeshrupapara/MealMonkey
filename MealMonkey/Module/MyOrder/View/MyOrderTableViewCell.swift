@@ -3,6 +3,7 @@ import UIKit
 /// UITableViewCell subclass to display individual orders in the "My Orders" screen
 class MyOrderTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var viewBack: UIView!
     /// Label to show the food name and quantity
     @IBOutlet weak var lblFoodNameXQty: UILabel!
     
@@ -11,7 +12,13 @@ class MyOrderTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code can be added here if needed
+        applyTheme()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(applyTheme),
+            name: .themeChanged,
+            object: nil
+        )
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -27,5 +34,12 @@ class MyOrderTableViewCell: UITableViewCell {
         
         // Calculate total price based on quantity and display it
         lblFoodPrice.text = "$ \(String(format: "%.2f", order.doubleProductPrice * Double(order.intProductQty ?? 0)))"
+    }
+    
+    @objc func applyTheme() {
+        let theme = ThemeManager.shared.currentTheme
+        viewBack.backgroundColor = theme.MoreCellBackgroundColor
+        lblFoodNameXQty.textColor = theme.PrimaryFontColor
+        lblFoodPrice.textColor = theme.PrimaryFontColor
     }
 }

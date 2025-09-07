@@ -26,6 +26,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     /// Restart tasks that were paused (or not yet started) when the scene was inactive.
     func sceneDidBecomeActive(_ scene: UIScene) {
         // Resume operations when scene becomes active.
+        NotificationCenter.default.post(name: .themeChanged, object: nil)
     }
 
     /// Called when the scene will move from active to inactive state.

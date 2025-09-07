@@ -4,6 +4,7 @@ import UIKit
 class NewPasswordViewController: UIViewController {
     
     // MARK: - Outlets
+    @IBOutlet weak var viewMain: UIView!
     @IBOutlet weak var lblNewPasswordHeading: UILabel!
     @IBOutlet weak var lblSubTitle: UILabel!
     @IBOutlet weak var txtNewPassword: UITextField!
@@ -34,6 +35,28 @@ class NewPasswordViewController: UIViewController {
         // Apply styling and padding
         viewStyle(cornerRadius: 28, borderWidth: 0, borderColor: .gray, textField: [txtNewPassword, txtConfiemPassword, btnNext])
         setPadding.setPadding(left: 34, right: 40, textfield: [txtNewPassword, txtConfiemPassword])
+        
+        applyTheme()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(applyTheme),
+            name: .themeChanged,
+            object: nil
+        )
+    }
+    
+    @objc func applyTheme() {
+        let theme = ThemeManager.shared.currentTheme
+        viewMain.backgroundColor = theme.AppBackgroundColor
+        self.view.backgroundColor = theme.AppBackgroundColor
+        lblNewPasswordHeading.textColor = theme.PrimaryFontColor
+        lblSubTitle.textColor = theme.SecondaryFontColor
+        txtNewPassword.textColor = theme.PrimaryFontColor
+        txtNewPassword.backgroundColor = theme.TextFieldBackgroundColor
+        txtConfiemPassword.textColor = theme.PrimaryFontColor
+        txtConfiemPassword.backgroundColor = theme.TextFieldBackgroundColor
+        btnNext.setTitleColor(theme.AppBackgroundColor, for: .normal)
+        btnNext.backgroundColor = theme.MainColor
     }
     
     // MARK: - Validation

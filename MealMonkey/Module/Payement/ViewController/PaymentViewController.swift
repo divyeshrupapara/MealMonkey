@@ -3,6 +3,7 @@ import UIKit
 /// ViewController to manage Payment Details and saved cards
 class PaymentViewController: UIViewController {
     
+    @IBOutlet weak var viewMain: UIView!
     @IBOutlet weak var lblCustomizeCard: UILabel!
     @IBOutlet weak var lblEnterCardTitle: UILabel!
     @IBOutlet weak var lblExpiryTitle: UILabel!
@@ -84,8 +85,17 @@ class PaymentViewController: UIViewController {
         
         // Setup table view for cards
         tblCard.showsVerticalScrollIndicator = false
+        tblCard.backgroundColor = .clear
         tblCard.register(UINib(nibName: Main.CellIdentifiers.CardTableViewCell, bundle: nil), forCellReuseIdentifier: Main.CellIdentifiers.CardTableViewCell)
         tblCard.reloadData()
+        
+        applyTheme()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(applyTheme),
+            name: .themeChanged,
+            object: nil
+        )
     }
     
     /// Called before the view appears
@@ -109,6 +119,36 @@ class PaymentViewController: UIViewController {
         }
         updateEmptyStateView()
         tblCard.reloadData()
+    }
+    
+    @objc func applyTheme() {
+        let theme = ThemeManager.shared.currentTheme
+        viewMain.backgroundColor = theme.AppBackgroundColor
+        viewAddCard2.backgroundColor = theme.AppBackgroundColor
+        viewEnterCard.backgroundColor = theme.AppBackgroundColor
+        self.view.backgroundColor = theme.AppBackgroundColor
+        self.navigationController?.navigationBar.backgroundColor = theme.AppBackgroundColor
+        self.tabBarController?.tabBar.backgroundColor = theme.AppBackgroundColor
+        lblEnterCardTitle.textColor = theme.PrimaryFontColor
+        lblExpiryTitle.textColor = theme.PrimaryFontColor
+        lblSwitchTitle.textColor = theme.PrimaryFontColor
+        lblCustomizeCard.textColor = theme.PrimaryFontColor
+        txtCardNumber.backgroundColor = theme.TextFieldBackgroundColor
+        txtCardNumber.textColor = theme.PrimaryFontColor
+        txtExpiryMonth.backgroundColor = theme.TextFieldBackgroundColor
+        txtExpiryMonth.textColor = theme.PrimaryFontColor
+        txtExpiryYear.backgroundColor = theme.TextFieldBackgroundColor
+        txtExpiryYear.textColor = theme.PrimaryFontColor
+        txtSecureCode.backgroundColor = theme.TextFieldBackgroundColor
+        txtSecureCode.textColor = theme.PrimaryFontColor
+        txtFirstName.backgroundColor = theme.TextFieldBackgroundColor
+        txtFirstName.textColor = theme.PrimaryFontColor
+        txtLastName.backgroundColor = theme.TextFieldBackgroundColor
+        txtLastName.textColor = theme.PrimaryFontColor
+        btnAddCard.setTitleColor(theme.AppBackgroundColor, for: .normal)
+        btnAddCard.backgroundColor = theme.MainColor
+        btnEnterCard.setTitleColor(theme.AppBackgroundColor, for: .normal)
+        btnEnterCard.backgroundColor = theme.MainColor
     }
     
     func addUpperCornerRadius(view: [UIView]) {

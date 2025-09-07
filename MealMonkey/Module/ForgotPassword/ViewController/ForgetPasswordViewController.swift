@@ -4,6 +4,7 @@ import UIKit
 class ForgetPasswordViewController: UIViewController {
     
     // MARK: - IBOutlets
+    @IBOutlet weak var viewMain: UIView!
     @IBOutlet weak var lblForgotPasswordHeading: UILabel!
     @IBOutlet weak var lblSubTitle: UILabel!
     @IBOutlet weak var txtEmail: UITextField!
@@ -28,6 +29,26 @@ class ForgetPasswordViewController: UIViewController {
         
         // Set padding for text fields
         setPadding(textfield: [txtEmail])
+        
+        applyTheme()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(applyTheme),
+            name: .themeChanged,
+            object: nil
+        )
+    }
+    
+    @objc func applyTheme() {
+        let theme = ThemeManager.shared.currentTheme
+        viewMain.backgroundColor = theme.AppBackgroundColor
+        self.view.backgroundColor = theme.AppBackgroundColor
+        lblForgotPasswordHeading.textColor = theme.PrimaryFontColor
+        lblSubTitle.textColor = theme.SecondaryFontColor
+        txtEmail.textColor = theme.PrimaryFontColor
+        txtEmail.backgroundColor = theme.TextFieldBackgroundColor
+        btnSend.setTitleColor(theme.AppBackgroundColor, for: .normal)
+        btnSend.backgroundColor = theme.MainColor
     }
     
     // MARK: - Navigation

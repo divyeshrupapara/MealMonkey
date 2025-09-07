@@ -13,7 +13,8 @@ extension MyOrderViewController: UITableViewDataSource {
         
         // Dequeue reusable cell
         let cell: MyOrderTableViewCell = tableView.dequeueReusableCell(withIdentifier: Main.CellIdentifiers.MyOrderTableViewCell, for: indexPath) as! MyOrderTableViewCell
-        
+        cell.backgroundColor = .clear
+        cell.contentView.backgroundColor = .clear
         // Configure cell with the product order
         cell.myOrderConfigureCell(order: ordersProducts[indexPath.row])
         

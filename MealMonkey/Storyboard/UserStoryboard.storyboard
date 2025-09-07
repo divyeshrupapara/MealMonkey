@@ -258,6 +258,8 @@
                         <outlet property="lblSubTitle" destination="aTl-rU-ffd" id="wwu-Fl-cSL"/>
                         <outlet property="txtEmail" destination="ugK-Uv-b8o" id="DZN-hg-TNm"/>
                         <outlet property="txtPassword" destination="fhz-p2-32r" id="5qE-Ee-fXG"/>
+                        <outlet property="viewMain" destination="8Mk-Vw-RqK" id="yLB-I1-qfF"/>
+                        <outlet property="viewScrollView" destination="Wz1-SZ-UW5" id="F0K-Mi-g8a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z3d-vD-oTa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -536,6 +538,8 @@
                         <outlet property="txtMobileNo" destination="DZJ-et-a2h" id="5JS-8N-JeU"/>
                         <outlet property="txtName" destination="QVa-Yy-cxv" id="bRf-wf-Ymu"/>
                         <outlet property="txtPassword" destination="Cm3-A1-dcJ" id="th7-p3-f94"/>
+                        <outlet property="viewMain" destination="F8N-rT-A42" id="GWe-6S-yx3"/>
+                        <outlet property="viewScrollView" destination="hNQ-0g-9iU" id="H8o-Jv-8se"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="if2-xq-2w3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -628,6 +632,7 @@ link to  create a new password via email</string>
                         <outlet property="lblForgotPasswordHeading" destination="dFW-6J-kIy" id="Cox-UP-14I"/>
                         <outlet property="lblSubTitle" destination="cQ6-Rd-crr" id="08k-QE-4yS"/>
                         <outlet property="txtEmail" destination="hkY-5W-XsD" id="vdW-yO-a50"/>
+                        <outlet property="viewMain" destination="rcA-fZ-KZ9" id="BNc-eQ-qzt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LhO-cg-fNt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -776,6 +781,7 @@ link to  create a new password via email</string>
                         <outlet property="lblSubTitle" destination="zDW-Hq-qxf" id="8Sg-ID-9Mw"/>
                         <outlet property="txtConfiemPassword" destination="6Ek-4N-mcg" id="Q71-iw-0nU"/>
                         <outlet property="txtNewPassword" destination="jOc-dj-UAd" id="Z8f-qQ-KaC"/>
+                        <outlet property="viewMain" destination="eoA-Ew-zdu" id="HFe-a1-Wwr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VHQ-MH-y9s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -909,6 +915,8 @@ link to  create a new password via email</string>
                         <outlet property="lblDescription" destination="yG0-1S-xjP" id="8i8-fe-qos"/>
                         <outlet property="lblTitle" destination="PZ7-H8-6mM" id="v3F-jL-zEK"/>
                         <outlet property="pageControl" destination="LEU-1N-XOz" id="LNa-L6-vjD"/>
+                        <outlet property="viewMain" destination="Mg5-Jk-59B" id="tJ5-XX-1ZB"/>
+                        <outlet property="viewScrollView" destination="AMg-R6-oQj" id="ovK-ZS-rlp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pkp-ac-UbQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1035,6 +1043,7 @@ continue to reset your password</string>
                         <outlet property="lblOTPHeading" destination="h0i-Oc-8hb" id="5rD-8Q-zPJ"/>
                         <outlet property="lblSubTitle" destination="0eb-3S-Aey" id="bVc-VQ-gvP"/>
                         <outlet property="otpTextFieldView" destination="PHo-k7-3Uq" id="OmA-cM-Xg8"/>
+                        <outlet property="viewMain" destination="Gt4-nH-fA6" id="Gzj-cj-AHE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hk3-kv-tcU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

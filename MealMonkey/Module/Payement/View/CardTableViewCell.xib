@@ -125,6 +125,8 @@
                 <outlet property="btnCardDelete" destination="CFz-Oo-Hin" id="Muw-CM-MSI"/>
                 <outlet property="imgCardCategory" destination="UQC-oV-Pby" id="JFc-bK-Owv"/>
                 <outlet property="lblCardNumber" destination="5LB-YV-jWP" id="auH-Zb-BGJ"/>
+                <outlet property="viewBack" destination="GiK-lw-LtT" id="AFW-bz-Crb"/>
+                <outlet property="viewHide" destination="CIj-MJ-XWb" id="Ppr-EJ-cUb"/>
             </connections>
             <point key="canvasLocation" x="141.98473282442748" y="91.549295774647888"/>
         </tableViewCell>

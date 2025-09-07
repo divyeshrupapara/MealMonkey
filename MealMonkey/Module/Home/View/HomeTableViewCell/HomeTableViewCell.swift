@@ -40,6 +40,13 @@ class HomeTableViewCell: UITableViewCell {
     // MARK: - Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
+        applyTheme()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(applyTheme),
+            name: .themeChanged,
+            object: nil
+        )
         // Register different collection view cells
         collectionViewHome.register(UINib(nibName: Main.CellIdentifiers.HomeCategoryCollectionViewCell, bundle: nil),
                                     forCellWithReuseIdentifier: Main.CellIdentifiers.HomeCategoryCollectionViewCell)
@@ -49,10 +56,17 @@ class HomeTableViewCell: UITableViewCell {
                                     forCellWithReuseIdentifier: Main.CellIdentifiers.MostPopularCollectionViewCell)
         collectionViewHome.register(UINib(nibName: Main.CellIdentifiers.RecentItemsCollectionViewCell , bundle: nil),
                                     forCellWithReuseIdentifier: Main.CellIdentifiers.RecentItemsCollectionViewCell)
+        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
+    
+    @objc func applyTheme() {
+        let theme = ThemeManager.shared.currentTheme
+        lblCollectionViewTitle.textColor = theme.PrimaryFontColor
+        btnViewAll.setTitleColor(theme.MainColor, for: .normal)
     }
     
     // MARK: - IBAction

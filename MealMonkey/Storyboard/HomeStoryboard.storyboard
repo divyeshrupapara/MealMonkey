@@ -78,6 +78,7 @@
                         <outlet property="tblBackView" destination="SeF-M3-7Kp" id="TxY-Gm-fC0"/>
                         <outlet property="tblCategory" destination="Wdc-jR-OQr" id="o6V-OV-vZR"/>
                         <outlet property="txtSearchFood" destination="T0S-ZJ-4Ht" id="lMl-04-Tih"/>
+                        <outlet property="viewMain" destination="mWv-3d-bJk" id="V0B-2O-N6s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -152,6 +153,7 @@ meals and more!</string>
                         <outlet property="btnCheckOffer" destination="3w0-i0-HEb" id="eY7-qf-jpc"/>
                         <outlet property="lblSubTitle" destination="fFh-2R-AIq" id="HJh-5J-X4K"/>
                         <outlet property="tblOffers" destination="ip6-VG-91x" id="9tq-Oe-Pm5"/>
+                        <outlet property="viewMain" destination="nno-kW-9na" id="Xvm-3e-My5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hBz-WX-WKL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -220,7 +222,6 @@ meals and more!</string>
                                                 <rect key="frame" x="337.66666666666669" y="0.0" width="11.333333333333314" height="45"/>
                                             </imageView>
                                         </subviews>
-                                        <color key="backgroundColor" name="ButtonTextColor"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="Cjl-iO-AYP" secondAttribute="trailing" constant="2" id="2ed-2e-w8L"/>
                                             <constraint firstAttribute="bottom" secondItem="ifA-5X-jcf" secondAttribute="bottom" id="8pD-AO-XTV"/>
@@ -286,6 +287,7 @@ meals and more!</string>
                         <outlet property="lblDeleveringTo" destination="lTD-nK-5Dy" id="L5M-1s-w6M"/>
                         <outlet property="tblHome" destination="3ki-it-XS5" id="fXn-bJ-oYt"/>
                         <outlet property="txtSearchFood" destination="MhY-1B-HJa" id="X25-Fg-f3d"/>
+                        <outlet property="viewMain" destination="cyS-Xr-b6B" id="Zdq-db-kaf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DAi-Wt-oFt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -498,6 +500,8 @@ meals and more!</string>
                         <outlet property="txtEmail" destination="bKI-mo-ZeY" id="vrV-vk-Mqk"/>
                         <outlet property="txtMobileNo" destination="LrL-bq-N4Z" id="zyI-CY-jsy"/>
                         <outlet property="txtName" destination="nbQ-FU-sfb" id="JbJ-Tr-Czb"/>
+                        <outlet property="viewMain" destination="AUQ-JQ-ADY" id="Dvs-WW-TSY"/>
+                        <outlet property="viewScrollView" destination="gxs-qi-KSx" id="zcz-qf-XD7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wE2-wa-G3l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -534,7 +538,7 @@ meals and more!</string>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qaa-RH-xfc"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="ButtonTextColor"/>
                         <constraints>
                             <constraint firstItem="EPK-q7-BML" firstAttribute="top" secondItem="qaa-RH-xfc" secondAttribute="top" id="17a-3V-HMd"/>
                             <constraint firstItem="EPK-q7-BML" firstAttribute="leading" secondItem="qaa-RH-xfc" secondAttribute="leading" id="9hm-L9-hwo"/>
@@ -545,6 +549,7 @@ meals and more!</string>
                     <navigationItem key="navigationItem" id="eRO-sX-IuH"/>
                     <connections>
                         <outlet property="tblMenu" destination="hAi-qJ-zCg" id="RZ2-vO-aib"/>
+                        <outlet property="viewMain" destination="EPK-q7-BML" id="ar6-cD-EZU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="srk-zg-mjK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

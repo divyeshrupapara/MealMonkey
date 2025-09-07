@@ -18,6 +18,13 @@ class MenuTableViewCell: UITableViewCell {
     /// Called after the cell has been loaded from the nib
     override func awakeFromNib() {
         super.awakeFromNib()
+        applyTheme()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(applyTheme),
+            name: .themeChanged,
+            object: nil
+        )
     }
     
     /// Configure the appearance of the cell when selected
@@ -34,5 +41,11 @@ class MenuTableViewCell: UITableViewCell {
         imgCategory.image = UIImage(named: category.imgCategory)
         lblCategoryTitle.text = category.strCategoryName
         lblItems.text = "\(category.intItems) Items"
+    }
+    
+    @objc func applyTheme() {
+        let theme = ThemeManager.shared.currentTheme
+        lblCategoryTitle.textColor = theme.PrimaryFontColor
+        lblItems.textColor = theme.SecondaryFontColor
     }
 }

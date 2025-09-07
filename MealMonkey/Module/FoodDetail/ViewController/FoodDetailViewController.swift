@@ -6,6 +6,7 @@ import NVActivityIndicatorView
 class FoodDetailViewController: UIViewController {
     
     // MARK: - IBOutlets
+    @IBOutlet weak var viewAddToCartBack: UIView!
     @IBOutlet weak var lblPerPortionTitle: UILabel!
     @IBOutlet weak var lblDescTitle: UILabel!
     @IBOutlet weak var lblCustomizeOrderTitle: UILabel!
@@ -125,10 +126,53 @@ class FoodDetailViewController: UIViewController {
         
         // Fill stars based on rating
         fillStars(for: product?.floatProductRating ?? 0.0, in: stackStar)
+        
+        applyTheme()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(applyTheme),
+            name: .themeChanged,
+            object: nil
+        )
     }
     
     override func viewWillAppear(_ animated: Bool) {
         checkWishlistStatus()
+    }
+    
+    @objc func applyTheme() {
+        let theme = ThemeManager.shared.currentTheme
+        viewDetail.backgroundColor = theme.AppBackgroundColor
+        viewAddToCartBack.backgroundColor = theme.AppBackgroundColor
+        self.view.backgroundColor = theme.AppBackgroundColor
+        self.navigationController?.navigationBar.backgroundColor = theme.AppBackgroundColor
+        self.tabBarController?.tabBar.backgroundColor = theme.AppBackgroundColor
+        lblFoodName.textColor = theme.PrimaryFontColor
+        lblRating.textColor = theme.MainColor
+        lblFoodPrice.textColor = theme.PrimaryFontColor
+        lblPerPortionTitle.textColor = theme.PrimaryFontColor
+        lblDescTitle.textColor = theme.PrimaryFontColor
+        lblFoodDescription.textColor = theme.PrimaryFontColor
+        lblCustomizeOrderTitle.textColor = theme.PrimaryFontColor
+        lblNoOfPortionTitle.textColor = theme.PrimaryFontColor
+        lblTotalPriceTitle.textColor = theme.PrimaryFontColor
+        lblTotalPrice.textColor = theme.PrimaryFontColor
+        lblQuantity.textColor = theme.PrimaryFontColor
+        lblQuantity.layer.borderColor = theme.MainColor.cgColor
+        btnAddToCartTitle.setTitleColor(theme.AppBackgroundColor, for: .normal)
+        btnPlusQty.setTitleColor(theme.AppBackgroundColor, for: .normal)
+        btnMinusQty.setTitleColor(theme.AppBackgroundColor, for: .normal)
+        btnAddToCartTitle.backgroundColor = theme.MainColor
+        btnMinusQty.backgroundColor = theme.MainColor
+        btnPlusQty.backgroundColor = theme.MainColor
+        btnProtion.setTitleColor(theme.PrimaryFontColor, for: .normal)
+        btnProtion1.setTitleColor(theme.PrimaryFontColor, for: .normal)
+        btnProtion2.setTitleColor(theme.PrimaryFontColor, for: .normal)
+        btnProtion3.setTitleColor(theme.PrimaryFontColor, for: .normal)
+        btnIngredients.setTitleColor(theme.PrimaryFontColor, for: .normal)
+        btnIngredients1.setTitleColor(theme.PrimaryFontColor, for: .normal)
+        btnIngredients2.setTitleColor(theme.PrimaryFontColor, for: .normal)
+        btnIngredients3.setTitleColor(theme.PrimaryFontColor, for: .normal)
     }
     
     /// Check and update wishlist button status

@@ -29,6 +29,8 @@ extension OffersViewController: UITableViewDataSource {
         
         // Configure the cell with offer data
         cell.offerConfigureCell(offer: arrOffer[indexPath.row])
+        cell.contentView.backgroundColor = .clear
+        cell.backgroundColor = .clear
         return cell
     }
 }

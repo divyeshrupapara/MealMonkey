@@ -29,6 +29,8 @@ extension CheckoutViewController: UITableViewDataSource {
         case 0:
             // Cash on Delivery cell
             let cell = tableView.dequeueReusableCell(withIdentifier: Main.CellIdentifiers.CashOnDeliveryTableViewCell, for: indexPath) as! CashOnDeliveryTableViewCell
+            cell.backgroundColor = .clear
+            cell.contentView.backgroundColor = .clear
             let isSelected = (selectedPaymentIndex == indexPath.row)
             let imageName = isSelected ? "ic_circle_fill" : "ic_circle"
             cell.btnSelectCOD.setImage(UIImage(named: imageName), for: .normal)
@@ -37,6 +39,8 @@ extension CheckoutViewController: UITableViewDataSource {
         case 1:
             // UPI cell
             let cell = tableView.dequeueReusableCell(withIdentifier: Main.CellIdentifiers.UPITableViewCell, for: indexPath) as! UPITableViewCell
+            cell.backgroundColor = .clear
+            cell.contentView.backgroundColor = .clear
             let isSelected = (selectedPaymentIndex == indexPath.row)
             let imageName = isSelected ? "ic_circle_fill" : "ic_circle"
             cell.btnSelectUPI.setImage(UIImage(named: imageName), for: .normal)
@@ -45,6 +49,8 @@ extension CheckoutViewController: UITableViewDataSource {
         default:
             // Saved card cells
             let cell = tableView.dequeueReusableCell(withIdentifier: Main.CellIdentifiers.AddCardTableViewCell, for: indexPath) as! AddCardTableViewCell
+            cell.backgroundColor = .clear
+            cell.contentView.backgroundColor = .clear
             let cardIndex = indexPath.row - 2
             if cardIndex < app.arrCardData.count {
                 cell.CheckoutConfigureCell(card: app.arrCardData[cardIndex])

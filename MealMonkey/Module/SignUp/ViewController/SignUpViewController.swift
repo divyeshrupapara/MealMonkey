@@ -4,6 +4,8 @@ import UIKit
 class SignUpViewController: UIViewController {
     
     // MARK: - IBOutlets
+    @IBOutlet weak var viewMain: UIView!
+    @IBOutlet weak var viewScrollView: UIView!
     @IBOutlet weak var lblSignUpHeading: UILabel!
     @IBOutlet weak var lblSubTitle: UILabel!
     @IBOutlet weak var btnLogin: UIButton!
@@ -19,6 +21,7 @@ class SignUpViewController: UIViewController {
     
     // MARK: - Properties
     var isPasswordVisible: Bool = false
+    let theme = ThemeManager.shared.currentTheme
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -42,7 +45,7 @@ class SignUpViewController: UIViewController {
         let part1 = NSAttributedString(
             string: L("signup_btnLogin_part1"),
             attributes: [
-                .foregroundColor: UIColor.labelSecondary,
+                .foregroundColor: theme.SecondaryFontColor,
                 .font: UIFont(name: "Helvetica", size: 14) ?? UIFont.systemFont(ofSize: 14)
             ]
         )
@@ -50,7 +53,7 @@ class SignUpViewController: UIViewController {
         let part2 = NSAttributedString(
             string: L("signup_btnLogin_part2"),
             attributes: [
-                .foregroundColor: UIColor.buttonBackground,
+                .foregroundColor: theme.MainColor,
                 .font: UIFont(name: "Helvetica", size: 14) ?? UIFont.systemFont(ofSize: 14)
             ]
         )
@@ -74,6 +77,36 @@ class SignUpViewController: UIViewController {
         // Set paddings for textfields
         setPadding.setPadding(left: 34, right: 34, textfield: [txtName, txtEmail, txtMobileNo, txtAddress])
         setPadding.setPadding(left: 34, right: 40, textfield: [txtPassword, txtConfirmPassword])
+        
+        applyTheme()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(applyTheme),
+            name: .themeChanged,
+            object: nil
+        )
+    }
+    
+    @objc func applyTheme() {
+        viewMain.backgroundColor = theme.AppBackgroundColor
+        viewScrollView.backgroundColor = theme.AppBackgroundColor
+        self.view.backgroundColor = theme.AppBackgroundColor
+        lblSignUpHeading.textColor = theme.PrimaryFontColor
+        lblSubTitle.textColor = theme.SecondaryFontColor
+        txtName.textColor = theme.PrimaryFontColor
+        txtName.backgroundColor = theme.TextFieldBackgroundColor
+        txtEmail.textColor = theme.PrimaryFontColor
+        txtEmail.backgroundColor = theme.TextFieldBackgroundColor
+        txtMobileNo.textColor = theme.PrimaryFontColor
+        txtMobileNo.backgroundColor = theme.TextFieldBackgroundColor
+        txtAddress.textColor = theme.PrimaryFontColor
+        txtAddress.backgroundColor = theme.TextFieldBackgroundColor
+        txtPassword.textColor = theme.PrimaryFontColor
+        txtPassword.backgroundColor = theme.TextFieldBackgroundColor
+        txtConfirmPassword.textColor = theme.PrimaryFontColor
+        txtConfirmPassword.backgroundColor = theme.TextFieldBackgroundColor
+        btnSignUp.setTitleColor(theme.AppBackgroundColor, for: .normal)
+        btnSignUp.backgroundColor = theme.MainColor
     }
     
     // MARK: - Validation Methods

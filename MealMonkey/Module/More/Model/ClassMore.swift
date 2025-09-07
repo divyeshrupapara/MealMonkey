@@ -47,7 +47,10 @@ class ClassMore: NSObject {
                       intTag: 5),
             ClassMore(strMoreName: L("more_change_language"),
                       imgMenu: "ic_lang_change",
-                      intTag: 6) // New row for language change
+                      intTag: 6),
+            ClassMore(strMoreName: "Change Theme",
+                      imgMenu: "ic_theme",
+                      intTag: 7)
         ]
     }
 }

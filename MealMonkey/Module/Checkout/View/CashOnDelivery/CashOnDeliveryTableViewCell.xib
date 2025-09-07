@@ -67,6 +67,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="btnSelectCOD" destination="Wd0-TT-cPL" id="alc-qR-ePI"/>
+                <outlet property="lblCOD" destination="NkZ-Ig-RA7" id="t0X-uw-jdR"/>
                 <outlet property="viewCell" destination="CsG-yr-HB4" id="ZnV-Ma-3qS"/>
             </connections>
             <point key="canvasLocation" x="89.312977099236633" y="26.760563380281692"/>

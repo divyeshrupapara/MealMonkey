@@ -7,6 +7,7 @@ class AddressViewController: UIViewController {
     
     // MARK: - IBOutlets
     
+    @IBOutlet weak var viewMain: UIView!
     /// Map view displaying user location and pins
     @IBOutlet weak var mapView: MKMapView!
     
@@ -60,6 +61,25 @@ class AddressViewController: UIViewController {
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         mapView.showsUserLocation = true
+        
+        applyTheme()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(applyTheme),
+            name: .themeChanged,
+            object: nil
+        )
+    }
+    
+    @objc func applyTheme() {
+        let theme = ThemeManager.shared.currentTheme
+        viewMain.backgroundColor = theme.AppBackgroundColor
+        self.view.backgroundColor = theme.AppBackgroundColor
+        self.navigationController?.navigationBar.backgroundColor = theme.AppBackgroundColor
+        self.tabBarController?.tabBar.backgroundColor = theme.AppBackgroundColor
+        txtSearchAddress.textColor = theme.PrimaryFontColor
+        txtSearchAddress.backgroundColor = theme.TextFieldBackgroundColor
+        btnSavedAddress.setTitleColor(theme.PrimaryFontColor, for: .normal)
     }
     
     // MARK: - Map Pin Handling

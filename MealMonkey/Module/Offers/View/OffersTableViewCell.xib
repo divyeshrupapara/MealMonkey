@@ -105,6 +105,7 @@
                 <outlet property="lblOfferTitle" destination="wpu-cc-3e4" id="Emp-bo-U3e"/>
                 <outlet property="lblRater" destination="72F-x5-QPd" id="tg3-uX-nZt"/>
                 <outlet property="lblRating" destination="x4C-bJ-U6v" id="IUj-kM-RgV"/>
+                <outlet property="viewMain" destination="aHr-CY-xrP" id="9uL-jd-oWw"/>
             </connections>
             <point key="canvasLocation" x="142.74809160305344" y="102.8169014084507"/>
         </tableViewCell>

@@ -5,6 +5,8 @@ class LoginViewController: UIViewController {
     
     // MARK: - IBOutlets
     
+    @IBOutlet weak var viewMain: UIView!
+    @IBOutlet weak var viewScrollView: UIView!
     @IBOutlet weak var lblLoginHeading: UILabel!
     @IBOutlet weak var lblSubTitle: UILabel!
     @IBOutlet weak var lblOrLoginWith: UILabel!
@@ -21,6 +23,7 @@ class LoginViewController: UIViewController {
     
     /// Tracks the password visibility state
     var isPasswordVisible: Bool = false
+    let theme = ThemeManager.shared.currentTheme
     
     // MARK: - Lifecycle Methods
     
@@ -45,7 +48,7 @@ class LoginViewController: UIViewController {
         let part1 = NSAttributedString(
             string: L("login_btnSignUp_part1"),
             attributes: [
-                .foregroundColor: UIColor.labelSecondary,
+                .foregroundColor: theme.SecondaryFontColor,
                 .font: UIFont(name: "Helvetica", size: 14) ?? UIFont.systemFont(ofSize: 14)
             ]
         )
@@ -53,7 +56,7 @@ class LoginViewController: UIViewController {
         let part2 = NSAttributedString(
             string: L("login_btnSignUp_part2"),
             attributes: [
-                .foregroundColor: UIColor.buttonBackground,
+                .foregroundColor: theme.MainColor,
                 .font: UIFont(name: "Helvetica", size: 14) ?? UIFont.systemFont(ofSize: 14)
             ]
         )
@@ -72,12 +75,36 @@ class LoginViewController: UIViewController {
         // Set padding for text fields
         setPadding.setPadding(left: 34, right: 34, textfield: [txtEmail])
         setPadding.setPadding(left: 34, right: 40, textfield: [txtPassword])
+        
+        applyTheme()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(applyTheme),
+            name: .themeChanged,
+            object: nil
+        )
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
         self.tabBarController?.tabBar.isHidden = true
+    }
+    
+    @objc func applyTheme() {
+        viewMain.backgroundColor = theme.AppBackgroundColor
+        self.view.backgroundColor = theme.AppBackgroundColor
+        viewScrollView.backgroundColor = theme.AppBackgroundColor
+        lblLoginHeading.textColor = theme.PrimaryFontColor
+        lblSubTitle.textColor = theme.SecondaryFontColor
+        lblOrLoginWith.textColor = theme.SecondaryFontColor
+        txtEmail.textColor = theme.PrimaryFontColor
+        txtEmail.backgroundColor = theme.TextFieldBackgroundColor
+        txtPassword.textColor = theme.PrimaryFontColor
+        txtPassword.backgroundColor = theme.TextFieldBackgroundColor
+        btnLogin.setTitleColor(theme.AppBackgroundColor, for: .normal)
+        btnLogin.backgroundColor = theme.MainColor
+        btnForgetPassword.setTitleColor(theme.SecondaryFontColor, for: .normal)
     }
     
     // MARK: - Validation Methods

@@ -24,7 +24,8 @@ extension AboutUsViewController: UITableViewDataSource {
         
         // Dequeue reusable AboutUsTableViewCell
         let cell: AboutUsTableViewCell = tableView.dequeueReusableCell(withIdentifier: Main.CellIdentifiers.AboutUsTableViewCell, for: indexPath) as! AboutUsTableViewCell
-        
+        cell.backgroundColor = .clear
+        cell.contentView.backgroundColor = .clear
         // Configure cell based on current page type
         switch objPageType {
         case .AboutUs:

@@ -4,6 +4,7 @@ import UIKit
 class HomeViewController: UIViewController {
     
     // MARK: - IBOutlets
+    @IBOutlet weak var viewMain: UIView!
     @IBOutlet weak var lblDeleveringTo: UILabel!
     @IBOutlet weak var txtSearchFood: UITextField!       /// Search bar for food
     @IBOutlet weak var tblHome: UITableView!            /// Main table view displaying home content
@@ -33,6 +34,7 @@ class HomeViewController: UIViewController {
         
         /// Configure table view
         tblHome.showsVerticalScrollIndicator = false
+        tblHome.backgroundColor = .clear
         tblHome.register(UINib(nibName: Main.CellIdentifiers.HomeTableViewCell, bundle: nil), forCellReuseIdentifier: Main.CellIdentifiers.HomeTableViewCell)
         
         /// Fetch products from API
@@ -43,6 +45,14 @@ class HomeViewController: UIViewController {
         
         /// Load current user data
         loadUserData()
+        
+        applyTheme()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(applyTheme),
+            name: .themeChanged,
+            object: nil
+        )
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -61,6 +71,19 @@ class HomeViewController: UIViewController {
         if let savedAddress = UserDefaults.standard.string(forKey: "lastSelectedAddress") {
             btnHomeLocation.setTitle(savedAddress, for: .normal)
         }
+    }
+    
+    @objc func applyTheme() {
+        let theme = ThemeManager.shared.currentTheme
+        self.view.backgroundColor = theme.AppBackgroundColor
+        self.navigationController?.navigationBar.backgroundColor = theme.AppBackgroundColor
+        self.tabBarController?.tabBar.backgroundColor = theme.AppBackgroundColor
+        viewMain.backgroundColor = theme.AppBackgroundColor
+        lblDeleveringTo.textColor = theme.PlaceholderColor
+        btnHomeLocation.setTitleColor(theme.SecondaryFontColor, for: .normal)
+        btnHomeLocation.backgroundColor = theme.AppBackgroundColor
+        txtSearchFood.backgroundColor = theme.TextFieldBackgroundColor
+        txtSearchFood.textColor = theme.PrimaryFontColor
     }
     
     // MARK: - User Data

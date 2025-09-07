@@ -65,19 +65,19 @@
                                                     <fragment content="Meal Monkey">
                                                         <attributes>
                                                             <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                            <font key="NSFont" metaFont="system" size="11"/>
+                                                            <font key="NSFont" metaFont="smallSystem"/>
                                                         </attributes>
                                                     </fragment>
                                                     <fragment content=" ">
                                                         <attributes>
                                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                            <font key="NSFont" metaFont="system" size="11"/>
+                                                            <font key="NSFont" metaFont="smallSystem"/>
                                                         </attributes>
                                                     </fragment>
                                                     <fragment content="•">
                                                         <attributes>
                                                             <color key="NSColor" red="0.91764705882352937" green="0.41960784313725491" blue="0.19215686274509802" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                            <font key="NSFont" metaFont="system" size="11"/>
+                                                            <font key="NSFont" metaFont="smallSystem"/>
                                                         </attributes>
                                                     </fragment>
                                                 </attributedString>
@@ -121,6 +121,7 @@
                 <outlet property="btnStar" destination="UBi-ua-Elh" id="EBI-e9-HLM"/>
                 <outlet property="imgDessert" destination="cUu-h3-epX" id="GWV-a7-ZJ0"/>
                 <outlet property="lblDessertTitle" destination="kQ0-BH-mYW" id="wdn-6P-d47"/>
+                <outlet property="lblMealMonkey" destination="2iD-IA-M7D" id="tEG-ig-uL1"/>
                 <outlet property="lblRating" destination="lwu-gL-qgd" id="PAb-m3-nYs"/>
                 <outlet property="lblText" destination="Qkb-0A-Lxg" id="ULJ-ds-3y3"/>
             </connections>

@@ -101,6 +101,7 @@
                 <outlet property="stackViewLeading" destination="ZW5-bw-ax6" id="Utm-VQ-tch"/>
                 <outlet property="stackViewTrailing" destination="qmV-DH-3SX" id="vSr-Dd-DYd"/>
                 <outlet property="timezoneWidth" destination="jWz-KY-KXy" id="gNP-aJ-De0"/>
+                <outlet property="viewBack" destination="9Ha-3B-zkq" id="SrH-l5-jhs"/>
             </connections>
             <point key="canvasLocation" x="264.8854961832061" y="8.4507042253521139"/>
         </tableViewCell>

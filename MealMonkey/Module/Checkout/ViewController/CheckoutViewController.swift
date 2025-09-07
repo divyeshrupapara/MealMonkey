@@ -122,9 +122,19 @@ class CheckoutViewController: UIViewController {
         viewStyle(cornerRadius: 28, borderWidth: 0, borderColor: .systemGray, textField: [btnSendOrder])
         tblCheckOutCard.backgroundColor = .clear
         tblCheckOutCard.showsVerticalScrollIndicator = false
+        tblCheckOutCard.showsVerticalScrollIndicator = false
+        tblCheckOutCard.backgroundColor = .clear
         tblCheckOutCard.register(UINib(nibName: Main.CellIdentifiers.CashOnDeliveryTableViewCell, bundle: nil), forCellReuseIdentifier: Main.CellIdentifiers.CashOnDeliveryTableViewCell)
         tblCheckOutCard.register(UINib(nibName: Main.CellIdentifiers.AddCardTableViewCell, bundle: nil), forCellReuseIdentifier: Main.CellIdentifiers.AddCardTableViewCell)
         tblCheckOutCard.register(UINib(nibName: Main.CellIdentifiers.UPITableViewCell, bundle: nil), forCellReuseIdentifier: Main.CellIdentifiers.UPITableViewCell)
+        
+        applyTheme()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(applyTheme),
+            name: .themeChanged,
+            object: nil
+        )
     }
     
     /// Called before the view appears on screen
@@ -155,7 +165,55 @@ class CheckoutViewController: UIViewController {
         /// Refresh table
         tblCheckOutCard.reloadData()
     }
-
+    
+    @objc func applyTheme() {
+        let theme = ThemeManager.shared.currentTheme
+        viewEnterCard.backgroundColor = theme.AppBackgroundColor
+        viewAddCard2.backgroundColor = theme.AppBackgroundColor
+        viewThankYou.backgroundColor = theme.AppBackgroundColor
+        viewThankYou2.backgroundColor = theme.AppBackgroundColor
+        self.view.backgroundColor = theme.AppBackgroundColor
+        self.navigationController?.navigationBar.backgroundColor = theme.AppBackgroundColor
+        self.tabBarController?.tabBar.backgroundColor = theme.AppBackgroundColor
+        lblDeliveryAddress.textColor = theme.PrimaryFontColor
+        lblAddress.textColor = theme.PrimaryFontColor
+        lblPaymentMethodTitle.textColor = theme.PrimaryFontColor
+        lblSubTotalTitle.textColor = theme.PrimaryFontColor
+        lblSubTotal.textColor = theme.PrimaryFontColor
+        lblDeliveryCostTitle.textColor = theme.PrimaryFontColor
+        lblDeliveryCost.textColor = theme.PrimaryFontColor
+        lblDiscountTitle.textColor = theme.PrimaryFontColor
+        lblDiscount.textColor = theme.PrimaryFontColor
+        lblTotalTitle.textColor = theme.PrimaryFontColor
+        lblTotal.textColor = theme.PrimaryFontColor
+        btnSendOrder.setTitleColor(theme.AppBackgroundColor, for: .normal)
+        btnSendOrder.backgroundColor = theme.MainColor
+        btnAddCard.setTitleColor(theme.MainColor, for: .normal)
+        btnChangeAddress.setTitleColor(theme.MainColor, for: .normal)
+        lblAddCardHeader.textColor = theme.PrimaryFontColor
+        lblExpiryTitle.textColor = theme.PrimaryFontColor
+        lblSwitchTitle.textColor = theme.PrimaryFontColor
+        txtCardNumber.backgroundColor = theme.TextFieldBackgroundColor
+        txtCardNumber.textColor = theme.PrimaryFontColor
+        txtExpiryMonth.backgroundColor = theme.TextFieldBackgroundColor
+        txtExpiryMonth.textColor = theme.PrimaryFontColor
+        txtExpiryYear.backgroundColor = theme.TextFieldBackgroundColor
+        txtExpiryYear.textColor = theme.PrimaryFontColor
+        txtSecureCode.backgroundColor = theme.TextFieldBackgroundColor
+        txtSecureCode.textColor = theme.PrimaryFontColor
+        txtFirstName.backgroundColor = theme.TextFieldBackgroundColor
+        txtFirstName.textColor = theme.PrimaryFontColor
+        txtLastName.backgroundColor = theme.TextFieldBackgroundColor
+        txtLastName.textColor = theme.PrimaryFontColor
+        btnEnterCard.setTitleColor(theme.AppBackgroundColor, for: .normal)
+        btnEnterCard.backgroundColor = theme.MainColor
+        lblThankYouTitle.textColor = theme.PrimaryFontColor
+        lblSubTitle.textColor = theme.PrimaryFontColor
+        lblSubDesc.textColor = theme.PrimaryFontColor
+        btnTrackYourOrder.setTitleColor(theme.AppBackgroundColor, for: .normal)
+        btnTrackYourOrder.backgroundColor = theme.MainColor
+        btnBackToHome.setTitleColor(theme.PrimaryFontColor, for: .normal)
+    }
     
     /// Calculates subtotal, delivery cost, discount and total
     func calculate() {

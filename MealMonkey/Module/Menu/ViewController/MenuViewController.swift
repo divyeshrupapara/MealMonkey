@@ -3,6 +3,7 @@ import UIKit
 /// View controller to display the menu categories and search functionality
 class MenuViewController: UIViewController {
     
+    @IBOutlet weak var viewMain: UIView!
     /// Text field for searching food items
     @IBOutlet weak var txtSearchFood: UITextField!
     
@@ -44,11 +45,29 @@ class MenuViewController: UIViewController {
         
         /// Initialize filtered category array and hide "No Item" label
         arrFilterCategory = arrCategory
+        
+        applyTheme()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(applyTheme),
+            name: .themeChanged,
+            object: nil
+        )
     }
     
     override func viewWillAppear(_ animated: Bool) {
         setLeftAlignedTitle(L("menu_screen_title"))
         setCartButton(target: self, action: #selector(btnCartTapped))
+    }
+    
+    @objc func applyTheme() {
+        let theme = ThemeManager.shared.currentTheme
+        viewMain.backgroundColor = theme.AppBackgroundColor
+        self.view.backgroundColor = theme.AppBackgroundColor
+        self.navigationController?.navigationBar.backgroundColor = theme.AppBackgroundColor
+        self.tabBarController?.tabBar.backgroundColor = theme.AppBackgroundColor
+        txtSearchFood.textColor = theme.PrimaryFontColor
+        txtSearchFood.backgroundColor = theme.TextFieldBackgroundColor
     }
     
     /// Action triggered when the cart button is tapped
