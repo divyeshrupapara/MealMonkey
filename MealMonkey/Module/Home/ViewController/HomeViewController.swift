@@ -4,6 +4,7 @@ import UIKit
 class HomeViewController: UIViewController {
     
     // MARK: - IBOutlets
+    @IBOutlet weak var lblDeleveringTo: UILabel!
     @IBOutlet weak var txtSearchFood: UITextField!       /// Search bar for food
     @IBOutlet weak var tblHome: UITableView!            /// Main table view displaying home content
     @IBOutlet weak var btnHomeLocation: UIButton!       /// Button to show/change location
@@ -24,6 +25,8 @@ class HomeViewController: UIViewController {
         /// Setup cart button in navigation bar
         setCartButton(target: self, action: #selector(btnCartTapped))
         
+        lblDeleveringTo.text = L("home_lblDeleveringTo")
+        txtSearchFood.placeholder = L("home_txtSearchFood")
         /// Apply UI styles to search text field
         viewStyle(cornerRadius: txtSearchFood.frame.size.height/2, borderWidth: 0, borderColor: .systemGray, textField: [txtSearchFood])
         setPadding.setPadding(left: 34, right: 34, textfield: [txtSearchFood])
@@ -66,7 +69,7 @@ class HomeViewController: UIViewController {
         if let email = UserDefaults.standard.string(forKey: "loggedInEmail"),
            let user = CoreDataManager.shared.fetchUser(byEmail: email) {
             currentUser = user
-            setLeftAlignedTitle("Good morning \(user.name ?? "")!")
+            setLeftAlignedTitle("\(L("home_screen_title")) \(user.name ?? "")!")
         }
     }
     

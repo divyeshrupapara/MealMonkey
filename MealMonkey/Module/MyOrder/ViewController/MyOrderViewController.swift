@@ -4,10 +4,16 @@ import UIKit
 class MyOrderViewController: UIViewController {
     
     /// ImageView to display the restaurant image
+    @IBOutlet weak var lblAppName: UILabel!
+    @IBOutlet weak var lblSubTitleRating: UILabel!
     @IBOutlet weak var imgRestaurant: UIImageView!
-    
+    @IBOutlet weak var lblDeliveryInstructions: UILabel!
+    @IBOutlet weak var btnAddNotes: UIButton!
     /// Label to show restaurant location
     @IBOutlet weak var lblLocation: UILabel!
+    @IBOutlet weak var lblSubTotalTitle: UILabel!
+    @IBOutlet weak var lblDeliveryCostTitle: UILabel!
+    @IBOutlet weak var lblTotalTitle: UILabel!
     
     /// Label to display subtotal of the orders
     @IBOutlet weak var lblSubTotal: UILabel!
@@ -34,10 +40,19 @@ class MyOrderViewController: UIViewController {
         super.viewDidLoad()
         
         // Set navigation title with back button
-        setLeftAlignedTitleWithBack("My Order",
+        setLeftAlignedTitleWithBack(L("myorder_screen_title"),
                                     target: self,
                                     action: #selector(btnBackTapped))
-        
+
+        btnAddNotes.setTitle(L("myorder_btnAddNotes"), for: .normal)
+        lblAppName.text = L("Meal Monkey")
+        lblLocation.text = L("myorder_lblLocation")
+        lblSubTitleRating.text = L("myorder_lblSubTitleRating")
+        lblDeliveryInstructions.text = L("myorder_lblDeliveryInstructions")
+        lblDeliveryCostTitle.text = L("myorder_lblDeliveryCostTitle")
+        lblSubTotalTitle.text = L("myorder_lblSubTotalTitle")
+        lblTotalTitle.text = L("myorder_lblTotalTitle")
+        btnCheckOut.setTitle(L("myorder_btnCheckOut"), for: .normal)
         // Apply style to the checkout button
         viewStyle(cornerRadius: 28, borderWidth: 0, borderColor: .systemGray, textField: [btnCheckOut])
         

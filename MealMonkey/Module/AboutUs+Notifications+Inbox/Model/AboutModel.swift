@@ -41,13 +41,13 @@ class AboutModel {
     /// - Returns: Array of AboutModel representing app/company information
     class func addAboutData() -> [AboutModel] {
         return [
-            AboutModel(strText: Main.addAboutMessage.strText1),
-            AboutModel(strText: Main.addAboutMessage.strText2),
-            AboutModel(strText: Main.addAboutMessage.strText3),
-            AboutModel(strText: Main.addAboutMessage.strText4),
-            AboutModel(strText: Main.addAboutMessage.strText5),
-            AboutModel(strText: Main.addAboutMessage.strText6),
-            AboutModel(strText: Main.addAboutMessage.strText7)
+            AboutModel(strText: Main.AddAboutMessage.strText1),
+            AboutModel(strText: Main.AddAboutMessage.strText2),
+            AboutModel(strText: Main.AddAboutMessage.strText3),
+            AboutModel(strText: Main.AddAboutMessage.strText4),
+            AboutModel(strText: Main.AddAboutMessage.strText5),
+            AboutModel(strText: Main.AddAboutMessage.strText6),
+            AboutModel(strText: Main.AddAboutMessage.strText7)
         ]
     }
 

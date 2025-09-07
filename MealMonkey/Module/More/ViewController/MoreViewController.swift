@@ -15,7 +15,7 @@ class MoreViewController: UIViewController {
         
         // Show navigation bar and set left-aligned title
         self.navigationController?.isNavigationBarHidden = false
-        setLeftAlignedTitle("More")
+        setLeftAlignedTitle(L("more_screen_title"))
         
         // Add cart button to navigation bar
         setCartButton(target: self, action: #selector(btnCartTapped))

@@ -4,6 +4,7 @@ import UIKit
 class OffersViewController: UIViewController {
 
     /// UIButton to check the current offer
+    @IBOutlet weak var lblSubTitle: UILabel!
     @IBOutlet weak var btnCheckOffer: UIButton!
     
     /// UITableView to display a list of offers
@@ -20,8 +21,10 @@ class OffersViewController: UIViewController {
         viewStyle(cornerRadius: btnCheckOffer.frame.size.height/2, borderWidth: 0, borderColor: .systemGray, textField: [btnCheckOffer])
         
         // Set the navigation title aligned to left
-        setLeftAlignedTitle("Latest Offers")
+        setLeftAlignedTitle(L("offers_screen_title"))
         
+        lblSubTitle.text = L("offers_lblSubTitle")
+        btnCheckOffer.setTitle(L("offers_btnCheckOffer"), for: .normal)
         // Add cart button to navigation bar
         setCartButton(target: self, action: #selector(btnCartTapped))
         

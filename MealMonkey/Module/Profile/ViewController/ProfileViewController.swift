@@ -33,8 +33,18 @@ class ProfileViewController: UIViewController {
         setPadding(textfield: [txtName, txtEmail, txtAddress, txtMobileNo])
         
         /// Sets navigation title and adds cart button
-        setLeftAlignedTitle("Profile")
+        setLeftAlignedTitle(L("profile_screen_title"))
         setCartButton(target: self, action: #selector(btnCartTapped))
+
+//        lblUserName.text = L("profile_lblUserGreeting")
+        btnEditProfile.setTitle(L("profile_btnEditProfile"), for: .normal)
+        btnSignOut.setTitle(L("profile_btnSignOut"), for: .normal)
+        btnSave.setTitle(L("profile_btnSave"), for: .normal)
+
+        txtName.placeholder = L("profile_txtName_placeholder")
+        txtEmail.placeholder = L("profile_txtEmail_placeholder")
+        txtAddress.placeholder = L("profile_txtAddress_placeholder")
+        txtMobileNo.placeholder = L("profile_txtMobile_placeholder")
         
         /// Loads user data from Core Data
         loadUserData()

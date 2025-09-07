@@ -4,6 +4,8 @@ import UIKit
 class NewPasswordViewController: UIViewController {
     
     // MARK: - Outlets
+    @IBOutlet weak var lblNewPasswordHeading: UILabel!
+    @IBOutlet weak var lblSubTitle: UILabel!
     @IBOutlet weak var txtNewPassword: UITextField!
     @IBOutlet weak var txtConfiemPassword: UITextField!
     @IBOutlet weak var btnNext: UIButton!
@@ -19,7 +21,15 @@ class NewPasswordViewController: UIViewController {
         super.viewDidLoad()
         
         self.navigationController?.isNavigationBarHidden = false
-        setLeftAlignedTitleWithBack("New Password", target: self, action: #selector(btnBackTapped))
+        setLeftAlignedTitleWithBack(L("newpassword_screen_title"), target: self, action: #selector(btnBackTapped))
+
+        lblNewPasswordHeading.text = L("newpassword_lblHeading")
+        lblSubTitle.text = L("newpassword_lblSubTitle")
+
+        txtNewPassword.placeholder = L("newpassword_txtNewPassword_placeholder")
+        txtConfiemPassword.placeholder = L("newpassword_txtConfirmPassword_placeholder")
+
+        btnNext.setTitle(L("newpassword_btnNext"), for: .normal)
         
         // Apply styling and padding
         viewStyle(cornerRadius: 28, borderWidth: 0, borderColor: .gray, textField: [txtNewPassword, txtConfiemPassword, btnNext])

@@ -96,7 +96,7 @@ extension MenuViewController: UITextFieldDelegate {
             if arrFilterCategory.isEmpty {
                 LottieAnimationHelper.showEmptyState(on: tblCategory,
                                                          animationName: "Food Prepared - Food app",
-                                                         message: "No Such Product")
+                                                         message: L("menu_no_product"))
             } else {
                 LottieAnimationHelper.removeEmptyState(from: tblCategory)
             }

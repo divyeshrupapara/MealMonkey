@@ -4,6 +4,8 @@ import UIKit
 class ForgetPasswordViewController: UIViewController {
     
     // MARK: - IBOutlets
+    @IBOutlet weak var lblForgotPasswordHeading: UILabel!
+    @IBOutlet weak var lblSubTitle: UILabel!
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var btnSend: UIButton!
     
@@ -13,7 +15,13 @@ class ForgetPasswordViewController: UIViewController {
         
         // Show navigation bar with back button
         self.navigationController?.isNavigationBarHidden = false
-        setLeftAlignedTitleWithBack("Forgot Password", target: self, action: #selector(btnBackTapped))
+        setLeftAlignedTitleWithBack(L("forgotpassword_screen_title"), target: self, action: #selector(btnBackTapped))
+
+        lblForgotPasswordHeading.text = L("forgotpassword_lblHeading")
+        lblSubTitle.text = L("forgotpassword_lblSubTitle")
+
+        txtEmail.placeholder = L("forgotpassword_txtEmail_placeholder")
+        btnSend.setTitle(L("forgotpassword_btnSend"), for: .normal)
         
         // Apply UI styling
         viewStyle(cornerRadius: 28, borderWidth: 0, borderColor: .gray, textField: [txtEmail, btnSend])

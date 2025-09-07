@@ -40,7 +40,13 @@ class AddressViewController: UIViewController {
         super.viewDidLoad()
         
         // Setup navigation title with back button
-        setLeftAlignedTitleWithBack("Change Address", target: self, action: #selector(btnBackTapped))
+        setLeftAlignedTitleWithBack(
+            L("changeaddress_screen_title"),
+            target: self,
+            action: #selector(btnBackTapped)
+        )
+        txtSearchAddress.placeholder = L("changeaddress_txtSearch_placeholder")
+        btnSavedAddress.setTitle(L("changeaddress_btnSavedAddress"), for: .normal)
         
         // Apply corner radius and padding styles
         viewStyle(cornerRadius: txtSearchAddress.frame.size.height/2, borderWidth: 0, borderColor: .systemGray, textField: [txtSearchAddress])

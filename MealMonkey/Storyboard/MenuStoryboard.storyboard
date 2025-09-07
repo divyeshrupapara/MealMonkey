@@ -608,12 +608,17 @@
                         <outlet property="btnProtion2" destination="CfF-F4-O37" id="2Ii-3b-WUO"/>
                         <outlet property="btnProtion3" destination="Seb-nS-TuK" id="ZQl-Mb-rmJ"/>
                         <outlet property="imgFood" destination="6jy-Ni-xFE" id="KvR-yG-XeJ"/>
+                        <outlet property="lblCustomizeOrderTitle" destination="RV3-sq-Xxl" id="yx3-5p-xn9"/>
+                        <outlet property="lblDescTitle" destination="KuZ-Nh-vWk" id="Mgv-d8-Tc6"/>
                         <outlet property="lblFoodDescription" destination="PYY-mH-8Qs" id="a7g-0c-U05"/>
                         <outlet property="lblFoodName" destination="aq5-iC-onx" id="V8f-6k-DgP"/>
                         <outlet property="lblFoodPrice" destination="hCJ-Ms-D7n" id="Dn7-og-rEI"/>
+                        <outlet property="lblNoOfPortionTitle" destination="6v4-E8-nDA" id="YNk-fp-RZj"/>
+                        <outlet property="lblPerPortionTitle" destination="s1o-fQ-Mud" id="rC0-Pa-gbX"/>
                         <outlet property="lblQuantity" destination="9BR-0i-2K2" id="Xok-2q-6kW"/>
                         <outlet property="lblRating" destination="Xzu-B3-sfo" id="w0Z-pd-pkb"/>
                         <outlet property="lblTotalPrice" destination="x37-It-dgc" id="g6M-Z5-any"/>
+                        <outlet property="lblTotalPriceTitle" destination="0Z2-6m-5pA" id="eh5-O0-gJL"/>
                         <outlet property="stackIngredients" destination="6uV-rY-yLd" id="AT2-lN-eF7"/>
                         <outlet property="stackProtion" destination="qiV-Ci-keO" id="sd9-G9-rFH"/>
                         <outlet property="stackStar" destination="NDR-VX-PZK" id="41G-79-Bgq"/>

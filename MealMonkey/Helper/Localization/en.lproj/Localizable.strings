@@ -1,0 +1,357 @@
+/* ================================
+   More
+================================ */
+"more_screen_title" = "More";
+"more_payment_details" = "Payment Details";
+"more_my_orders" = "My Orders";
+"more_notifications" = "Notifications";
+"more_inbox" = "Inbox";
+"more_about_us" = "About Us";
+"more_wishlist" = "Wishlist";
+"more_change_language" = "Change Language";
+"select_language" = "Select Language";
+"cancel" = "Cancel";
+
+/* ================================
+   AboutUs + Notifications + Inbox
+================================ */
+
+/* AboutUs Messages */
+"about_screen_title" = "About Us";
+"about_message_text1" = "Our mission is to deliver a seamless and intuitive shopping experience that prioritizes user satisfaction. We aim to create a platform where browsing, purchasing, and managing products feels effortless, thanks to our simple user interface and reliable service.";
+"about_message_text2" = "We are dedicated to maintaining high standards of performance, transparency, and trust. Our team continuously works to enhance app functionality, ensure data privacy, and provide responsive customer support, making your shopping journey smooth and secure.";
+"about_message_text3" = "Your feedback matters. If you have any questions, suggestions, or encounter any issues, we’re here to help. Reach out through our support page or email us directly. Together, we strive to build a better and more inclusive experience for everyone.";
+"about_message_text4" = "We believe that technology should serve people. That’s why we constantly refine our platform based on real user behavior and needs, aiming to make every interaction faster, simpler, and more enjoyable.";
+"about_message_text5" = "Security is our priority. We use industry-standard protocols to safeguard your personal information and provide a safe and secure shopping environment at all times.";
+"about_message_text6" = "We value accessibility and inclusiveness. Our platform is designed to be usable by people of all backgrounds, devices, and technical abilities, ensuring that everyone can benefit from our services.";
+"about_message_text7" = "Sustainability matters to us. We support eco-friendly business practices and work with partners who share our values to reduce our environmental impact.";
+
+/* ================================
+   Notifications
+================================ */
+
+"notification_screen_title" = "Notification";
+/* Notification Messages */
+"noti_text1" = "Order placed successfully";
+"noti_text2" = "Your payment has been confirmed";
+"noti_text3" = "Your food is being prepared";
+"noti_text4" = "Delivery agent assigned";
+"noti_text5" = "Your order is on the way";
+"noti_text6" = "Special discount available!";
+"noti_text7" = "Download our new app update";
+"noti_text8" = "Refer a friend and earn";
+"noti_text9" = "Limited-time deal ending soon";
+"noti_text10" = "Delivery completed";
+"noti_text11" = "Rate your last meal";
+"noti_text12" = "Weekend offer just for you";
+"noti_text13" = "Free delivery on orders above ₹299";
+"noti_text14" = "Thanks for being with us!";
+"noti_text15" = "New restaurants added near you";
+
+/* Notification Timezones */
+"noti_time1" = "Just now";
+"noti_time2" = "5m ago";
+"noti_time3" = "10m ago";
+"noti_time4" = "30m ago";
+"noti_time5" = "1h ago";
+"noti_time6" = "2h ago";
+"noti_time7" = "3h ago";
+"noti_time8" = "5h ago";
+"noti_time9" = "12h ago";
+"noti_time10" = "1d ago";
+"noti_time11" = "2d ago";
+"noti_time12" = "3d ago";
+"noti_time13" = "5d ago";
+"noti_time14" = "6d ago";
+"noti_time15" = "1w ago";
+
+/* ================================
+   Inbox
+================================ */
+
+"inbox_screen_title" = "Inbox";
+
+"inbox_title1" = "MealMonkey Promotions";
+"inbox_title2" = "Order Update";
+"inbox_title3" = "Delivery Reminder";
+"inbox_title4" = "Welcome to MealMonkey";
+"inbox_title5" = "Rate Your Experience";
+"inbox_title6" = "Flash Sale";
+"inbox_title7" = "New Restaurants";
+"inbox_title8" = "Refer & Earn";
+"inbox_title9" = "Weekend Special";
+"inbox_title10" = "MealMonkey Tips";
+"inbox_title11" = "Order Cancelled";
+"inbox_title12" = "Loyalty Program";
+"inbox_title13" = "Security Update";
+"inbox_title14" = "Account Verified";
+"inbox_title15" = "Limited Time Deal";
+
+"inbox_date" = "6th July";
+
+"inbox_desc1" = "Get 20% off on your next meal!";
+"inbox_desc2" = "Your order is being prepared by the restaurant.";
+"inbox_desc3" = "Your delivery agent is on the way.";
+"inbox_desc4" = "Thanks for joining us! Start exploring meals.";
+"inbox_desc5" = "How was your recent meal order?";
+"inbox_desc6" = "Enjoy 30% off on all pasta orders today only.";
+"inbox_desc7" = "Discover trending restaurants in your area.";
+"inbox_desc8" = "Invite friends and earn ₹100 credits!";
+"inbox_desc9" = "Free dessert on orders above ₹499.";
+"inbox_desc10" = "Customize your orders with special instructions.";
+"inbox_desc11" = "Your order has been cancelled as requested.";
+"inbox_desc12" = "Collect Monkey Points with every purchase.";
+"inbox_desc13" = "Your password was recently changed.";
+"inbox_desc14" = "Your account has been successfully verified.";
+"inbox_desc15" = "Flat ₹50 off on biryani orders today.";
+
+/* ================================
+   Payment
+================================ */
+
+"payment_screen_title" = "Payment Details";
+
+"payment_lblCustomizeCard" = "Customize your payment method";
+"payment_btnAddCard" = "Add another Credit/Debit Card";
+"payment_no_card" = "No Card";
+"payment_lblEnterCardTitle" = "Add Credit/Debit Card";
+"payment_lblExpiryTitle" = "Expiry";
+"payment_lblSwitchTitle" = "You can remove this card at anytime ";
+"payment_txtCardNumber_placeholder" = "Card Number";
+"payment_txtExpiryMonth_placeholder" = "MM";
+"payment_txtExpiryYear_placeholder" = "YY";
+"payment_txtSecureCode_placeholder" = "Security Code";
+"payment_txtFirstName_placeholder" = "First Name";
+"payment_txtLastName_placeholder" = "Last Name";
+"payment_btnEnterCard" = "Add Card";
+
+/* ================================
+   Order List
+================================ */
+"orderlist_screen_title" = "Order List";
+"orderlist_no_orders" = "Order List is Empty";
+
+/* ================================
+   Wishlist
+================================ */
+"wishlist_screen_title" = "Wishlist";
+"wishlist_no_orders" = "Wishlist is Empty";
+
+/* ================================
+   Profile
+================================ */
+"profile_screen_title" = "Profile";
+"profile_lblUserGreeting" = "Hi there %@!";
+
+"profile_txtName_placeholder" = "Name";
+"profile_txtEmail_placeholder" = "Email";
+"profile_txtMobile_placeholder" = "Mobile Number";
+"profile_txtAddress_placeholder" = "Address";
+
+"profile_btnSave" = "Save";
+"profile_btnSignOut" = "Sign Out";
+"profile_btnEditProfile" = "Edit Profile";
+
+/* ================================
+   Home
+================================ */
+"home_screen_title" = "Good morning";
+"home_lblDeleveringTo" = "Delivering to";
+"home_txtSearchFood" = "Search food";
+
+/* ================================
+   Offers
+================================ */
+"offers_screen_title" = "Latest Offers";
+"offers_lblSubTitle" = "Find discounts, Offers special meals and more!";
+"offers_btnCheckOffer" = "Check Offers";
+
+"offer_title1" = "Café de Noires";
+"offer_title2" = "Isso";
+"offer_title3" = "Cafe Beans";
+
+"offer_cafe_name" = "Cafe";
+"offer_food_variety" = "Western Food";
+"offer_lblRater" = "ratings";
+
+/* ================================
+   Menu & Desserts
+================================ */
+"menu_screen_title" = "Menu";
+"menu_txtSearchFood_placeholder" = "Search food";
+"menu_no_product" = "No Such Product";
+
+"desserts_no_product" = "No Such Product";
+"desserts_txtSearch_placeholder" = "Search desserts";
+"desserts_food" = "Food";
+"desserts_beverages" = "Beverages";
+"desserts_desserts" = "Desserts";
+
+/* ================================
+   My Order
+================================ */
+"myorder_screen_title" = "My Order";
+
+"myorder_btnAddNotes" = "Add Notes";
+"myorder_lblLocation" = "Location";
+"myorder_lblSubTitleRating" = "Rating & Reviews";
+"myorder_lblDeliveryInstructions" = "Delivery Instructions";
+"myorder_lblDeliveryCostTitle" = "Delivery Cost";
+"myorder_lblSubTotalTitle" = "Sub Total";
+"myorder_lblTotalTitle" = "Total";
+
+"myorder_btnCheckOut" = "Checkout";
+
+
+/* ================================
+   Checkout
+================================ */
+"checkout_screen_title" = "Checkout";
+
+"checkout_lblDeliveryAddress" = "Delivery Address";
+"checkout_lblPaymentMethodTitle" = "Payment method";
+"checkout_lblSubTotalTitle" = "Sub Total";
+"checkout_lblDeliveryCostTitle" = "Delivery Cost";
+"checkout_lblDiscountTitle" = "Discount";
+"checkout_lblTotalTitle" = "Total";
+
+"checkout_lblAddCardHeader" = "Add Credit/Debit Card";
+"checkout_lblExpiryTitle" = "Expiry";
+"checkout_lblSwitchTitle" = "You can remove this card at anytime";
+
+"checkout_txtCardNumber_placeholder" = "Card Number";
+"checkout_txtExpiryMonth_placeholder" = "MM";
+"checkout_txtExpiryYear_placeholder" = "YY";
+"checkout_txtSecureCode_placeholder" = "Security Code";
+"checkout_txtFirstName_placeholder" = "First Name";
+"checkout_txtLastName_placeholder" = "Last Name";
+
+"checkout_lblThankYouTitle" = "Thank You!";
+"checkout_lblSubTitle" = "for your order";
+"checkout_lblSubDesc" = "Your Order is now being processed. We will let you know once the order is picked from the outlet. Check the status of your Order";
+
+"checkout_btnTrackYourOrder" = "Track my order";
+"checkout_btnBackToHome" = "Back to home";
+"checkout_btnEnterCard" = "Add Card";
+"checkout_btnChangeAddress" = "Change";
+"checkout_btnAddCard" = "Add Card";
+"checkout_btnSendOrder" = "Send order";
+
+/* ================================
+   Address
+================================ */
+"changeaddress_screen_title" = "Change Address";
+"changeaddress_txtSearch_placeholder" = "Search Address";
+"changeaddress_btnSavedAddress" = "Choose a saved place";
+
+/* ================================
+   AddToCart
+================================ */
+"cart_screen_title" = "Cart Page";
+"cart_btnPlaceOrder" = "Place Order";
+"cart_empty_message" = "Cart is Empty";
+
+/* ================================
+   Food Detail
+================================ */
+"food_lblPerPortionTitle" = "/ per Portion";
+"food_lblDescTitle" = "Description";
+"food_lblCustomizeOrderTitle" = "Customize your Order";
+"food_lblNoOfPortionTitle" = "Number of Portions";
+"food_lblTotalPriceTitle" = "Total Price";
+
+"food_btnAddToCartTitle" = "Add to Cart";
+
+"food_btnPortion_placeholder" = "- Select the size of portion -";
+"food_btnPortion1" = "Portion 1";
+"food_btnPortion2" = "Portion 2";
+"food_btnPortion3" = "Portion 3";
+
+"food_btnIngredients_placeholder" = "- Select the ingredients -";
+"food_btnIngredients1" = "Ingredient 1";
+"food_btnIngredients2" = "Ingredient 2";
+"food_btnIngredients3" = "Ingredient 3";
+
+/* ================================
+   Login Screen
+================================ */
+"login_lblLoginHeading" = "Login";
+"login_lblSubTitle" = "Add your details to login";
+"login_lblOrLoginWith" = "or Login With";
+
+"login_txtEmail_placeholder" = "Your Email";
+"login_txtPassword_placeholder" = "Password";
+
+"login_btnLogin" = "Login";
+"login_btnGoogle" = "Login with Google";
+"login_btnFacebook" = "Login with Facebook";
+"login_btnForgetPassword" = "Forgot your password?";
+"login_btnSignUp_part1" = "Don't have an account? ";
+"login_btnSignUp_part2" = "Sign Up";
+
+/* ================================
+   Sign Up Screen
+================================ */
+"signup_screen_title" = "Sign Up";
+"signup_lblSignUpHeading" = "Sign Up";
+"signup_lblSubTitle" = "Add your details to sign up";
+
+"signup_txtName_placeholder" = "Name";
+"signup_txtEmail_placeholder" = "Email";
+"signup_txtMobileNo_placeholder" = "Mobile No";
+"signup_txtAddress_placeholder" = "Address";
+"signup_txtPassword_placeholder" = "Password";
+"signup_txtConfirmPassword_placeholder" = "Confirm Password";
+
+"signup_btnSignUp" = "Sign Up";
+"signup_btnLogin_part1" = "Already have an account? ";
+"signup_btnLogin_part2" = "Login";
+
+/* ================================
+   Forgot Password Screen
+================================ */
+"forgotpassword_screen_title" = "Forgot Password";
+"forgotpassword_lblHeading" = "Forgot Password";
+"forgotpassword_lblSubTitle" = "Enter your email to reset your password";
+
+"forgotpassword_txtEmail_placeholder" = "Your Email";
+
+"forgotpassword_btnSend" = "Send";
+
+/* ================================
+   OTP Verification Screen
+================================ */
+"otp_screen_title" = "Sign Up";
+"otp_lblOTPHeading" = "Enter OTP";
+"otp_lblSubTitle" = "We have sent a 4-digit code to your email/phone";
+
+"otp_btnNext" = "Next";
+"otp_btnDidNotReceive_part1" = "Didn't receive? ";
+"otp_btnDidNotReceive_part2" = "Click Here";
+
+/* ================================
+    New Password Screen
+================================ */
+"newpassword_screen_title" = "New Password";
+"newpassword_lblHeading" = "New Password";
+"newpassword_lblSubTitle" = "Please enter your new password";
+
+"newpassword_txtNewPassword_placeholder" = "New Password";
+"newpassword_txtConfirmPassword_placeholder" = "Confirm Password";
+
+"newpassword_btnNext" = "Next";
+
+/* ================================
+   Onboarding / Next Page
+================================ */
+"onboarding_title1" = "Find Food You Love";
+"onboarding_desc1" = "Discover the best foods from over 1,000 restaurants and fast delivery to your doorstep";
+
+"onboarding_title2" = "Fast Delivery";
+"onboarding_desc2" = "Get your food delivered in under 30 minutes wherever you are";
+
+"onboarding_title3" = "Enjoy Your Meal";
+"onboarding_desc3" = "Eat healthy, tasty and affordable meals at your convenience";
+
+"onboarding_btnNext" = "Next";
+"onboarding_btnDone" = "Done";

@@ -49,23 +49,23 @@ class OfferModel: NSObject {
     class func addOffers() -> [OfferModel] {
         return [
             OfferModel(imgOffer: "ic_offer1",
-                       strOfferTitle: "Café de Noires",
+                       strOfferTitle: L("offer_title1"),
                        intRating: 4.9,
                        intRater: 124,
-                       strCafeName: "Cafe",
-                       strFoodVariety: "Western Food"),
+                       strCafeName: L("offer_cafe_name"),
+                       strFoodVariety: L("offer_food_variety")),
             OfferModel(imgOffer: "ic_offer2",
-                       strOfferTitle: "Isso",
+                       strOfferTitle: L("offer_title2"),
                        intRating: 4.9,
                        intRater: 124,
-                       strCafeName: "Cafe",
-                       strFoodVariety: "Western Food"),
+                       strCafeName: L("offer_cafe_name"),
+                       strFoodVariety: L("offer_food_variety")),
             OfferModel(imgOffer: "ic_offer3",
-                       strOfferTitle: "Cafe Beans",
+                       strOfferTitle: L("offer_title3"),
                        intRating: 4.9,
                        intRater: 124,
-                       strCafeName: "Cafe",
-                       strFoodVariety: "Western Food")
+                       strCafeName: L("offer_cafe_name"),
+                       strFoodVariety: L("offer_food_variety"))
         ]
     }
 }

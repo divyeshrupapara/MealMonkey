@@ -14,13 +14,26 @@ class AboutUsViewController: UIViewController {
     
     // MARK: - Lifecycle Methods
     
-    /// Called after the view has been loaded into memory
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationController?.isNavigationBarHidden = false
         
-        // Configure the page based on its type
+        // Register custom table view cell
+        tblMoreOpions.register(
+            UINib(nibName: Main.CellIdentifiers.AboutUsTableViewCell, bundle: nil),
+            forCellReuseIdentifier: Main.CellIdentifiers.AboutUsTableViewCell
+        )
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configurePage()   // reload localized content whenever view appears
+    }
+    
+    // MARK: - Setup Page
+    
+    private func configurePage() {
         switch objPageType {
         case .PayMent:
             print("Payment")
@@ -28,43 +41,40 @@ class AboutUsViewController: UIViewController {
             print("My Orders")
         case .Notification:
             arrCurrent = AboutModel.addNotificationData()
-            setLeftAlignedTitleWithBack("Notification",
+            setLeftAlignedTitleWithBack(L("notification_screen_title"),
                                         target: self,
                                         action: #selector(btnBackTapped))
             setCartButton(target: self, action: #selector(btnCartTapped))
         case .Inbox:
             arrCurrent = AboutModel.addInboxData()
-            setLeftAlignedTitleWithBack("Inbox",
+            setLeftAlignedTitleWithBack(L("inbox_screen_title"),
                                         target: self,
                                         action: #selector(btnBackTapped))
-            setCartButton(target: self,
-                          action: #selector(btnCartTapped))
+            setCartButton(target: self, action: #selector(btnCartTapped))
         case .AboutUs:
             arrCurrent = AboutModel.addAboutData()
-            setLeftAlignedTitleWithBack("About Us",
+            setLeftAlignedTitleWithBack(L("about_screen_title"),
                                         target: self,
                                         action: #selector(btnBackTapped))
-            setCartButton(target: self,
-                          action: #selector(btnCartTapped))
+            setCartButton(target: self, action: #selector(btnCartTapped))
         case .WishList:
             print("Wishlist")
         }
         
-        // Register custom table view cell
-        tblMoreOpions.register(UINib(nibName: Main.CellIdentifiers.AboutUsTableViewCell, bundle: nil), forCellReuseIdentifier: Main.CellIdentifiers.AboutUsTableViewCell)
+        tblMoreOpions.reloadData() // refresh table with updated strings
     }
     
     // MARK: - Button Actions
     
-    /// Handles back button tap action
     @objc func btnBackTapped() {
         self.navigationController?.popViewController(animated: true)
     }
     
-    /// Handles cart button tap action, pushes CartViewController
     @objc func btnCartTapped() {
         let storyboard = UIStoryboard(name: Main.StoryBoard.MenuStoryboard, bundle: nil)
-        if let VC = storyboard.instantiateViewController(withIdentifier: Main.ViewController.CartViewController) as? CartViewController {
+        if let VC = storyboard.instantiateViewController(
+            withIdentifier: Main.ViewController.CartViewController
+        ) as? CartViewController {
             self.navigationController?.pushViewController(VC, animated: true)
         }
     }

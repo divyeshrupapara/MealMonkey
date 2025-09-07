@@ -27,13 +27,13 @@ class ClassCategory: NSObject {
     /// - Returns: Array of `ClassCategory` objects
     class func addCategory() -> [ClassCategory] {
         return [
-            ClassCategory(strCategoryName: "Food",
+            ClassCategory(strCategoryName: L("desserts_food"),
                           intItems: 25,
                           imgCategory: "ic_Food"),
-            ClassCategory(strCategoryName: "Beverages",
+            ClassCategory(strCategoryName: L("desserts_beverages"),
                           intItems: 25,
                           imgCategory: "ic_Beverages"),
-            ClassCategory(strCategoryName: "Desserts",
+            ClassCategory(strCategoryName: L("desserts_desserts"),
                           intItems: 25,
                           imgCategory: "ic_Desserts")
         ]

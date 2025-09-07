@@ -62,7 +62,7 @@ extension DessertsViewController: UITextFieldDelegate {
             if filteredProducts.isEmpty {
                 LottieAnimationHelper.showEmptyState(on: tblDesserts,
                                                          animationName: "Food Prepared - Food app",
-                                                         message: "No Such Product")
+                                                         message: L("desserts_no_product"))
             } else {
                 LottieAnimationHelper.removeEmptyState(from: tblDesserts)
             }
