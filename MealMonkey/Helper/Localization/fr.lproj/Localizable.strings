@@ -1,0 +1,356 @@
+/* ================================
+   More
+================================ */
+"more_screen_title" = "Plus";
+"more_payment_details" = "Détails de paiement";
+"more_my_orders" = "Mes commandes";
+"more_notifications" = "Notifications";
+"more_inbox" = "Boîte de réception";
+"more_about_us" = "À propos de nous";
+"more_wishlist" = "Liste de souhaits";
+"more_change_language" = "Changer de langue";
+"select_language" = "Choisir la langue";
+"cancel" = "Annuler";
+
+/* ================================
+   AboutUs + Notifications + Inbox
+================================ */
+
+/* AboutUs Messages */
+"about_screen_title" = "À propos de nous";
+"about_message_text1" = "Notre mission est d'offrir une expérience d'achat fluide et intuitive qui place la satisfaction des utilisateurs au premier plan. Nous voulons créer une plateforme où la navigation, l'achat et la gestion des produits sont simples et fiables grâce à une interface claire et un service de qualité.";
+"about_message_text2" = "Nous nous engageons à maintenir des standards élevés de performance, de transparence et de confiance. Notre équipe travaille continuellement à améliorer les fonctionnalités, à garantir la confidentialité des données et à offrir un support client réactif.";
+"about_message_text3" = "Votre avis compte. Si vous avez des questions, des suggestions ou des problèmes, nous sommes là pour vous aider. Contactez-nous via notre page d’assistance ou par e-mail directement.";
+"about_message_text4" = "Nous croyons que la technologie doit servir les gens. C’est pourquoi nous affinons constamment notre plateforme en fonction du comportement et des besoins réels des utilisateurs.";
+"about_message_text5" = "La sécurité est notre priorité. Nous utilisons des protocoles conformes aux standards de l’industrie pour protéger vos informations personnelles.";
+"about_message_text6" = "Nous valorisons l’accessibilité et l’inclusion. Notre plateforme est conçue pour être utilisée par des personnes de tous horizons, appareils et niveaux techniques.";
+"about_message_text7" = "La durabilité est importante pour nous. Nous soutenons des pratiques commerciales respectueuses de l’environnement et travaillons avec des partenaires qui partagent nos valeurs.";
+
+/* ================================
+   Notifications
+================================ */
+
+"notification_screen_title" = "Notification";
+/* Notification Messages */
+"noti_text1" = "Commande passée avec succès";
+"noti_text2" = "Votre paiement a été confirmé";
+"noti_text3" = "Votre repas est en préparation";
+"noti_text4" = "Livreur assigné";
+"noti_text5" = "Votre commande est en route";
+"noti_text6" = "Remise spéciale disponible !";
+"noti_text7" = "Téléchargez notre nouvelle mise à jour de l'application";
+"noti_text8" = "Parrainez un ami et gagnez";
+"noti_text9" = "Offre limitée bientôt terminée";
+"noti_text10" = "Livraison terminée";
+"noti_text11" = "Évaluez votre dernier repas";
+"noti_text12" = "Offre du week-end rien que pour vous";
+"noti_text13" = "Livraison gratuite pour les commandes de plus de ₹299";
+"noti_text14" = "Merci de rester avec nous !";
+"noti_text15" = "Nouveaux restaurants ajoutés près de chez vous";
+
+/* Notification Timezones */
+"noti_time1" = "À l’instant";
+"noti_time2" = "Il y a 5 min";
+"noti_time3" = "Il y a 10 min";
+"noti_time4" = "Il y a 30 min";
+"noti_time5" = "Il y a 1 h";
+"noti_time6" = "Il y a 2 h";
+"noti_time7" = "Il y a 3 h";
+"noti_time8" = "Il y a 5 h";
+"noti_time9" = "Il y a 12 h";
+"noti_time10" = "Il y a 1 j";
+"noti_time11" = "Il y a 2 j";
+"noti_time12" = "Il y a 3 j";
+"noti_time13" = "Il y a 5 j";
+"noti_time14" = "Il y a 6 j";
+"noti_time15" = "Il y a 1 sem";
+
+/* ================================
+   Inbox
+================================ */
+
+"inbox_screen_title" = "Boîte de réception";
+
+"inbox_title1" = "Promotions MealMonkey";
+"inbox_title2" = "Mise à jour de commande";
+"inbox_title3" = "Rappel de livraison";
+"inbox_title4" = "Bienvenue chez MealMonkey";
+"inbox_title5" = "Évaluez votre expérience";
+"inbox_title6" = "Vente flash";
+"inbox_title7" = "Nouveaux restaurants";
+"inbox_title8" = "Parrainez & gagnez";
+"inbox_title9" = "Offre spéciale du week-end";
+"inbox_title10" = "Astuces MealMonkey";
+"inbox_title11" = "Commande annulée";
+"inbox_title12" = "Programme de fidélité";
+"inbox_title13" = "Mise à jour de sécurité";
+"inbox_title14" = "Compte vérifié";
+"inbox_title15" = "Offre limitée";
+
+"inbox_date" = "6 juillet";
+
+"inbox_desc1" = "Obtenez 20% de réduction sur votre prochain repas !";
+"inbox_desc2" = "Votre commande est en préparation par le restaurant.";
+"inbox_desc3" = "Votre livreur est en route.";
+"inbox_desc4" = "Merci de nous avoir rejoints ! Commencez à explorer.";
+"inbox_desc5" = "Comment était votre dernière commande ?";
+"inbox_desc6" = "Profitez de 30% de réduction sur toutes les pâtes aujourd'hui seulement.";
+"inbox_desc7" = "Découvrez les restaurants tendance près de chez vous.";
+"inbox_desc8" = "Invitez vos amis et gagnez ₹100 de crédits !";
+"inbox_desc9" = "Dessert gratuit pour les commandes supérieures à ₹499.";
+"inbox_desc10" = "Personnalisez vos commandes avec des instructions spéciales.";
+"inbox_desc11" = "Votre commande a été annulée comme demandé.";
+"inbox_desc12" = "Collectez des Monkey Points à chaque achat.";
+"inbox_desc13" = "Votre mot de passe a été récemment changé.";
+"inbox_desc14" = "Votre compte a été vérifié avec succès.";
+"inbox_desc15" = "₹50 de réduction sur les commandes de biryani aujourd'hui.";
+
+/* ================================
+   Payment
+================================ */
+
+"payment_screen_title" = "Détails du paiement";
+
+"payment_lblCustomizeCard" = "Personnalisez votre mode de paiement";
+"payment_btnAddCard" = "Ajouter une autre carte de crédit/débit";
+"payment_no_card" = "Aucune carte";
+"payment_lblEnterCardTitle" = "Ajouter une carte de crédit/débit";
+"payment_lblExpiryTitle" = "Expiration";
+"payment_lblSwitchTitle" = "Vous pouvez supprimer cette carte à tout moment";
+"payment_txtCardNumber_placeholder" = "Numéro de carte";
+"payment_txtExpiryMonth_placeholder" = "MM";
+"payment_txtExpiryYear_placeholder" = "AA";
+"payment_txtSecureCode_placeholder" = "Code de sécurité";
+"payment_txtFirstName_placeholder" = "Prénom";
+"payment_txtLastName_placeholder" = "Nom";
+"payment_btnEnterCard" = "Ajouter une carte";
+
+/* ================================
+   Order List
+================================ */
+"orderlist_screen_title" = "Liste des commandes";
+"orderlist_no_orders" = "La liste des commandes est vide";
+
+/* ================================
+   Wishlist
+================================ */
+"wishlist_screen_title" = "Liste de souhaits";
+"wishlist_no_orders" = "La liste de souhaits est vide";
+
+/* ================================
+   Profile
+================================ */
+"profile_screen_title" = "Profil";
+"profile_lblUserGreeting" = "Bonjour %@!";
+
+"profile_txtName_placeholder" = "Nom";
+"profile_txtEmail_placeholder" = "E-mail";
+"profile_txtMobile_placeholder" = "Numéro de mobile";
+"profile_txtAddress_placeholder" = "Adresse";
+
+"profile_btnSave" = "Enregistrer";
+"profile_btnSignOut" = "Se déconnecter";
+"profile_btnEditProfile" = "Modifier le profil";
+
+/* ================================
+   Home
+================================ */
+"home_screen_title" = "Bonjour";
+"home_lblDeleveringTo" = "Livraison à";
+"home_txtSearchFood" = "Rechercher un plat";
+
+/* ================================
+   Offers
+================================ */
+"offers_screen_title" = "Dernières offres";
+"offers_lblSubTitle" = "Trouvez des réductions, des offres spéciales repas et plus encore !";
+"offers_btnCheckOffer" = "Voir les offres";
+
+"offer_title1" = "Café de Noires";
+"offer_title2" = "Isso";
+"offer_title3" = "Cafe Beans";
+
+"offer_cafe_name" = "Café";
+"offer_food_variety" = "Cuisine occidentale";
+"offer_lblRater" = "notes";
+
+/* ================================
+   Menu & Desserts
+================================ */
+"menu_screen_title" = "Menu";
+"menu_txtSearchFood_placeholder" = "Rechercher un plat";
+"menu_no_product" = "Aucun produit trouvé";
+
+"desserts_no_product" = "Aucun dessert trouvé";
+"desserts_txtSearch_placeholder" = "Rechercher des desserts";
+"desserts_food" = "Nourriture";
+"desserts_beverages" = "Boissons";
+"desserts_desserts" = "Desserts";
+
+/* ================================
+   My Order
+================================ */
+"myorder_screen_title" = "Ma commande";
+
+"myorder_btnAddNotes" = "Ajouter des notes";
+"myorder_lblLocation" = "Emplacement";
+"myorder_lblSubTitleRating" = "Évaluations et avis";
+"myorder_lblDeliveryInstructions" = "Instructions de livraison";
+"myorder_lblDeliveryCostTitle" = "Frais de livraison";
+"myorder_lblSubTotalTitle" = "Sous-total";
+"myorder_lblTotalTitle" = "Total";
+
+"myorder_btnCheckOut" = "Paiement";
+
+/* ================================
+   Checkout
+================================ */
+"checkout_screen_title" = "Paiement";
+
+"checkout_lblDeliveryAddress" = "Adresse de livraison";
+"checkout_lblPaymentMethodTitle" = "Mode de paiement";
+"checkout_lblSubTotalTitle" = "Sous-total";
+"checkout_lblDeliveryCostTitle" = "Frais de livraison";
+"checkout_lblDiscountTitle" = "Remise";
+"checkout_lblTotalTitle" = "Total";
+
+"checkout_lblAddCardHeader" = "Ajouter une carte de crédit/débit";
+"checkout_lblExpiryTitle" = "Expiration";
+"checkout_lblSwitchTitle" = "Vous pouvez supprimer cette carte à tout moment";
+
+"checkout_txtCardNumber_placeholder" = "Numéro de carte";
+"checkout_txtExpiryMonth_placeholder" = "MM";
+"checkout_txtExpiryYear_placeholder" = "AA";
+"checkout_txtSecureCode_placeholder" = "Code de sécurité";
+"checkout_txtFirstName_placeholder" = "Prénom";
+"checkout_txtLastName_placeholder" = "Nom de famille";
+
+"checkout_lblThankYouTitle" = "Merci !";
+"checkout_lblSubTitle" = "pour votre commande";
+"checkout_lblSubDesc" = "Votre commande est en cours de traitement. Nous vous informerons dès qu’elle sera récupérée au point de vente. Vérifiez l’état de votre commande.";
+
+"checkout_btnTrackYourOrder" = "Suivre ma commande";
+"checkout_btnBackToHome" = "Retour à l’accueil";
+"checkout_btnEnterCard" = "Ajouter une carte";
+"checkout_btnChangeAddress" = "Modifier";
+"checkout_btnAddCard" = "Ajouter une carte";
+"checkout_btnSendOrder" = "Envoyer la commande";
+
+/* ================================
+   Address
+================================ */
+"changeaddress_screen_title" = "Changer l'adresse";
+"changeaddress_txtSearch_placeholder" = "Rechercher une adresse";
+"changeaddress_btnSavedAddress" = "Choisir un lieu enregistré";
+
+/* ================================
+   AddToCart
+================================ */
+"cart_screen_title" = "Panier";
+"cart_btnPlaceOrder" = "Passer la commande";
+"cart_empty_message" = "Le panier est vide";
+
+/* ================================
+   Food Detail
+================================ */
+"food_lblPerPortionTitle" = "/ par portion";
+"food_lblDescTitle" = "Description";
+"food_lblCustomizeOrderTitle" = "Personnaliser votre commande";
+"food_lblNoOfPortionTitle" = "Nombre de portions";
+"food_lblTotalPriceTitle" = "Prix total";
+
+"food_btnAddToCartTitle" = "Ajouter au panier";
+
+"food_btnPortion_placeholder" = "- Sélectionnez la taille de la portion -";
+"food_btnPortion1" = "Portion 1";
+"food_btnPortion2" = "Portion 2";
+"food_btnPortion3" = "Portion 3";
+
+"food_btnIngredients_placeholder" = "- Sélectionnez les ingrédients -";
+"food_btnIngredients1" = "Ingrédient 1";
+"food_btnIngredients2" = "Ingrédient 2";
+"food_btnIngredients3" = "Ingrédient 3";
+
+/* ================================
+   Login Screen
+================================ */
+"login_lblLoginHeading" = "Connexion";
+"login_lblSubTitle" = "Ajoutez vos informations pour vous connecter";
+"login_lblOrLoginWith" = "ou connectez-vous avec";
+
+"login_txtEmail_placeholder" = "Votre email";
+"login_txtPassword_placeholder" = "Mot de passe";
+
+"login_btnLogin" = "Connexion";
+"login_btnGoogle" = "Se connecter avec Google";
+"login_btnFacebook" = "Se connecter avec Facebook";
+"login_btnForgetPassword" = "Mot de passe oublié ?";
+"login_btnSignUp_part1" = "Vous n'avez pas de compte ? ";
+"login_btnSignUp_part2" = "Inscrivez-vous";
+
+/* ================================
+   Sign Up Screen
+================================ */
+"signup_screen_title" = "Inscription";
+"signup_lblSignUpHeading" = "Inscription";
+"signup_lblSubTitle" = "Ajoutez vos informations pour vous inscrire";
+
+"signup_txtName_placeholder" = "Nom";
+"signup_txtEmail_placeholder" = "Email";
+"signup_txtMobileNo_placeholder" = "Numéro de mobile";
+"signup_txtAddress_placeholder" = "Adresse";
+"signup_txtPassword_placeholder" = "Mot de passe";
+"signup_txtConfirmPassword_placeholder" = "Confirmer le mot de passe";
+
+"signup_btnSignUp" = "S'inscrire";
+"signup_btnLogin_part1" = "Vous avez déjà un compte ? ";
+"signup_btnLogin_part2" = "Connexion";
+
+/* ================================
+   Forgot Password Screen
+================================ */
+"forgotpassword_screen_title" = "Mot de passe oublié";
+"forgotpassword_lblHeading" = "Mot de passe oublié";
+"forgotpassword_lblSubTitle" = "Entrez votre email pour réinitialiser votre mot de passe";
+
+"forgotpassword_txtEmail_placeholder" = "Votre email";
+
+"forgotpassword_btnSend" = "Envoyer";
+
+/* ================================
+   OTP Verification Screen
+================================ */
+"otp_screen_title" = "Inscription";
+"otp_lblOTPHeading" = "Entrez le code OTP";
+"otp_lblSubTitle" = "Nous avons envoyé un code à 4 chiffres à votre email/téléphone";
+
+"otp_btnNext" = "Suivant";
+"otp_btnDidNotReceive_part1" = "Vous n’avez pas reçu ? ";
+"otp_btnDidNotReceive_part2" = "Cliquez ici";
+
+/* ================================
+    New Password Screen
+================================ */
+"newpassword_screen_title" = "Nouveau mot de passe";
+"newpassword_lblHeading" = "Nouveau mot de passe";
+"newpassword_lblSubTitle" = "Veuillez entrer votre nouveau mot de passe";
+
+"newpassword_txtNewPassword_placeholder" = "Nouveau mot de passe";
+"newpassword_txtConfirmPassword_placeholder" = "Confirmer le mot de passe";
+
+"newpassword_btnNext" = "Suivant";
+
+/* ================================
+   Onboarding / Next Page
+================================ */
+"onboarding_title1" = "Trouvez la nourriture que vous aimez";
+"onboarding_desc1" = "Découvrez les meilleurs plats de plus de 1 000 restaurants et une livraison rapide à votre porte";
+
+"onboarding_title2" = "Livraison rapide";
+"onboarding_desc2" = "Faites livrer votre nourriture en moins de 30 minutes où que vous soyez";
+
+"onboarding_title3" = "Profitez de votre repas";
+"onboarding_desc3" = "Mangez sain, savoureux et abordable à votre convenance";
+
+"onboarding_btnNext" = "Suivant";
+"onboarding_btnDone" = "Terminé";

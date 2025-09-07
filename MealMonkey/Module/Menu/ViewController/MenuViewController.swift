@@ -26,8 +26,9 @@ class MenuViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = false
         
         /// Set navigation title and cart button
-        setLeftAlignedTitle("Menu")
+        setLeftAlignedTitle(L("menu_screen_title"))
         setCartButton(target: self, action: #selector(btnCartTapped))
+        txtSearchFood.placeholder = L("menu_txtSearchFood_placeholder")
         
         /// Apply corner radius to the background view
         applyCornerRadiusTLBR()
@@ -46,7 +47,7 @@ class MenuViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        setLeftAlignedTitle("Menu")
+        setLeftAlignedTitle(L("menu_screen_title"))
         setCartButton(target: self, action: #selector(btnCartTapped))
     }
     

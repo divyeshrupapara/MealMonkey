@@ -230,97 +230,97 @@ struct Main {
         static let MainTabViewController = "MainTabViewController"
     }
     
-    struct addAboutMessage {
-        static let strText1 = "Our mission is to deliver a seamless and intuitive shopping experience that prioritizes user satisfaction. We aim to create a platform where browsing, purchasing, and managing products feels effortless, thanks to our simple user interface and reliable service."
-        static let strText2 = "We are dedicated to maintaining high standards of performance, transparency, and trust. Our team continuously works to enhance app functionality, ensure data privacy, and provide responsive customer support, making your shopping journey smooth and secure."
-        static let strText3 = "Your feedback matters. If you have any questions, suggestions, or encounter any issues, we’re here to help. Reach out through our support page or email us directly. Together, we strive to build a better and more inclusive experience for everyone."
-        static let strText4 = "We believe that technology should serve people. That’s why we constantly refine our platform based on real user behavior and needs, aiming to make every interaction faster, simpler, and more enjoyable."
-        static let strText5 = "Security is our priority. We use industry-standard protocols to safeguard your personal information and provide a safe and secure shopping environment at all times."
-        static let strText6 = "We value accessibility and inclusiveness. Our platform is designed to be usable by people of all backgrounds, devices, and technical abilities, ensuring that everyone can benefit from our services."
-        static let strText7 = "Sustainability matters to us. We support eco-friendly business practices and work with partners who share our values to reduce our environmental impact."
+    struct AddAboutMessage {
+        static var strText1: String { L("about_message_text1") }
+        static var strText2: String { L("about_message_text2") }
+        static var strText3: String { L("about_message_text3") }
+        static var strText4: String { L("about_message_text4") }
+        static var strText5: String { L("about_message_text5") }
+        static var strText6: String { L("about_message_text6") }
+        static var strText7: String { L("about_message_text7") }
     }
     
     struct addNotiMessage {
-        static let strText1 = "Order placed successfully"
-        static let strText2 = "Your payment has been confirmed"
-        static let strText3 = "Your food is being prepared"
-        static let strText4 = "Delivery agent assigned"
-        static let strText5 = "Your order is on the way"
-        static let strText6 = "Special discount available!"
-        static let strText7 = "Download our new app update"
-        static let strText8 = "Refer a friend and earn"
-        static let strText9 = "Limited-time deal ending soon"
-        static let strText10 = "Delivery completed"
-        static let strText11 = "Rate your last meal"
-        static let strText12 = "Weekend offer just for you"
-        static let strText13 = "Free delivery on orders above ₹299"
-        static let strText14 = "Thanks for being with us!"
-        static let strText15 = "New restaurants added near you"
-        static let strTimezone1 = "Just now"
-        static let strTimezone2 = "5m ago"
-        static let strTimezone3 = "10m ago"
-        static let strTimezone4 = "30m ago"
-        static let strTimezone5 = "1h ago"
-        static let strTimezone6 = "2h ago"
-        static let strTimezone7 = "3h ago"
-        static let strTimezone8 = "5h ago"
-        static let strTimezone9 = "12h ago"
-        static let strTimezone10 = "1d ago"
-        static let strTimezone11 = "2d ago"
-        static let strTimezone12 = "3d ago"
-        static let strTimezone13 = "5d ago"
-        static let strTimezone14 = "6d ago"
-        static let strTimezone15 = "1w ago"
+        static var strText1: String { L("noti_text1") }
+        static var strText2: String { L("noti_text2") }
+        static var strText3: String { L("noti_text3") }
+        static var strText4: String { L("noti_text4") }
+        static var strText5: String { L("noti_text5") }
+        static var strText6: String { L("noti_text6") }
+        static var strText7: String { L("noti_text7") }
+        static var strText8: String { L("noti_text8") }
+        static var strText9: String { L("noti_text9") }
+        static var strText10: String { L("noti_text10") }
+        static var strText11: String { L("noti_text11") }
+        static var strText12: String { L("noti_text12") }
+        static var strText13: String { L("noti_text13") }
+        static var strText14: String { L("noti_text14") }
+        static var strText15: String { L("noti_text15") }
+
+        static var strTimezone1: String { L("noti_time1") }
+        static var strTimezone2: String { L("noti_time2") }
+        static var strTimezone3: String { L("noti_time3") }
+        static var strTimezone4: String { L("noti_time4") }
+        static var strTimezone5: String { L("noti_time5") }
+        static var strTimezone6: String { L("noti_time6") }
+        static var strTimezone7: String { L("noti_time7") }
+        static var strTimezone8: String { L("noti_time8") }
+        static var strTimezone9: String { L("noti_time9") }
+        static var strTimezone10: String { L("noti_time10") }
+        static var strTimezone11: String { L("noti_time11") }
+        static var strTimezone12: String { L("noti_time12") }
+        static var strTimezone13: String { L("noti_time13") }
+        static var strTimezone14: String { L("noti_time14") }
+        static var strTimezone15: String { L("noti_time15") }
     }
     
     struct addInboxMessage {
+        static var strText1: String { L("inbox_title1") }
+        static var strText2: String { L("inbox_title2") }
+        static var strText3: String { L("inbox_title3") }
+        static var strText4: String { L("inbox_title4") }
+        static var strText5: String { L("inbox_title5") }
+        static var strText6: String { L("inbox_title6") }
+        static var strText7: String { L("inbox_title7") }
+        static var strText8: String { L("inbox_title8") }
+        static var strText9: String { L("inbox_title9") }
+        static var strText10: String { L("inbox_title10") }
+        static var strText11: String { L("inbox_title11") }
+        static var strText12: String { L("inbox_title12") }
+        static var strText13: String { L("inbox_title13") }
+        static var strText14: String { L("inbox_title14") }
+        static var strText15: String { L("inbox_title15") }
         
-        static let strText1 = "MealMonkey Promotions"
-        static let strText2 = "Order Update"
-        static let strText3 = "Delivery Reminder"
-        static let strText4 = "Welcome to MealMonkey"
-        static let strText5 = "Rate Your Experience"
-        static let strText6 = "Flash Sale"
-        static let strText7 = "New Restaurants"
-        static let strText8 = "Refer & Earn"
-        static let strText9 = "Weekend Special"
-        static let strText10 = "MealMonkey Tips"
-        static let strText11 = "Order Cancelled"
-        static let strText12 = "Loyalty Program"
-        static let strText13 = "Security Update"
-        static let strText14 = "Account Verified"
-        static let strText15 = "Limited Time Deal"
+        static var strRightSideText1: String { L("inbox_date") }
+        static var strRightSideText2: String { L("inbox_date") }
+        static var strRightSideText3: String { L("inbox_date") }
+        static var strRightSideText4: String { L("inbox_date") }
+        static var strRightSideText5: String { L("inbox_date") }
+        static var strRightSideText6: String { L("inbox_date") }
+        static var strRightSideText7: String { L("inbox_date") }
+        static var strRightSideText8: String { L("inbox_date") }
+        static var strRightSideText9: String { L("inbox_date") }
+        static var strRightSideText10: String { L("inbox_date") }
+        static var strRightSideText11: String { L("inbox_date") }
+        static var strRightSideText12: String { L("inbox_date") }
+        static var strRightSideText13: String { L("inbox_date") }
+        static var strRightSideText14: String { L("inbox_date") }
+        static var strRightSideText15: String { L("inbox_date") }
         
-        static let strRightSideText1 = "6th July"
-        static let strRightSideText2 = "6th July"
-        static let strRightSideText3 = "6th July"
-        static let strRightSideText4 = "6th July"
-        static let strRightSideText5 = "6th July"
-        static let strRightSideText6 = "6th July"
-        static let strRightSideText7 = "6th July"
-        static let strRightSideText8 = "6th July"
-        static let strRightSideText9 = "6th July"
-        static let strRightSideText10 = "6th July"
-        static let strRightSideText11 = "6th July"
-        static let strRightSideText12 = "6th July"
-        static let strRightSideText13 = "6th July"
-        static let strRightSideText14 = "6th July"
-        static let strRightSideText15 = "6th July"
-        
-        static let strText21 = "Get 20% off on your next meal!"
-        static let strText22 = "Your order is being prepared by the restaurant."
-        static let strText23 = "Your delivery agent is on the way."
-        static let strText24 = "Thanks for joining us! Start exploring meals."
-        static let strText25 = "How was your recent meal order?"
-        static let strText26 = "Enjoy 30% off on all pasta orders today only."
-        static let strText27 = "Discover trending restaurants in your area."
-        static let strText28 = "Invite friends and earn ₹100 credits!"
-        static let strText29 = "Free dessert on orders above ₹499."
-        static let strText210 = "Customize your orders with special instructions."
-        static let strText211 = "Your order has been cancelled as requested."
-        static let strText212 = "Collect Monkey Points with every purchase."
-        static let strText213 = "Your password was recently changed."
-        static let strText214 = "Your account has been successfully verified."
-        static let strText215 = "Flat ₹50 off on biryani orders today."
+        static var strText21: String { L("inbox_desc1") }
+        static var strText22: String { L("inbox_desc2") }
+        static var strText23: String { L("inbox_desc3") }
+        static var strText24: String { L("inbox_desc4") }
+        static var strText25: String { L("inbox_desc5") }
+        static var strText26: String { L("inbox_desc6") }
+        static var strText27: String { L("inbox_desc7") }
+        static var strText28: String { L("inbox_desc8") }
+        static var strText29: String { L("inbox_desc9") }
+        static var strText210: String { L("inbox_desc10") }
+        static var strText211: String { L("inbox_desc11") }
+        static var strText212: String { L("inbox_desc12") }
+        static var strText213: String { L("inbox_desc13") }
+        static var strText214: String { L("inbox_desc14") }
+        static var strText215: String { L("inbox_desc15") }
     }
 }

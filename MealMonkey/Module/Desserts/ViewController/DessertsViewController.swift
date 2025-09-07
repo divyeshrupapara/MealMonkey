@@ -50,7 +50,7 @@ class DessertsViewController: UIViewController {
         switch selectedProductType {
         case .food:
             setLeftAlignedTitleWithBack(
-                "Food",
+                L("desserts_food"),
                 target: self,
                 action: #selector(btnBackTapped)
             )
@@ -58,7 +58,7 @@ class DessertsViewController: UIViewController {
 
         case .Beverages:
             setLeftAlignedTitleWithBack(
-                "Beverages",
+                L("desserts_beverages"),
                 target: self,
                 action: #selector(btnBackTapped)
             )
@@ -66,16 +66,18 @@ class DessertsViewController: UIViewController {
 
         case .Desserts:
             setLeftAlignedTitleWithBack(
-                "Desserts",
+                L("desserts_desserts"),
                 target: self,
                 action: #selector(btnBackTapped)
             )
             tblDesserts.reloadData()
         }
-        
-        // Add cart button to navigation bar
+
+        // Add cart button
         setCartButton(target: self,
                       action: #selector(btnCartTapped))
+
+        txtSearchDesserts.placeholder = L("desserts_txtSearch_placeholder")
         
         // Register custom cell for desserts
         tblDesserts.register(UINib(nibName: Main.CellIdentifiers.DessertsTableViewCell, bundle: nil),

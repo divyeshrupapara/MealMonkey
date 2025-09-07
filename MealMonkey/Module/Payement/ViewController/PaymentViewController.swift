@@ -3,6 +3,10 @@ import UIKit
 /// ViewController to manage Payment Details and saved cards
 class PaymentViewController: UIViewController {
     
+    @IBOutlet weak var lblCustomizeCard: UILabel!
+    @IBOutlet weak var lblEnterCardTitle: UILabel!
+    @IBOutlet weak var lblExpiryTitle: UILabel!
+    @IBOutlet weak var lblSwitchTitle: UILabel!
     /// Table view displaying saved cards
     @IBOutlet weak var tblCard: UITableView!
     
@@ -49,6 +53,18 @@ class PaymentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        lblCustomizeCard.text = L("payment_lblCustomizeCard")
+        btnAddCard.setTitle(L("payment_btnAddCard"), for: .normal)
+        lblEnterCardTitle.text = L("payment_lblEnterCardTitle")
+        lblExpiryTitle.text = L("payment_lblExpiryTitle")
+        lblSwitchTitle.text = L("payment_lblSwitchTitle")
+        txtCardNumber.placeholder = L("payment_txtCardNumber_placeholder")
+        txtExpiryMonth.placeholder = L("payment_txtExpiryMonth_placeholder")
+        txtExpiryYear.placeholder = L("payment_txtExpiryYear_placeholder")
+        txtSecureCode.placeholder = L("payment_txtSecureCode_placeholder")
+        txtFirstName.placeholder = L("payment_txtFirstName_placeholder")
+        txtLastName.placeholder = L("payment_txtLastName_placeholder")
+        btnEnterCard.setTitle(L("payment_btnEnterCard"), for: .normal)
         // Hide enter card and overlay views initially
         viewEnterCard.isHidden = true
         viewTransperent.isHidden = true
@@ -60,7 +76,7 @@ class PaymentViewController: UIViewController {
         addUpperCornerRadius(view: [viewAddCard2, viewEnterCard, scrollViewAddCard])
         
         // Setup navigation bar and cart button
-        setLeftAlignedTitleWithBack("Payment Details", target: self, action: #selector(btnBackTapped))
+        setLeftAlignedTitleWithBack(L("payment_screen_title"), target: self, action: #selector(btnBackTapped))
         setCartButton(target: self, action: #selector(btnCartTapped))
         
         // Style the "Add Card" button
@@ -141,7 +157,7 @@ class PaymentViewController: UIViewController {
         if app.arrCardData.isEmpty {
             LottieAnimationHelper.showEmptyState(on: tblCard,
                                                  animationName: "Credit card",
-                                                 message: "No Card")
+                                                 message: L("payment_no_card"))
         } else {
             LottieAnimationHelper.removeEmptyState(from: tblCard)
         }

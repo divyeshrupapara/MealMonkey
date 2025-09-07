@@ -48,7 +48,7 @@ class OffersTableViewCell: UITableViewCell {
         imgOffer.image = UIImage(named: offer.imgOffer ?? "")
         lblOfferTitle.text = offer.strOfferTitle
         lblRating.text = "\(offer.intRating ?? 0.0)"
-        lblRater.text = "(\(offer.intRater ?? 0) ratings)"
+        lblRater.text = "(\(offer.intRater ?? 0) \(L("offer_lblRater")))"
         lblFoodVariety.text = offer.strFoodVariety
     }
 }

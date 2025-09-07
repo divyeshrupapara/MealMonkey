@@ -249,8 +249,13 @@
                     <connections>
                         <outlet property="btnEye" destination="Yvw-Ny-GiS" id="Wi0-hr-qkF"/>
                         <outlet property="btnFacebook" destination="V9T-re-Diz" id="Slp-Hi-EMI"/>
+                        <outlet property="btnForgetPassword" destination="GfZ-8v-Huw" id="OiQ-om-bol"/>
                         <outlet property="btnGoogle" destination="TQO-lT-OGR" id="edi-NQ-Msb"/>
                         <outlet property="btnLogin" destination="2w0-l5-NG3" id="jVW-ji-51s"/>
+                        <outlet property="btnSignUp" destination="UmE-P3-Xkz" id="XII-Te-p6D"/>
+                        <outlet property="lblLoginHeading" destination="Qrt-g7-Qko" id="NVp-Mm-6X8"/>
+                        <outlet property="lblOrLoginWith" destination="VkC-nw-dsJ" id="2yh-jq-b1U"/>
+                        <outlet property="lblSubTitle" destination="aTl-rU-ffd" id="wwu-Fl-cSL"/>
                         <outlet property="txtEmail" destination="ugK-Uv-b8o" id="DZN-hg-TNm"/>
                         <outlet property="txtPassword" destination="fhz-p2-32r" id="5qE-Ee-fXG"/>
                     </connections>
@@ -521,7 +526,10 @@
                     <connections>
                         <outlet property="btnConfirmEye" destination="aF2-yt-0tn" id="8VS-3A-4RQ"/>
                         <outlet property="btnEye" destination="6KW-D1-fHY" id="qnY-Uq-v9P"/>
+                        <outlet property="btnLogin" destination="uOl-f0-t4a" id="ju3-CQ-REH"/>
                         <outlet property="btnSignUp" destination="93c-EF-7gE" id="pJZ-7H-66O"/>
+                        <outlet property="lblSignUpHeading" destination="fGB-Zv-xJ5" id="Tgf-sH-hK4"/>
+                        <outlet property="lblSubTitle" destination="T3W-S2-hXi" id="4B2-Qg-tq5"/>
                         <outlet property="txtAddress" destination="2OA-8g-yN5" id="vKo-2I-C81"/>
                         <outlet property="txtConfirmPassword" destination="XCJ-vX-Ayd" id="Ipy-bH-oV4"/>
                         <outlet property="txtEmail" destination="y4L-1Q-GVz" id="me1-LQ-Z31"/>
@@ -617,6 +625,8 @@ link to  create a new password via email</string>
                     </view>
                     <connections>
                         <outlet property="btnSend" destination="gjC-3J-f3s" id="CVi-IY-kZ2"/>
+                        <outlet property="lblForgotPasswordHeading" destination="dFW-6J-kIy" id="Cox-UP-14I"/>
+                        <outlet property="lblSubTitle" destination="cQ6-Rd-crr" id="08k-QE-4yS"/>
                         <outlet property="txtEmail" destination="hkY-5W-XsD" id="vdW-yO-a50"/>
                     </connections>
                 </viewController>
@@ -762,6 +772,8 @@ link to  create a new password via email</string>
                         <outlet property="btnConfirmEye" destination="S1d-ZB-wxS" id="0Ve-Hp-OJT"/>
                         <outlet property="btnEye" destination="5zh-Er-9E7" id="gHe-Ic-U45"/>
                         <outlet property="btnNext" destination="dEw-zY-Zez" id="ML4-4l-qPx"/>
+                        <outlet property="lblNewPasswordHeading" destination="giv-1J-OfN" id="vgr-In-4pv"/>
+                        <outlet property="lblSubTitle" destination="zDW-Hq-qxf" id="8Sg-ID-9Mw"/>
                         <outlet property="txtConfiemPassword" destination="6Ek-4N-mcg" id="Q71-iw-0nU"/>
                         <outlet property="txtNewPassword" destination="jOc-dj-UAd" id="Z8f-qQ-KaC"/>
                     </connections>
@@ -1020,6 +1032,8 @@ continue to reset your password</string>
                     <connections>
                         <outlet property="btnDidNotReceive" destination="E2m-gR-UAT" id="XXJ-th-37Y"/>
                         <outlet property="btnNext" destination="GxL-O9-MDj" id="K6C-W1-pWH"/>
+                        <outlet property="lblOTPHeading" destination="h0i-Oc-8hb" id="5rD-8Q-zPJ"/>
+                        <outlet property="lblSubTitle" destination="0eb-3S-Aey" id="bVc-VQ-gvP"/>
                         <outlet property="otpTextFieldView" destination="PHo-k7-3Uq" id="OmA-cM-Xg8"/>
                     </connections>
                 </viewController>

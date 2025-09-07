@@ -55,6 +55,30 @@ extension MoreViewController: UITableViewDelegate {
             if let VC = storyboard.instantiateViewController(withIdentifier: Main.ViewController.WishListViewController) as? WishListViewController {
                 self.navigationController?.pushViewController(VC, animated: true)
             }
+        case 6:
+            // Show language selection alert
+            let alert = UIAlertController(title: L("select_language"),
+                                          message: nil,
+                                          preferredStyle: .actionSheet)
+            
+            alert.addAction(UIAlertAction(title: "English", style: .default, handler: { _ in
+                LanguageManager.shared.setLanguage("en")
+                LanguageManager.shared.reloadApp()
+            }))
+            
+            alert.addAction(UIAlertAction(title: "Français", style: .default, handler: { _ in
+                LanguageManager.shared.setLanguage("fr")
+                LanguageManager.shared.reloadApp()
+            }))
+            
+            alert.addAction(UIAlertAction(title: "हिन्दी", style: .default, handler: { _ in
+                LanguageManager.shared.setLanguage("hi")
+                LanguageManager.shared.reloadApp()
+            }))
+            
+            alert.addAction(UIAlertAction(title: L("cancel"), style: .cancel, handler: nil))
+            
+            present(alert, animated: true, completion: nil)
         default:
             break
         }

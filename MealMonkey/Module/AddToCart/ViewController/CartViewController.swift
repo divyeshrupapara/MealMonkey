@@ -11,9 +11,6 @@ class CartViewController: UIViewController {
     /// TableView displaying cart items
     @IBOutlet weak var tblCartView: UITableView!
     
-    /// Label displayed when there are no items in cart
-    @IBOutlet weak var lblNoItem: UILabel!
-    
     // MARK: - Properties
     
     /// Array of products currently in cart
@@ -31,8 +28,12 @@ class CartViewController: UIViewController {
         // Initially hide order button and no-item label
         btnPlaceOrder.isHidden = true        
         // Setup navigation title with back button
-        setLeftAlignedTitleWithBack("Cart Page", target: self, action: #selector(btnBackTapped))
-        
+        setLeftAlignedTitleWithBack(
+            L("cart_screen_title"),
+            target: self,
+            action: #selector(btnBackTapped)
+        )
+        btnPlaceOrder.setTitle(L("cart_btnPlaceOrder"), for: .normal)
         // Apply corner radius styling to Place Order button
         viewStyle(cornerRadius: 28, borderWidth: 0, borderColor: .systemGray, textField: [btnPlaceOrder])
         
@@ -65,7 +66,7 @@ class CartViewController: UIViewController {
         if cartItems.isEmpty {
             LottieAnimationHelper.showEmptyState(on: tblCartView,
                                                      animationName: "Shopping Cart",
-                                                     message: "Cart is Empty")
+                                                     message: L("cart_empty_message"))
         } else {
             LottieAnimationHelper.removeEmptyState(from: tblCartView)
         }

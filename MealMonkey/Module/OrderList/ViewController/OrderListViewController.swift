@@ -20,13 +20,13 @@ class OrderListViewController: UIViewController {
         if orders.isEmpty {
             LottieAnimationHelper.showEmptyState(on: tblOrderList,
                                                      animationName: "Shopping checlist app!",
-                                                     message: "Order List is Empty")
+                                                     message: L("orderlist_no_orders"))
         } else {
             LottieAnimationHelper.removeEmptyState(from: tblOrderList)
         }
         
         /// Set the navigation bar title with a back button
-        setLeftAlignedTitleWithBack("Order List", target: self, action: #selector(btnBackTapped))
+        setLeftAlignedTitleWithBack(L("orderlist_screen_title"), target: self, action: #selector(btnBackTapped))
         
         /// Register the custom table view cell
         tblOrderList.register(UINib(nibName: Main.CellIdentifiers.OrderListTableViewCell, bundle: nil), forCellReuseIdentifier: Main.CellIdentifiers.OrderListTableViewCell)

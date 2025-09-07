@@ -5,7 +5,9 @@ import OTPFieldView
 class OTPViewController: UIViewController {
 
     // MARK: - IBOutlets
+    @IBOutlet weak var lblOTPHeading: UILabel!
     @IBOutlet weak var otpTextFieldView: OTPFieldView!   // New OTP Field View
+    @IBOutlet weak var lblSubTitle: UILabel!
     @IBOutlet weak var btnNext: UIButton!
     @IBOutlet weak var btnDidNotReceive: UIButton!
 
@@ -14,8 +16,35 @@ class OTPViewController: UIViewController {
         super.viewDidLoad()
         
         self.navigationController?.isNavigationBarHidden = false
-        setLeftAlignedTitleWithBack("Sign Up", target: self, action: #selector(btnBackTapped))
-        
+        setLeftAlignedTitleWithBack(L("otp_screen_title"), target: self, action: #selector(btnBackTapped))
+
+        lblOTPHeading.text = L("otp_lblOTPHeading")
+        lblSubTitle.text = L("otp_lblSubTitle")
+
+        btnNext.setTitle(L("otp_btnNext"), for: .normal)
+        let part1 = NSAttributedString(
+            string: L("otp_btnDidNotReceive_part1"),
+            attributes: [
+                .foregroundColor: UIColor.labelSecondary,
+                .font: UIFont(name: "Helvetica", size: 14) ?? UIFont.systemFont(ofSize: 14)
+            ]
+        )
+
+        let part2 = NSAttributedString(
+            string: L("otp_btnDidNotReceive_part2"),
+            attributes: [
+                .foregroundColor: UIColor.buttonBackground,
+                .font: UIFont(name: "Helvetica", size: 14) ?? UIFont.systemFont(ofSize: 14)
+            ]
+        )
+
+        // Combine the two parts
+        let combinedText = NSMutableAttributedString()
+        combinedText.append(part1)
+        combinedText.append(part2)
+
+        // Set the combined attributed title
+        btnDidNotReceive.setAttributedTitle(combinedText, for: .normal)
         setupOtpView()
         
         // Style buttons

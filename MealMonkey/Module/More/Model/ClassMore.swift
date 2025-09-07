@@ -27,24 +27,27 @@ class ClassMore: NSObject {
     /// - Returns: Array of `ClassMore` objects
     class func addMore() -> [ClassMore] {
         return [
-            ClassMore(strMoreName: "Payment Details",
+            ClassMore(strMoreName: L("more_payment_details"),
                       imgMenu: "ic_payment_details",
                       intTag: 0),
-            ClassMore(strMoreName: "My Orders",
+            ClassMore(strMoreName: L("more_my_orders"),
                       imgMenu: "ic_my_order",
                       intTag: 1),
-            ClassMore(strMoreName: "Notifications",
+            ClassMore(strMoreName: L("more_notifications"),
                       imgMenu: "ic_notification",
                       intTag: 2),
-            ClassMore(strMoreName: "Inbox",
+            ClassMore(strMoreName: L("more_inbox"),
                       imgMenu: "ic_inbox",
                       intTag: 3),
-            ClassMore(strMoreName: "About Us",
+            ClassMore(strMoreName: L("more_about_us"),
                       imgMenu: "ic_aboutus",
                       intTag: 4),
-            ClassMore(strMoreName: "Wishlist",
+            ClassMore(strMoreName: L("more_wishlist"),
                       imgMenu: "ic_wishlist",
-                      intTag: 5)
+                      intTag: 5),
+            ClassMore(strMoreName: L("more_change_language"),
+                      imgMenu: "ic_lang_change",
+                      intTag: 6) // New row for language change
         ]
     }
 }

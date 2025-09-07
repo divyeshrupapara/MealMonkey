@@ -3,6 +3,19 @@ import UIKit
 /// ViewController responsible for handling the Checkout process
 class CheckoutViewController: UIViewController {
     
+    @IBOutlet weak var lblDeliveryAddress: UILabel!
+    @IBOutlet weak var lblPaymentMethodTitle: UILabel!
+    @IBOutlet weak var lblSubTotalTitle: UILabel!
+    @IBOutlet weak var lblDeliveryCostTitle: UILabel!
+    @IBOutlet weak var lblDiscountTitle: UILabel!
+    @IBOutlet weak var lblTotalTitle: UILabel!
+    @IBOutlet weak var lblAddCardHeader: UILabel!
+    @IBOutlet weak var lblExpiryTitle: UILabel!
+    @IBOutlet weak var lblSwitchTitle: UILabel!
+    @IBOutlet weak var lblThankYouTitle: UILabel!
+    @IBOutlet weak var lblSubTitle: UILabel!
+    @IBOutlet weak var lblSubDesc: UILabel!
+    @IBOutlet weak var btnBackToHome: UIButton!
     /// UIButton to send the order
     @IBOutlet weak var btnSendOrder: UIButton!
     /// UITableView to display saved cards and payment options
@@ -70,7 +83,35 @@ class CheckoutViewController: UIViewController {
     /// Called after the controller's view is loaded into memory
     override func viewDidLoad() {
         super.viewDidLoad()
-        setLeftAlignedTitleWithBack("Checkout", target: self, action: #selector(btnBackTapped))
+        setLeftAlignedTitleWithBack(L("checkout_screen_title"), target: self, action: #selector(btnBackTapped))
+        lblDeliveryAddress.text = L("checkout_lblDeliveryAddress")
+        lblPaymentMethodTitle.text = L("checkout_lblPaymentMethodTitle")
+        lblSubTotalTitle.text = L("checkout_lblSubTotalTitle")
+        lblDeliveryCostTitle.text = L("checkout_lblDeliveryCostTitle")
+        lblDiscountTitle.text = L("checkout_lblDiscountTitle")
+        lblTotalTitle.text = L("checkout_lblTotalTitle")
+        lblAddCardHeader.text = L("checkout_lblAddCardHeader")
+        lblExpiryTitle.text = L("checkout_lblExpiryTitle")
+        lblSwitchTitle.text = L("checkout_lblSwitchTitle")
+
+        txtCardNumber.placeholder = L("checkout_txtCardNumber_placeholder")
+        txtExpiryMonth.placeholder = L("checkout_txtExpiryMonth_placeholder")
+        txtExpiryYear.placeholder = L("checkout_txtExpiryYear_placeholder")
+        txtSecureCode.placeholder = L("checkout_txtSecureCode_placeholder")
+        txtFirstName.placeholder = L("checkout_txtFirstName_placeholder")
+        txtLastName.placeholder = L("checkout_txtLastName_placeholder")
+
+        lblThankYouTitle.text = L("checkout_lblThankYouTitle")
+        lblSubTitle.text = L("checkout_lblSubTitle")
+        lblSubDesc.text = L("checkout_lblSubDesc")
+
+        btnTrackYourOrder.setTitle(L("checkout_btnTrackYourOrder"), for: .normal)
+        btnBackToHome.setTitle(L("checkout_btnBackToHome"), for: .normal)
+        btnEnterCard.setTitle(L("checkout_btnEnterCard"), for: .normal)
+        btnChangeAddress.setTitle(L("checkout_btnChangeAddress"), for: .normal)
+        btnAddCard.setTitle(L("checkout_btnAddCard"), for: .normal)
+        btnSendOrder.setTitle(L("checkout_btnSendOrder"), for: .normal)
+        
         viewEnterCard.isHidden = true
         viewTransperent.isHidden = true
         viewThankYou.isHidden = true

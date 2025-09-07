@@ -81,7 +81,7 @@ class NextPageViewController: UIViewController {
                 pageControl.currentPage = nextIndex
                 lblTitle.text = arrNextPageData[nextIndex].strTitle
                 lblDescription.text = arrNextPageData[nextIndex].strTitleDescription
-                let buttonTitle = arrNextPageData[nextIndex].strButtonText == .Done ? "Done" : "Next"
+                let buttonTitle = arrNextPageData[nextIndex].strButtonText == .Done ? L("onboarding_btnDone") : L("onboarding_btnNext")
                 btnDone.setTitle(buttonTitle, for: .normal)
             }
         } else {

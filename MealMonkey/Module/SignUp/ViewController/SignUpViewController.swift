@@ -4,6 +4,9 @@ import UIKit
 class SignUpViewController: UIViewController {
     
     // MARK: - IBOutlets
+    @IBOutlet weak var lblSignUpHeading: UILabel!
+    @IBOutlet weak var lblSubTitle: UILabel!
+    @IBOutlet weak var btnLogin: UIButton!
     @IBOutlet weak var txtName: UITextField!
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtMobileNo: UITextField!
@@ -23,7 +26,42 @@ class SignUpViewController: UIViewController {
         
         self.navigationController?.isNavigationBarHidden = false
         
-        setLeftAlignedTitleWithBack("Sign Up", target: self, action: #selector(btnBackTapped))
+        setLeftAlignedTitleWithBack(L("signup_screen_title"), target: self, action: #selector(btnBackTapped))
+
+        lblSignUpHeading.text = L("signup_lblSignUpHeading")
+        lblSubTitle.text = L("signup_lblSubTitle")
+
+        txtName.placeholder = L("signup_txtName_placeholder")
+        txtEmail.placeholder = L("signup_txtEmail_placeholder")
+        txtMobileNo.placeholder = L("signup_txtMobileNo_placeholder")
+        txtAddress.placeholder = L("signup_txtAddress_placeholder")
+        txtPassword.placeholder = L("signup_txtPassword_placeholder")
+        txtConfirmPassword.placeholder = L("signup_txtConfirmPassword_placeholder")
+
+        btnSignUp.setTitle(L("signup_btnSignUp"), for: .normal)
+        let part1 = NSAttributedString(
+            string: L("signup_btnLogin_part1"),
+            attributes: [
+                .foregroundColor: UIColor.labelSecondary,
+                .font: UIFont(name: "Helvetica", size: 14) ?? UIFont.systemFont(ofSize: 14)
+            ]
+        )
+
+        let part2 = NSAttributedString(
+            string: L("signup_btnLogin_part2"),
+            attributes: [
+                .foregroundColor: UIColor.buttonBackground,
+                .font: UIFont(name: "Helvetica", size: 14) ?? UIFont.systemFont(ofSize: 14)
+            ]
+        )
+
+        // Combine the two parts
+        let combinedText = NSMutableAttributedString()
+        combinedText.append(part1)
+        combinedText.append(part2)
+
+        // Set the combined attributed title
+        btnLogin.setAttributedTitle(combinedText, for: .normal)
         
         // Style textfields and button
         viewStyle(

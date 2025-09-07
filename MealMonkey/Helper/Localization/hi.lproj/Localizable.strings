@@ -1,0 +1,357 @@
+/* ================================
+   More
+================================ */
+"more_screen_title" = "अधिक";
+"more_payment_details" = "भुगतान विवरण";
+"more_my_orders" = "मेरे ऑर्डर";
+"more_notifications" = "सूचनाएँ";
+"more_inbox" = "इनबॉक्स";
+"more_about_us" = "हमारे बारे में";
+"more_wishlist" = "इच्छा सूची";
+"more_change_language" = "भाषा बदलें";
+"select_language" = "भाषा चुनें";
+"cancel" = "रद्द करें";
+
+
+/* ================================
+   AboutUs + Notifications + Inbox
+================================ */
+
+/* AboutUs Messages */
+"about_screen_title" = "हमारे बारे में";
+"about_message_text1" = "हमारा मिशन एक सहज और सहज खरीदारी अनुभव प्रदान करना है जो उपयोगकर्ता संतुष्टि को प्राथमिकता देता है। हमारा लक्ष्य ऐसा प्लेटफ़ॉर्म बनाना है जहाँ ब्राउज़ करना, खरीदना और उत्पादों का प्रबंधन करना आसान और भरोसेमंद हो।";
+"about_message_text2" = "हम उच्च प्रदर्शन, पारदर्शिता और विश्वास बनाए रखने के लिए प्रतिबद्ध हैं। हमारी टीम लगातार ऐप की कार्यक्षमता को बढ़ाने, डेटा गोपनीयता सुनिश्चित करने और उत्तरदायी ग्राहक सहायता प्रदान करने के लिए काम करती है।";
+"about_message_text3" = "आपकी प्रतिक्रिया हमारे लिए महत्वपूर्ण है। यदि आपके कोई प्रश्न, सुझाव हैं या आपको कोई समस्या आती है, तो हम मदद के लिए हमेशा तैयार हैं। हमारी सहायता पेज से संपर्क करें या हमें सीधे ईमेल करें।";
+"about_message_text4" = "हम मानते हैं कि तकनीक को लोगों की सेवा करनी चाहिए। इसलिए हम वास्तविक उपयोगकर्ता व्यवहार और आवश्यकताओं के आधार पर अपने प्लेटफ़ॉर्म को लगातार सुधारते रहते हैं।";
+"about_message_text5" = "सुरक्षा हमारी प्राथमिकता है। हम आपके व्यक्तिगत डेटा की सुरक्षा के लिए उद्योग-मानक प्रोटोकॉल का उपयोग करते हैं।";
+"about_message_text6" = "हम सुलभता और समावेशिता को महत्व देते हैं। हमारा प्लेटफ़ॉर्म सभी पृष्ठभूमि, उपकरणों और तकनीकी क्षमताओं के लोगों द्वारा उपयोग योग्य है।";
+"about_message_text7" = "हम स्थिरता में विश्वास करते हैं। हम पर्यावरण के अनुकूल व्यावसायिक प्रथाओं का समर्थन करते हैं और ऐसे भागीदारों के साथ काम करते हैं जो हमारे मूल्यों को साझा करते हैं।";
+
+/* ================================
+   Notifications
+================================ */
+
+"notification_screen_title" = "अधिसूचना";
+/* Notification Messages */
+"noti_text1" = "ऑर्डर सफलतापूर्वक किया गया";
+"noti_text2" = "आपका भुगतान सफलतापूर्वक हो गया है";
+"noti_text3" = "आपका खाना तैयार किया जा रहा है";
+"noti_text4" = "डिलीवरी एजेंट असाइन किया गया";
+"noti_text5" = "आपका ऑर्डर रास्ते में है";
+"noti_text6" = "विशेष छूट उपलब्ध है!";
+"noti_text7" = "हमारा नया ऐप अपडेट डाउनलोड करें";
+"noti_text8" = "दोस्त को रेफर करें और कमाएँ";
+"noti_text9" = "सीमित समय का ऑफर जल्द समाप्त हो रहा है";
+"noti_text10" = "डिलीवरी पूरी हुई";
+"noti_text11" = "अपने पिछले भोजन को रेट करें";
+"noti_text12" = "सिर्फ आपके लिए वीकेंड ऑफर";
+"noti_text13" = "₹299 से अधिक के ऑर्डर पर फ्री डिलीवरी";
+"noti_text14" = "हमारे साथ बने रहने के लिए धन्यवाद!";
+"noti_text15" = "आपके पास नए रेस्तरां जोड़े गए हैं";
+
+/* Notification Timezones */
+"noti_time1" = "अभी";
+"noti_time2" = "5 मिनट पहले";
+"noti_time3" = "10 मिनट पहले";
+"noti_time4" = "30 मिनट पहले";
+"noti_time5" = "1 घंटा पहले";
+"noti_time6" = "2 घंटे पहले";
+"noti_time7" = "3 घंटे पहले";
+"noti_time8" = "5 घंटे पहले";
+"noti_time9" = "12 घंटे पहले";
+"noti_time10" = "1 दिन पहले";
+"noti_time11" = "2 दिन पहले";
+"noti_time12" = "3 दिन पहले";
+"noti_time13" = "5 दिन पहले";
+"noti_time14" = "6 दिन पहले";
+"noti_time15" = "1 हफ्ता पहले";
+
+/* ================================
+   Inbox
+================================ */
+
+"inbox_screen_title" = "इनबॉक्स";
+
+"inbox_title1" = "MealMonkey प्रमोशन";
+"inbox_title2" = "ऑर्डर अपडेट";
+"inbox_title3" = "डिलीवरी रिमाइंडर";
+"inbox_title4" = "MealMonkey में आपका स्वागत है";
+"inbox_title5" = "अपने अनुभव को रेट करें";
+"inbox_title6" = "फ्लैश सेल";
+"inbox_title7" = "नए रेस्टोरेंट";
+"inbox_title8" = "रेफर करें और कमाएँ";
+"inbox_title9" = "वीकेंड स्पेशल";
+"inbox_title10" = "MealMonkey टिप्स";
+"inbox_title11" = "ऑर्डर रद्द किया गया";
+"inbox_title12" = "लॉयल्टी प्रोग्राम";
+"inbox_title13" = "सुरक्षा अपडेट";
+"inbox_title14" = "अकाउंट वेरिफाइड";
+"inbox_title15" = "सीमित समय का ऑफर";
+
+"inbox_date" = "6 जुलाई";
+
+"inbox_desc1" = "अपने अगले भोजन पर 20% की छूट पाएं!";
+"inbox_desc2" = "आपका ऑर्डर रेस्तरां द्वारा तैयार किया जा रहा है।";
+"inbox_desc3" = "आपका डिलीवरी एजेंट रास्ते में है।";
+"inbox_desc4" = "हमसे जुड़ने के लिए धन्यवाद! भोजन एक्सप्लोर करना शुरू करें।";
+"inbox_desc5" = "आपका पिछला ऑर्डर कैसा था?";
+"inbox_desc6" = "सिर्फ आज पास्ता ऑर्डर पर 30% की छूट।";
+"inbox_desc7" = "अपने क्षेत्र में ट्रेंडिंग रेस्तरां खोजें।";
+"inbox_desc8" = "दोस्तों को आमंत्रित करें और ₹100 क्रेडिट कमाएँ!";
+"inbox_desc9" = "₹499 से ऊपर के ऑर्डर पर मुफ्त डेज़र्ट।";
+"inbox_desc10" = "अपने ऑर्डर को विशेष निर्देशों के साथ कस्टमाइज़ करें।";
+"inbox_desc11" = "आपका ऑर्डर अनुरोधानुसार रद्द कर दिया गया है।";
+"inbox_desc12" = "हर खरीद पर Monkey पॉइंट्स पाएं।";
+"inbox_desc13" = "आपका पासवर्ड हाल ही में बदला गया है।";
+"inbox_desc14" = "आपका अकाउंट सफलतापूर्वक वेरिफाई हो गया है।";
+"inbox_desc15" = "आज बिरयानी ऑर्डर पर ₹50 की छूट।";
+
+/* ================================
+   Payment
+================================ */
+
+"payment_screen_title" = "भुगतान विवरण";
+
+"payment_lblCustomizeCard" = "अपना भुगतान तरीका अनुकूलित करें";
+"payment_btnAddCard" = "एक और क्रेडिट/डेबिट कार्ड जोड़ें";
+"payment_no_card" = "कोई कार्ड नहीं";
+"payment_lblEnterCardTitle" = "क्रेडिट/डेबिट कार्ड जोड़ें";
+"payment_lblExpiryTitle" = "समाप्ति";
+"payment_lblSwitchTitle" = "आप किसी भी समय इस कार्ड को हटा सकते हैं";
+"payment_txtCardNumber_placeholder" = "कार्ड नंबर";
+"payment_txtExpiryMonth_placeholder" = "माह";
+"payment_txtExpiryYear_placeholder" = "वर्ष";
+"payment_txtSecureCode_placeholder" = "सुरक्षा कोड";
+"payment_txtFirstName_placeholder" = "पहला नाम";
+"payment_txtLastName_placeholder" = "अंतिम नाम";
+"payment_btnEnterCard" = "कार्ड जोड़ें";
+
+/* ================================
+   Order List
+================================ */
+"orderlist_screen_title" = "ऑर्डर सूची";
+"orderlist_no_orders" = "ऑर्डर सूची खाली है";
+
+/* ================================
+   Wishlist
+================================ */
+"wishlist_screen_title" = "इच्छा सूची";
+"wishlist_no_orders" = "इच्छा सूची खाली है";
+
+/* ================================
+   Profile
+================================ */
+"profile_screen_title" = "प्रोफ़ाइल";
+"profile_lblUserGreeting" = "नमस्ते %@!";
+
+"profile_txtName_placeholder" = "नाम";
+"profile_txtEmail_placeholder" = "ईमेल";
+"profile_txtMobile_placeholder" = "मोबाइल नंबर";
+"profile_txtAddress_placeholder" = "पता";
+
+"profile_btnSave" = "सहेजें";
+"profile_btnSignOut" = "साइन आउट";
+"profile_btnEditProfile" = "प्रोफ़ाइल संपादित करें";
+
+/* ================================
+   Home
+================================ */
+"home_screen_title" = "सुप्रभात";
+"home_lblDeleveringTo" = "डिलीवरी यहाँ होगी";
+"home_txtSearchFood" = "भोजन खोजें";
+
+/* ================================
+   Offers
+================================ */
+"offers_screen_title" = "नवीनतम ऑफ़र";
+"offers_lblSubTitle" = "छूट, विशेष भोजन ऑफ़र और बहुत कुछ पाएँ!";
+"offers_btnCheckOffer" = "ऑफ़र देखें";
+
+"offer_title1" = "कैफ़े डी नोइरेस";
+"offer_title2" = "इस्सो";
+"offer_title3" = "कैफ़े बीन्स";
+
+"offer_cafe_name" = "कैफ़े";
+"offer_food_variety" = "पश्चिमी भोजन";
+"offer_lblRater" = "रेटिंग";
+
+/* ================================
+   Menu & Desserts
+================================ */
+"menu_screen_title" = "मेनू";
+"menu_txtSearchFood_placeholder" = "खाना खोजें";
+"menu_no_product" = "ऐसा कोई उत्पाद नहीं मिला";
+
+"desserts_no_product" = "कोई डेसर्ट नहीं मिला";
+"desserts_txtSearch_placeholder" = "डेसर्ट खोजें";
+"desserts_food" = "भोजन";
+"desserts_beverages" = "पेय पदार्थ";
+"desserts_desserts" = "डेसर्ट";
+
+/* ================================
+   My Order
+================================ */
+"myorder_screen_title" = "मेरा ऑर्डर";
+
+"myorder_btnAddNotes" = "नोट्स जोड़ें";
+"myorder_lblLocation" = "स्थान";
+"myorder_lblSubTitleRating" = "रेटिंग और समीक्षाएँ";
+"myorder_lblDeliveryInstructions" = "डिलीवरी निर्देश";
+"myorder_lblDeliveryCostTitle" = "डिलीवरी शुल्क";
+"myorder_lblSubTotalTitle" = "उप-योग";
+"myorder_lblTotalTitle" = "कुल";
+
+"myorder_btnCheckOut" = "चेकआउट";
+
+/* ================================
+   Checkout
+================================ */
+"checkout_screen_title" = "चेकआउट";
+
+"checkout_lblDeliveryAddress" = "डिलीवरी का पता";
+"checkout_lblPaymentMethodTitle" = "भुगतान का तरीका";
+"checkout_lblSubTotalTitle" = "उप-योग";
+"checkout_lblDeliveryCostTitle" = "डिलीवरी शुल्क";
+"checkout_lblDiscountTitle" = "छूट";
+"checkout_lblTotalTitle" = "कुल";
+
+"checkout_lblAddCardHeader" = "क्रेडिट/डेबिट कार्ड जोड़ें";
+"checkout_lblExpiryTitle" = "समाप्ति";
+"checkout_lblSwitchTitle" = "आप किसी भी समय इस कार्ड को हटा सकते हैं";
+
+"checkout_txtCardNumber_placeholder" = "कार्ड नंबर";
+"checkout_txtExpiryMonth_placeholder" = "माह";
+"checkout_txtExpiryYear_placeholder" = "वर्ष";
+"checkout_txtSecureCode_placeholder" = "सुरक्षा कोड";
+"checkout_txtFirstName_placeholder" = "पहला नाम";
+"checkout_txtLastName_placeholder" = "अंतिम नाम";
+
+"checkout_lblThankYouTitle" = "धन्यवाद!";
+"checkout_lblSubTitle" = "आपके ऑर्डर के लिए";
+"checkout_lblSubDesc" = "आपका ऑर्डर अभी प्रोसेस हो रहा है। जैसे ही ऑर्डर आउटलेट से उठाया जाएगा, हम आपको सूचित करेंगे। अपने ऑर्डर की स्थिति जांचें।";
+
+"checkout_btnTrackYourOrder" = "मेरा ऑर्डर ट्रैक करें";
+"checkout_btnBackToHome" = "होम पर वापस जाएं";
+"checkout_btnEnterCard" = "कार्ड जोड़ें";
+"checkout_btnChangeAddress" = "बदलें";
+"checkout_btnAddCard" = "कार्ड जोड़ें";
+"checkout_btnSendOrder" = "ऑर्डर भेजें";
+
+/* ================================
+   Address
+================================ */
+"changeaddress_screen_title" = "पता बदलें";
+"changeaddress_txtSearch_placeholder" = "पता खोजें";
+"changeaddress_btnSavedAddress" = "सहेजी हुई जगह चुनें";
+
+/* ================================
+   AddToCart
+================================ */
+"cart_screen_title" = "कार्ट पेज";
+"cart_btnPlaceOrder" = "ऑर्डर करें";
+"cart_empty_message" = "कार्ट खाली है";
+
+/* ================================
+   Food Detail
+================================ */
+"food_lblPerPortionTitle" = "/ प्रति भाग";
+"food_lblDescTitle" = "विवरण";
+"food_lblCustomizeOrderTitle" = "अपने ऑर्डर को कस्टमाइज़ करें";
+"food_lblNoOfPortionTitle" = "भागों की संख्या";
+"food_lblTotalPriceTitle" = "कुल कीमत";
+
+"food_btnAddToCartTitle" = "कार्ट में जोड़ें";
+
+"food_btnPortion_placeholder" = "- भाग का आकार चुनें -";
+"food_btnPortion1" = "भाग 1";
+"food_btnPortion2" = "भाग 2";
+"food_btnPortion3" = "भाग 3";
+
+"food_btnIngredients_placeholder" = "- सामग्री चुनें -";
+"food_btnIngredients1" = "सामग्री 1";
+"food_btnIngredients2" = "सामग्री 2";
+"food_btnIngredients3" = "सामग्री 3";
+
+/* ================================
+   Login Screen
+================================ */
+"login_lblLoginHeading" = "लॉगिन";
+"login_lblSubTitle" = "लॉगिन करने के लिए अपनी जानकारी जोड़ें";
+"login_lblOrLoginWith" = "या इसके साथ लॉगिन करें";
+
+"login_txtEmail_placeholder" = "आपका ईमेल";
+"login_txtPassword_placeholder" = "पासवर्ड";
+
+"login_btnLogin" = "लॉगिन करें";
+"login_btnGoogle" = "Google से लॉगिन करें";
+"login_btnFacebook" = "Facebook से लॉगिन करें";
+"login_btnForgetPassword" = "क्या आपने पासवर्ड भूल गए?";
+"login_btnSignUp_part1" = "खाता नहीं है? ";
+"login_btnSignUp_part2" = "साइन अप करें";
+
+/* ================================
+   Sign Up Screen
+================================ */
+"signup_screen_title" = "साइन अप";
+"signup_lblSignUpHeading" = "साइन अप";
+"signup_lblSubTitle" = "साइन अप करने के लिए अपनी जानकारी जोड़ें";
+
+"signup_txtName_placeholder" = "नाम";
+"signup_txtEmail_placeholder" = "ईमेल";
+"signup_txtMobileNo_placeholder" = "मोबाइल नंबर";
+"signup_txtAddress_placeholder" = "पता";
+"signup_txtPassword_placeholder" = "पासवर्ड";
+"signup_txtConfirmPassword_placeholder" = "पासवर्ड की पुष्टि करें";
+
+"signup_btnSignUp" = "साइन अप करें";
+"signup_btnLogin_part1" = "पहले से खाता है? ";
+"signup_btnLogin_part2" = "लॉगिन करें";
+
+/* ================================
+   Forgot Password Screen
+================================ */
+"forgotpassword_screen_title" = "पासवर्ड भूल गए";
+"forgotpassword_lblHeading" = "पासवर्ड भूल गए";
+"forgotpassword_lblSubTitle" = "अपना पासवर्ड रीसेट करने के लिए अपना ईमेल दर्ज करें";
+
+"forgotpassword_txtEmail_placeholder" = "आपका ईमेल";
+
+"forgotpassword_btnSend" = "भेजें";
+
+/* ================================
+   OTP Verification Screen
+================================ */
+"otp_screen_title" = "साइन अप";
+"otp_lblOTPHeading" = "OTP दर्ज करें";
+"otp_lblSubTitle" = "हमने आपके ईमेल/फोन पर 4-अंकीय कोड भेजा है";
+
+"otp_btnNext" = "अगला";
+"otp_btnDidNotReceive_part1" = "नहीं मिला? ";
+"otp_btnDidNotReceive_part2" = "यहाँ क्लिक करें";
+
+/* ================================
+    New Password Screen
+================================ */
+"newpassword_screen_title" = "नया पासवर्ड";
+"newpassword_lblHeading" = "नया पासवर्ड";
+"newpassword_lblSubTitle" = "कृपया अपना नया पासवर्ड दर्ज करें";
+
+"newpassword_txtNewPassword_placeholder" = "नया पासवर्ड";
+"newpassword_txtConfirmPassword_placeholder" = "पासवर्ड की पुष्टि करें";
+
+"newpassword_btnNext" = "अगला";
+
+/* ================================
+   Onboarding / Next Page
+================================ */
+"onboarding_title1" = "अपना पसंदीदा भोजन खोजें";
+"onboarding_desc1" = "1,000 से अधिक रेस्टोरेंट से बेहतरीन भोजन खोजें और अपने दरवाजे पर तेज़ डिलीवरी प्राप्त करें";
+
+"onboarding_title2" = "तेज़ डिलीवरी";
+"onboarding_desc2" = "आप जहाँ भी हों, आपका भोजन 30 मिनट के भीतर पहुँचाया जाएगा";
+
+"onboarding_title3" = "अपने भोजन का आनंद लें";
+"onboarding_desc3" = "स्वस्थ, स्वादिष्ट और किफायती भोजन का आनंद लें, अपनी सुविधा के अनुसार";
+
+"onboarding_btnNext" = "अगला";
+"onboarding_btnDone" = "समाप्त";

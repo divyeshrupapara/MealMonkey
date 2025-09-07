@@ -48,23 +48,23 @@ class NextPageClass {
      - Returns: An array of NextPageClass with predefined title, description, image, and button type.
      */
     class func getNextPageData() -> [NextPageClass] {
-        
+
         return [
             NextPageClass(
-                strTitle: "Find Food You Love",
-                strTitleDescription: "Discover the best foods from over 1,000 restaurants and fast delivery to your doorstep",
+                strTitle: L("onboarding_title1"),
+                strTitleDescription: L("onboarding_desc1"),
                 strImage: "ic_image1",
                 strButtonText: .Next
             ),
             NextPageClass(
-                strTitle: "Fast Delivery",
-                strTitleDescription: "Get your food delivered in under 30 minutes wherever you are",
+                strTitle: L("onboarding_title2"),
+                strTitleDescription: L("onboarding_desc2"),
                 strImage: "ic_image2",
                 strButtonText: .Next
             ),
             NextPageClass(
-                strTitle: "Enjoy Your Meal",
-                strTitleDescription: "Eat healthy, tasty and affordable meals at your convenience",
+                strTitle: L("onboarding_title3"),
+                strTitleDescription: L("onboarding_desc3"),
                 strImage: "ic_image3",
                 strButtonText: .Done
             )

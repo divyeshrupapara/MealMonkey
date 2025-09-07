@@ -332,6 +332,10 @@ at anytime </string>
                         <outlet property="btnAddCard" destination="Ygz-nC-Nv9" id="EhU-pd-QE9"/>
                         <outlet property="btnCross" destination="Oj7-I1-Feb" id="2mm-kK-ZpH"/>
                         <outlet property="btnEnterCard" destination="1km-Go-ZBE" id="mul-vc-iTx"/>
+                        <outlet property="lblCustomizeCard" destination="uTD-WJ-NaF" id="hfl-hc-BaF"/>
+                        <outlet property="lblEnterCardTitle" destination="b4i-GL-qE1" id="MgZ-MO-KEt"/>
+                        <outlet property="lblExpiryTitle" destination="rTm-mH-LNT" id="1Cj-Cr-uTY"/>
+                        <outlet property="lblSwitchTitle" destination="ghL-x2-kel" id="iLc-aY-1AF"/>
                         <outlet property="scrollViewAddCard" destination="3T9-Vq-3Pa" id="Lai-mX-T6g"/>
                         <outlet property="tblCard" destination="1zT-tt-CRu" id="QRD-Zt-Acs"/>
                         <outlet property="txtCardNumber" destination="Gpz-9e-VuR" id="otB-WQ-4Ah"/>
@@ -624,12 +628,19 @@ at anytime </string>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="btnAddNotes" destination="PrH-AW-8WC" id="dYq-Ij-Nqb"/>
                         <outlet property="btnCheckOut" destination="3dc-48-ppH" id="tUo-aY-2u1"/>
                         <outlet property="imgRestaurant" destination="JLw-vi-K1O" id="yIF-Cf-YbX"/>
+                        <outlet property="lblAppName" destination="MJN-Hl-Z8C" id="4OK-dE-OT3"/>
                         <outlet property="lblDeliveryCost" destination="MMY-eo-agq" id="1ZI-qV-K5i"/>
+                        <outlet property="lblDeliveryCostTitle" destination="xBa-UG-b8y" id="PSn-7Y-3G9"/>
+                        <outlet property="lblDeliveryInstructions" destination="5Q2-ME-mIZ" id="hgt-Z3-msa"/>
                         <outlet property="lblLocation" destination="5vX-oG-7fp" id="4gx-Gv-SHp"/>
-                        <outlet property="lblSubTotal" destination="pAc-PE-MUX" id="BzZ-pi-DIv"/>
+                        <outlet property="lblSubTitleRating" destination="29M-RY-MPv" id="Hkj-OM-xGb"/>
+                        <outlet property="lblSubTotal" destination="pAc-PE-MUX" id="ZbS-Hf-GYX"/>
+                        <outlet property="lblSubTotalTitle" destination="pIr-70-f8I" id="Zyr-ks-Biv"/>
                         <outlet property="lblTotal" destination="dAE-l9-xXA" id="xZd-zF-qH1"/>
+                        <outlet property="lblTotalTitle" destination="YTv-h6-81N" id="ucZ-qu-e2h"/>
                         <outlet property="tblMyOrder" destination="hQd-LE-hDX" id="CLe-l2-O8k"/>
                     </connections>
                 </viewController>
@@ -1237,17 +1248,30 @@ at anytime </string>
                     </view>
                     <connections>
                         <outlet property="btnAddCard" destination="ulZ-SM-Y3y" id="RhR-XM-j4y"/>
+                        <outlet property="btnBackToHome" destination="2Bd-Kd-DfU" id="FAR-Ld-kfh"/>
                         <outlet property="btnChangeAddress" destination="HGC-FP-Lgf" id="X7G-CS-8zT"/>
                         <outlet property="btnCross" destination="0k6-rF-9Zp" id="Es4-dM-H94"/>
                         <outlet property="btnEnterCard" destination="aiY-C8-6hc" id="ZLm-Fa-2bO"/>
                         <outlet property="btnSendOrder" destination="BOi-eo-ksL" id="qGf-tk-PAF"/>
                         <outlet property="btnThankYouCross" destination="KTx-M5-TR4" id="c6x-ak-kX1"/>
                         <outlet property="btnTrackYourOrder" destination="NGW-We-BH4" id="bqS-wG-hAk"/>
+                        <outlet property="lblAddCardHeader" destination="JNj-zm-pmm" id="XCC-Aw-Cac"/>
                         <outlet property="lblAddress" destination="4KI-m7-AMU" id="Tdq-QZ-aa8"/>
+                        <outlet property="lblDeliveryAddress" destination="anS-dZ-IHE" id="0rV-gS-kCw"/>
                         <outlet property="lblDeliveryCost" destination="K2B-TE-KAr" id="CCZ-OW-Imh"/>
+                        <outlet property="lblDeliveryCostTitle" destination="s8q-7R-Xnk" id="tDc-A3-lru"/>
                         <outlet property="lblDiscount" destination="lgK-Za-dlr" id="Bm9-JF-xNZ"/>
+                        <outlet property="lblDiscountTitle" destination="MZg-69-6XU" id="2Gr-bm-WvE"/>
+                        <outlet property="lblExpiryTitle" destination="JX1-rP-ooA" id="VDY-If-fbF"/>
+                        <outlet property="lblPaymentMethodTitle" destination="5Hr-At-ZOB" id="cH3-p4-vpA"/>
+                        <outlet property="lblSubDesc" destination="CtL-88-fQc" id="yRJ-fo-AUb"/>
+                        <outlet property="lblSubTitle" destination="3Ky-5X-dBy" id="c8t-UX-XVu"/>
                         <outlet property="lblSubTotal" destination="309-Aq-K5R" id="YQ2-Uq-e6H"/>
+                        <outlet property="lblSubTotalTitle" destination="RqF-ay-8jV" id="giQ-x3-sbO"/>
+                        <outlet property="lblSwitchTitle" destination="ueA-aj-On5" id="C77-KS-FSv"/>
+                        <outlet property="lblThankYouTitle" destination="utR-qR-6dr" id="VqB-fB-Q5k"/>
                         <outlet property="lblTotal" destination="5L3-l7-4vx" id="sP4-ap-AXK"/>
+                        <outlet property="lblTotalTitle" destination="bXe-Ih-dX5" id="mdU-bf-mGT"/>
                         <outlet property="scrollViewAddCard" destination="Ctr-9D-5bR" id="gnU-d3-yBO"/>
                         <outlet property="scrollViewThankYou" destination="oyV-BY-LiV" id="wTY-aw-wnb"/>
                         <outlet property="tblCheckOutCard" destination="PAh-qz-vDu" id="lNe-Ll-Glq"/>

@@ -6,6 +6,11 @@ import NVActivityIndicatorView
 class FoodDetailViewController: UIViewController {
     
     // MARK: - IBOutlets
+    @IBOutlet weak var lblPerPortionTitle: UILabel!
+    @IBOutlet weak var lblDescTitle: UILabel!
+    @IBOutlet weak var lblCustomizeOrderTitle: UILabel!
+    @IBOutlet weak var lblNoOfPortionTitle: UILabel!
+    @IBOutlet weak var lblTotalPriceTitle: UILabel!
     @IBOutlet weak var imgFood: UIImageView!                /// Image view for food item
     @IBOutlet weak var lblFoodName: UILabel!                /// Label for food name
     @IBOutlet weak var lblFoodPrice: UILabel!               /// Label for food price
@@ -68,6 +73,23 @@ class FoodDetailViewController: UIViewController {
             self.setLeftAlignedTitleWithBack("", textColor: .buttonText, target: self, action: #selector(self.btnBackTapped))
             self.setCartButton(target: self, action: #selector(self.btnCartTapped), tintColor: .buttonText)
         }
+        lblPerPortionTitle.text = L("food_lblPerPortionTitle")
+        lblDescTitle.text = L("food_lblDescTitle")
+        lblCustomizeOrderTitle.text = L("food_lblCustomizeOrderTitle")
+        lblNoOfPortionTitle.text = L("food_lblNoOfPortionTitle")
+        lblTotalPriceTitle.text = L("food_lblTotalPriceTitle")
+
+        btnAddToCartTitle.setTitle(L("food_btnAddToCartTitle"), for: .normal)
+
+        btnProtion.setTitle(L("food_btnPortion_placeholder"), for: .normal)
+        btnProtion1.setTitle(L("food_btnPortion1"), for: .normal)
+        btnProtion2.setTitle(L("food_btnPortion2"), for: .normal)
+        btnProtion3.setTitle(L("food_btnPortion3"), for: .normal)
+
+        btnIngredients.setTitle(L("food_btnIngredients_placeholder"), for: .normal)
+        btnIngredients1.setTitle(L("food_btnIngredients1"), for: .normal)
+        btnIngredients2.setTitle(L("food_btnIngredients2"), for: .normal)
+        btnIngredients3.setTitle(L("food_btnIngredients3"), for: .normal)
         
         // Initialize quantity and set default UI
         quantity = 1
