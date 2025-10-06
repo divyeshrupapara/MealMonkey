@@ -10,8 +10,19 @@
 "more_wishlist" = "इच्छा सूची";
 "more_change_language" = "भाषा बदलें";
 "select_language" = "भाषा चुनें";
+"more_change_theme" = "थीम बदलें";
 "cancel" = "रद्द करें";
-
+/* ================================
+   थीम चयन
+================================ */
+"theme_select_title" = "थीम चुनें";
+"theme_default" = "डिफ़ॉल्ट थीम";
+"theme_maroon" = "मरून और क्रीम";
+"theme_olive" = "जैतून और सरसों";
+"theme_indigo" = "नील और आसमान";
+"theme_peach" = "आड़ू और आलूबुखारा";
+"theme_cyan" = "सियान और चारकोल";
+"common_cancel" = "रद्द करें";
 
 /* ================================
    AboutUs + Notifications + Inbox

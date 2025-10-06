@@ -64,6 +64,7 @@ class OTPViewController: UIViewController {
     
     @objc func applyTheme() {
         viewMain.backgroundColor = theme.AppBackgroundColor
+        otpTextFieldView.backgroundColor = theme.AppBackgroundColor
         self.view.backgroundColor = theme.AppBackgroundColor
         lblOTPHeading.textColor = theme.PrimaryFontColor
         lblSubTitle.textColor = theme.SecondaryFontColor
@@ -75,9 +76,9 @@ class OTPViewController: UIViewController {
     func setupOtpView() {
         otpTextFieldView.fieldsCount = 4
         otpTextFieldView.fieldBorderWidth = 2
-        otpTextFieldView.defaultBorderColor = .gray
-        otpTextFieldView.filledBorderColor = .textFieldText
-        otpTextFieldView.cursorColor = .textFieldText
+        otpTextFieldView.defaultBorderColor = theme.PlaceholderColor
+        otpTextFieldView.filledBorderColor = theme.MainColor
+        otpTextFieldView.cursorColor = theme.SecondaryFontColor
         otpTextFieldView.displayType = .roundedCorner
         otpTextFieldView.fieldSize = 56
         otpTextFieldView.separatorSpace = 28

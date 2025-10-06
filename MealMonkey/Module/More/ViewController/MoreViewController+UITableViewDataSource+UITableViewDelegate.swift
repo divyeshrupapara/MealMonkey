@@ -80,28 +80,32 @@ extension MoreViewController: UITableViewDelegate {
             
             present(alert, animated: true, completion: nil)
         case 7:
-            let alert = UIAlertController(title: "Select Theme", message: nil, preferredStyle: .actionSheet)
+            let alert = UIAlertController(
+                title: L("theme_select_title"),
+                message: nil,
+                preferredStyle: .actionSheet
+            )
             
-            alert.addAction(UIAlertAction(title: "Default Theme", style: .default, handler: { _ in
+            alert.addAction(UIAlertAction(title: L("theme_default"), style: .default, handler: { _ in
                 ThemeManager.shared.currentThemeType = .default
             }))
-            alert.addAction(UIAlertAction(title: "Maroon & Cream", style: .default, handler: { _ in
+            alert.addAction(UIAlertAction(title: L("theme_maroon"), style: .default, handler: { _ in
                 ThemeManager.shared.currentThemeType = .Maroon
             }))
-            alert.addAction(UIAlertAction(title: "Olive & Mustard", style: .default, handler: { _ in
+            alert.addAction(UIAlertAction(title: L("theme_olive"), style: .default, handler: { _ in
                 ThemeManager.shared.currentThemeType = .Olive
             }))
-            alert.addAction(UIAlertAction(title: "Indigo & Sky", style: .default, handler: { _ in
+            alert.addAction(UIAlertAction(title: L("theme_indigo"), style: .default, handler: { _ in
                 ThemeManager.shared.currentThemeType = .Indigo
             }))
-            alert.addAction(UIAlertAction(title: "Peach & Plum", style: .default, handler: { _ in
+            alert.addAction(UIAlertAction(title: L("theme_peach"), style: .default, handler: { _ in
                 ThemeManager.shared.currentThemeType = .Peach
             }))
-            alert.addAction(UIAlertAction(title: "Cyan & Charcoal", style: .default, handler: { _ in
+            alert.addAction(UIAlertAction(title: L("theme_cyan"), style: .default, handler: { _ in
                 ThemeManager.shared.currentThemeType = .Cyan
             }))
             
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            alert.addAction(UIAlertAction(title: L("common_cancel"), style: .cancel))
             present(alert, animated: true)
         default:
             break

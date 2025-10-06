@@ -37,6 +37,7 @@ class ProfileViewController: UIViewController {
         /// Sets navigation title and adds cart button
         setLeftAlignedTitle(L("profile_screen_title"))
         setCartButton(target: self, action: #selector(btnCartTapped))
+        self.tabBarController?.tabBarItem.title = L("profile_screen_title")
 
 //        lblUserName.text = L("profile_lblUserGreeting")
         btnEditProfile.setTitle(L("profile_btnEditProfile"), for: .normal)

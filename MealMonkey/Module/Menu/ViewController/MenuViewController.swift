@@ -25,6 +25,7 @@ class MenuViewController: UIViewController {
         
         /// Show navigation bar
         self.navigationController?.isNavigationBarHidden = false
+        self.tabBarController?.tabBarItem.title = L("menu_screen_title")
         
         /// Set navigation title and cart button
         setLeftAlignedTitle(L("menu_screen_title"))

@@ -23,6 +23,7 @@ class OffersViewController: UIViewController {
         
         // Set the navigation title aligned to left
         setLeftAlignedTitle(L("offers_screen_title"))
+        self.tabBarController?.tabBarItem.title = L("offers_screen_title")
         
         lblSubTitle.text = L("offers_lblSubTitle")
         btnCheckOffer.setTitle(L("offers_btnCheckOffer"), for: .normal)

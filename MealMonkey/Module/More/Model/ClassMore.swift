@@ -48,7 +48,7 @@ class ClassMore: NSObject {
             ClassMore(strMoreName: L("more_change_language"),
                       imgMenu: "ic_lang_change",
                       intTag: 6),
-            ClassMore(strMoreName: "Change Theme",
+            ClassMore(strMoreName: L("more_change_theme"),
                       imgMenu: "ic_theme",
                       intTag: 7)
         ]

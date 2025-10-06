@@ -10,7 +10,19 @@
 "more_wishlist" = "Liste de souhaits";
 "more_change_language" = "Changer de langue";
 "select_language" = "Choisir la langue";
+"more_change_theme" = "Changer de thème";
 "cancel" = "Annuler";
+/* ================================
+   Sélection du thème
+================================ */
+"theme_select_title" = "Sélectionner un thème";
+"theme_default" = "Thème par défaut";
+"theme_maroon" = "Marron & Crème";
+"theme_olive" = "Olive & Moutarde";
+"theme_indigo" = "Indigo & Ciel";
+"theme_peach" = "Pêche & Prune";
+"theme_cyan" = "Cyan & Charbon";
+"common_cancel" = "Annuler";
 
 /* ================================
    AboutUs + Notifications + Inbox

@@ -144,6 +144,7 @@ class FoodDetailViewController: UIViewController {
         let theme = ThemeManager.shared.currentTheme
         viewDetail.backgroundColor = theme.AppBackgroundColor
         viewAddToCartBack.backgroundColor = theme.AppBackgroundColor
+        activityIndicatorView.backgroundColor = theme.AppBackgroundColor
         self.view.backgroundColor = theme.AppBackgroundColor
         self.navigationController?.navigationBar.backgroundColor = theme.AppBackgroundColor
         self.tabBarController?.tabBar.backgroundColor = theme.AppBackgroundColor
